@@ -43,10 +43,10 @@ export function Hero() {
 
       <div className="relative w-full max-w-4xl">
         <ProductShot
-          src="/screens/dashboard.png"
+          src="/screens/cartera-de-fiado-del-negocio-en-la-app-sevenz.png"
           alt="Cartera de fiado del negocio en la app Sevenz"
-          width={1183}
-          height={561}
+          width={1920}
+          height={1080}
         />
       </div>
 

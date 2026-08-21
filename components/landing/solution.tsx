@@ -37,10 +37,10 @@ export function Solution() {
           desc="De tu libreta actual, tal como está hoy. Nada que re-escribir."
           shot={
             <ProductShot
-              src="/screens/importar-cartera.png"
-              alt="Revisión de movimientos importados en Sevenz"
-              width={1165}
-              height={763}
+              src="/screens/detalle-de-un-fiado-y-saldo-del-cliente-en-la-app-sevenz.png"
+              alt="Detalle de un fiado y saldo del cliente en la app Sevenz"
+              width={1920}
+              height={1080}
             />
           }
         />
@@ -52,10 +52,10 @@ export function Solution() {
           desc="Tu cliente ve su saldo por WhatsApp. En tiempo real, siempre."
           shot={
             <ProductShot
-              src="/screens/saldo-cliente.png"
-              alt="Saldo del cliente visto desde su celular"
-              width={1176}
-              height={622}
+              src="/screens/puntaje-de-credito-de-clientes-por-fiado-en-sevenz.png"
+              alt="Puntaje de crédito de clientes por fiado en Sevenz"
+              width={1920}
+              height={1080}
             />
           }
         />

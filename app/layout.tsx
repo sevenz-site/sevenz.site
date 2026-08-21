@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/screens/dashboard.png",
-        width: 1183,
-        height: 561,
+        url: "/screens/cartera-de-fiado-del-negocio-en-la-app-sevenz.png",
+        width: 1920,
+        height: 1080,
         alt: "Cartera de fiado del negocio en la app Sevenz",
       },
     ],
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/screens/dashboard.png"],
+    images: ["/screens/cartera-de-fiado-del-negocio-en-la-app-sevenz.png"],
   },
 };
 
