@@ -33,7 +33,11 @@ export function Solution() {
         />
       </div>
 
-      <div className="mt-10 w-full max-w-4xl">
+      <p className="mt-10 font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
+        Así ve tu cliente su link de cuenta a través de WhatsApp
+      </p>
+
+      <div className="mt-6 w-full max-w-4xl">
         <ProductShot
           src="/screens/detalle-de-un-fiado-y-saldo-del-cliente-en-la-app-sevenz.png"
           alt="Detalle de un fiado y saldo del cliente en la app Sevenz"
