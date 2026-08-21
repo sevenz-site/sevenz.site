@@ -38,10 +38,10 @@ export function Value() {
 
       <div className="mt-10 w-full max-w-2xl">
         <ProductShot
-          src="/screens/cliente-detalle.png"
-          alt="Detalle de un cliente en la cartera de Sevenz"
-          width={1186}
-          height={525}
+          src="/screens/puntaje-de-credito-de-clientes-por-fiado-en-sevenz.png"
+          alt="Puntaje de crédito de clientes por fiado en Sevenz"
+          width={1344}
+          height={756}
         />
       </div>
     </section>

@@ -37,8 +37,8 @@ export function Solution() {
         <ProductShot
           src="/screens/detalle-de-un-fiado-y-saldo-del-cliente-en-la-app-sevenz.png"
           alt="Detalle de un fiado y saldo del cliente en la app Sevenz"
-          width={1920}
-          height={1080}
+          width={1792}
+          height={1008}
         />
       </div>
     </section>

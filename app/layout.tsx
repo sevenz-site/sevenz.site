@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/screens/cartera-de-fiado-del-negocio-en-la-app-sevenz.png",
-        width: 1920,
-        height: 1080,
+        width: 1792,
+        height: 1008,
         alt: "Cartera de fiado del negocio en la app Sevenz",
       },
     ],
