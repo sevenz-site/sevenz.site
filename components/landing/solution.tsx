@@ -1,23 +1,11 @@
-import type { ReactNode } from "react";
 import { ProductShot } from "@/components/landing/product-shot";
 
-function Step({
-  num,
-  title,
-  desc,
-  shot,
-}: {
-  num: string;
-  title: string;
-  desc: string;
-  shot: ReactNode;
-}) {
+function Step({ num, title, desc }: { num: string; title: string; desc: string }) {
   return (
     <div className="flex flex-1 flex-col items-center gap-4">
       <span className="font-mono text-4xl font-semibold text-muted-foreground/40">{num}</span>
       <h3 className="text-lg font-semibold">{title}</h3>
       <p className="max-w-52 text-sm text-muted-foreground">{desc}</p>
-      <div className="mt-2 w-full">{shot}</div>
     </div>
   );
 }
@@ -35,29 +23,22 @@ export function Solution() {
           num="1"
           title="Toma una foto"
           desc="De tu libreta actual, tal como está hoy. Nada que re-escribir."
-          shot={
-            <ProductShot
-              src="/screens/detalle-de-un-fiado-y-saldo-del-cliente-en-la-app-sevenz.png"
-              alt="Detalle de un fiado y saldo del cliente en la app Sevenz"
-              width={1920}
-              height={1080}
-            />
-          }
         />
-        <span className="hidden pt-16 font-mono text-2xl text-muted-foreground/40 sm:block">→</span>
+        <span className="hidden pt-4 font-mono text-2xl text-muted-foreground/40 sm:block">→</span>
         <span className="font-mono text-2xl text-muted-foreground/40 sm:hidden">↓</span>
         <Step
           num="2"
           title="Comparte el link"
           desc="Tu cliente ve su saldo por WhatsApp. En tiempo real, siempre."
-          shot={
-            <ProductShot
-              src="/screens/detalle-de-un-fiado-y-saldo-del-cliente-en-la-app-sevenz.png"
-              alt="Detalle de un fiado y saldo del cliente en la app Sevenz"
-              width={1920}
-              height={1080}
-            />
-          }
+        />
+      </div>
+
+      <div className="mt-10 w-full max-w-4xl">
+        <ProductShot
+          src="/screens/detalle-de-un-fiado-y-saldo-del-cliente-en-la-app-sevenz.png"
+          alt="Detalle de un fiado y saldo del cliente en la app Sevenz"
+          width={1920}
+          height={1080}
         />
       </div>
     </section>
