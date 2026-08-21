@@ -36,7 +36,11 @@ export function Value() {
         </div>
       </div>
 
-      <div className="mt-10 w-full max-w-2xl">
+      <p className="mt-10 font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
+        Visualiza la reputación de tus clientes a partir de sus pagos
+      </p>
+
+      <div className="mt-6 w-full max-w-2xl">
         <ProductShot
           src="/screens/puntaje-de-credito-de-clientes-por-fiado-en-sevenz.png"
           alt="Puntaje de crédito de clientes por fiado en Sevenz"
