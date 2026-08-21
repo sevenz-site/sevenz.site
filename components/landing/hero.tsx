@@ -15,7 +15,7 @@ export function Hero() {
 
       <div className="relative flex max-w-2xl flex-col items-center gap-8">
         <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-          Crédito a clientes de pymes
+          Control de fiado para bodegas y comercios
         </p>
 
         <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
@@ -29,10 +29,11 @@ export function Hero() {
         </div>
 
         <h1 className="text-4xl leading-[1.06] font-bold tracking-tight text-balance sm:text-6xl">
-          ¿Sabes cuánto te deben, ahora mismo?
+          ¿Sabes cuánto te deben del fiado, ahorita mismo?
         </h1>
         <p className="max-w-lg text-lg text-muted-foreground">
-          Tu libreta lo sabe. Tu cliente no. Sevenz pone el mismo número frente a los dos.
+          Tu libreta lo sabe. Tu cliente no — y ahí empieza el peo. Sevenz pone el mismo número
+          frente a los dos, sin roche y sin pelea.
         </p>
 
         <Button asChild size="lg">
@@ -41,7 +42,12 @@ export function Hero() {
       </div>
 
       <div className="relative w-full max-w-4xl">
-        <ProductShot src="/screens/dashboard.png" alt="Cartera del negocio en Sevenz" width={1183} height={561} />
+        <ProductShot
+          src="/screens/dashboard.png"
+          alt="Cartera de fiado del negocio en la app Sevenz"
+          width={1183}
+          height={561}
+        />
       </div>
 
       <div className="relative flex flex-col items-center gap-1.5 pt-2">

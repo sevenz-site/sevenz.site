@@ -27,7 +27,7 @@ export function Solution() {
     <section className="flex flex-col items-center border-b px-6 py-24 text-center">
       <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">Sevenz</p>
       <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-        Dos pasos y tu cartera queda al día
+        Dos pasos y tu cartera de fiado queda al día
       </h2>
 
       <div className="mt-14 flex w-full max-w-4xl flex-col items-center gap-10 sm:flex-row sm:items-start sm:gap-6">

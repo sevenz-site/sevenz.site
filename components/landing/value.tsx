@@ -11,6 +11,9 @@ export function Value() {
         <br />
         Las dos partes. Siempre.
       </h2>
+      <p className="mt-4 max-w-md text-muted-foreground">
+        Se acabó el &ldquo;yo no debía tanto&rdquo; — el número lo dice la app, no tú.
+      </p>
 
       <div className="mt-10 flex w-full max-w-xl border-t">
         <div className="flex flex-1 flex-col items-center gap-2 border-r py-8 pr-4">

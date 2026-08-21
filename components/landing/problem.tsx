@@ -32,6 +32,9 @@ export function Problem() {
       <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
         Así administras el fiado
       </h2>
+      <p className="mt-4 max-w-md text-muted-foreground">
+        Fiar es parte del negocio. Perder la cuenta, no debería serlo.
+      </p>
 
       <div className="mt-10 flex w-full max-w-xl flex-col border-t">
         {PROBLEMS.map((p) => (
