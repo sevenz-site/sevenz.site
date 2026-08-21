@@ -52,8 +52,8 @@ export function Solution() {
           desc="Tu cliente ve su saldo por WhatsApp. En tiempo real, siempre."
           shot={
             <ProductShot
-              src="/screens/puntaje-de-credito-de-clientes-por-fiado-en-sevenz.png"
-              alt="Puntaje de crédito de clientes por fiado en Sevenz"
+              src="/screens/detalle-de-un-fiado-y-saldo-del-cliente-en-la-app-sevenz.png"
+              alt="Detalle de un fiado y saldo del cliente en la app Sevenz"
               width={1920}
               height={1080}
             />
