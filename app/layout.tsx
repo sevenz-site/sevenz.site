@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 const TITLE = "Sevenz – Controla el Fiado de tu Negocio sin Vaina";
 const DESCRIPTION =
-  "¿Se te pierde la cuenta de a quién le fiaste? Con Sevenz tu cliente ve su saldo por WhatsApp, igualito al tuyo. Cero libreta, cero peleas. Pruébalo gratis.";
+  "¿Se te pierde la cuenta del fiado? Con Sevenz tu cliente ve su saldo por WhatsApp, en tiempo real. Cero libreta, cero peleas.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
