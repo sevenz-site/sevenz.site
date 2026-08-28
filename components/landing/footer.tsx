@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 
 export function Footer() {
@@ -10,6 +11,12 @@ export function Footer() {
           <span className="text-sm text-muted-foreground">© {new Date().getFullYear()} Sevenz</span>
         </div>
         <nav className="flex items-center gap-4 text-sm text-muted-foreground">
+          <Link href="/terminos-y-condiciones" className="hover:text-foreground">
+            Términos
+          </Link>
+          <Link href="/politica-de-privacidad" className="hover:text-foreground">
+            Privacidad
+          </Link>
           <a href={LOGIN_URL} className="hover:text-foreground">
             Ingresar
           </a>
