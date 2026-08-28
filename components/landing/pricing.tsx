@@ -4,34 +4,35 @@ import { Button } from "@/components/ui/button";
 import { SIGNUP_URL } from "@/lib/config";
 
 const INCLUDED = [
-  "Toma una foto de tu libreta y arma tu cartera de fiado",
-  "Comparte el saldo por WhatsApp con tus clientes",
-  "Tú y tu cliente ven el mismo número, siempre",
-  "Hasta 5 fotos de libreta al mes, sin costo",
+  "Toma una foto de tu libreta y arma tu cartera de fiado, sin re-escribir nada.",
+  "Comparte el saldo por WhatsApp — tu cliente lo ve sin que tengas que decírselo.",
+  "Tú y tu cliente ven el mismo número, siempre.",
+  "Balance de fiado vs. abonos, en dólares y en euros.",
+  "Puntaje de puntualidad: sabe quién paga a tiempo y quién no.",
+  "Lista de morosos y malas pagas, sin tener que recordarlo tú.",
+  "Calculadora de tasa de cambio: dólar y euro, siempre actualizada.",
+  "Hasta 5 fotos de libreta al mes, sin costo.",
 ];
 
-const COMING_SOON = ["Notificaciones automatizadas de cobros", "Reportes automatizados del fiado"];
+const COMING_SOON = ["Recordatorios de cobro que se mandan solos.", "Reportes del fiado, listos sin mover un dedo."];
 
 export function Pricing() {
   return (
     <section className="flex flex-col items-center border-b px-6 py-24 text-center">
       <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">Precio</p>
       <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-        Sevenz cuesta $0 USD
+        Sevenz cuesta $0 USD. En serio.
       </h2>
       <p className="mt-4 max-w-sm text-muted-foreground">
-        Sin tarjeta de crédito, sin letra pequeña. Así de simple.
+        Sin tarjeta, sin roche, sin letra pequeña.
       </p>
 
-      <div className="mt-10 w-full max-w-sm rounded-xl border p-8 text-left">
+      <div className="mt-10 w-full max-w-md rounded-xl border p-8 text-left">
         <div className="flex flex-col items-center border-b pb-6 text-center">
           <span className="font-mono text-5xl font-semibold sm:text-6xl">$0</span>
           <span className="mt-1 font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase">
             USD / mes
           </span>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Plan Free — hasta 5 fotos de libreta al mes.
-          </p>
         </div>
 
         <ul className="mt-6 flex flex-col gap-3">
