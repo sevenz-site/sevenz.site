@@ -106,7 +106,9 @@ export function Calculator() {
           <dl className="mt-4 flex flex-col gap-2 text-sm">
             {fromCurrency !== "VES" ? (
               <div className="flex items-center justify-between">
-                <dt className="text-muted-foreground">Bs</dt>
+                <dt className="flex items-center gap-1.5 text-muted-foreground">
+                  <CurrencyFlagIcon currency="VES" /> Bs
+                </dt>
                 <dd className="font-mono tabular-nums">{formatBs(result.ves)}</dd>
               </div>
             ) : null}
