@@ -41,11 +41,11 @@ function RateBanner({
   return (
     <div className="flex flex-col items-center gap-2">
       <div className="flex flex-col items-center gap-2 font-mono text-lg font-semibold sm:flex-row sm:gap-6">
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2 [word-spacing:-0.3em]">
           <CurrencyFlagIcon currency="USD" />
           {formatRateEquivalence("USD", rate.usd)}
         </span>
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2 [word-spacing:-0.3em]">
           <CurrencyFlagIcon currency="EUR" />
           {formatRateEquivalence("EUR", rate.eur)}
         </span>
