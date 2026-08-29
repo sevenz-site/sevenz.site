@@ -80,7 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 "@type": "Offer",
                 price: "0",
                 priceCurrency: "USD",
-                description: "Plan Free: hasta 5 fotos de libreta al mes, sin costo.",
+                description: "¡Controla el fiado de tu negocio sin vaina!",
               },
             }).replace(/</g, "\\u003c"),
           }}
