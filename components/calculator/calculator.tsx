@@ -2,6 +2,7 @@
 
 import { type ChangeEvent, useState } from "react";
 import { CURRENCY_OPTIONS, convert, type Currency } from "@/components/calculator/convert";
+import { CurrencyFlagIcon } from "@/components/calculator/currency-flag-icon";
 import { formatBs, formatBsAmount, formatDisplayCurrency, formatRateEquivalence } from "@/components/calculator/format";
 import { useBcvRate } from "@/components/calculator/use-bcv-rate";
 
@@ -40,8 +41,14 @@ function RateBanner({
   return (
     <div className="flex flex-col items-center gap-2">
       <div className="flex flex-col items-center gap-2 font-mono text-lg font-semibold sm:flex-row sm:gap-6">
-        <span>{formatRateEquivalence("USD", rate.usd)}</span>
-        <span>{formatRateEquivalence("EUR", rate.eur)}</span>
+        <span className="flex items-center gap-2">
+          <CurrencyFlagIcon currency="USD" />
+          {formatRateEquivalence("USD", rate.usd)}
+        </span>
+        <span className="flex items-center gap-2">
+          <CurrencyFlagIcon currency="EUR" />
+          {formatRateEquivalence("EUR", rate.eur)}
+        </span>
       </div>
       <p className="font-mono text-xs text-muted-foreground">
         {mins === 0 ? "Actualizado justo ahora" : `Actualizado hace ${mins} min`}
@@ -105,13 +112,17 @@ export function Calculator() {
             ) : null}
             {fromCurrency !== "USD" ? (
               <div className="flex items-center justify-between">
-                <dt className="text-muted-foreground">USD</dt>
+                <dt className="flex items-center gap-1.5 text-muted-foreground">
+                  <CurrencyFlagIcon currency="USD" /> USD
+                </dt>
                 <dd className="font-mono tabular-nums">{formatDisplayCurrency(result.usd, "USD")}</dd>
               </div>
             ) : null}
             {fromCurrency !== "EUR" ? (
               <div className="flex items-center justify-between">
-                <dt className="text-muted-foreground">EUR</dt>
+                <dt className="flex items-center gap-1.5 text-muted-foreground">
+                  <CurrencyFlagIcon currency="EUR" /> EUR
+                </dt>
                 <dd className="font-mono tabular-nums">{formatDisplayCurrency(result.eur, "EUR")}</dd>
               </div>
             ) : null}
