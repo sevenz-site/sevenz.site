@@ -56,7 +56,7 @@ export default function CalculadoraDolarBcvPage() {
             <a href={SIGNUP_URL}>Regístrate gratis en Sevenz →</a>
           </Button>
           <p className="mt-4 font-mono text-xs text-muted-foreground/70">
-            Plan Free: hasta 5 fotos de libreta al mes, sin costo.
+            ¡Controla el fiado de tu negocio sin vaina!
           </p>
         </section>
       </main>
