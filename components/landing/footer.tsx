@@ -17,6 +17,9 @@ export function Footer() {
           <Link href="/politica-de-privacidad" className="hover:text-foreground">
             Privacidad
           </Link>
+          <Link href="/calculadora-dolar-bcv" className="hover:text-foreground">
+            Dólar BCV
+          </Link>
           <a href={LOGIN_URL} className="hover:text-foreground">
             Ingresar
           </a>
