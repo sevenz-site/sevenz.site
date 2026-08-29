@@ -182,14 +182,11 @@ export default function PoliticaDePrivacidadPage() {
       <ul>
         <li>
           <strong>En el sitio web público (sevenz.site):</strong> usamos Microsoft Clarity para
-          analizar cómo los visitantes navegan el sitio (mapas de calor, grabación de sesión). La
-          página de la Calculadora de Dólar BCV (<code>/calculadora-dolar-bcv</code>) además
-          reporta a un proyecto de Clarity independiente, usado únicamente para medir el desempeño
-          de esa página como fuente de tráfico — no implica la recolección de datos personales
-          adicionales respecto del resto del sitio. Antes de activar Meta Pixel u otras
-          herramientas de publicidad, se incorporará un banner de consentimiento que permita a los
-          visitantes aceptar o rechazar cookies no esenciales antes de que estas herramientas se
-          activen.
+          analizar cómo los visitantes navegan el sitio (mapas de calor, grabación de sesión),
+          incluida la página de la Calculadora de Dólar BCV (
+          <code>/calculadora-dolar-bcv</code>). Antes de activar Meta Pixel u otras herramientas de
+          publicidad, se incorporará un banner de consentimiento que permita a los visitantes
+          aceptar o rechazar cookies no esenciales antes de que estas herramientas se activen.
         </li>
         <li>
           <strong>Dentro de la aplicación (app.sevenz.site):</strong> el uso de Mixpanel y Clarity
