@@ -174,16 +174,22 @@ export default function PoliticaDePrivacidadPage() {
 
       <h2>6. Cookies y tecnologías de rastreo</h2>
       <p>
-        Usamos Mixpanel y Microsoft Clarity para entender cómo se usa la Plataforma. A futuro,
+        Usamos Mixpanel y Microsoft Clarity para entender cómo se usa la Plataforma, tanto en el
+        sitio web público (sevenz.site) como dentro de la aplicación (app.sevenz.site). A futuro,
         incorporaremos Meta Pixel y herramientas similares para medir y dirigir publicidad en
         canales digitales.
       </p>
       <ul>
         <li>
-          <strong>En el sitio web público (sevenz.site):</strong> antes de activar Meta Pixel u
-          otras herramientas de publicidad, se incorporará un banner de consentimiento que permita
-          a los visitantes aceptar o rechazar cookies no esenciales antes de que estas herramientas
-          se activen.
+          <strong>En el sitio web público (sevenz.site):</strong> usamos Microsoft Clarity para
+          analizar cómo los visitantes navegan el sitio (mapas de calor, grabación de sesión). La
+          página de la Calculadora de Dólar BCV (<code>/calculadora-dolar-bcv</code>) además
+          reporta a un proyecto de Clarity independiente, usado únicamente para medir el desempeño
+          de esa página como fuente de tráfico — no implica la recolección de datos personales
+          adicionales respecto del resto del sitio. Antes de activar Meta Pixel u otras
+          herramientas de publicidad, se incorporará un banner de consentimiento que permita a los
+          visitantes aceptar o rechazar cookies no esenciales antes de que estas herramientas se
+          activen.
         </li>
         <li>
           <strong>Dentro de la aplicación (app.sevenz.site):</strong> el uso de Mixpanel y Clarity
