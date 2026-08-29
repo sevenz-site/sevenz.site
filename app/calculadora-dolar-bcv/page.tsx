@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,13 @@ export default function CalculadoraDolarBcvPage() {
         </section>
       </main>
       <Footer />
+      <Script id="microsoft-clarity-calculadora" strategy="afterInteractive">
+        {`(function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qnrsa90xy5");`}
+      </Script>
     </>
   );
 }
