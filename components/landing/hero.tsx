@@ -33,7 +33,7 @@ export function Hero() {
         </h1>
         <p className="max-w-lg text-lg text-muted-foreground">
           Tu libreta lo sabe. Tu cliente no — y ahí empieza el peo. Sevenz pone el mismo número
-          frente a los dos, sin roche y sin pelea.
+          frente a los dos, sin tanta vaina y sin pelea.
         </p>
 
         <Button asChild size="lg">

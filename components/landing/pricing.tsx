@@ -24,7 +24,7 @@ export function Pricing() {
         Sevenz cuesta $0 USD. En serio.
       </h2>
       <p className="mt-4 max-w-sm text-muted-foreground">
-        Sin tarjeta, sin roche, sin letra pequeña.
+        Sin tarjeta, sin tanta vaina, sin letra pequeña.
       </p>
 
       <div className="mt-10 w-full max-w-md rounded-xl border p-8 text-left">
