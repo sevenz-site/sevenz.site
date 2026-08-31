@@ -11,7 +11,7 @@ export type Rate = { usd: number; eur: number };
 export const CURRENCY_OPTIONS: { value: Currency; label: string }[] = [
   { value: "USD", label: "Dólar (tasa BCV)" },
   { value: "EUR", label: "Euro (tasa BCV)" },
-  { value: "VES", label: "Bs (Bolívares)" },
+  { value: "VES", label: "Bolívares" },
 ];
 
 export function convert(amount: number, from: Currency, rate: Rate) {

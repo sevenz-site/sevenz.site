@@ -107,7 +107,7 @@ export function Calculator() {
             {fromCurrency !== "VES" ? (
               <div className="flex items-center justify-between">
                 <dt className="flex items-center gap-1.5 text-muted-foreground">
-                  <CurrencyFlagIcon currency="VES" /> Bs
+                  <CurrencyFlagIcon currency="VES" /> Bolívares
                 </dt>
                 <dd className="font-mono tabular-nums">{formatBs(result.ves)}</dd>
               </div>
