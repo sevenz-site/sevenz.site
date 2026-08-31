@@ -115,7 +115,7 @@ export function Calculator() {
             {fromCurrency !== "USD" ? (
               <div className="flex items-center justify-between">
                 <dt className="flex items-center gap-1.5 text-muted-foreground">
-                  <CurrencyFlagIcon currency="USD" /> USD
+                  <CurrencyFlagIcon currency="USD" /> Dólar (tasa BCV)
                 </dt>
                 <dd className="font-mono tabular-nums">{formatDisplayCurrency(result.usd, "USD")}</dd>
               </div>
@@ -123,7 +123,7 @@ export function Calculator() {
             {fromCurrency !== "EUR" ? (
               <div className="flex items-center justify-between">
                 <dt className="flex items-center gap-1.5 text-muted-foreground">
-                  <CurrencyFlagIcon currency="EUR" /> EUR
+                  <CurrencyFlagIcon currency="EUR" /> Euro (tasa BCV)
                 </dt>
                 <dd className="font-mono tabular-nums">{formatDisplayCurrency(result.eur, "EUR")}</dd>
               </div>

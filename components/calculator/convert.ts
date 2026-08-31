@@ -9,8 +9,8 @@ export type Currency = "VES" | "USD" | "EUR";
 export type Rate = { usd: number; eur: number };
 
 export const CURRENCY_OPTIONS: { value: Currency; label: string }[] = [
-  { value: "USD", label: "USD" },
-  { value: "EUR", label: "EUR" },
+  { value: "USD", label: "Dólar (tasa BCV)" },
+  { value: "EUR", label: "Euro (tasa BCV)" },
   { value: "VES", label: "Bs (Bolívares)" },
 ];
 

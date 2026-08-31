@@ -16,8 +16,8 @@ import { getRateHistory, type RateHistoryPoint } from "@/components/calculator/r
 // stacked area (stacking would render EUR on top of USD, i.e. their sum,
 // not EUR's own value).
 const chartConfig = {
-  usd: { label: "USD", color: "var(--color-blue-500)" },
-  eur: { label: "EUR", color: "var(--color-amber-500)" },
+  usd: { label: "Dólar (tasa BCV)", color: "var(--color-blue-500)" },
+  eur: { label: "Euro (tasa BCV)", color: "var(--color-amber-500)" },
 } satisfies ChartConfig;
 
 const tickFormatter = (value: string) =>
