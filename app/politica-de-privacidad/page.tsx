@@ -15,7 +15,7 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="28 agosto 2026"
+      updated="31 agosto 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -70,17 +70,31 @@ export default function PoliticaDePrivacidadPage() {
         <li>Nombre y número de WhatsApp</li>
         <li>Montos de movimientos, abonos y saldos registrados por el Comercio</li>
         <li>Historial de esos movimientos</li>
+        <li>
+          Cédula/documento de identidad —{" "}
+          <strong>
+            si el Comercio no lo registró, se le solicita directamente al Cliente Final al abrir
+            el link de saldo compartido
+          </strong>
+          , mediante un formulario obligatorio para poder ver el saldo. Este dato, una vez
+          ingresado, nunca se vuelve a solicitar.
+        </li>
       </ul>
       <p>
-        El Comercio es quien decide qué información de sus clientes ingresa a la Plataforma — Sevenz
-        no recopila estos datos directamente del Cliente Final, salvo cuando este visita el link de
-        saldo que el Comercio le comparte, en cuyo caso aplican los puntos de analítica descritos
-        abajo.
+        El Comercio es quien decide qué información de sus clientes ingresa a la Plataforma. Sevenz
+        solo recopila datos directamente del Cliente Final en dos casos: cuando visita el link de
+        saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo), y
+        cuando ese link le solicita su cédula/documento por no estar aún registrado, como se
+        describe arriba.
       </p>
 
       <h2>2. Cómo recopilamos los datos</h2>
       <ul>
         <li>Directamente del Comercio: formulario de registro, formularios de la app, fotos que sube.</li>
+        <li>
+          Directamente del Cliente Final: únicamente su cédula/documento, mediante el formulario
+          que aparece al abrir el link de saldo si el Comercio no lo registró de antemano.
+        </li>
         <li>
           De forma automática: mediante herramientas de analítica cuando cualquier Usuario
           (Comercio o Cliente Final) navega la Plataforma — ver Sección 6.
