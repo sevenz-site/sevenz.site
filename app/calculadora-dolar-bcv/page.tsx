@@ -3,7 +3,7 @@ import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
 import { Button } from "@/components/ui/button";
 import { Calculator } from "@/components/calculator/calculator";
-import { RateHistoryChart } from "@/components/calculator/rate-history-chart";
+import { RateHistoryTable } from "@/components/calculator/rate-history-table";
 import { SIGNUP_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -40,7 +40,7 @@ export default function CalculadoraDolarBcvPage() {
           </div>
 
           <div className="mt-6 w-full max-w-sm">
-            <RateHistoryChart />
+            <RateHistoryTable />
           </div>
 
           <p className="mt-8 max-w-md text-xs text-muted-foreground">
