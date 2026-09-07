@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ProductShot } from "@/components/landing/product-shot";
 import { SIGNUP_URL } from "@/lib/config";
+import { FIADO_HEADLINE, FIADO_SUBHEAD } from "@/lib/copy";
 
 export function Hero() {
   return (
@@ -29,12 +30,9 @@ export function Hero() {
         </div>
 
         <h1 className="text-4xl leading-[1.06] font-bold tracking-tight text-balance sm:text-6xl">
-          ¿Sabes cuánto te deben del fiado, ahorita mismo?
+          {FIADO_HEADLINE}
         </h1>
-        <p className="max-w-lg text-lg text-muted-foreground">
-          Tu libreta lo sabe. Tu cliente no — y ahí empieza el peo. Sevenz pone el mismo número
-          frente a los dos, sin tanta vaina y sin pelea.
-        </p>
+        <p className="max-w-lg text-lg text-muted-foreground">{FIADO_SUBHEAD}</p>
 
         <Button asChild size="lg">
           <a href={SIGNUP_URL}>Probar gratis →</a>
