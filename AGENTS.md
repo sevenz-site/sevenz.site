@@ -22,6 +22,7 @@ Archivos que hoy existen dos veces, uno aquí y otro allá:
 |---|---|
 | `components/calculator/calculator.tsx` (`RateConverter`) | `components/dashboard/exchange-rate-strip.tsx` (`RateCalculator`) |
 | `components/ui/input.tsx` | `components/ui/input.tsx` |
+| `components/ui/button.tsx` | `components/ui/button.tsx` |
 | `components/calculator/convert.ts` (`convert`) | `lib/exchange-rate/convert.ts` (`convertToAllCurrencies`) |
 | `components/calculator/format.ts` | `lib/exchange-rate/format.ts` |
 | `components/calculator/use-bcv-rate.ts` | `lib/exchange-rate/dolar-api-provider.ts` |
@@ -41,3 +42,16 @@ tasa en vivo, así que la suya es por definición la más reciente publicada y u
 fecha que no es la de hoy solo puede significar que el BCV no publicó. El
 dashboard lee una copia guardada, tiene una segunda causa posible (que su propia
 consulta falle) y tiene que distinguirlas antes de afirmar cualquiera de las dos.
+
+# Las reglas de UI viven en el repo del dashboard
+
+`DESIGN-SYSTEM.md` está en `Sevenz/dashboard`, y **sus reglas aplican también a
+este sitio**. No es documentación de aquel proyecto: es la del producto.
+
+Lo que costó no tenerlo escrito, el 2026-09-07: la regla "todo botón con
+etiqueta mide 40px" llevaba tiempo en ese archivo y este repo nunca la siguió —
+`button.tsx` tenía 32, 28 y 36px para `default`, `sm` y `lg`. Nadie lo notó
+porque cada repo tiene su copia del componente y la regla solo estaba escrita en
+uno de los dos.
+
+Antes de tocar un componente de `components/ui/`, lee ese archivo.
