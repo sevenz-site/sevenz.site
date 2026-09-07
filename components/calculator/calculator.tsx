@@ -178,7 +178,14 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
   }
 
   return (
-    <div className="flex w-full flex-col gap-3">
+    // text-left is not decoration. The page section that wraps the calculator
+    // is text-center — correct for the hero above it, wrong for a form — and
+    // both cards inherited it. The amount field looked left-aligned anyway,
+    // because an <input> does not inherit text-align, so the card ended up
+    // centred around a left-aligned number. The dashboard's copy of this
+    // component has no centred ancestor and never showed the problem, which is
+    // exactly the kind of gap that makes "identical" untrue.
+    <div className="flex w-full flex-col gap-3 text-left">
       {/* Which pair, not which source currency. A shop converts one foreign
           currency against bolívares, never one against the other. */}
       <div className="flex gap-2">
