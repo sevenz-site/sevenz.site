@@ -6,6 +6,17 @@ import { CurrencyFlagIcon } from "@/components/calculator/currency-flag-icon";
 import { formatBs, formatBsAmount, formatDisplayCurrency, formatRateEquivalence } from "@/components/calculator/format";
 import { useBcvRate } from "@/components/calculator/use-bcv-rate";
 
+const MONTH_ABBR = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+
+// "2026-09-04" -> "4 sep 2026". Split on the string rather than parsed into a
+// Date: the API's date is already Venezuela's, and re-reading it in the
+// visitor's timezone is precisely what would slide it a day. Same reason
+// rate-history-table.tsx parses its dates with an explicit local time.
+function formatRateDate(ymd: string): string {
+  const [year, month, day] = ymd.split("-").map(Number);
+  return `${day} ${MONTH_ABBR[month - 1]} ${year}`;
+}
+
 function minutesAgo(date: Date): number {
   return Math.max(0, Math.round((Date.now() - date.getTime()) / 60_000));
 }
@@ -15,7 +26,7 @@ function RateBanner({
   loading,
   error,
 }: {
-  rate: { usd: number; eur: number; fetchedAt: Date } | null;
+  rate: { usd: number; eur: number; rateDate: string | null; fetchedAt: Date } | null;
   loading: boolean;
   error: boolean;
 }) {
@@ -36,7 +47,18 @@ function RateBanner({
     );
   }
 
-  const mins = minutesAgo(rate.fetchedAt);
+  // The rate's own publication date, not when we asked for it. The BCV does
+  // not publish on weekends or holidays, so "actualizado hace 2 min" was true
+  // of our request and misleading about the number: on a Sunday it described
+  // Friday's rate. Falls back to the old wording only for the currency-api
+  // source, which publishes no date.
+  const stamp =
+    rate.rateDate !== null
+      ? `Tasa BCV del ${formatRateDate(rate.rateDate)}`
+      : (() => {
+          const mins = minutesAgo(rate.fetchedAt);
+          return mins === 0 ? "Actualizado justo ahora" : `Actualizado hace ${mins} min`;
+        })();
 
   return (
     <div className="flex flex-col items-center gap-2">
@@ -50,9 +72,7 @@ function RateBanner({
           {formatRateEquivalence("EUR", rate.eur)}
         </span>
       </div>
-      <p className="font-mono text-xs text-muted-foreground">
-        {mins === 0 ? "Actualizado justo ahora" : `Actualizado hace ${mins} min`}
-      </p>
+      <p className="font-mono text-xs text-muted-foreground">{stamp}</p>
     </div>
   );
 }
