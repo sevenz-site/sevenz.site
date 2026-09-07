@@ -99,49 +99,55 @@ function RateBanner({
 function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null }) {
   // Digits-only "cents" mask — the same way a POS amount field works: typing
   // shifts digits in from the right, the last two are always the decimals.
-  const [rawDigits, setRawDigits] = useState("");
-  // Which side the visitor types into. Starts on bolívares because that is the
-  // question actually being asked — "esto cuesta Bs. X, ¿cuánto es en
-  // dólares?" — and "Invertir" swaps it.
-  const [entry, setEntry] = useState<"VES" | "FOREIGN">("VES");
+  //
+  // Seeded at 1.00 with dollars on top: someone arriving from a search for
+  // "dólar BCV hoy" wants to see what one dollar is worth, and an empty field
+  // makes them work for it.
+  const [rawDigits, setRawDigits] = useState("100");
+  // Which currency sits in the TOP field. FOREIGN means the pair (USD/EUR) is
+  // on top and bolívares below.
+  const [entry, setEntry] = useState<"VES" | "FOREIGN">("FOREIGN");
   const [pair, setPair] = useState<"USD" | "EUR">("USD");
+  // Which of the two fields holds the number actually typed. Both are editable,
+  // so this is what keeps the conversion from feeding on its own output: typing
+  // 5 in the bolívares field must mean five bolívares, not "convert 5 up, round
+  // it, then convert that back down".
+  const [source, setSource] = useState<"put" | "get">("put");
+  // True until the first edit. The seeded 1.00 is an example, not something the
+  // visitor entered, so the first tap clears it — otherwise the digits mask
+  // would push a typed 5 onto the existing 1.00 and produce $10.05. Only the
+  // untouched seed clears: once they have typed, tapping away and back keeps
+  // their number.
+  const [pristine, setPristine] = useState(true);
   const [shared, setShared] = useState(false);
 
   const pairRate = pair === "USD" ? rate.usd : rate.eur;
   const pairName = pair === "USD" ? "Dólar" : "Euro";
-  const pairPlural = pair === "USD" ? "Dólares" : "Euros";
+
+  const putCurrency: Currency = entry === "VES" ? "VES" : pair;
+  const getCurrency: Currency = entry === "VES" ? pair : "VES";
+  const labelFor = (c: Currency) => (c === "VES" ? "Bolívares" : c === "USD" ? "Dólares" : "Euros");
 
   const cents = Number(rawDigits || "0");
-  const amount = cents / 100;
-  const hasAmount = amount > 0;
+  const typed = cents / 100;
+  const hasAmount = typed > 0;
 
-  const fromCurrency: Currency = entry === "VES" ? "VES" : pair;
-  const converted = hasAmount ? convert(amount, fromCurrency, rate) : null;
-  const result = converted
-    ? entry === "VES"
-      ? pair === "USD"
-        ? converted.usd
-        : converted.eur
-      : converted.ves
-    : null;
+  const convertBetween = (amount: number, from: Currency, to: Currency) => {
+    const all = convert(amount, from, rate);
+    return to === "VES" ? all.ves : to === "USD" ? all.usd : all.eur;
+  };
+  const putAmount = source === "put" ? typed : convertBetween(typed, getCurrency, putCurrency);
+  const getAmount = source === "get" ? typed : convertBetween(typed, putCurrency, getCurrency);
 
-  // Prefixed, so the field reads the same as its own placeholder and as the
-  // result below it. The digits-only mask strips the prefix on every keystroke
-  // and re-adds it, so it never reaches the parsed value.
-  const putValue = hasAmount
-    ? entry === "VES"
-      ? `Bs. ${formatBsAmount(amount)}`
-      : formatDisplayCurrency(amount, pair)
-    : "";
-  const putPlaceholder = entry === "VES" ? "Bs. 0,00" : formatDisplayCurrency(0, pair);
-  const getText =
-    result === null
-      ? entry === "VES"
-        ? formatDisplayCurrency(0, pair)
-        : formatBs(0)
-      : entry === "VES"
-        ? formatDisplayCurrency(result, pair)
-        : formatBs(result);
+  const money = (amount: number, currency: Currency) =>
+    currency === "VES" ? `Bs. ${formatBsAmount(amount)}` : formatDisplayCurrency(amount, currency);
+
+  // An empty field stays empty rather than snapping back to 0,00 — the visitor
+  // is mid-edit and a number reappearing under the cursor is its own bug.
+  const putValue = rawDigits === "" && source === "put" ? "" : money(putAmount, putCurrency);
+  const getValue = rawDigits === "" && source === "get" ? "" : money(getAmount, getCurrency);
+  const putPlaceholder = money(0, putCurrency);
+  const getPlaceholder = money(0, getCurrency);
 
   const stampLabel = rateDate ? `Tasa BCV del ${formatRateDate(rateDate)}` : "Tasa BCV";
   // This page always asks the provider live, so its rate is by definition the
@@ -151,8 +157,29 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
   // apart before it can claim either.
   const noPublicationToday = rateDate !== null && rateDate < todayInCaracas();
 
-  function handleAmountChange(e: ChangeEvent<HTMLInputElement>) {
-    setRawDigits(e.target.value.replace(/\D/g, "").slice(0, 15));
+  function editHandler(field: "put" | "get") {
+    return (e: ChangeEvent<HTMLInputElement>) => {
+      setSource(field);
+      setPristine(false);
+      setRawDigits(e.target.value.replace(/[^0-9]/g, "").slice(0, 15));
+    };
+  }
+
+  // Focus only ever clears the seeded example. It deliberately does NOT change
+  // which field is authoritative — typing does that.
+  //
+  // Making focus set `source` looked equivalent and was not: with Bs. 0,50 in
+  // the bottom card, merely tapping the top field reinterpreted those same
+  // digits as dollars and the card jumped to Bs. 406,87. Tapping a field is not
+  // a statement about what the number means, and a converter that changes its
+  // answer because you looked at it is worse than one that is hard to use.
+  function focusHandler(field: "put" | "get") {
+    return () => {
+      if (!pristine) return;
+      setSource(field);
+      setRawDigits("");
+      setPristine(false);
+    };
   }
 
   async function handleShare() {
@@ -160,7 +187,7 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
     // still worth sharing — and it is the thing people are most often asked
     // for. Sharing "Bs. 0,00 = $0.00" instead would waste the tap.
     const text = hasAmount
-      ? `${putValue} = ${getText}${entry === "VES" ? ` ${pairPlural}` : ""} · ${stampLabel}`
+      ? `${money(putAmount, putCurrency)} ${labelFor(putCurrency)} = ${money(getAmount, getCurrency)} ${labelFor(getCurrency)} · ${stampLabel}`
       : `1 ${pairName} = ${formatBs(pairRate)} · ${stampLabel}`;
     try {
       // The native sheet is what gets this into WhatsApp, which is where these
@@ -178,13 +205,8 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
   }
 
   return (
-    // text-left is not decoration. The page section that wraps the calculator
-    // is text-center — correct for the hero above it, wrong for a form — and
-    // both cards inherited it. The amount field looked left-aligned anyway,
-    // because an <input> does not inherit text-align, so the card ended up
-    // centred around a left-aligned number. The dashboard's copy of this
-    // component has no centred ancestor and never showed the problem, which is
-    // exactly the kind of gap that makes "identical" untrue.
+    // text-left is not decoration. The page section wrapping the calculator is
+    // text-center — right for the hero above it, wrong for a form.
     <div className="flex w-full flex-col gap-3 text-left">
       {/* Which pair, not which source currency. A shop converts one foreign
           currency against bolívares, never one against the other. */}
@@ -209,22 +231,23 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
       </div>
 
       <div className="flex flex-col gap-1 rounded-lg border px-3 py-2">
-        <label htmlFor="calc-amount" className="text-xs text-muted-foreground">
+        <label htmlFor="calc-put" className="text-xs text-muted-foreground">
           Tú pones
         </label>
         <div className="flex items-center gap-2">
           <Input
-            id="calc-amount"
+            id="calc-put"
             type="text"
             inputMode="numeric"
             placeholder={putPlaceholder}
             value={putValue}
-            onChange={handleAmountChange}
+            onChange={editHandler("put")}
+            onFocus={focusHandler("put")}
             className="h-auto border-0 bg-transparent p-0 text-2xl font-semibold shadow-none focus-visible:ring-0"
           />
           <span className="flex shrink-0 items-center gap-1.5 text-xs text-muted-foreground">
-            {entry === "VES" ? "Bolívares" : pairPlural}
-            <CurrencyFlagIcon currency={entry === "VES" ? "VES" : pair} />
+            {labelFor(putCurrency)}
+            <CurrencyFlagIcon currency={putCurrency} />
           </span>
         </div>
       </div>
@@ -235,11 +258,13 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
           variant="outline"
           size="sm"
           onClick={() => {
-            // Carry the result across rather than only flipping the labels.
-            // Keeping the digits would turn "Bs. 100.000" into "€100.000" — the
-            // same number meaning something a thousand times larger, with
-            // nothing on screen to say so.
-            if (result !== null) setRawDigits(String(Math.round(result * 100)));
+            // Carry the equivalence across rather than only flipping the
+            // labels. Keeping the digits would turn "Bs. 100.000" into
+            // "€100.000" — the same number meaning something a thousand times
+            // larger, with nothing on screen to say so.
+            setRawDigits(String(Math.round(getAmount * 100)));
+            setSource("put");
+            setPristine(false);
             setEntry((e) => (e === "VES" ? "FOREIGN" : "VES"));
           }}
         >
@@ -252,12 +277,38 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
         </span>
       </div>
 
+      {/* Editable too, in both directions: typing here sets the equivalent
+          above. The label sits right after the amount so the card reads the
+          same whichever currency is in it — before this, bolívares showed a
+          bare "Bs. 813,74" while dollars showed "$1.00 Dólares". */}
       <div className="flex flex-col gap-0.5 rounded-lg bg-primary px-3 py-2 text-primary-foreground">
-        <span className="text-xs opacity-70">Tú cobras</span>
-        <span className="text-2xl font-semibold tabular-nums">
-          {getText}
-          {entry === "VES" ? ` ${pairPlural}` : ""}
-        </span>
+        <label htmlFor="calc-get" className="text-xs opacity-70">
+          Tú cobras
+        </label>
+        <div className="flex items-baseline gap-1.5">
+          <Input
+            id="calc-get"
+            type="text"
+            inputMode="numeric"
+            placeholder={getPlaceholder}
+            value={getValue}
+            onChange={editHandler("get")}
+            onFocus={focusHandler("get")}
+            // `size` makes the field hug its own text so the label can sit
+            // beside the number rather than being shoved to the far edge by a
+            // full-width input. w-auto is what lets size win over Input's own
+            // w-full; min-w-0 lets it give way before the label truncates.
+            size={Math.max((getValue || getPlaceholder).length, 1)}
+            className="h-auto w-auto min-w-0 border-0 bg-transparent p-0 text-2xl font-semibold tabular-nums shadow-none placeholder:text-primary-foreground/50 focus-visible:ring-0"
+          />
+          <span className="shrink-0 text-xs opacity-70">{labelFor(getCurrency)}</span>
+          {/* ml-auto rather than a spacer: the flag belongs at the card's edge
+              whatever the number's width, and the label stays glued to the
+              amount. */}
+          <span className="ml-auto shrink-0 self-center">
+            <CurrencyFlagIcon currency={getCurrency} />
+          </span>
+        </div>
         <span className="text-xs opacity-70">{stampLabel}</span>
         {noPublicationToday ? (
           <span className="text-xs opacity-70">
