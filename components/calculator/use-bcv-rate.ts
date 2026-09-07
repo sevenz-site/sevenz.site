@@ -9,7 +9,18 @@ import type { Rate } from "@/components/calculator/convert";
 // dashboard app already uses (lib/exchange-rate/dolar-api-provider.ts and
 // currency-api-provider.ts), reimplemented standalone — no cross-repo import.
 
-export type BcvRate = Rate & { fetchedAt: Date; source: "dolarapi" | "currency-api" };
+// rateDate is the day the BCV rate itself belongs to ("2026-09-04"), which is
+// NOT the same as when we asked for it. The BCV does not publish on weekends
+// or holidays, so a visitor on Sunday night is looking at Friday's number.
+// Labelling that with the fetch time told them it was from Sunday, and no such
+// rate ever existed — the history table right below has no row for it.
+//
+// Null only from the currency-api fallback, which publishes no date of its own.
+export type BcvRate = Rate & {
+  rateDate: string | null;
+  fetchedAt: Date;
+  source: "dolarapi" | "currency-api";
+};
 
 const TIMEOUT_MS = 8_000;
 
@@ -25,6 +36,16 @@ async function fetchWithTimeout(url: string): Promise<Response> {
 
 type DolarApiResponse = { promedio: number; fechaActualizacion: string };
 
+// "2026-09-07T00:00:00-04:00" -> "2026-09-07". Sliced rather than parsed
+// through Date: the string already carries Venezuela's offset, so building a
+// Date and reading it back in the visitor's timezone is what would shift the
+// day — the exact bug this function exists to avoid.
+function rateDateOf(iso: string | undefined): string | null {
+  if (!iso || iso.length < 10) return null;
+  const ymd = iso.slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(ymd) ? ymd : null;
+}
+
 async function fetchFromDolarApi(): Promise<BcvRate> {
   const [usdRes, eurRes] = await Promise.all([
     fetchWithTimeout("https://ve.dolarapi.com/v1/dolares/oficial"),
@@ -35,7 +56,13 @@ async function fetchFromDolarApi(): Promise<BcvRate> {
   if (!usdData.promedio || !eurData.promedio) {
     throw new Error("dolarapi no devolvió un promedio válido.");
   }
-  return { usd: usdData.promedio, eur: eurData.promedio, fetchedAt: new Date(), source: "dolarapi" };
+  return {
+    usd: usdData.promedio,
+    eur: eurData.promedio,
+    rateDate: rateDateOf(usdData.fechaActualizacion),
+    fetchedAt: new Date(),
+    source: "dolarapi",
+  };
 }
 
 async function fetchVesFromCurrencyApi(base: "usd" | "eur"): Promise<number> {
@@ -50,7 +77,7 @@ async function fetchVesFromCurrencyApi(base: "usd" | "eur"): Promise<number> {
 
 async function fetchFromCurrencyApi(): Promise<BcvRate> {
   const [usd, eur] = await Promise.all([fetchVesFromCurrencyApi("usd"), fetchVesFromCurrencyApi("eur")]);
-  return { usd, eur, fetchedAt: new Date(), source: "currency-api" };
+  return { usd, eur, rateDate: null, fetchedAt: new Date(), source: "currency-api" };
 }
 
 export function useBcvRate() {
