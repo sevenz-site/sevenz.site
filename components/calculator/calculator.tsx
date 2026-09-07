@@ -17,6 +17,19 @@ function formatRateDate(ymd: string): string {
   return `${day} ${MONTH_ABBR[month - 1]} ${year}`;
 }
 
+// Today's date in Venezuela, "YYYY-MM-DD". en-CA is the locale trick that
+// yields ISO order; the timeZone is what matters — a visitor in Madrid or a
+// Cloudflare edge in UTC must not compute a different "today" than the shop
+// they are pricing for.
+function todayInCaracas(): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Caracas",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
 function minutesAgo(date: Date): number {
   return Math.max(0, Math.round((Date.now() - date.getTime()) / 60_000));
 }
@@ -60,6 +73,13 @@ function RateBanner({
           return mins === 0 ? "Actualizado justo ahora" : `Actualizado hace ${mins} min`;
         })();
 
+  // This page always asks the provider live, so its rate is by definition the
+  // newest published one. A date that is not today therefore has exactly one
+  // cause — the BCV did not publish — and saying so is safe here. The
+  // dashboard, which reads a stored copy, has a second possible cause and
+  // needs to tell them apart before it can claim either.
+  const noPublicationToday = rate.rateDate !== null && rate.rateDate < todayInCaracas();
+
   return (
     <div className="flex flex-col items-center gap-2">
       <div className="flex flex-col items-center gap-2 font-mono text-lg font-semibold sm:flex-row sm:gap-6">
@@ -73,6 +93,11 @@ function RateBanner({
         </span>
       </div>
       <p className="font-mono text-xs text-muted-foreground">{stamp}</p>
+      {noPublicationToday ? (
+        <p className="max-w-xs text-center text-xs text-muted-foreground">
+          El BCV no publica sábados, domingos ni festivos. Esta es la última tasa publicada.
+        </p>
+      ) : null}
     </div>
   );
 }
