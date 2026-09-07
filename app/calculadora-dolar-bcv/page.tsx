@@ -72,9 +72,7 @@ export default function CalculadoraDolarBcvPage() {
               width={1920}
               height={1080}
             />
-            {/* Ancho completo dentro del mismo contenedor que la imagen, para
-                que botón y captura compartan borde izquierdo y derecho. */}
-            <Button asChild size="lg" className="mt-5 w-full">
+            <Button asChild size="lg" className="mt-5">
               <a href={SIGNUP_URL}>Regístrate gratis</a>
             </Button>
           </div>
