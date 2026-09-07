@@ -4,7 +4,7 @@ import { Footer } from "@/components/landing/footer";
 import { Button } from "@/components/ui/button";
 import { Calculator } from "@/components/calculator/calculator";
 import { RateHistoryTable } from "@/components/calculator/rate-history-table";
-import { SIGNUP_URL } from "@/lib/config";
+import { SIGNUP_URL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Calculadora de Dólar BCV Hoy — Convierte USD y EUR a Bolívares | Sevenz",
@@ -63,6 +63,17 @@ export default function CalculadoraDolarBcvPage() {
           <p className="mt-4 font-mono text-xs text-muted-foreground/70">
             ¡Controla el fiado de tu negocio sin vaina!
           </p>
+          {/* Secondary on purpose: someone who landed here from a Google search
+              for the BCV rate may not be ready to sign up, and sending them to
+              the home page is a better second option than losing them. Plain
+              underlined link rather than a second button, so it never competes
+              with "Regístrate gratis" for the same glance. */}
+          <a
+            href={SITE_URL}
+            className="mt-8 text-sm underline underline-offset-4 transition-colors hover:text-muted-foreground"
+          >
+            Conocer más
+          </a>
         </section>
       </main>
       <Footer />
