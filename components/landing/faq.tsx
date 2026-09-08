@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: "¿Cuánto cuesta usar Sevenz?",
-    a: "Sevenz tiene un plan gratis: hasta 5 fotos de libreta al mes, sin costo y sin tarjeta de crédito. Es el punto de partida para probar la app con tu negocio real.",
+    a: "Sevenz vale 30 USD al mes, pero mientras arrancamos no cuesta nada: lo usas completo, con hasta 5 fotos de libreta al mes, sin costo y sin tarjeta de crédito. Si algún día empezamos a cobrar, te avisamos antes — nunca te vamos a cobrar algo que no sepas.",
   },
   {
     q: "¿Qué pasa si un cliente dice que no debe tanto?",

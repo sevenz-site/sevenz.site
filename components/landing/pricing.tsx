@@ -24,15 +24,30 @@ export function Pricing() {
         Sevenz cuesta $0 USD. En serio.
       </h2>
       <p className="mt-4 max-w-sm text-muted-foreground">
-        Sin tarjeta, sin tanta vaina, sin letra pequeña.
+        Vale 30 USD al mes. Mientras arrancamos, no cuesta nada — sin tarjeta, sin tanta vaina,
+        sin letra pequeña.
       </p>
 
       <div className="mt-10 w-full max-w-md rounded-xl border p-8 text-left">
         <div className="flex flex-col items-center border-b pb-6 text-center">
-          <span className="font-mono text-5xl font-semibold sm:text-6xl">$0</span>
+          {/* Two numbers, and only one of them is what you pay. A struck-through
+              price reads as decoration to a screen reader unless the roles are
+              said out loud, so each carries its own sr-only label instead of
+              relying on the line through it to carry the meaning. */}
+          <span className="flex items-baseline gap-3">
+            <s className="font-mono text-2xl font-medium text-muted-foreground sm:text-3xl">
+              <span className="sr-only">Precio normal: </span>$30
+            </s>
+            <span className="font-mono text-5xl font-semibold sm:text-6xl">
+              <span className="sr-only">Precio hoy: </span>$0
+            </span>
+          </span>
           <span className="mt-1 font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase">
             USD / mes
           </span>
+          <Badge variant="outline" className="mt-4">
+            Precio de lanzamiento
+          </Badge>
         </div>
 
         <ul className="mt-6 flex flex-col gap-3">
