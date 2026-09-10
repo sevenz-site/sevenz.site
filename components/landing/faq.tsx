@@ -26,6 +26,19 @@ const FAQS = [
     q: "¿Qué pasa si un cliente dice que no debe tanto?",
     a: "Como el cliente ve el mismo número que tú — con fecha, monto y detalle de cada movimiento — la disputa se resuelve mirando la app, no discutiendo de memoria.",
   },
+  {
+    q: "¿Sevenz me va a poner lento el teléfono?",
+    a: "No tienes que instalar nada: Sevenz se abre en el navegador, como cualquier página. Tu cartera vive en la nube, no en el teléfono, así que no se te llena la memoria con los datos de tus clientes ni con las fotos de la libreta. El navegador guarda una parte pequeña para que abra rápido la próxima vez, igual que cualquier sitio que visitas.",
+  },
+  {
+    // "Anónima" no se dice: la app guarda nombres, cédulas y teléfonos de
+    // personas reales, y afirmar lo contrario contradiría la Política de
+    // Privacidad de este mismo sitio. Lo que sí se afirma es exactamente lo
+    // que esa política sostiene — cifrado en tránsito y separación por cuenta
+    // a nivel de fila — sin prometer de más.
+    q: "¿Quién puede ver los datos de mis clientes?",
+    a: "Solo tú. Los datos viajan cifrados entre tu teléfono y Sevenz, y cada cuenta está separada de las demás dentro de la base de datos: ningún otro negocio puede ver tu cartera, ni tú la suya. Tu cliente solo ve su propio saldo, a través del link que tú le mandas. Guardamos nombres y teléfonos reales porque sin eso no hay fiado que valga — por eso están protegidos, y por eso puedes leer en la Política de Privacidad qué guardamos y por cuánto tiempo.",
+  },
 ];
 
 export function Faq() {

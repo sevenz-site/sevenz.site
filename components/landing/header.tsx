@@ -130,18 +130,17 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            {/* Los dos CTA, ya no en la barra. "Probar gratis" relleno y
-                "Iniciar sesión" no: la acción principal se distingue de la
-                secundaria por el peso, no por el orden. */}
-            <a
-              href={LOGIN_URL}
-              className="flex min-h-11 items-center border-b text-base font-medium text-muted-foreground"
-            >
-              Iniciar sesión
-            </a>
-            <Button asChild className="my-3 w-full">
-              <a href={SIGNUP_URL}>Probar gratis</a>
-            </Button>
+            {/* Los dos CTA, ya no en la barra. Los dos como botón a ancho
+                completo: relleno el principal, delineado el secundario. Se
+                distinguen por el peso, no por el tamaño ni por el orden. */}
+            <div className="my-3 flex flex-col gap-2">
+              <Button asChild className="w-full">
+                <a href={SIGNUP_URL}>Probar gratis</a>
+              </Button>
+              <Button asChild variant="outline" className="w-full">
+                <a href={LOGIN_URL}>Iniciar sesión</a>
+              </Button>
+            </div>
           </nav>
         </div>
       ) : null}
