@@ -1,11 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MenuIcon, XIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 
@@ -20,55 +29,77 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [rutaVista, setRutaVista] = useState(pathname);
 
-  // Cerrar al cambiar de página: sin esto el panel sobrevive a la navegación y
-  // el visitante aterriza en la página nueva con el menú encima.
-  //
-  // Ajustado durante el render y no en un efecto: así React lo resuelve antes
-  // de pintar, sin el parpadeo del menú abierto sobre la página nueva. Cubre
-  // también atrás y adelante del navegador, que un onClick en los enlaces no
-  // alcanzaría.
+  // Cerrar al navegar. SheetClose se encarga de los enlaces del panel, pero no
+  // de atrás y adelante del navegador; esto sí. Ajustado durante el render y
+  // no en un efecto, para que React lo resuelva antes de pintar.
   if (rutaVista !== pathname) {
     setRutaVista(pathname);
     setOpen(false);
   }
 
-  // Con el panel abierto, el fondo no debe desplazarse detrás.
-  useEffect(() => {
-    if (!open) return;
-    const previo = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previo;
-    };
-  }, [open]);
-
-  useEffect(() => {
-    if (!open) return;
-    const alEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", alEscape);
-    return () => window.removeEventListener("keydown", alEscape);
-  }, [open]);
-
   return (
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur-sm">
-      {/* En móvil: rejilla de tres columnas — hamburguesa, logo, hueco — para
-          que el logo quede centrado de verdad y no desplazado por el ancho del
-          botón. Desde md pasa a flex y las columnas dejan de aplicar; los
-          elementos que sobran están ocultos, así que no ocupan celda. */}
+      {/* En móvil: rejilla de tres columnas — botón, logo, hueco — para que el
+          logo quede centrado respecto a la pantalla y no desplazado por el
+          ancho del botón. Desde md pasa a flex y las columnas dejan de
+          aplicar, porque lo que sobra está oculto y no ocupa celda. */}
       <div className="mx-auto grid h-16 w-full max-w-5xl grid-cols-[2.5rem_1fr_2.5rem] items-center px-6 md:flex md:justify-between md:gap-4">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="-ml-2 justify-self-start md:hidden"
-          aria-expanded={open}
-          aria-controls="menu-movil"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
-        </Button>
+        {/* El Sheet trae de fábrica lo que antes estaba escrito a mano: foco
+            atrapado dentro del panel, cierre con Escape, bloqueo del scroll de
+            fondo, overlay y aria-modal. Es la misma pieza que usa el menú
+            móvil del dashboard, y por eso entra por la izquierda igual que
+            allá. */}
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="-ml-2 justify-self-start md:hidden"
+              aria-label="Abrir menú"
+            >
+              <MenuIcon className="size-5" />
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent side="left" className="w-4/5 max-w-xs gap-0 p-0">
+            <SheetHeader className="border-b p-6">
+              <SheetTitle className="text-left">
+                <Image src="/logo.svg" alt="Sevenz" width={100} height={31} />
+              </SheetTitle>
+              <SheetDescription className="sr-only">
+                Navegación principal de Sevenz
+              </SheetDescription>
+            </SheetHeader>
+
+            <nav className="flex flex-col p-6">
+              {NAV.map((item) => (
+                <SheetClose asChild key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={pathname === item.href ? "page" : undefined}
+                    className={cn(
+                      "flex min-h-11 items-center border-b text-base font-medium",
+                      pathname === item.href ? "text-foreground" : "text-muted-foreground",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </SheetClose>
+              ))}
+
+              {/* Los dos a ancho completo: relleno el principal, delineado el
+                  secundario. Se distinguen por el peso, no por el tamaño. */}
+              <div className="mt-6 flex flex-col gap-2">
+                <Button asChild className="w-full">
+                  <a href={SIGNUP_URL}>Probar gratis</a>
+                </Button>
+                <Button asChild variant="outline" className="w-full">
+                  <a href={LOGIN_URL}>Iniciar sesión</a>
+                </Button>
+              </div>
+            </nav>
+          </SheetContent>
+        </Sheet>
 
         <Link
           href="/"
@@ -98,9 +129,6 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Los dos CTA salen de la barra en móvil y viven en el menú: el
-            mockup deja arriba solo hamburguesa y logo. En el inicio no se
-            pierde nada, porque el hero ya trae su propio "Probar gratis". */}
         <div className="hidden items-center gap-2 md:flex">
           <a
             href={LOGIN_URL}
@@ -113,37 +141,6 @@ export function Header() {
           </Button>
         </div>
       </div>
-
-      {open ? (
-        <div id="menu-movil" className="border-t bg-background md:hidden">
-          <nav className="mx-auto flex w-full max-w-5xl flex-col px-6 py-2">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
-                className={cn(
-                  "flex min-h-11 items-center border-b text-base font-medium",
-                  pathname === item.href ? "text-foreground" : "text-muted-foreground",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-            {/* Los dos CTA, ya no en la barra. Los dos como botón a ancho
-                completo: relleno el principal, delineado el secundario. Se
-                distinguen por el peso, no por el tamaño ni por el orden. */}
-            <div className="my-3 flex flex-col gap-2">
-              <Button asChild className="w-full">
-                <a href={SIGNUP_URL}>Probar gratis</a>
-              </Button>
-              <Button asChild variant="outline" className="w-full">
-                <a href={LOGIN_URL}>Iniciar sesión</a>
-              </Button>
-            </div>
-          </nav>
-        </div>
-      ) : null}
     </header>
   );
 }
