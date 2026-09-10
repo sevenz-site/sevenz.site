@@ -1,3 +1,10 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 const FAQS = [
   {
     q: "¿Qué es el fiado y por qué necesito controlarlo?",
@@ -31,14 +38,28 @@ export function Faq() {
         Todo lo que preguntan antes de fiar con Sevenz
       </h2>
 
-      <div className="mt-10 flex w-full max-w-2xl flex-col border-t">
-        {FAQS.map((item) => (
-          <div key={item.q} className="border-b py-6 text-left">
-            <h3 className="text-lg font-semibold">{item.q}</h3>
-            <p className="mt-2 text-muted-foreground">{item.a}</p>
-          </div>
+      {/* La primera abierta a propósito: enseña que las demás se abren. Con
+          todas cerradas, cinco títulos seguidos se leen como un menú y no como
+          respuestas. `collapsible` deja cerrarla también, así que nadie queda
+          obligado a mirar una respuesta que no le interesa.
+
+          El JSON-LD de abajo sigue saliendo del mismo arreglo, así que Google
+          ve las cinco respuestas completas aunque cuatro estén plegadas. */}
+      <Accordion
+        type="single"
+        collapsible
+        defaultValue="faq-0"
+        className="mt-10 w-full max-w-2xl border-t text-left"
+      >
+        {FAQS.map((item, i) => (
+          <AccordionItem key={item.q} value={`faq-${i}`}>
+            <AccordionTrigger className="text-lg font-semibold">{item.q}</AccordionTrigger>
+            <AccordionContent className="text-base text-muted-foreground">
+              {item.a}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
 
       <script
         type="application/ld+json"
