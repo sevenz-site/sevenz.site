@@ -53,10 +53,34 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur-sm">
-      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-4 px-6">
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Sevenz, ir al inicio">
+      {/* En móvil: rejilla de tres columnas — hamburguesa, logo, hueco — para
+          que el logo quede centrado de verdad y no desplazado por el ancho del
+          botón. Desde md pasa a flex y las columnas dejan de aplicar; los
+          elementos que sobran están ocultos, así que no ocupan celda. */}
+      <div className="mx-auto grid h-16 w-full max-w-5xl grid-cols-[2.5rem_1fr_2.5rem] items-center px-6 md:flex md:justify-between md:gap-4">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="-ml-2 justify-self-start md:hidden"
+          aria-expanded={open}
+          aria-controls="menu-movil"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
+        </Button>
+
+        <Link
+          href="/"
+          className="flex shrink-0 items-center justify-self-center md:justify-self-auto"
+          aria-label="Sevenz, ir al inicio"
+        >
           <Image src="/logo.svg" alt="Sevenz" width={110} height={34} priority />
         </Link>
+
+        {/* Contrapeso del botón: sin él la rejilla centra el logo respecto al
+            espacio que queda, no respecto a la pantalla. */}
+        <span className="md:hidden" aria-hidden="true" />
 
         <nav className="hidden items-center gap-6 md:flex">
           {NAV.map((item) => (
@@ -74,29 +98,18 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        {/* Los dos CTA salen de la barra en móvil y viven en el menú: el
+            mockup deja arriba solo hamburguesa y logo. En el inicio no se
+            pierde nada, porque el hero ya trae su propio "Probar gratis". */}
+        <div className="hidden items-center gap-2 md:flex">
           <a
             href={LOGIN_URL}
-            className="hidden text-sm font-medium text-muted-foreground hover:text-foreground sm:block"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
             Iniciar sesión
           </a>
           <Button asChild size="sm">
             <a href={SIGNUP_URL}>Probar gratis</a>
-          </Button>
-          {/* Los tres enlaces más los dos botones no caben en 375px, así que
-              debajo de md se pliegan aquí. size="icon" es cuadrado y no lleva
-              etiqueta con la que alinearse, de ahí el aria-label. */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            aria-expanded={open}
-            aria-controls="menu-movil"
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
           </Button>
         </div>
       </div>
@@ -117,14 +130,18 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            {/* Desde sm el enlace de arriba ya se ve; aquí solo aparece cuando
-                está oculto, para no repetirlo. */}
+            {/* Los dos CTA, ya no en la barra. "Probar gratis" relleno y
+                "Iniciar sesión" no: la acción principal se distingue de la
+                secundaria por el peso, no por el orden. */}
             <a
               href={LOGIN_URL}
-              className="flex min-h-11 items-center text-base font-medium text-muted-foreground sm:hidden"
+              className="flex min-h-11 items-center border-b text-base font-medium text-muted-foreground"
             >
               Iniciar sesión
             </a>
+            <Button asChild className="my-3 w-full">
+              <a href={SIGNUP_URL}>Probar gratis</a>
+            </Button>
           </nav>
         </div>
       ) : null}
