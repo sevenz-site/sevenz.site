@@ -28,7 +28,7 @@ const FAQS = [
   },
   {
     q: "¿Sevenz me va a poner lento el teléfono?",
-    a: "No tienes que instalar nada: Sevenz se abre en el navegador, como cualquier página. Tu cartera vive en la nube, no en el teléfono, así que no se te llena la memoria con los datos de tus clientes ni con las fotos de la libreta. El navegador guarda una parte pequeña para que abra rápido la próxima vez, igual que cualquier sitio que visitas.",
+    a: "No tienes que instalar nada: Sevenz se abre en el navegador, como cualquier página. Tu cartera vive en la nube, no en el teléfono, así que no se te llena la memoria con los datos de tus clientes ni con las fotos de la libreta.",
   },
   {
     // "Anónima" no se dice: la app guarda nombres, cédulas y teléfonos de
