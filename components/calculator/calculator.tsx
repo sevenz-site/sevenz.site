@@ -1,11 +1,18 @@
 "use client";
 
-import { type ChangeEvent, useState } from "react";
+import { type ChangeEvent, useEffect, useState } from "react";
 import { ArrowUpDown, Share2 } from "lucide-react";
 import { convert, type Currency, type Rate } from "@/components/calculator/convert";
 import { CurrencyFlagIcon } from "@/components/calculator/currency-flag-icon";
 import { formatBs, formatBsAmount, formatDisplayCurrency, formatRateEquivalence } from "@/components/calculator/format";
 import { useBcvRate } from "@/components/calculator/use-bcv-rate";
+import { Checkbox } from "@/components/ui/checkbox";
+import { getRateHistory } from "@/components/calculator/rate-history";
+import {
+  etiquetaDePrevista,
+  tasaPrevistaDe,
+  type TasaPrevista,
+} from "@/components/calculator/tasa-prevista";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -120,8 +127,30 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
   // their number.
   const [pristine, setPristine] = useState(true);
   const [shared, setShared] = useState(false);
+  // La proxima tasa publicada, si toca ofrecerla. getRateHistory esta cacheado
+  // a nivel de modulo y la tabla de abajo lo llama tambien, asi que esto no
+  // añade una segunda peticion.
+  const [prevista, setPrevista] = useState<TasaPrevista | null>(null);
+  const [usarPrevista, setUsarPrevista] = useState(false);
 
-  const pairRate = pair === "USD" ? rate.usd : rate.eur;
+  useEffect(() => {
+    let cancelado = false;
+    getRateHistory()
+      .then((historial) => {
+        if (!cancelado) setPrevista(tasaPrevistaDe(historial));
+      })
+      // Sin tasa prevista no se ofrece nada y la calculadora funciona igual:
+      // esto es un extra, no una dependencia.
+      .catch(() => {});
+    return () => {
+      cancelado = true;
+    };
+  }, []);
+
+  // La tasa con la que se calcula de verdad, no solo una etiqueta.
+  const tasaEnUso = usarPrevista && prevista ? { usd: prevista.usd, eur: prevista.eur } : rate;
+
+  const pairRate = pair === "USD" ? tasaEnUso.usd : tasaEnUso.eur;
   const pairName = pair === "USD" ? "Dólar" : "Euro";
 
   const putCurrency: Currency = entry === "VES" ? "VES" : pair;
@@ -133,7 +162,7 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
   const hasAmount = typed > 0;
 
   const convertBetween = (amount: number, from: Currency, to: Currency) => {
-    const all = convert(amount, from, rate);
+    const all = convert(amount, from, tasaEnUso);
     return to === "VES" ? all.ves : to === "USD" ? all.usd : all.eur;
   };
   const putAmount = source === "put" ? typed : convertBetween(typed, getCurrency, putCurrency);
@@ -149,7 +178,11 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
   const putPlaceholder = money(0, putCurrency);
   const getPlaceholder = money(0, getCurrency);
 
-  const stampLabel = rateDate ? `Tasa BCV del ${formatRateDate(rateDate)}` : "Tasa BCV";
+  const stampLabel = usarPrevista && prevista
+    ? `Tasa BCV prevista para ${etiquetaDePrevista(prevista.fecha)}`
+    : rateDate
+      ? `Tasa BCV del ${formatRateDate(rateDate)}`
+      : "Tasa BCV";
   // This page always asks the provider live, so its rate is by definition the
   // newest published one. A date that is not today therefore has exactly one
   // cause — the BCV did not publish — and saying so is safe here. The dashboard
@@ -313,12 +346,30 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
           </span>
         </div>
         <span className="text-xs opacity-70">{stampLabel}</span>
-        {noPublicationToday ? (
+        {noPublicationToday && !usarPrevista ? (
           <span className="text-xs opacity-70">
             El BCV no publica sábados, domingos ni festivos. Esta es la última tasa publicada.
           </span>
         ) : null}
       </div>
+
+      {/* Solo cuando hay una tasa futura publicada y estamos en la ventana del
+          fin de semana. El resto del tiempo no existe: una casilla que casi
+          siempre está apagada se vuelve decorado y deja de leerse justo el día
+          que importa.
+
+          Fuera de la tarjeta oscura, no dentro: es una decisión sobre el
+          cálculo, no un dato más del resultado. */}
+      {prevista ? (
+        <label className="flex cursor-pointer items-start gap-2 text-sm">
+          <Checkbox
+            checked={usarPrevista}
+            onCheckedChange={(v) => setUsarPrevista(v === true)}
+            className="mt-0.5"
+          />
+          <span>Aplicar tasa BCV prevista para {etiquetaDePrevista(prevista.fecha)}</span>
+        </label>
+      ) : null}
 
       <Button type="button" variant="outline" onClick={handleShare}>
         {shared ? "Copiado" : "Compartir"}
