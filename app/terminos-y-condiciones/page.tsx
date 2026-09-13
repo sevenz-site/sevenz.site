@@ -16,7 +16,7 @@ export default function TerminosYCondicionesPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Términos y Condiciones de Uso de Sevenz"
-      updated="28 agosto 2026"
+      updated="13 septiembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -92,7 +92,7 @@ export default function TerminosYCondicionesPage() {
         <li>
           <strong>&ldquo;Contenido del Comercio&rdquo;</strong>: toda información ingresada,
           cargada o generada por el Comercio, incluidos nombres, teléfonos, montos, fechas, notas,
-          productos, movimientos y comunicaciones.
+          productos, movimientos, fotografías y comunicaciones.
         </li>
         <li>
           <strong>&ldquo;Saldo&rdquo;</strong>: el valor que el Comercio registra como pendiente de

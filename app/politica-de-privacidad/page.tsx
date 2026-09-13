@@ -15,7 +15,7 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="31 agosto 2026"
+      updated="13 septiembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -79,9 +79,21 @@ export default function PoliticaDePrivacidadPage() {
           , mediante un formulario obligatorio para poder ver el saldo. Este dato, una vez
           ingresado, nunca se vuelve a solicitar.
         </li>
+        <li>
+          Fotografía del Cliente Final, si el Comercio decide agregarla a su ficha —{" "}
+          <strong>
+            se almacena en un espacio accesible mediante enlace directo, del mismo modo que el
+            logo del Comercio
+          </strong>
+          . Es opcional: la ficha funciona igual sin ella, y el Comercio puede eliminarla en
+          cualquier momento, lo que borra el archivo.
+        </li>
       </ul>
       <p>
-        El Comercio es quien decide qué información de sus clientes ingresa a la Plataforma. Sevenz
+        El Comercio es quien decide qué información de sus clientes ingresa a la Plataforma, y es
+        responsable de haber obtenido el consentimiento del Cliente Final para ingresarla. Esto
+        aplica de forma particular a la fotografía: Sevenz no la solicita, no la exige y no la usa
+        para identificar a nadie — solo la muestra en la ficha que el Comercio ve. Sevenz
         solo recopila datos directamente del Cliente Final en dos casos: cuando visita el link de
         saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo), y
         cuando ese link le solicita su cédula/documento por no estar aún registrado, como se
@@ -106,7 +118,8 @@ export default function PoliticaDePrivacidadPage() {
         <li>
           Operar la Plataforma: crear cuentas, procesar fotos de libretas mediante inteligencia
           artificial para extraer movimientos, calcular saldos y tasas de cambio, generar el link
-          de saldo del cliente.
+          de saldo del cliente, y mostrar la fotografía del cliente en su ficha cuando el Comercio
+          la haya agregado.
         </li>
         <li>
           Comunicarnos con el Comercio (ver Sección 7 de los Términos y Condiciones):
