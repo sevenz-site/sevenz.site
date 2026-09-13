@@ -55,6 +55,11 @@ export const TEMAS: Tema[] = [
         pista: "Cada moneda lleva su propia cuenta. Nunca se suman entre ellas.",
       },
       { texto: "Pon el [[Plazo de pago]] si acordaron uno." },
+      {
+        texto:
+          "Si es fin de semana y ya se publicó la tasa que viene, sale la casilla [[Aplicar tasa BCV prevista]]. Márcala si estás cobrando a esa tasa.",
+        pista: "Cambia el equivalente en bolívares que ves, y queda guardado que usaste esa tasa y no la del día.",
+      },
       { texto: "Si quieres, agrega [[Detalle (opcional)]] y [[Foto (opcional)]], y guarda." },
     ],
     notas: [
@@ -182,6 +187,11 @@ export const TEMAS: Tema[] = [
         texto: "Abajo sale el resultado convertido.",
         pista: "También funciona al revés: escribe los bolívares y te dice cuántos dólares son.",
       },
+      {
+        texto:
+          "Los fines de semana, si ya se publicó la tasa que va a regir, aparece la casilla [[Aplicar tasa BCV prevista]]. Márcala y la cuenta se hace con esa.",
+        pista: "Solo sale cuando existe. Entre semana no aparece porque no hace falta.",
+      },
       { texto: "Con [[Compartir]] lo mandas por WhatsApp tal cual." },
     ],
     notas: [
@@ -189,6 +199,17 @@ export const TEMAS: Tema[] = [
         titulo: "Los fines de semana y feriados",
         texto:
           "El BCV no publica sábados, domingos ni festivos. Esos días verás la última tasa publicada, y la app te lo dice.",
+      },
+      {
+        titulo: "Para qué sirve la tasa prevista",
+        texto:
+          "El BCV publica el viernes la tasa que va a regir el lunes. Si el sábado cobras con la del viernes, pierdes: por Bs. 45.000 le abonas $54,05 a tu cliente cuando a la tasa del lunes serían $53,43. La casilla hace la cuenta con la del lunes, que es lo que muchos dueños ya hacían a mano.",
+      },
+      {
+        titulo: "Es tu decisión, no automática",
+        texto:
+          "La casilla nunca viene marcada. Si no la tocas, todo funciona con la tasa vigente como siempre. Y cuando esa tasa entra en vigor, la casilla desaparece sola.",
+        cuidado: true,
       },
     ],
   },
