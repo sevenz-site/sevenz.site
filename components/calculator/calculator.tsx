@@ -359,9 +359,13 @@ function RateConverter({ rate, rateDate }: { rate: Rate; rateDate: string | null
           que importa.
 
           Fuera de la tarjeta oscura, no dentro: es una decisión sobre el
-          cálculo, no un dato más del resultado. */}
+          cálculo, no un dato más del resultado.
+
+          mb-1 sobre el gap-3 del contenedor = 16px hasta "Compartir". El label
+          ocupa todo el ancho, así que con 12px el dedo caía en el botón de
+          abajo al intentar marcar la casilla. */}
       {prevista ? (
-        <label className="flex cursor-pointer items-start gap-2 text-sm">
+        <label className="mb-1 flex cursor-pointer items-start gap-2 text-sm">
           <Checkbox
             checked={usarPrevista}
             onCheckedChange={(v) => setUsarPrevista(v === true)}
