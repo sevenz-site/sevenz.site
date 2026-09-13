@@ -287,7 +287,7 @@ export const TEMAS: Tema[] = [
       { texto: "Entra a app.sevenz.site desde el navegador de tu teléfono." },
       {
         texto:
-          "En Android: toca [[Instalar]] cuando la app te lo ofrezca, o abre el menú de Chrome —los tres puntos de arriba a la derecha— y elige [[Instalar aplicación]].",
+          "En Android: házlo desde [[Chrome]]. Toca [[Instalar]] cuando la app te lo ofrezca, o abre el menú de Chrome —los tres puntos de arriba a la derecha— y elige [[Instalar aplicación]].",
         pista: "Si ya cerraste el aviso, lo vuelves a encontrar en el menú lateral, en [[Instalar app]].",
       },
       {
@@ -305,6 +305,12 @@ export const TEMAS: Tema[] = [
         titulo: "No es otra Sevenz",
         texto:
           "Es la misma cuenta y los mismos datos. Puedes seguir entrando desde el navegador cuando quieras; tener las dos no duplica nada.",
+      },
+      {
+        titulo: "En Samsung Internet no la instales",
+        texto:
+          "El navegador que viene de fábrica en los teléfonos Samsung no logra instalarla en las versiones nuevas de Android: sale una alerta de Google diciendo que la app no es segura. No tiene que ver con Sevenz — es ese navegador al empaquetarla. Desde Chrome funciona sin problema.",
+        cuidado: true,
       },
       {
         titulo: "Sigue necesitando internet",
