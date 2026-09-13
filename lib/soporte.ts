@@ -276,6 +276,44 @@ export const TEMAS: Tema[] = [
       },
     ],
   },
+  {
+    slug: "instalar-la-app-en-tu-telefono",
+    numero: 10,
+    grupo: "una-vez",
+    titulo: "Instalar la app en tu teléfono",
+    resumen:
+      "Sevenz se puede poner en la pantalla de inicio, con su icono, y abre sin la barra del navegador. No hay que descargarla de ninguna tienda.",
+    pasos: [
+      { texto: "Entra a app.sevenz.site desde el navegador de tu teléfono." },
+      {
+        texto:
+          "En Android: toca [[Instalar]] cuando la app te lo ofrezca, o abre el menú de Chrome —los tres puntos de arriba a la derecha— y elige [[Instalar aplicación]].",
+        pista: "Si ya cerraste el aviso, lo vuelves a encontrar en el menú lateral, en [[Instalar app]].",
+      },
+      {
+        texto:
+          "En iPhone: toca el botón de compartir en la barra de Safari, baja en la lista y elige [[Añadir a pantalla de inicio]].",
+        pista: "Safari no ofrece hacerlo solo. Hay que buscarlo, y por eso casi nadie lo sabe.",
+      },
+      { texto: "Confirma. El icono de Sevenz queda en tu pantalla de inicio." },
+    ],
+    cierre: [
+      "Desde ahí se abre como cualquier otra app: pantalla completa, sin barra de direcciones.",
+    ],
+    notas: [
+      {
+        titulo: "No es otra Sevenz",
+        texto:
+          "Es la misma cuenta y los mismos datos. Puedes seguir entrando desde el navegador cuando quieras; tener las dos no duplica nada.",
+      },
+      {
+        titulo: "Sigue necesitando internet",
+        texto:
+          "Instalarla no la vuelve una app que funcione sin señal. Tus cuentas viven en el servidor, así que para registrar un fiado hace falta conexión.",
+        cuidado: true,
+      },
+    ],
+  },
 ];
 
 export function temaPorSlug(slug: string): Tema | undefined {

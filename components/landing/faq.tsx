@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -5,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const FAQS = [
+const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
   {
     q: "¿Qué es el fiado y por qué necesito controlarlo?",
     a: "El fiado es la venta a crédito que muchos negocios en Venezuela hacen de palabra, apuntada en una libreta. El problema no es fiar — es que solo tú ves el número, y con el tiempo se te pierde la cuenta o el cliente la disputa. Sevenz pone ese número frente a los dos, siempre igual.",
@@ -28,7 +29,17 @@ const FAQS = [
   },
   {
     q: "¿Sevenz me va a poner lento el teléfono?",
-    a: "No tienes que instalar nada: Sevenz se abre en el navegador, como cualquier página. Tu cartera vive en la nube, no en el teléfono, así que no se te llena la memoria con los datos de tus clientes ni con las fotos de la libreta.",
+    a: "No. Sevenz se abre en el navegador, como cualquier página, y tu cartera vive en la nube: no se te llena la memoria con los datos de tus clientes ni con las fotos de la libreta. Si la instalas en tu pantalla de inicio ocupa apenas el icono — tampoco ahí baja nada pesado.",
+  },
+  {
+    // La pregunta que los tenderos hacen de verdad, con sus palabras. Sevenz es
+    // instalable desde agosto y ninguno se había enterado: Android enseña su
+    // propio aviso, discreto, y en iPhone no aparece nunca. Preguntar por la
+    // tienda no es querer la tienda, es no saber que ya se puede.
+    q: "¿Sevenz está en la Play Store? ¿La puedo descargar?",
+    a: "En la tienda todavía no, pero sí la puedes tener en tu pantalla de inicio, con su icono y abriendo a pantalla completa como cualquier otra app. Se instala desde el mismo navegador, en dos toques, sin descargar nada. En Android la app te lo ofrece sola; en iPhone se hace desde el botón de compartir de Safari. Te dejamos los pasos en Soporte.",
+    href: "/soporte/instalar-la-app-en-tu-telefono",
+    hrefLabel: "Ver cómo instalarla",
   },
   {
     // "Anónima" no se dice: la app guarda nombres, cédulas y teléfonos de
@@ -69,6 +80,17 @@ export function Faq() {
             <AccordionTrigger className="text-lg font-semibold">{item.q}</AccordionTrigger>
             <AccordionContent className="text-base text-muted-foreground">
               {item.a}
+              {/* El enlace va fuera de `a` y no dentro: ese texto también
+                  alimenta el JSON-LD de abajo, y Google no quiere etiquetas
+                  ahí. Así la respuesta se lee igual en los dos sitios. */}
+              {item.href ? (
+                <>
+                  {" "}
+                  <Link href={item.href} className="font-medium text-foreground underline underline-offset-4">
+                    {item.hrefLabel}
+                  </Link>
+                </>
+              ) : null}
             </AccordionContent>
           </AccordionItem>
         ))}
