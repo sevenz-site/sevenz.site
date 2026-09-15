@@ -15,7 +15,7 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="13 septiembre 2026"
+      updated="15 septiembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -58,6 +58,18 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para importar su cartera</li>
         <li>Configuración de tasa de cambio: automática (BCV) o personalizada por el negocio</li>
+        <li>
+          Datos de su suscripción: plan contratado, precio acordado, periodicidad de cobro,
+          fecha de fin del periodo de prueba, y el registro de cada pago con su monto, método
+          y fecha
+        </li>
+        <li>
+          Comprobantes y notas internas asociados a esa suscripción — por ejemplo el recibo de
+          un pago que el Comercio nos envía, o la razón por la que su cuenta pasó a solo
+          lectura.{" "}
+          <strong>Las notas internas no se muestran al Comercio dentro de la Plataforma</strong>,
+          pero puede solicitarlas ejerciendo los derechos de la Sección 8
+        </li>
         <li>
           Datos de uso de la Plataforma (páginas visitadas, acciones realizadas, dispositivo,
           dirección IP aproximada)
@@ -126,6 +138,11 @@ export default function PoliticaDePrivacidadPage() {
           notificaciones operativas, de producto y comerciales.
         </li>
         <li>Mejorar el producto: entender patrones de uso agregados, identificar errores, priorizar funcionalidades.</li>
+        <li>
+          Administrar la suscripción del Comercio: aplicar el plan que tiene contratado,
+          registrar los pagos recibidos y dejar constancia de por qué una cuenta pasó a solo
+          lectura o volvió a estar activa.
+        </li>
         <li>Prevenir fraude y cumplir obligaciones legales.</li>
         <li>A futuro: mostrar publicidad relevante de Sevenz en canales digitales (ver Sección 6).</li>
       </ul>
@@ -235,6 +252,12 @@ export default function PoliticaDePrivacidadPage() {
         deben sus clientes. Borrarlo porque dejó de pagar una suscripción le quitaría algo que es
         suyo y que puede necesitar mucho después. Por eso lo conservamos de forma indefinida, salvo
         que el Comercio pida expresamente su eliminación.
+      </p>
+      <p>
+        Los datos de la suscripción —pagos, comprobantes y el motivo de un cambio de estado—
+        se conservan como constancia de lo cobrado y de lo acordado, por si más adelante hay que
+        responder por ello. Se rigen por la misma solicitud de eliminación descrita a
+        continuación.
       </p>
       <p>
         El Comercio puede solicitar en cualquier momento que se borren sus datos, escribiendo a{" "}
