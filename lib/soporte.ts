@@ -48,13 +48,28 @@ export const TEMAS: Tema[] = [
           "Si no aparece, pulsa [[Registrar cliente nuevo]] y llena [[Nombre del cliente]], [[WhatsApp]], [[Cédula/documento]] y [[Dirección (opcional)]].",
         pista: "El WhatsApp vale la pena: es por donde le vas a mandar su saldo.",
       },
-      { texto: "En [[Tipo]] deja [[Fiado]]." },
-      { texto: "Escribe el [[Monto]]." },
+      { texto: "En [[Tipo]] deja [[Cargo (fía)]]." },
       {
-        texto: "Si tu negocio maneja dólares y euros, elige la [[Moneda]].",
+        texto: "Pon el [[Plazo de pago]] si acordaron uno.",
+        pista:
+          "Si acordaron unos días que no están en la lista, elige [[Otro plazo…]] y escríbelos.",
+      },
+      {
+        texto:
+          "Si tu negocio maneja dólares y euros, en [[Moneda a registrar]] elige en qué moneda vas a escribir el monto.",
+        pista:
+          "Si tu cliente te va a pagar en bolívares, pulsa [[Bolívares]] y escribe los bolívares. La app los pasa a dólares o a euros por ti.",
+      },
+      {
+        texto: "Escribe el [[Monto]].",
+        pista:
+          "Si escribiste en bolívares, debajo aparece [[Monto a registrar]] con la cifra que va a quedar guardada. Esa es la deuda.",
+      },
+      {
+        texto:
+          "Escribiendo en bolívares, en [[Monto a registrar]] eliges a qué cuenta va la deuda: dólares o euros.",
         pista: "Cada moneda lleva su propia cuenta. Nunca se suman entre ellas.",
       },
-      { texto: "Pon el [[Plazo de pago]] si acordaron uno." },
       {
         texto:
           "Si es fin de semana y ya se publicó la tasa que viene, sale la casilla [[Aplicar tasa BCV prevista]]. Márcala si estás cobrando a esa tasa.",
@@ -68,6 +83,11 @@ export const TEMAS: Tema[] = [
         texto:
           "Es de donde sale el puntaje del cliente. Sin plazo, la app no tiene cómo saber si te pagó tarde o a tiempo.",
       },
+      {
+        titulo: "Escribir en bolívares no guarda la deuda en bolívares",
+        texto:
+          "Los bolívares son una forma de escribir el monto, no una cuenta aparte. La deuda queda en dólares o en euros, que es lo que no se devalúa. Los bolívares que escribiste quedan anotados en el respaldo del movimiento, y los ves en su detalle.",
+      },
     ],
   },
   {
@@ -80,9 +100,15 @@ export const TEMAS: Tema[] = [
       { texto: "Entra al cliente desde [[Cartera]] o [[Clientes]]." },
       { texto: "Pulsa [[+ Agregar abono]]." },
       {
+        texto:
+          "Si tu negocio maneja dólares y euros, en [[Moneda a registrar]] elige en qué moneda vas a escribir.",
+        pista:
+          "Si te pagó en bolívares, pulsa [[Bolívares]] y escribe los bolívares. La app los pasa a lo que te debe.",
+      },
+      {
         texto: "Escribe cuánto te pagó.",
         pista:
-          "La app no te deja poner más de lo que te debe. Si te dio de más, es una cuenta nueva, no un abono.",
+          "Debajo del monto dice el máximo, en la misma moneda en la que estás escribiendo. La app no te deja poner más de lo que te debe: si te dio de más, es una cuenta nueva, no un abono.",
       },
       { texto: "Si maneja dos monedas, revisa que sea la correcta, y guarda." },
     ],
@@ -112,6 +138,11 @@ export const TEMAS: Tema[] = [
           "Pégalo en el WhatsApp de tu cliente. También tienes [[Chat]] para abrir su conversación directo.",
       },
       { texto: "Cuando él lo abra, te llega un aviso en [[Notificaciones]]." },
+      {
+        texto:
+          "También lo mandas desde cualquier movimiento: tócalo en el historial y pulsa [[Compartir]].",
+        pista: "Es el mismo enlace y el mismo mensaje. No se crea uno nuevo.",
+      },
     ],
     cierre: [
       "Tu cliente ve su nombre, cuánto debe, y cada fiado y cada abono con su fecha. Solo lo suyo — no ve tus otros clientes, ni tu cartera, ni cuánto vendes.",
@@ -192,7 +223,11 @@ export const TEMAS: Tema[] = [
           "Los fines de semana, si ya se publicó la tasa que va a regir, aparece la casilla [[Aplicar tasa BCV prevista]]. Márcala y la cuenta se hace con esa.",
         pista: "Solo sale cuando existe. Entre semana no aparece porque no hace falta.",
       },
-      { texto: "Con [[Compartir]] lo mandas por WhatsApp tal cual." },
+      {
+        texto: "Con [[Compartir]] lo mandas por WhatsApp.",
+        pista:
+          "Sale como una imagen con el logo de Sevenz, la cuenta y de cuándo es la tasa. No lleva ningún enlace dentro, a propósito: un mensaje reenviado con un enlace es lo que copian los estafadores.",
+      },
     ],
     notas: [
       {
