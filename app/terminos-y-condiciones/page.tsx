@@ -16,7 +16,7 @@ export default function TerminosYCondicionesPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Términos y Condiciones de Uso de Sevenz"
-      updated="13 septiembre 2026"
+      updated="15 septiembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -275,6 +275,11 @@ export default function TerminosYCondicionesPage() {
         anticipación, indicando precio, moneda, impuestos aplicables, periodicidad y condiciones de
         cancelación, <strong>antes</strong> de que el Usuario deba pagar.
       </p>
+      <p>
+        Sevenz puede otorgar periodos de prueba de duración acordada con cada Comercio,
+        indicándole desde el inicio el precio y la periodicidad que aplicarán cuando la prueba
+        termine.
+      </p>
       <p>Si en el futuro se activan suscripciones pagas:</p>
       <ul>
         <li>Podrán renovarse automáticamente al final de cada período contratado, salvo indicación contraria.</li>
@@ -285,6 +290,14 @@ export default function TerminosYCondicionesPage() {
         <li>
           La cancelación evita cobros futuros, pero no genera necesariamente reembolso de períodos
           ya iniciados, salvo que la ley aplicable exija lo contrario.
+        </li>
+        <li>
+          Ante la falta de pago, Sevenz podrá pasar la cuenta a{" "}
+          <strong>solo lectura</strong>: el Comercio conserva el acceso a su cartera y a su
+          historial, y el link de saldo que compartió con sus clientes sigue funcionando, pero no
+          podrá registrar nuevos movimientos hasta regularizar su situación.{" "}
+          <strong>Los datos no se borran por este motivo</strong> (ver Sección 7 de la{" "}
+          <Link href="/politica-de-privacidad">Política de Privacidad</Link>).
         </li>
         <li>
           Para consumidores en Colombia, Sevenz respetará los derechos irrenunciables de
