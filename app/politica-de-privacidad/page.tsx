@@ -224,10 +224,23 @@ export default function PoliticaDePrivacidadPage() {
 
       <h2>7. Conservación de los datos</h2>
       <p>
-        Conservamos los datos mientras la cuenta del Comercio esté activa y por el tiempo adicional
-        necesario para cumplir obligaciones legales, resolver disputas o prevenir fraude. El plazo
-        específico de conservación tras la cancelación de una cuenta aún está en definición; esta
-        sección se actualizará con un plazo concreto antes del lanzamiento comercial formal.
+        Conservamos los datos mientras la cuenta del Comercio esté activa, y también cuando deja de
+        estarlo. Si un Comercio termina su periodo de prueba sin contratar, o deja de pagar su
+        suscripción, su cuenta pasa a <strong>solo lectura</strong>: puede seguir consultando su
+        cartera y su historial, pero no registrar nuevos movimientos. Los datos no se borran por
+        ese motivo.
+      </p>
+      <p>
+        La razón es que el historial de fiados y abonos es el registro del dinero que al Comercio le
+        deben sus clientes. Borrarlo porque dejó de pagar una suscripción le quitaría algo que es
+        suyo y que puede necesitar mucho después. Por eso lo conservamos de forma indefinida, salvo
+        que el Comercio pida expresamente su eliminación.
+      </p>
+      <p>
+        El Comercio puede solicitar en cualquier momento que se borren sus datos, escribiendo a{" "}
+        <a href="mailto:sevenz.mvp@gmail.com">sevenz.mvp@gmail.com</a>. Atenderemos esa solicitud
+        salvo que exista una obligación legal de conservar algún dato concreto, y en ese caso le
+        diremos cuál y por cuánto tiempo.
       </p>
 
       <h2>8. Derechos de los titulares</h2>
@@ -296,8 +309,8 @@ export default function PoliticaDePrivacidadPage() {
 
       <p className="mt-10! text-sm italic">
         Este documento no constituye asesoría legal y no sustituye la revisión de un abogado,
-        especialmente antes de activar publicidad dirigida (Meta Pixel), definir el plazo final de
-        retención de datos, o formalizar la entidad operadora.
+        especialmente antes de activar publicidad dirigida (Meta Pixel) o formalizar la entidad
+        operadora.
       </p>
     </LegalLayout>
   );
