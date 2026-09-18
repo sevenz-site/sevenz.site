@@ -100,15 +100,24 @@ export default function PoliticaDePrivacidadPage() {
           . Es opcional: la ficha funciona igual sin ella, y el Comercio puede eliminarla en
           cualquier momento, lo que borra el archivo.
         </li>
+        <li>
+          Las respuestas que el Cliente Final decida escribirnos desde el link de saldo, cuando le
+          preguntamos qué le gustaría poder hacer en Sevenz —{" "}
+          <strong>es voluntario y el saldo se ve igual sin responder</strong>. Se guarda el texto
+          que escriba, asociado a su ficha. Usamos esas respuestas únicamente para decidir qué
+          construir: no se publican, no se muestran al Comercio y no se usan para contactar a
+          nadie.
+        </li>
       </ul>
       <p>
         El Comercio es quien decide qué información de sus clientes ingresa a la Plataforma, y es
         responsable de haber obtenido el consentimiento del Cliente Final para ingresarla. Esto
         aplica de forma particular a la fotografía: Sevenz no la solicita, no la exige y no la usa
         para identificar a nadie — solo la muestra en la ficha que el Comercio ve. Sevenz
-        solo recopila datos directamente del Cliente Final en dos casos: cuando visita el link de
-        saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo), y
-        cuando ese link le solicita su cédula/documento por no estar aún registrado, como se
+        solo recopila datos directamente del Cliente Final en tres casos: cuando visita el link de
+        saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo), cuando
+        ese link le solicita su cédula/documento por no estar aún registrado, y cuando responde de
+        forma voluntaria a la pregunta sobre qué le gustaría hacer en Sevenz — los tres, como se
         describe arriba.
       </p>
 
@@ -258,6 +267,15 @@ export default function PoliticaDePrivacidadPage() {
         se conservan como constancia de lo cobrado y de lo acordado, por si más adelante hay que
         responder por ello. Se rigen por la misma solicitud de eliminación descrita a
         continuación.
+      </p>
+      <p>
+        Las respuestas que un Cliente Final nos escribe voluntariamente sobre qué le gustaría
+        poder hacer en Sevenz se conservan aunque su ficha desaparezca, pero{" "}
+        <strong>desasociadas de ella</strong>: si el Comercio borra al cliente, el texto deja de
+        estar vinculado a ninguna persona y queda solo como una idea suelta. La razón es que esas
+        respuestas orientan qué construimos, y perderlas porque un Comercio depuró su cartera
+        borraría el motivo de decisiones ya tomadas. Si prefiere que se elimine por completo,
+        puede pedirlo igual que cualquier otro dato.
       </p>
       <p>
         El Comercio puede solicitar en cualquier momento que se borren sus datos, escribiendo a{" "}
