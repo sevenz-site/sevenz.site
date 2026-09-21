@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { SITE_URL } from "@/lib/config";
+import { WhatsappFloat } from "@/components/landing/whatsapp-float";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -65,6 +66,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         {children}
+        {/* Fuera de <main>, como la barra de progreso: flota sobre todas las
+            páginas y no forma parte del contenido de ninguna. */}
+        <WhatsappFloat />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
