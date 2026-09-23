@@ -59,6 +59,13 @@ export default function PoliticaDePrivacidadPage() {
         <li>Fotografías de libretas o registros físicos que decida subir para importar su cartera</li>
         <li>Configuración de tasa de cambio: automática (BCV) o personalizada por el negocio</li>
         <li>
+          Si aceptó recibir el resumen de su cartera por WhatsApp: la fecha en que lo aceptó,{" "}
+          <strong>el texto exacto que leyó al aceptarlo</strong> y, si después lo desactivó, la
+          fecha en que lo hizo. Guardamos el texto y no solo la fecha porque la redacción de esa
+          pantalla puede cambiar con el tiempo, y lo que debe poder demostrarse es lo que esa
+          persona leyó, no lo que diga la pantalla hoy
+        </li>
+        <li>
           Datos de su suscripción: plan contratado, precio acordado, periodicidad de cobro,
           fecha de fin del periodo de prueba, y el registro de cada pago con su monto, método
           y fecha
@@ -144,7 +151,10 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           Comunicarnos con el Comercio (ver Sección 7 de los Términos y Condiciones):
-          notificaciones operativas, de producto y comerciales.
+          notificaciones operativas, de producto y comerciales. Incluye el{" "}
+          <strong>resumen de su cartera por WhatsApp</strong> —cobros pendientes y plazos
+          vencidos—, que solo se envía si el Comercio lo aceptó y que puede desactivar en
+          cualquier momento desde <em>Mi negocio</em>.
         </li>
         <li>Mejorar el producto: entender patrones de uso agregados, identificar errores, priorizar funcionalidades.</li>
         <li>
@@ -185,6 +195,19 @@ export default function PoliticaDePrivacidadPage() {
               <td>Vercel</td>
               <td>Alojamiento de la aplicación web</td>
               <td>Datos técnicos de navegación</td>
+            </tr>
+            <tr>
+              <td>Kapso</td>
+              <td>Envío de los mensajes de WhatsApp de Sevenz al Comercio</td>
+              <td>
+                Número de WhatsApp del Comercio, su nombre y las cifras del resumen (monto por
+                cobrar y cantidad de clientes con plazo vencido)
+              </td>
+            </tr>
+            <tr>
+              <td>WhatsApp / Meta</td>
+              <td>Entrega del mensaje al teléfono del Comercio</td>
+              <td>Los mismos datos que Kapso le transmite para poder entregarlos</td>
             </tr>
             <tr>
               <td>Mixpanel</td>
@@ -276,6 +299,13 @@ export default function PoliticaDePrivacidadPage() {
         respuestas orientan qué construimos, y perderlas porque un Comercio depuró su cartera
         borraría el motivo de decisiones ya tomadas. Si prefiere que se elimine por completo,
         puede pedirlo igual que cualquier otro dato.
+      </p>
+      <p>
+        El registro del consentimiento para recibir mensajes por WhatsApp —la fecha y el texto que
+        el Comercio leyó— <strong>se conserva aunque después lo desactive</strong>. La razón es que
+        ese registro es precisamente la constancia de que el permiso existió ese día; borrarlo al
+        desactivar eliminaría la única prueba de que se pidió. La desactivación se anota junto a
+        él, con su propia fecha.
       </p>
       <p>
         El Comercio puede solicitar en cualquier momento que se borren sus datos, escribiendo a{" "}

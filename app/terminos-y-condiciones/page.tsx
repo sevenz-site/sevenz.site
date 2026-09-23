@@ -224,8 +224,14 @@ export default function TerminosYCondicionesPage() {
         </li>
       </ul>
       <p>
-        Las comunicaciones operativas y transaccionales son necesarias para el funcionamiento del
-        servicio y no pueden desactivarse mientras la cuenta esté activa. Las comunicaciones de
+        El <strong>resumen de cartera por WhatsApp</strong> —cobros pendientes y plazos vencidos—
+        es una excepción a lo anterior: aunque su contenido es operativo, solo se envía si el
+        Comercio lo aceptó, y puede desactivarlo cuando quiera desde <em>Mi negocio</em>. Al
+        desactivarlo deja de recibirlo y no se ve afectado ningún otro aspecto del servicio.
+      </p>
+      <p>
+        Las demás comunicaciones operativas y transaccionales son necesarias para el
+        funcionamiento del servicio y no pueden desactivarse mientras la cuenta esté activa. Las comunicaciones de
         producto y comerciales podrán desactivarse en cualquier momento desde la configuración de
         la cuenta o solicitándolo a{" "}
         <a href="mailto:sevenz.mvp@gmail.com">sevenz.mvp@gmail.com</a>, sin que ello afecte el uso
