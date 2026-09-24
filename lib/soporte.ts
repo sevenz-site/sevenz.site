@@ -45,8 +45,8 @@ export const TEMAS: Tema[] = [
       },
       {
         texto:
-          "Si no aparece, pulsa [[Registrar cliente nuevo]] y llena [[Nombre del cliente]], [[WhatsApp]], [[Cédula/documento]] y [[Dirección (opcional)]].",
-        pista: "El WhatsApp vale la pena: es por donde le vas a mandar su saldo.",
+          "Si no aparece, pulsa [[Registrar cliente nuevo]] y llena [[Nombre del cliente]] y [[Documento]]. El [[WhatsApp (opcional)]] y la [[Dirección (opcional)]] los puedes dejar en blanco.",
+        pista: "El WhatsApp vale la pena aunque sea opcional: es por donde le vas a mandar su saldo. Si no lo tienes ahora, Sevenz te lo pide el día que se lo quieras mandar.",
       },
       { texto: "En [[Tipo]] deja [[Cargo (fía)]]." },
       {
@@ -265,7 +265,7 @@ export const TEMAS: Tema[] = [
       { texto: "Espera. Vas a ver [[En cola…]], luego [[Leyendo con IA…]] y al final [[Listo]]." },
       {
         texto:
-          "Revisa la tabla: [[Cliente]], [[Cédula/documento]], [[Detalle]] y [[Saldo calculado]].",
+          "Revisa la tabla: [[Cliente]], [[Documento]], [[WhatsApp]], [[Tipo]], [[Monto]] y [[Detalle]].",
         pista: "Corrige lo que haya leído mal. Es más rápido arreglar dos nombres que escribir treinta.",
       },
       { texto: "Confirma y tu cartera queda cargada." },
@@ -319,6 +319,11 @@ export const TEMAS: Tema[] = [
         pista: "Este sí se le muestra a tu cliente en su saldo. Es para que sepa a dónde pagarte.",
       },
       { texto: "Completa [[Dirección del negocio (opcional)]] y [[NIT/RUT (opcional)]] si aplican." },
+      {
+        texto:
+          "En [[Notificaciones]] decides si quieres recibir el resumen de tu cartera por WhatsApp.",
+        pista: "Llega con lo que tienes por cobrar y cuántos clientes se pasaron del plazo. Lo puedes apagar aquí mismo cuando quieras.",
+      },
       { texto: "Pulsa [[Guardar y salir]]." },
     ],
     cierre: [
