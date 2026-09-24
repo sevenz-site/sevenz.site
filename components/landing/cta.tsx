@@ -1,24 +1,32 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { SIGNUP_URL } from "@/lib/config";
 
 export function Cta() {
   return (
-    <section className="flex flex-col items-center px-6 py-28 text-center">
-      <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-        Empieza hoy
-      </p>
-      <h2 className="mt-5 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
-        ¿Quieres tener las cuentas claras con tus clientes?
-      </h2>
-      <p className="mt-4 max-w-sm text-muted-foreground">
-        Gratis para empezar, sin tarjeta de crédito.
-      </p>
-      <Button asChild size="lg" className="mt-9">
-        <a href={SIGNUP_URL}>Regístrate en Sevenz →</a>
-      </Button>
-      <p className="mt-4 font-mono text-xs text-muted-foreground/70">
-        ¡Controla el fiado de tu negocio sin vaina!
-      </p>
+    <section className="px-6 pt-20 pb-16 md:pt-28">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 text-center">
+        {/* El logotipo cierra la página igual que la abre. `alt` vacío porque
+            no aporta nada nuevo: el nombre ya está en el titular que sigue y
+            en el pie, y repetirlo tres veces seguidas a quien escucha la
+            página es ruido. */}
+        <Image src="/logo.svg" alt="" width={120} height={37} />
+
+        <h2 className="text-display md:text-display-lg lg:text-display-xl max-w-2xl text-balance">
+          ¿Quieres tener las cuentas claras con tus clientes?
+        </h2>
+
+        {/* El eslogan va DEBAJO del titular, no encima como en la v1. Encima
+            hacía de rótulo de sección; aquí es lo último que se lee antes de
+            tocar el botón, que es donde una frase de marca hace algo. */}
+        <p className="font-mono text-eyebrow text-subtle text-balance">
+          ¡Controla el fiado de tu negocio sin vaina!
+        </p>
+
+        <Button asChild size="lg" className="h-13 w-full rounded-lg text-base sm:w-auto sm:min-w-64">
+          <a href={SIGNUP_URL}>Probar gratis</a>
+        </Button>
+      </div>
     </section>
   );
 }

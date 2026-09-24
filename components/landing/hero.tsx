@@ -1,57 +1,77 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ProductShot } from "@/components/landing/product-shot";
 import { SIGNUP_URL } from "@/lib/config";
 import { FIADO_HEADLINE, FIADO_SUBHEAD } from "@/lib/copy";
 
+// Las cuatro monedas con las que trabaja un negocio venezolano, como insignias
+// encadenadas. No es una bandera por país: es una por unidad de cuenta, que es
+// lo que el tendero tiene en la cabeza cuando fía — bolívares, dólares, USDT y
+// euros.
+//
+// El `alt` va vacío a propósito y la fila entera lleva una etiqueta: cuatro
+// imágenes decorativas seguidas anunciadas una a una ("bandera de Venezuela,
+// bandera de Estados Unidos…") le dan a quien escucha cuatro interrupciones
+// para decir una sola cosa.
+const MONEDAS = [
+  { src: "/flags/ves.svg", nombre: "bolívares" },
+  { src: "/flags/usd.svg", nombre: "dólares" },
+  { src: "/flags/usdt.svg", nombre: "USDT" },
+  { src: "/flags/eur.svg", nombre: "euros" },
+];
+
 export function Hero() {
   return (
-    <section className="relative flex min-h-[92vh] flex-col items-center justify-center gap-10 overflow-hidden border-b px-6 py-24 text-center">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-50 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(to bottom, transparent 0px, transparent 43px, var(--border) 43px, var(--border) 44px)",
-        }}
-      />
-
-      <div className="relative flex max-w-2xl flex-col items-center gap-8">
-        <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-          Control de fiado para bodegas y comercios
+    <section className="flex flex-col items-center gap-10 px-6 pt-16 pb-20 text-center md:pt-24 md:pb-28">
+      <div className="flex w-full max-w-3xl flex-col items-center gap-6">
+        {/* Caja normal y no mayúsculas, como el mockup. Y "del fiado", no "de
+            fiado": es el control del fiado que ya existe, no una modalidad de
+            control llamada fiado. */}
+        <p className="font-mono text-eyebrow text-subtle text-balance">
+          Control del fiado para bodegas y comercios
         </p>
 
-        <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
-          <span className="text-lg text-muted-foreground line-through decoration-1">
-            debe 102.5...
-          </span>
-          <span className="font-mono text-lg text-muted-foreground sm:rotate-0">→</span>
-          <span className="border-b-2 border-foreground pb-0.5 font-mono text-lg font-semibold">
-            $102.500
-          </span>
-        </div>
+        <ul className="flex items-center" aria-label="Bolívares, dólares, USDT y euros">
+          {MONEDAS.map((m, i) => (
+            <li key={m.src} className={i === 0 ? "" : "-ml-3"}>
+              {/* El anillo del color del fondo es lo que separa una insignia de
+                  la siguiente cuando se solapan. Si el fondo de la sección
+                  cambiara, este anillo tiene que cambiar con él — por eso es
+                  `ring-background` y no `ring-white`. */}
+              <span className="flex size-10 items-center justify-center overflow-hidden rounded-full ring-2 ring-background">
+                <Image src={m.src} alt="" width={40} height={40} className="size-full object-cover" />
+              </span>
+            </li>
+          ))}
+        </ul>
 
-        <h1 className="text-4xl leading-[1.06] font-bold tracking-tight text-balance sm:text-6xl">
+        <h1 className="text-display md:text-display-lg lg:text-display-xl text-balance">
           {FIADO_HEADLINE}
         </h1>
-        <p className="max-w-lg text-lg text-muted-foreground">{FIADO_SUBHEAD}</p>
 
-        <Button asChild size="lg">
-          <a href={SIGNUP_URL}>Probar gratis →</a>
+        <p className="max-w-xl text-lg text-muted-foreground text-pretty">{FIADO_SUBHEAD}</p>
+
+        {/* A ancho completo en el teléfono, como el mockup: es la única acción
+            de la pantalla y no compite con nada. En escritorio se acota — un
+            botón de 700px de ancho deja de leerse como botón. */}
+        <Button asChild size="lg" className="h-13 w-full rounded-lg text-base sm:w-auto sm:min-w-64">
+          <a href={SIGNUP_URL}>Probar gratis</a>
         </Button>
       </div>
 
-      <div className="relative w-full max-w-4xl">
-        <ProductShot
-          src="/screens/cartera-de-fiado-del-negocio-en-la-app-sevenz.png"
-          alt="Cartera de fiado del negocio en la app Sevenz"
-          width={1792}
-          height={1008}
-        />
-      </div>
-
-      <div className="relative flex flex-col items-center gap-1.5 pt-2">
-        <span className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground">SEGUIR</span>
-        <span className="h-6 w-px animate-pulse bg-muted-foreground" />
-      </div>
+      {/* Sin marco: estas capturas son recortes de teléfonos sobre
+          transparencia, así que un borde y una sombra alrededor dibujarían una
+          caja rectangular donde no hay ninguna.
+          `priority` porque es la imagen grande del primer pantallazo y es la
+          que mide el LCP. */}
+      <Image
+        src="/screens/sevenz-calculadora-balance-cartera-puntaje-credito.png"
+        alt="La app de Sevenz en tres teléfonos: la calculadora del dólar BCV, el capital por cobrar en dólares y euros, y el puntaje de crédito de un cliente"
+        width={1208}
+        height={1072}
+        priority
+        sizes="(min-width: 1024px) 960px, 100vw"
+        className="h-auto w-full max-w-4xl"
+      />
     </section>
   );
 }

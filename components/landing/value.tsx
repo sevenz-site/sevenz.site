@@ -1,53 +1,30 @@
-import { ProductShot } from "@/components/landing/product-shot";
+import Image from "next/image";
+import { Section, SectionHeading } from "@/components/landing/section";
 
 export function Value() {
   return (
-    <section className="flex flex-col items-center border-b px-6 py-24 text-center">
-      <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-        El cambio real
-      </p>
-      <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-        El mismo número.
-        <br />
-        Las dos partes. Siempre.
-      </h2>
-      <p className="mt-4 max-w-md text-muted-foreground">
-        Se acabó el &ldquo;yo no debía tanto&rdquo; — el número lo dice la app, no tú.
-      </p>
+    <Section>
+      {/* La única sección en dos columnas de verdad, y por un motivo concreto:
+          su captura es casi cuadrada (1288×1136). A ancho completo en un
+          portátil ocupa la pantalla entera y el titular que la explica queda
+          fuera de vista mientras se mira — que es justo al revés de lo que
+          tiene que pasar. Al lado, se leen juntos.
+          En el teléfono vuelve a apilarse, como el mockup. */}
+      <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
+        <SectionHeading
+          titulo="Notificaciones de cobro automatizadas vía WhatsApp"
+          lead="Sevenz automatiza el envío de notificaciones de abonos, fiados, fechas de pago y cobro a través de WhatsApp, así como reportes de cartera, análisis y recomendaciones inteligentes."
+        />
 
-      <div className="mt-10 flex w-full max-w-xl border-t">
-        <div className="flex flex-1 flex-col items-center gap-2 border-r py-8 pr-4">
-          <span className="font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase">
-            Tú ves
-          </span>
-          <span className="font-mono text-3xl font-semibold sm:text-4xl">$102.500</span>
-          <p className="text-xs text-muted-foreground">
-            Toda tu cartera, ordenada por quién debe hace más tiempo.
-          </p>
-        </div>
-        <div className="flex flex-1 flex-col items-center gap-2 py-8 pl-4">
-          <span className="font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase">
-            Tu cliente ve
-          </span>
-          <span className="font-mono text-3xl font-semibold sm:text-4xl">$102.500</span>
-          <p className="text-xs text-muted-foreground">
-            Su propio saldo. Sin preguntarte. Sin discutirlo.
-          </p>
-        </div>
-      </div>
-
-      <p className="mt-10 font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-        Visualiza la reputación de tus clientes a partir de sus pagos
-      </p>
-
-      <div className="mt-6 w-full max-w-2xl">
-        <ProductShot
-          src="/screens/puntaje-de-credito-de-clientes-por-fiado-en-sevenz.png"
-          alt="Puntaje de crédito de clientes por fiado en Sevenz"
-          width={1344}
-          height={756}
+        <Image
+          src="/screens/sevenz-notificacion-whatsapp.png"
+          alt="Un mensaje de WhatsApp de Sevenz con el resumen de la cartera: clientes con plazo vencido, los que vencen esta semana y los que vieron su saldo y no abonaron"
+          width={1288}
+          height={1136}
+          sizes="(min-width: 1024px) 480px, 100vw"
+          className="h-auto w-full"
         />
       </div>
-    </section>
+    </Section>
   );
 }

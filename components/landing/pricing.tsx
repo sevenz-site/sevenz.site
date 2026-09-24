@@ -1,80 +1,71 @@
-import { Check } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { SIGNUP_URL } from "@/lib/config";
+import { CircleCheck } from "lucide-react";
+import { Section } from "@/components/landing/section";
 
-const INCLUDED = [
-  "Toma una foto de tu libreta y arma tu cartera de fiado, sin re-escribir nada.",
-  "Comparte el saldo por WhatsApp — tu cliente lo ve sin que tengas que decírselo.",
-  "Tú y tu cliente ven el mismo número, siempre.",
+// TODO LO QUE ENTRA, SIN SEPARAR LO QUE YA EXISTE DE LO QUE NO.
+//
+// Decisión del usuario el 2026-09-24, después de que se le señalara que tres
+// de estas once líneas describen cosas que la app todavía no hace: el USDT de
+// la calculadora (pendiente CT-6), los reportes (CT-7, plan escrito sin
+// construir) y las notificaciones automáticas al CLIENTE (MS-3, bloqueada por
+// MS-4, MS-7, MS-9 y la constitución de la sociedad). Lo que sale el 2026-09-28
+// son los avisos al DUEÑO, no al cliente.
+//
+// Queda escrito aquí y como pendiente abierto en PENDIENTES.md porque es
+// exactamente la clase de frase que nadie recuerda haber escrito el día que un
+// dueño que paga veinte dólares no encuentra los reportes.
+const INCLUIDO = [
+  // El mockup decía "vís WhatsApp".
+  "Recordatorios de cobro vía WhatsApp.",
+  "Hasta 5 fotos de libreta al mes, sin costo.",
+  "Envío automatizado de notificaciones de cobro y abonos vía WhatsApp.",
+  "Importación autónoma de libreta.",
+  // El mockup decía "historial de abonos, fiados e historial", con la palabra
+  // repetida. Se quita la repetición sin inventar una tercera cosa que la app
+  // no prometa: una lista de características es justo donde no se improvisa.
+  "Perfil de cliente con historial de abonos y fiados.",
   "Balance de fiado vs. abonos, en dólares y en euros.",
   "Puntaje de puntualidad: sabe quién paga a tiempo y quién no.",
   "Lista de morosos y malas pagas, sin tener que recordarlo tú.",
-  "Calculadora de tasa de cambio: dólar y euro, siempre actualizada.",
-  "Hasta 5 fotos de libreta al mes, sin costo.",
+  "Calculadora de tasa de cambio: dólar, USDT y euro, siempre actualizada.",
+  "Reportes de fiado y cartera.",
+  "Acceso garantizado a nuevas funcionalidades.",
 ];
-
-const COMING_SOON = ["Recordatorios de cobro que se mandan solos.", "Reportes del fiado, listos sin mover un dedo."];
 
 export function Pricing() {
   return (
-    <section className="flex flex-col items-center border-b px-6 py-24 text-center">
-      <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">Precio</p>
-      <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-        Sevenz cuesta $0 USD. En serio.
-      </h2>
-      <p className="mt-4 max-w-sm text-muted-foreground">
-        Vale 30 USD al mes. Mientras arrancamos, no cuesta nada — sin tarjeta, sin tanta vaina,
-        sin letra pequeña.
-      </p>
-
-      <div className="mt-10 w-full max-w-md rounded-xl border p-8 text-left">
-        <div className="flex flex-col items-center border-b pb-6 text-center">
-          {/* Two numbers, and only one of them is what you pay. A struck-through
-              price reads as decoration to a screen reader unless the roles are
-              said out loud, so each carries its own sr-only label instead of
-              relying on the line through it to carry the meaning. */}
-          <span className="flex items-baseline gap-3">
-            <s className="font-mono text-2xl font-medium text-muted-foreground sm:text-3xl">
-              <span className="sr-only">Precio normal: </span>$30
-            </s>
-            <span className="font-mono text-5xl font-semibold sm:text-6xl">
-              <span className="sr-only">Precio hoy: </span>$0
-            </span>
-          </span>
-          <span className="mt-1 font-mono text-xs tracking-[0.1em] text-muted-foreground uppercase">
-            USD / mes
-          </span>
-          <Badge variant="outline" className="mt-4">
-            Precio de lanzamiento
-          </Badge>
+    <Section>
+      <div className="flex flex-col items-center gap-10 text-center">
+        <div className="flex flex-col items-center gap-3">
+          <h2 className="text-display md:text-display-lg lg:text-display-xl max-w-2xl text-balance">
+            Prueba gratis 2 meses
+            {/* El precio en su propia línea y a la misma escala que el titular,
+                como el mockup: es la mitad del mensaje, no un pie. */}
+            <span className="block">0$</span>
+          </h2>
+          <p className="text-lg text-muted-foreground text-pretty">
+            USD 20 por mes al finalizar período de prueba
+          </p>
         </div>
 
-        <ul className="mt-6 flex flex-col gap-3">
-          {INCLUDED.map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-sm">
-              <Check className="mt-0.5 size-4 shrink-0 text-foreground" />
-              <span>{item}</span>
+        {/* Una columna en el teléfono, como el mockup; dos en escritorio,
+            porque once líneas en una sola columna de 900px dejan medio ancho
+            vacío y obligan a recorrer la página entera para leerlas. */}
+        <ul className="grid w-full max-w-3xl gap-4 text-left sm:grid-cols-2">
+          {INCLUIDO.map((item) => (
+            <li key={item} className="flex items-start gap-4">
+              {/* El círculo va en gris, no en verde ni en negro: en una lista
+                  de once, once marcas de color se comen el titular que tienen
+                  encima. Lo que tiene que resaltar es el precio. */}
+              <CircleCheck
+                aria-hidden="true"
+                strokeWidth={1.5}
+                className="mt-0.5 size-6 shrink-0 text-subtle"
+              />
+              <span className="text-lg text-pretty">{item}</span>
             </li>
           ))}
         </ul>
-
-        <div className="mt-6 border-t pt-6">
-          <Badge variant="outline">Próximamente</Badge>
-          <ul className="mt-3 flex flex-col gap-3">
-            {COMING_SOON.map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                <Check className="mt-0.5 size-4 shrink-0 text-muted-foreground/50" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <Button asChild size="lg" className="mt-8 w-full">
-          <a href={SIGNUP_URL}>Probar gratis →</a>
-        </Button>
       </div>
-    </section>
+    </Section>
   );
 }

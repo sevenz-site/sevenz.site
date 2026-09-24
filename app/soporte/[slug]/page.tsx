@@ -5,7 +5,7 @@ import { ChevronLeftIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Texto } from "@/components/soporte/texto";
 import { TEMAS, etiquetaDeGrupo, temaPorSlug } from "@/lib/soporte";
-import { SIGNUP_URL } from "@/lib/config";
+import { OG_IMAGE, SIGNUP_URL } from "@/lib/config";
 
 // El sitio se exporta estático, así que las nueve rutas se generan en el build.
 export function generateStaticParams() {
@@ -24,6 +24,16 @@ export async function generateMetadata({
     title: `${tema.titulo} — Soporte de Sevenz`,
     description: tema.resumen,
     alternates: { canonical: `/soporte/${tema.slug}` },
+    // Sin esto, los diez temas comparten la vista previa de la portada:
+    // el enlace dice "Registrar un abono" y lo que se ve al compartirlo
+    // dice "Controla el fiado de tu negocio". Se hereda la imagen, que sí
+    // es la misma para todo el sitio.
+    openGraph: {
+      title: `${tema.titulo} — Soporte de Sevenz`,
+      description: tema.resumen,
+      url: `/soporte/${tema.slug}`,
+      images: [OG_IMAGE],
+    },
   };
 }
 
@@ -47,7 +57,7 @@ export default async function TemaPage({ params }: { params: Promise<{ slug: str
       <p className="mt-8 text-xs font-medium text-muted-foreground">
         {etiquetaDeGrupo(tema.grupo)}
       </p>
-      <h1 className="mt-2 text-3xl font-semibold tracking-tight">{tema.titulo}</h1>
+      <h1 className="text-display mt-2 text-balance">{tema.titulo}</h1>
       <p className="mt-3 text-lg text-muted-foreground">{tema.resumen}</p>
 
       <ol className="mt-10 flex flex-col gap-5">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Section, SectionHeading } from "@/components/landing/section";
 import {
   Accordion,
   AccordionContent,
@@ -20,8 +21,13 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     a: "Tu cliente ve su saldo a través de un link que le compartes por WhatsApp — no necesita instalar nada ni crear una cuenta. El link solo muestra su propio saldo, no el de otros clientes ni el resto de tu cartera.",
   },
   {
+    // Actualizada el 2026-09-24 con el precio del mockup v2. Antes decía "vale
+    // 30 USD al mes" y la sección de precio ya dice 20: dos cifras para lo
+    // mismo en la misma página es peor que no dar ninguna. La promesa de
+    // avisar antes de cobrar se mantiene palabra por palabra — es lo único de
+    // esta respuesta que es un compromiso y no un dato.
     q: "¿Cuánto cuesta usar Sevenz?",
-    a: "Sevenz vale 30 USD al mes, pero mientras arrancamos no cuesta nada: lo usas completo, con hasta 5 fotos de libreta al mes, sin costo y sin tarjeta de crédito. Si algún día empezamos a cobrar, te avisamos antes — nunca te vamos a cobrar algo que no sepas.",
+    a: "Lo pruebas gratis dos meses, completo, con hasta 5 fotos de libreta al mes y sin tarjeta de crédito. Después vale 20 USD al mes. Si empezamos a cobrarte, te avisamos antes — nunca te vamos a cobrar algo que no sepas.",
   },
   {
     q: "¿Qué pasa si un cliente dice que no debe tanto?",
@@ -50,30 +56,43 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     q: "¿Quién puede ver los datos de mis clientes?",
     a: "Solo tú. Los datos viajan cifrados entre tu teléfono y Sevenz, y cada cuenta está separada de las demás dentro de la base de datos: ningún otro negocio puede ver tu cartera, ni tú la suya. Tu cliente solo ve su propio saldo, a través del link que tú le mandas. Guardamos nombres y teléfonos reales porque sin eso no hay fiado que valga — por eso están protegidos, y por eso puedes leer en la Política de Privacidad qué guardamos y por cuánto tiempo.",
   },
+  {
+    // Novena pregunta, nueva en el mockup v2. La anterior contesta QUIÉN ve la
+    // cartera; esta contesta qué pasa con ella, que es la duda de quien lleva
+    // años dependiendo de un cuaderno físico. Por eso la respuesta empieza por
+    // perder el teléfono y no por la criptografía: es el riesgo que esa
+    // persona ha vivido de verdad.
+    //
+    // No dice "totalmente seguro" ni nombra certificaciones que Sevenz no
+    // tiene. Afirma lo mismo que la Política de Privacidad de este sitio
+    // sostiene, ni una palabra más.
+    q: "¿Qué tan seguro es usar Sevenz?",
+    a: "Tu cartera no vive en el teléfono: vive en la nube, cifrada mientras viaja y separada de la de cualquier otro negocio dentro de la base de datos. Si el teléfono se pierde, se moja o se daña, tus cuentas siguen completas — entras desde otro y están ahí, que es justamente lo que una libreta no te da. El link que le mandas a un cliente abre su propio saldo y nada más: ni el de otro cliente, ni el resto de tu cartera.",
+  },
 ];
 
 export function Faq() {
   return (
-    <section className="flex flex-col items-center border-b px-6 py-24 text-center">
-      <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-        Preguntas frecuentes
-      </p>
-      <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-        Todo lo que preguntan antes de fiar con Sevenz
-      </h2>
+    <Section className="flex flex-col items-center">
+      <SectionHeading
+        eyebrow="Preguntas frecuentes"
+        titulo="Todo lo que preguntan antes de fiar con Sevenz"
+        align="center"
+        className="mx-auto"
+      />
 
       {/* La primera abierta a propósito: enseña que las demás se abren. Con
-          todas cerradas, cinco títulos seguidos se leen como un menú y no como
+          todas cerradas, nueve títulos seguidos se leen como un menú y no como
           respuestas. `collapsible` deja cerrarla también, así que nadie queda
           obligado a mirar una respuesta que no le interesa.
 
           El JSON-LD de abajo sigue saliendo del mismo arreglo, así que Google
-          ve las cinco respuestas completas aunque cuatro estén plegadas. */}
+          ve las nueve respuestas completas aunque ocho estén plegadas. */}
       <Accordion
         type="single"
         collapsible
         defaultValue="faq-0"
-        className="mt-10 w-full max-w-2xl border-t text-left"
+        className="mx-auto mt-12 w-full max-w-2xl border-t text-left"
       >
         {FAQS.map((item, i) => (
           <AccordionItem key={item.q} value={`faq-${i}`}>
@@ -113,6 +132,6 @@ export function Faq() {
           }).replace(/</g, "\\u003c"),
         }}
       />
-    </section>
+    </Section>
   );
 }

@@ -18,15 +18,15 @@ export function LegalLayout({
       <Header />
       <main className="flex flex-1 flex-col items-center px-6 py-20">
         <div className="w-full max-w-2xl">
-          <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
+          <p className="font-mono text-eyebrow text-subtle">
             {eyebrow}
           </p>
-          <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h1>
-          <p className="mt-3 text-sm text-muted-foreground">Última actualización: {updated}</p>
+          <h1 className="text-display md:text-display-lg mt-5 text-balance">{title}</h1>
+          <p className="mt-4 text-sm text-subtle">Última actualización: {updated}</p>
 
           <div
             className="mt-12
-              [&_h2]:mt-12 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:tracking-tight
+              [&_h2]:mt-14 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight
               [&_p]:mt-4 [&_p]:leading-relaxed [&_p]:text-muted-foreground
               [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_ul]:text-muted-foreground
               [&_li]:leading-relaxed
