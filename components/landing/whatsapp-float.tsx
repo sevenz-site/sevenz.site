@@ -1,6 +1,6 @@
 import { SUPPORT_WHATSAPP, SUPPORT_WHATSAPP_MESSAGE } from "@/lib/config";
 
-// El botón flotante de "Más info" por WhatsApp, abajo a la derecha.
+// El botón flotante de "Soporte" por WhatsApp, abajo a la derecha.
 //
 // PARA QUÉ ESTÁ. Quien llega a sevenz.site y quiere saber más hoy solo puede
 // registrarse o leer. Registrarse es mucho pedir antes de entender qué es
@@ -33,18 +33,29 @@ export function WhatsappFloat() {
       href={`https://wa.me/${SUPPORT_WHATSAPP}?text=${encodeURIComponent(SUPPORT_WHATSAPP_MESSAGE)}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Más info por WhatsApp"
+      aria-label="Soporte por WhatsApp"
       style={POSICION}
       // z-40, el mismo que la cabecera pegajosa: nunca coinciden en pantalla
       // —una arriba y otro abajo— y así ninguno de los dos tapa la barra de
       // progreso de lectura, que va en z-50.
       //
-      // `focus-visible` con dos anillos: el botón es casi negro y sobre un
-      // fondo claro un anillo oscuro no se distingue del propio botón. El
-      // blanco de dentro lo separa.
-      className="fixed z-40 inline-flex items-center gap-3 rounded-full bg-[#272727] py-2 pr-2 pl-5 text-white shadow-lg transition-transform hover:scale-[1.03] focus-visible:ring-2 focus-visible:ring-[#272727] focus-visible:ring-offset-2 focus-visible:outline-none motion-reduce:transition-none motion-reduce:hover:scale-100"
+      // BLANCO CON BORDE, NO NEGRO. Antes era una píldora #272727 y el
+      // contraste lo ponía ella sola. En blanco sobre una página blanca el
+      // botón desaparece en cuanto la sombra cae sobre una zona clara, que es
+      // casi toda la web: el borde es lo que lo mantiene recortado del fondo,
+      // y por eso no es decorativo ni se puede quitar. La sombra sola no
+      // basta — se ve en una captura y no se ve en una pantalla con brillo.
+      //
+      // `focus-visible` en negro: el anillo tiene que contrastar con el botón,
+      // y ahora el botón es lo claro.
+      className="fixed z-40 inline-flex items-center gap-4 rounded-full border border-border bg-background py-2 pr-2 pl-6 text-foreground shadow-[0_4px_16px_rgb(0_0_0/0.12)] transition-transform hover:scale-[1.03] focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:outline-none motion-reduce:transition-none motion-reduce:hover:scale-100"
     >
-      <span className="text-base font-medium">Más info</span>
+      {/* "Soporte" y no "Más info": el enlace lleva al mismo WhatsApp, pero
+          quien llega a la calculadora del BCV o a un tema de Soporte no viene
+          a que le cuenten qué es Sevenz — viene con una pregunta. El mensaje
+          que va escrito (`SUPPORT_WHATSAPP_MESSAGE`) sigue presentándose,
+          porque un "Hola" suelto obliga a preguntar de dónde sale la persona. */}
+      <span className="text-lg font-medium">Soporte</span>
       {/* El círculo verde es de WhatsApp, así que su verde es el de WhatsApp
           (#25D366) y no un token de Sevenz: aquí el color ES la señal de a
           dónde lleva el botón, no decoración de marca. Por lo mismo el dibujo

@@ -10,6 +10,44 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
+
+  /* El tercer gris. shadcn trae dos niveles de texto —`foreground` y
+     `muted-foreground`— y el mockup usa tres: negro para los titulares,
+     #4C4C4C para los párrafos y #999 para los eyebrows y los números de paso.
+     Sin este token, esos dos últimos comparten valor y el eyebrow deja de
+     leerse como un rótulo para leerse como texto normal. */
+  --color-subtle: var(--subtle);
+
+  /* La escala de display.
+     El mockup abre cada sección con un titular grande, muy apretado y en
+     negro puro; el contraste con el párrafo gris de debajo es lo que sostiene
+     todo el ritmo de la página. Vive aquí y no suelto en cada componente
+     porque son ocho secciones con el mismo tratamiento: cambiarlo en un sitio
+     tiene que cambiarlo en las ocho.
+
+     Los tamaños están calibrados sobre las proporciones del mockup (móvil) y
+     crecen en escritorio, que el mockup no cubre. */
+  --text-display: 2rem;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 700;
+
+  --text-display-lg: 2.75rem;
+  --text-display-lg--line-height: 1.05;
+  --text-display-lg--letter-spacing: -0.025em;
+  --text-display-lg--font-weight: 700;
+
+  --text-display-xl: 3.5rem;
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--letter-spacing: -0.03em;
+  --text-display-xl--font-weight: 700;
+
+  /* El rótulo de sección: mono, espaciado, gris claro. Es el único sitio de la
+     web donde aparece la mono, y por eso su tamaño no cuelga de la escala del
+     cuerpo. */
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.06em;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,20 +87,39 @@
 }
 
 :root {
+  /* ── Paleta, medida sobre el mockup v2 el 2026-09-24 ──────────────────
+     Es acromática entera: ni un acento de color en toda la web. El naranja
+     de la marca solo aparece dentro del logotipo y de las capturas de la
+     app, y eso es deliberado — es lo que hace que las cifras naranjas de las
+     capturas sean lo único que brilla en la página.
+     Los valores salen de muestrear píxeles del PNG, no de ojo:
+     #FFF fondo · #000 titulares · #4C4C4C cuerpo · #999 rótulos ·
+     #F5F5F5 tarjetas · #E5E5E5 bordes · #171717 el negro de los botones. */
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* Negro puro, no el 0.145 de shadcn. El mockup apoya todo su contraste en
+     titulares negros contra párrafos grises; subir el titular a #252525
+     achata esa diferencia justo donde vive el ritmo de la página. */
+  --foreground: oklch(0 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --popover-foreground: oklch(0 0 0);
+  /* #171717 */
+  --primary: oklch(0.218 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary-foreground: oklch(0.218 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  /* #4C4C4C. Más oscuro que el 0.556 anterior: en el mockup el párrafo es
+     texto que se lee, no un pie de foto. De paso sube el contraste sobre
+     blanco de 4.7:1 a 8.9:1, que pasa AAA. */
+  --muted-foreground: oklch(0.439 0 0);
+  /* #999999 — el tercer nivel, solo para eyebrows y números de paso. No
+     alcanza AA para texto corriente y por eso no se usa para texto
+     corriente: son rótulos cortos en mayúscula o cifras decorativas. */
+  --subtle: oklch(0.687 0 0);
   --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent-foreground: oklch(0.218 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -96,6 +153,10 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
+  /* Existe por simetría, no porque la web tenga modo oscuro: hoy nada pone
+     la clase `dark`. Si un día la tiene, `text-subtle` ya no se quedaría con
+     el gris claro pintado sobre fondo negro. */
+  --subtle: oklch(0.556 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
