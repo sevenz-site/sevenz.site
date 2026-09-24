@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "@/lib/config";
 import { LegalLayout } from "@/components/legal/legal-layout";
 
 export const metadata: Metadata = {
@@ -7,6 +8,19 @@ export const metadata: Metadata = {
     "Política de Privacidad de Sevenz: qué datos personales recopilamos, cómo los usamos, con quién los compartimos y cómo ejercer tus derechos.",
   alternates: {
     canonical: "/politica-de-privacidad",
+  },
+  // `openGraph` propio, aunque repita el título y la descripción de arriba.
+  //
+  // Next hereda del layout raíz lo que una página no declare, así que hasta
+  // hoy compartir este enlace por WhatsApp enseñaba el título de la PORTADA:
+  // el enlace decía una cosa y la vista previa, otra. La imagen sí se hereda a
+  // propósito — es la misma para todo el sitio.
+  openGraph: {
+    title: "Política de Privacidad — Sevenz",
+    description:
+      "Qué datos personales recopila Sevenz, cómo los usamos, con quién los compartimos y cómo ejercer tus derechos.",
+    url: "/politica-de-privacidad",
+    images: [OG_IMAGE],
   },
 };
 
@@ -44,7 +58,14 @@ export default function PoliticaDePrivacidadPage() {
         <li>Nombre y apellido del titular de la cuenta</li>
         <li>Nombre del negocio y logo (opcional)</li>
         <li>País de operación (definido al registrarse; su cambio posterior requiere contactar a soporte)</li>
-        <li>Número de WhatsApp del negocio</li>
+        <li>
+          Número de WhatsApp del negocio —{" "}
+          <strong>
+            se usa para enviarle los avisos de Sevenz y se muestra en el link de saldo de sus
+            clientes, de forma pública para quien tenga el link, como botón para escribirle al
+            negocio
+          </strong>
+        </li>
         <li>Correo electrónico y contraseña</li>
         <li>Dirección del negocio (opcional)</li>
         <li>NIT/RUT (opcional)</li>

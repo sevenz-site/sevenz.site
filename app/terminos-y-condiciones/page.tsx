@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OG_IMAGE } from "@/lib/config";
 import { LegalLayout } from "@/components/legal/legal-layout";
 
 export const metadata: Metadata = {
@@ -8,6 +9,19 @@ export const metadata: Metadata = {
     "Términos y Condiciones de uso de la plataforma Sevenz: objeto del servicio, responsabilidades del Comercio, uso de WhatsApp, planes y tratamiento de datos.",
   alternates: {
     canonical: "/terminos-y-condiciones",
+  },
+  // `openGraph` propio, aunque repita el título y la descripción de arriba.
+  //
+  // Next hereda del layout raíz lo que una página no declare, así que hasta
+  // hoy compartir este enlace por WhatsApp enseñaba el título de la PORTADA:
+  // el enlace decía una cosa y la vista previa, otra. La imagen sí se hereda a
+  // propósito — es la misma para todo el sitio.
+  openGraph: {
+    title: "Términos y Condiciones — Sevenz",
+    description:
+      "Las condiciones de uso de Sevenz: qué puedes hacer con la plataforma, qué responsabilidades asumes y cuáles asumimos nosotros.",
+    url: "/terminos-y-condiciones",
+    images: [OG_IMAGE],
   },
 };
 
