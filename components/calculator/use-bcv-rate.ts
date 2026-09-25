@@ -97,7 +97,18 @@ async function fetchFromCurrencyApi(): Promise<BcvRate> {
 // DEVUELVE null SIN RUIDO. Si CriptoYa no contesta, la calculadora se dibuja
 // sin la pestaña de USDT y nadie se entera de que iba a haber una. Es un
 // extra, no una dependencia.
-async function fetchUsdtP2p(): Promise<number | null> {
+// EL LÍMITE DE CORDURA. `ask > 0` a secas deja pasar un 9.670.000 por un
+// punto decimal corrido, o por un proveedor que cambie de unidad — y
+// Venezuela ha redenominado el bolívar tres veces, así que no es un escenario
+// inventado. El USDT vale aproximadamente un dólar, así que su precio en
+// bolívares tiene que parecerse al oficial. La banda es ancha a propósito: el
+// paralelo ha llegado a estar un 60 % por encima, y un filtro estrecho
+// tiraría datos buenos en la próxima crisis. Lo que corta es un número de
+// otro orden de magnitud.
+const BANDA_MINIMA = 0.5;
+const BANDA_MAXIMA = 5;
+
+async function fetchUsdtP2p(oficialUsd: number | undefined): Promise<number | null> {
   try {
     const res = await fetchWithTimeout("https://criptoya.com/api/usdt/ves/1");
     if (!res.ok) throw new Error(`criptoya respondió ${res.status}`);
@@ -105,7 +116,11 @@ async function fetchUsdtP2p(): Promise<number | null> {
     const ask = data.binancep2p?.ask;
     // Sin Binance no hay dato: no se sustituye por otra casa, porque sería
     // enseñar un número que el visitante no va a poder comprobar donde mira.
-    return typeof ask === "number" && ask > 0 ? ask : null;
+    if (typeof ask !== "number" || ask <= 0) return null;
+    if (oficialUsd && (ask < oficialUsd * BANDA_MINIMA || ask > oficialUsd * BANDA_MAXIMA)) {
+      return null;
+    }
+    return ask;
   } catch {
     return null;
   }
@@ -136,19 +151,51 @@ export function useBcvRate() {
       }
     })();
 
-    // EN SU PROPIO EFECTO, no encadenado al de arriba. El USDT es un extra:
-    // si falla, la calculadora tiene que seguir funcionando con dólar y euro
-    // exactamente igual que antes, y si el BCV falla, el USDT no tiene por
-    // qué caer con él. Encadenarlos ataría el destino de los dos.
-    (async () => {
-      const precio = await fetchUsdtP2p();
-      if (!cancelled) setUsdt(precio);
-    })();
-
     return () => {
       cancelled = true;
     };
   }, []);
+
+  // EFECTO PROPIO PARA EL USDT, y detrás de la tasa oficial a propósito.
+  //
+  // Detrás, porque el límite de cordura la necesita: sin una referencia con
+  // la que comparar no se puede distinguir un precio bueno de un decimal
+  // corrido, y enseñar un número de otro orden de magnitud es peor que no
+  // enseñar ninguno. Si el BCV no carga, la calculadora ya está enseñando
+  // "Sin tasa disponible" y no se pierde nada por no pedir el USDT.
+  //
+  // Y separado, porque es un extra: que falle no puede tocar al dólar ni al
+  // euro, y que falle el BCV no tiene por qué arrastrarlo a él.
+  //
+  // SE REFRESCA AL VOLVER A LA PESTAÑA, cosa que la tasa del BCV no necesita.
+  // El BCV cambia una vez al día: pedirla al cargar y no volver a mirarla es
+  // correcto. El USDT se mueve cada minuto, así que una pestaña abierta una
+  // hora enseñaría un precio de hace una hora — y la etiqueta diría "precio
+  // de ahora", que es peor que no tener el dato.
+  const oficialUsd = rate?.usd;
+  useEffect(() => {
+    if (!oficialUsd) return;
+    let cancelado = false;
+
+    const pedir = () => {
+      fetchUsdtP2p(oficialUsd).then((precio) => {
+        // Un null no borra lo que ya había: si la recarga falla, se conserva
+        // el último precio conocido en vez de hacer desaparecer la pestaña
+        // bajo el dedo de quien la está usando.
+        if (!cancelado && precio !== null) setUsdt(precio);
+      });
+    };
+    pedir();
+
+    const alVolver = () => {
+      if (document.visibilityState === "visible") pedir();
+    };
+    document.addEventListener("visibilitychange", alVolver);
+    return () => {
+      cancelado = true;
+      document.removeEventListener("visibilitychange", alVolver);
+    };
+  }, [oficialUsd]);
 
   return { rate, loading, error, usdt };
 }
