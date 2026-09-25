@@ -69,6 +69,31 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     q: "¿Qué tan seguro es usar Sevenz?",
     a: "Tu cartera no vive en el teléfono: vive en la nube, cifrada mientras viaja y separada de la de cualquier otro negocio dentro de la base de datos. Si el teléfono se pierde, se moja o se daña, tus cuentas siguen completas — entras desde otro y están ahí, que es justamente lo que una libreta no te da. El link que le mandas a un cliente abre su propio saldo y nada más: ni el de otro cliente, ni el resto de tu cartera.",
   },
+  {
+    // "Darse de baja" significa dos cosas distintas para quien pregunta —
+    // dejar de pagar, o querer que se borre todo— y la respuesta cubre las
+    // dos, porque el que la hace no está distinguiendo: está preguntando
+    // "¿pierdo lo que anoté?".
+    //
+    // CADA FRASE SALE DE ALGO COMPROBADO, no de lo que sería razonable:
+    //
+    //   - "no se borra nada" y "solo lectura" → §7 de la Política de
+    //     Privacidad de este mismo sitio, palabra por palabra.
+    //   - "los links siguen funcionando" → comprobado en el código, no
+    //     supuesto: `get_shared_balance` es SECURITY DEFINER y no pasa por
+    //     las políticas que bloquean al dueño (migración 061 del dashboard,
+    //     que lo dice explícitamente). Ni la página pública consulta el
+    //     bloqueo.
+    //   - "los avisos dejan de llegar" → cierto desde la migración 071, que
+    //     saca a las cuentas bloqueadas de los destinatarios. ANTES DE ESA
+    //     MIGRACIÓN ESTA FRASE ERA FALSA, así que esta pregunta no puede
+    //     publicarse sin ella.
+    //   - el correo es el mismo que ya aparece en la §7.
+    q: "¿Qué pasa con mi cartera si me doy de baja?",
+    a: "No se borra nada. Si terminas la prueba sin contratar o dejas de pagar, tu cuenta pasa a solo lectura: sigues entrando y viendo toda tu cartera y todo el historial, pero no puedes registrar movimientos nuevos. Los links que ya le compartiste a tus clientes siguen funcionando, así que ellos también siguen viendo su saldo. Lo que sí se detiene son los avisos por WhatsApp. Y si lo que quieres es que borremos tus datos de verdad, lo pides por correo y lo hacemos.",
+    href: "/politica-de-privacidad",
+    hrefLabel: "Leer qué guardamos y por cuánto tiempo",
+  },
 ];
 
 export function Faq() {

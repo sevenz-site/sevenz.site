@@ -18,10 +18,17 @@ import {
 import { cn } from "@/lib/utils";
 import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 
+// Un solo arreglo para las dos navegaciones —la de escritorio y la del panel
+// del teléfono—, así que cambiar una etiqueta aquí las cambia en las dos.
 const NAV = [
   { href: "/", label: "Inicio" },
   { href: "/calculadora-dolar-bcv", label: "Calculadora BCV" },
-  { href: "/soporte", label: "Soporte" },
+  // "Ayuda" y no "Soporte" desde el 2026-09-25. LA RUTA NO CAMBIA, a
+  // propósito: `/soporte` y sus diez temas llevan meses indexados, están en
+  // el sitemap y hay un enlace a uno de ellos dentro del FAQ. Renombrar la
+  // URL por una etiqueta costaría ese posicionamiento y no compra nada — el
+  // visitante lee la palabra, no la barra de direcciones.
+  { href: "/soporte", label: "Ayuda" },
 ];
 
 export function Header() {
