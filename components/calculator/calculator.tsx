@@ -126,7 +126,8 @@ function RateConverter({
   // Which currency sits in the TOP field. FOREIGN means the pair (USD/EUR) is
   // on top and bolívares below.
   const [entry, setEntry] = useState<"VES" | "FOREIGN">("FOREIGN");
-  const [pair, setPair] = useState<"USD" | "EUR">("USD");
+  // Admite USDT, pero la pestaña solo se dibuja si hay precio de mercado.
+  const [pair, setPair] = useState<"USD" | "EUR" | "USDT">("USD");
   // Which of the two fields holds the number actually typed. Both are editable,
   // so this is what keeps the conversion from feeding on its own output: typing
   // 5 in the bolívares field must mean five bolívares, not "convert 5 up, round
@@ -160,14 +161,22 @@ function RateConverter({
   }, []);
 
   // La tasa con la que se calcula de verdad, no solo una etiqueta.
-  const tasaEnUso = usarPrevista && prevista ? { usd: prevista.usd, eur: prevista.eur } : rate;
+  // `usdt` se arrastra tal cual y eso es deliberado: la tasa prevista es la
+  // PRÓXIMA TASA DEL BCV, y el BCV no publica ninguna tasa de USDT. Sin este
+  // arrastre explícito, marcar la casilla de la prevista dejaría el USDT en
+  // undefined y su pestaña se apagaría sola a mitad de uso.
+  const tasaEnUso: Rate = usarPrevista && prevista
+    ? { usd: prevista.usd, eur: prevista.eur, usdt: rate.usdt }
+    : rate;
 
-  const pairRate = pair === "USD" ? tasaEnUso.usd : tasaEnUso.eur;
-  const pairName = pair === "USD" ? "Dólar" : "Euro";
+  const pairRate =
+    pair === "USD" ? tasaEnUso.usd : pair === "EUR" ? tasaEnUso.eur : (tasaEnUso.usdt ?? 0);
+  const pairName = pair === "USD" ? "Dólar" : pair === "EUR" ? "Euro" : "USDT";
 
   const putCurrency: Currency = entry === "VES" ? "VES" : pair;
   const getCurrency: Currency = entry === "VES" ? pair : "VES";
-  const labelFor = (c: Currency) => (c === "VES" ? "Bolívares" : c === "USD" ? "Dólares" : "Euros");
+  const labelFor = (c: Currency) =>
+    c === "VES" ? "Bolívares" : c === "USD" ? "Dólares" : c === "EUR" ? "Euros" : "USDT";
 
   const cents = Number(rawDigits || "0");
   const typed = cents / 100;
@@ -175,7 +184,7 @@ function RateConverter({
 
   const convertBetween = (amount: number, from: Currency, to: Currency) => {
     const all = convert(amount, from, tasaEnUso);
-    return to === "VES" ? all.ves : to === "USD" ? all.usd : all.eur;
+    return to === "VES" ? all.ves : to === "USD" ? all.usd : to === "EUR" ? all.eur : all.usdt;
   };
   const putAmount = source === "put" ? typed : convertBetween(typed, getCurrency, putCurrency);
   const getAmount = source === "get" ? typed : convertBetween(typed, putCurrency, getCurrency);
@@ -190,11 +199,20 @@ function RateConverter({
   const putPlaceholder = money(0, putCurrency);
   const getPlaceholder = money(0, getCurrency);
 
-  const stampLabel = usarPrevista && prevista
-    ? `Tasa BCV prevista para ${etiquetaDePrevista(prevista.fecha)}`
-    : rateDate
-      ? `Tasa BCV del ${formatRateDate(rateDate)}`
-      : "Tasa BCV";
+  // EL USDT NO LLEVA "TASA BCV", y no es un matiz de redacción: el BCV no
+  // publica ninguna tasa de USDT. Poner ese sello sobre un precio de Binance
+  // le daría un respaldo oficial que no tiene, en la única pantalla de Sevenz
+  // que existe para que alguien se fíe de un número.
+  //
+  // Tampoco lleva fecha: no es la tasa "del 24 de septiembre", es el precio
+  // de hace un minuto. Lleva la casa, que es lo que se puede comprobar.
+  const stampLabel = pair === "USDT"
+    ? "Binance P2P · precio de ahora"
+    : usarPrevista && prevista
+      ? `Tasa BCV prevista para ${etiquetaDePrevista(prevista.fecha)}`
+      : rateDate
+        ? `Tasa BCV del ${formatRateDate(rateDate)}`
+        : "Tasa BCV";
   // This page always asks the provider live, so its rate is by definition the
   // newest published one. A date that is not today therefore has exactly one
   // cause — the BCV did not publish — and saying so is safe here. The dashboard
@@ -281,7 +299,14 @@ function RateConverter({
     // sobra en una tarjeta es justo lo que le quita autoridad.
     const lado = (amount: number, currency: Currency) => ({
       texto: money(amount, currency),
-      bandera: currency === "VES" ? "/flags/ves.svg" : currency === "USD" ? "/flags/usd.svg" : "/flags/eur.svg",
+      bandera:
+        currency === "VES"
+          ? "/flags/ves.svg"
+          : currency === "USD"
+            ? "/flags/usd.svg"
+            : currency === "EUR"
+              ? "/flags/eur.svg"
+              : "/flags/usdt.svg",
     });
     return {
       izquierda: hasAmount ? lado(putAmount, putCurrency) : lado(1, pair),
@@ -297,7 +322,11 @@ function RateConverter({
       {/* Which pair, not which source currency. A shop converts one foreign
           currency against bolívares, never one against the other. */}
       <div className="flex gap-2">
-        {(["USD", "EUR"] as const).map((c) => (
+        {/* El USDT solo aparece si CriptoYa contestó. Sin precio no se dibuja
+            una pestaña muerta ni un mensaje de error: la calculadora se ve
+            exactamente como antes y el visitante no se entera de que iba a
+            haber una tercera. */}
+        {(["USD", "EUR", ...(rate.usdt ? (["USDT"] as const) : [])] as const).map((c) => (
           <button
             key={c}
             type="button"
@@ -311,7 +340,7 @@ function RateConverter({
             )}
           >
             <CurrencyFlagIcon currency={c} />
-            {c === "USD" ? "Dólares" : "Euro"}
+            {c === "USD" ? "Dólares" : c === "EUR" ? "Euro" : "USDT"}
           </button>
         ))}
       </div>
@@ -437,7 +466,7 @@ function RateConverter({
 }
 
 export function Calculator() {
-  const { rate, loading, error } = useBcvRate();
+  const { rate, loading, error, usdt } = useBcvRate();
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -445,7 +474,11 @@ export function Calculator() {
 
       <div className="mt-8 w-full max-w-sm rounded-xl border p-6">
         {rate && !error ? (
-          <RateConverter rate={rate} rateDate={rate.rateDate} fetchedAt={rate.fetchedAt ?? null} />
+          <RateConverter
+            rate={{ ...rate, usdt: usdt ?? undefined }}
+            rateDate={rate.rateDate}
+            fetchedAt={rate.fetchedAt ?? null}
+          />
         ) : (
           <p className="text-xs text-muted-foreground">
             {error ? "Sin tasa disponible por ahora." : "Cargando la tasa para calcular…"}

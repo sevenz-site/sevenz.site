@@ -80,10 +80,42 @@ async function fetchFromCurrencyApi(): Promise<BcvRate> {
   return { usd, eur, rateDate: null, fetchedAt: new Date(), source: "currency-api" };
 }
 
+// El precio del USDT en bolívares. Binance P2P, vía CriptoYa.
+//
+// BINANCE Y NO LA MEDIANA DEL MERCADO. Cuando un tendero venezolano dice "el
+// USDT" quiere decir Binance, que es donde mira. Si aquí sale 971 y él abre
+// Binance y lee 967,88, no concluye que está viendo una mediana: concluye que
+// Sevenz está mal. Las otras casas que devuelve CriptoYa se ignoran a
+// propósito — en el dashboard se usan como control, pero aquí no hay dónde
+// enseñar un control.
+//
+// LA VENTA (`ask`) y no la compra. Es lo que cuesta comprar 1 USDT, que es el
+// número que los rastreadores de tasas venezolanos citan como "el Binance".
+// Hoy la diferencia con la compra es del 0,09 %, así que la elección importa
+// menos por la cifra que por ser una sola y estar escrita en un sitio.
+//
+// DEVUELVE null SIN RUIDO. Si CriptoYa no contesta, la calculadora se dibuja
+// sin la pestaña de USDT y nadie se entera de que iba a haber una. Es un
+// extra, no una dependencia.
+async function fetchUsdtP2p(): Promise<number | null> {
+  try {
+    const res = await fetchWithTimeout("https://criptoya.com/api/usdt/ves/1");
+    if (!res.ok) throw new Error(`criptoya respondió ${res.status}`);
+    const data = (await res.json()) as Record<string, { ask?: number }>;
+    const ask = data.binancep2p?.ask;
+    // Sin Binance no hay dato: no se sustituye por otra casa, porque sería
+    // enseñar un número que el visitante no va a poder comprobar donde mira.
+    return typeof ask === "number" && ask > 0 ? ask : null;
+  } catch {
+    return null;
+  }
+}
+
 export function useBcvRate() {
   const [rate, setRate] = useState<BcvRate | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [usdt, setUsdt] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -104,10 +136,19 @@ export function useBcvRate() {
       }
     })();
 
+    // EN SU PROPIO EFECTO, no encadenado al de arriba. El USDT es un extra:
+    // si falla, la calculadora tiene que seguir funcionando con dólar y euro
+    // exactamente igual que antes, y si el BCV falla, el USDT no tiene por
+    // qué caer con él. Encadenarlos ataría el destino de los dos.
+    (async () => {
+      const precio = await fetchUsdtP2p();
+      if (!cancelled) setUsdt(precio);
+    })();
+
     return () => {
       cancelled = true;
     };
   }, []);
 
-  return { rate, loading, error };
+  return { rate, loading, error, usdt };
 }
