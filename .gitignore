@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Estado local de `wrangler dev`, que es como se comprueban los 301 de
+# public/_redirects sin desplegar. Es cache, no configuracion.
+.wrangler/
