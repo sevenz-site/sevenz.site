@@ -78,22 +78,6 @@ export function Solution() {
             </NumberedCard>
           ))}
         </NumberedList>
-
-        {/* La frase del mockup decía "Así ve tu cliente ve su propio saldo",
-            con el verbo repetido. Corregida. */}
-        <p className="mx-auto max-w-2xl text-center text-xl font-semibold text-balance">
-          Así ve tu cliente su propio saldo e historial. Sin preguntarte. Sin discutirlo. Sin tanta
-          vaina.
-        </p>
-
-        <Image
-          src="/screens/sevenz-perfil-cliente.png"
-          alt="La vista que recibe el cliente: lo que debe en dólares, lo que tiene a favor en euros y el historial de cada fiado y cada abono"
-          width={1288}
-          height={1140}
-          sizes="(min-width: 1024px) 768px, 100vw"
-          className="mx-auto h-auto w-full max-w-3xl"
-        />
       </div>
     </Section>
   );

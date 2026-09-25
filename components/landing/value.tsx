@@ -4,6 +4,10 @@ import { Section, SectionHeading } from "@/components/landing/section";
 export function Value() {
   return (
     <Section>
+      {/* `gap-20`: la separación entre el bloque de los avisos y el de la
+          vista del cliente tiene que ser mayor que la que hay DENTRO de cada
+          uno, o los dos se leen como una sola cosa larga. */}
+      <div className="flex flex-col gap-20">
       {/* La única sección en dos columnas de verdad, y por un motivo concreto:
           su captura es casi cuadrada (1288×1136). A ancho completo en un
           portátil ocupa la pantalla entera y el titular que la explica queda
@@ -34,6 +38,34 @@ export function Value() {
           sizes="(min-width: 1024px) 480px, 100vw"
           className="h-auto w-full"
         />
+        </div>
+
+        {/* LA VISTA DEL CLIENTE, movida aquí desde "Tres pasos" el 2026-09-24.
+            Encaja mejor y no por gusto: la captura de arriba termina en un
+            botón "Ver mi saldo", así que la secuencia queda en orden — llega
+            el aviso, el cliente lo toca, y esto es lo que se encuentra.
+            Antes cerraba la sección de importar, donde no seguía a nada.
+
+            EL TEXTO Y EL `alt` VIAJAN INTACTOS, que era la condición: son lo
+            único en toda la portada que enseña la pantalla del cliente, y el
+            argumento de Sevenz no es "digitaliza tu libreta" sino "tú y tu
+            cliente ven el mismo número". Reescribirlos al moverlos habría
+            tirado la mitad del motivo para moverlos. */}
+        <div className="flex flex-col gap-10">
+          <p className="mx-auto max-w-2xl text-center text-xl font-semibold text-balance">
+            Así ve tu cliente su propio saldo e historial. Sin preguntarte. Sin discutirlo. Sin
+            tanta vaina.
+          </p>
+
+          <Image
+            src="/screens/sevenz-perfil-cliente.png"
+            alt="La vista que recibe el cliente: lo que debe en dólares, lo que tiene a favor en euros y el historial de cada fiado y cada abono"
+            width={1288}
+            height={1140}
+            sizes="(min-width: 1024px) 768px, 100vw"
+            className="mx-auto h-auto w-full max-w-3xl"
+          />
+        </div>
       </div>
     </Section>
   );
