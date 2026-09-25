@@ -46,9 +46,17 @@ export default function CalculadoraDolarBcvPage() {
             <RateHistoryTable />
           </div>
 
+          {/* Menciona el USDT sin condición, a diferencia del aviso del
+              dashboard, que lo hace solo si hay precio.
+              Aquí el párrafo está en el HTML estático —esta web es un export—
+              y el precio llega después, desde el navegador. Condicionarlo
+              haría que el aviso legal apareciera y desapareciera bajo el
+              visitante, y un texto legal que parpadea es peor que uno que
+              nombra una pestaña que hoy no cargó. */}
           <p className="mt-8 max-w-md text-xs text-muted-foreground">
             Las tasas de cambio mostradas en Sevenz provienen de fuentes públicas (Banco Central de
-            Venezuela, vía proveedores externos). Sevenz no está afiliado a ninguna entidad
+            Venezuela, vía proveedores externos), salvo el precio del USDT, que es el del mercado
+            P2P de Binance y no una tasa oficial. Sevenz no está afiliado a ninguna entidad
             gubernamental ni fija tasas oficiales.
           </p>
         </section>
