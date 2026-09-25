@@ -21,17 +21,17 @@ export async function generateMetadata({
   const tema = temaPorSlug(slug);
   if (!tema) return {};
   return {
-    title: `${tema.titulo} — Soporte de Sevenz`,
+    title: `${tema.titulo} — Ayuda de Sevenz`,
     description: tema.resumen,
-    alternates: { canonical: `/soporte/${tema.slug}` },
+    alternates: { canonical: `/ayuda/${tema.slug}` },
     // Sin esto, los diez temas comparten la vista previa de la portada:
     // el enlace dice "Registrar un abono" y lo que se ve al compartirlo
     // dice "Controla el fiado de tu negocio". Se hereda la imagen, que sí
     // es la misma para todo el sitio.
     openGraph: {
-      title: `${tema.titulo} — Soporte de Sevenz`,
+      title: `${tema.titulo} — Ayuda de Sevenz`,
       description: tema.resumen,
-      url: `/soporte/${tema.slug}`,
+      url: `/ayuda/${tema.slug}`,
       images: [OG_IMAGE],
     },
   };
@@ -48,7 +48,7 @@ export default async function TemaPage({ params }: { params: Promise<{ slug: str
   return (
     <main className="mx-auto w-full max-w-2xl flex-1 px-6 py-16">
       <Button variant="ghost" size="sm" asChild className="-ml-2.5">
-        <Link href="/soporte">
+        <Link href="/ayuda">
           <ChevronLeftIcon className="size-4" />
           Todos los temas
         </Link>
@@ -112,7 +112,7 @@ export default async function TemaPage({ params }: { params: Promise<{ slug: str
 
       <div className="mt-14 flex flex-col gap-4 border-t pt-8 sm:flex-row sm:items-center sm:justify-between">
         {siguiente ? (
-          <Link href={`/soporte/${siguiente.slug}`} className="group">
+          <Link href={`/ayuda/${siguiente.slug}`} className="group">
             <span className="text-xs font-medium text-muted-foreground">Siguiente</span>
             <span className="block font-medium group-hover:underline">{siguiente.titulo}</span>
           </Link>

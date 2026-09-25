@@ -43,8 +43,8 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     // propio aviso, discreto, y en iPhone no aparece nunca. Preguntar por la
     // tienda no es querer la tienda, es no saber que ya se puede.
     q: "¿Sevenz está en la Play Store? ¿La puedo descargar?",
-    a: "En la tienda todavía no, pero sí la puedes tener en tu pantalla de inicio, con su icono y abriendo a pantalla completa como cualquier otra app. Se instala desde el mismo navegador, en dos toques, sin descargar nada. En Android se hace desde Chrome, donde la app te lo ofrece sola; en iPhone, desde el botón de compartir de Safari. Te dejamos los pasos en Soporte.",
-    href: "/soporte/instalar-la-app-en-tu-telefono",
+    a: "En la tienda todavía no, pero sí la puedes tener en tu pantalla de inicio, con su icono y abriendo a pantalla completa como cualquier otra app. Se instala desde el mismo navegador, en dos toques, sin descargar nada. En Android se hace desde Chrome, donde la app te lo ofrece sola; en iPhone, desde el botón de compartir de Safari. Te dejamos los pasos en Ayuda.",
+    href: "/ayuda/instalar-la-app-en-tu-telefono",
     hrefLabel: "Ver cómo instalarla",
   },
   {

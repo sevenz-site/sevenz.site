@@ -19,7 +19,7 @@ export const dynamic = "force-static";
 const ULTIMA_EDICION = {
   portada: "2026-09-24", // rediseño v2
   legales: "2026-09-23", // MS-13: el resumen por WhatsApp en los legales
-  soporte: "2026-09-24", // campos del alta, tabla de importar, Notificaciones
+  ayuda: "2026-09-25", // /soporte pasó a /ayuda; los diez temas cambiaron de URL
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -51,16 +51,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/soporte`,
-      lastModified: ULTIMA_EDICION.soporte,
+      url: `${SITE_URL}/ayuda`,
+      lastModified: ULTIMA_EDICION.ayuda,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     // Las diez salen del mismo arreglo que las páginas, así que un tema nuevo
     // entra al sitemap sin que nadie tenga que acordarse de añadirlo.
     ...TEMAS.map((tema) => ({
-      url: `${SITE_URL}/soporte/${tema.slug}`,
-      lastModified: ULTIMA_EDICION.soporte,
+      url: `${SITE_URL}/ayuda/${tema.slug}`,
+      lastModified: ULTIMA_EDICION.ayuda,
       changeFrequency: "monthly" as const,
       priority: 0.5,
     })),

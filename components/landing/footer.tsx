@@ -35,10 +35,15 @@ export function Footer() {
           <span className="text-sm text-muted-foreground">© {new Date().getFullYear()} Sevenz</span>
         </div>
 
-        {/* `flex-wrap` y no una rejilla: en un teléfono caben cuatro y
-            "Regístrate" baja sola a la segunda línea, que es exactamente lo
-            que hace el mockup. Con columnas fijas habría que elegir el corte a
-            mano y volver a elegirlo cada vez que cambie una etiqueta. */}
+        {/* `flex-wrap` y no una rejilla: el corte lo decide el ancho, no una
+            columna fija, así que añadir una etiqueta no obliga a volver a
+            elegir dónde parte la fila.
+
+            Medido a 375px con los seis enlaces de hoy: los cuatro de contenido
+            entran en la primera línea — 321px de los 327 disponibles, que es
+            el límite — y "Ingresar" y "Regístrate" bajan juntos a la segunda.
+            Un séptimo enlace, o una etiqueta más larga, parte esa primera
+            línea: no se rompe nada, pero conviene volver a mirarlo. */}
         <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
           <Link href="/terminos-y-condiciones" className="hover:text-foreground">
             Términos
@@ -53,6 +58,12 @@ export function Footer() {
               nombre conviene que sea uno solo. */}
           <Link href="/calculadora-dolar-bcv" className="hover:text-foreground">
             Calculadora BCV
+          </Link>
+          {/* "Ayuda", con el mismo nombre que en la cabecera. Está en el pie
+              porque es la página a la que se llega con una duda a medio leer,
+              y el pie es justo donde termina de leerse la portada. */}
+          <Link href="/ayuda" className="hover:text-foreground">
+            Ayuda
           </Link>
           <a href={LOGIN_URL} className="hover:text-foreground">
             Ingresar

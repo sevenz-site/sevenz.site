@@ -105,7 +105,7 @@ export function ExploradorDeSoporte() {
             {visibles.map((tema) => (
               <li key={tema.slug} className="flex">
                 <Link
-                  href={`/soporte/${tema.slug}`}
+                  href={`/ayuda/${tema.slug}`}
                   className="group flex w-full flex-col overflow-hidden rounded-xl border transition-colors hover:border-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
                 >
                   {/* La portada es tipográfica y no una imagen: no existe una

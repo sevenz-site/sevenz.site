@@ -1,0 +1,17 @@
+# Redirecciones 301 de /soporte a /ayuda. Cloudflare Workers lee este archivo
+# desde `out/` (Next copia `public/` tal cual al exportar) y NO lo sirve como
+# asset. Comprobado en la documentacion de Cloudflare el 2026-09-25: formato
+# `[origen] [destino] [codigo]`, una por linea, `#` es comentario, las estaticas
+# van antes que las dinamicas.
+#
+# POR QUE ESTA AQUI Y NO EN next.config.ts: este sitio se exporta estatico
+# (`output: "export"`), y en un export los `redirects()` de Next no se ejecutan
+# nunca — no hay servidor de Next que los aplique. Este archivo es la unica
+# forma de redirigir en sevenz.site.
+#
+# NO BORRAR. Son once URLs indexadas: /soporte y sus diez temas. Sin estas dos
+# lineas devuelven 404, se pierde el posicionamiento acumulado y cualquier
+# enlace que un dueno ya compartio por WhatsApp deja de abrir. Nada en el build
+# avisa de eso.
+/soporte /ayuda 301
+/soporte/* /ayuda/:splat 301

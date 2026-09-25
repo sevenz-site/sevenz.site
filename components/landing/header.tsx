@@ -23,12 +23,10 @@ import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 const NAV = [
   { href: "/", label: "Inicio" },
   { href: "/calculadora-dolar-bcv", label: "Calculadora BCV" },
-  // "Ayuda" y no "Soporte" desde el 2026-09-25. LA RUTA NO CAMBIA, a
-  // propósito: `/soporte` y sus diez temas llevan meses indexados, están en
-  // el sitemap y hay un enlace a uno de ellos dentro del FAQ. Renombrar la
-  // URL por una etiqueta costaría ese posicionamiento y no compra nada — el
-  // visitante lee la palabra, no la barra de direcciones.
-  { href: "/soporte", label: "Ayuda" },
+  // "Ayuda" y no "Soporte" desde el 2026-09-25, etiqueta y ruta. Las once URLs
+  // de `/soporte` llevan meses indexadas, así que el cambio solo es seguro
+  // mientras existan los 301 de `public/_redirects` — ahí está el porqué.
+  { href: "/ayuda", label: "Ayuda" },
 ];
 
 export function Header() {
