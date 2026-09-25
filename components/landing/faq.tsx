@@ -84,13 +84,17 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     //     las políticas que bloquean al dueño (migración 061 del dashboard,
     //     que lo dice explícitamente). Ni la página pública consulta el
     //     bloqueo.
-    //   - "los avisos dejan de llegar" → cierto desde la migración 071, que
-    //     saca a las cuentas bloqueadas de los destinatarios. ANTES DE ESA
-    //     MIGRACIÓN ESTA FRASE ERA FALSA, así que esta pregunta no puede
-    //     publicarse sin ella.
     //   - el correo es el mismo que ya aparece en la §7.
+    //
+    // LO QUE ESTA RESPUESTA NO DICE, Y ES DELIBERADO: los avisos por WhatsApp
+    // SIGUEN llegándole a una cuenta bloqueada. Una versión anterior de esta
+    // frase decía que se detenían, y se quitó al decidirse lo contrario el
+    // 2026-09-25 — el dueño sigue recibiendo el valor del producto, y eso
+    // puede empujarle a ponerse al día. No se menciona aquí porque la
+    // pregunta es qué pasa con la CARTERA; explicar que le siguen llegando
+    // avisos que no puede atender abriría una duda que nadie hizo.
     q: "¿Qué pasa con mi cartera si me doy de baja?",
-    a: "No se borra nada. Si terminas la prueba sin contratar o dejas de pagar, tu cuenta pasa a solo lectura: sigues entrando y viendo toda tu cartera y todo el historial, pero no puedes registrar movimientos nuevos. Los links que ya le compartiste a tus clientes siguen funcionando, así que ellos también siguen viendo su saldo. Lo que sí se detiene son los avisos por WhatsApp. Y si lo que quieres es que borremos tus datos de verdad, lo pides por correo y lo hacemos.",
+    a: "No se borra nada. Si terminas la prueba sin contratar o dejas de pagar, tu cuenta pasa a solo lectura: sigues entrando y viendo toda tu cartera y todo el historial, pero no puedes registrar movimientos nuevos. Los links que ya le compartiste a tus clientes siguen funcionando, así que ellos también siguen viendo su saldo. Y si lo que quieres es que borremos tus datos de verdad, lo pides por correo y lo hacemos.",
     href: "/politica-de-privacidad",
     hrefLabel: "Leer qué guardamos y por cuánto tiempo",
   },
