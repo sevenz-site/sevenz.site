@@ -428,7 +428,13 @@ function RateConverter({
           </span>
         </div>
         <span className="text-xs opacity-70">{stampLabel}</span>
-        {noPublicationToday && !usarPrevista ? (
+        {/* `pair !== "USDT"` añadido el 2026-09-27. El precio del USDT viene de
+            Binance en vivo y no tiene nada que ver con el calendario del BCV,
+            así que en esa pestaña esta frase hablaba de otra cosa — y lo hacía
+            justo debajo de la cifra, que es donde más cuesta. Se veía solo en
+            fin de semana o festivo, que es cuando esta página tiene más
+            tráfico. Ver CT-23. */}
+        {noPublicationToday && !usarPrevista && pair !== "USDT" ? (
           <span className="text-xs opacity-70">
             El BCV no publica sábados, domingos ni festivos. Esta es la última tasa publicada.
           </span>
@@ -446,7 +452,12 @@ function RateConverter({
           mb-1 sobre el gap-3 del contenedor = 16px hasta "Compartir". El label
           ocupa todo el ancho, así que con 12px el dedo caía en el botón de
           abajo al intentar marcar la casilla. */}
-      {prevista ? (
+      {/* EN USDT NO SE OFRECE. La tasa prevista es la PRÓXIMA TASA DEL BCV, y
+          el BCV no publica ninguna de USDT. El cálculo ya la ignora —
+          `tasaEnUso` arrastra `rate.usdt` sin tocarlo, a propósito — así que
+          marcarla cambiaba la casilla y no movía la cifra. Una acción que
+          parece hacer algo y no hace nada. Ver CT-23. */}
+      {prevista && pair !== "USDT" ? (
         <label className="mb-1 flex cursor-pointer items-start gap-2 text-sm">
           <Checkbox
             checked={usarPrevista}
