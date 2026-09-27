@@ -36,60 +36,102 @@ const INCLUIDO = [
 export function Pricing() {
   return (
     <Section>
-      {/* EL MARCO. Es la única sección de la portada que lo lleva, y eso es
-          lo que hace: la separa de las que explican y la convierte en una
-          oferta que se mira entera de una vez. El resto de la página no
-          compite con ella porque el resto no tiene borde.
+      {/* LA TARJETA OSCURA, desde el 2026-09-27. Antes era blanca con borde, y
+          el borde era lo único que la separaba del resto de la portada. La
+          inversión hace ese mismo trabajo sin pedir permiso: en una página
+          entera en blanco, el único bloque negro es donde va la vista. Sigue
+          siendo la única sección con tratamiento propio.
 
-          `rounded-lg` (10px) como los botones y las tarjetas numeradas —el
-          radio medido sobre el mockup— para que no parezca de otro sistema. */}
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-10 rounded-lg border p-6 text-center sm:p-10">
-        <div className="flex flex-col items-center gap-3">
+          `bg-primary` (#171717) y no un negro suelto: es el mismo de los
+          botones de la portada, así que la tarjeta y el botón del hero se leen
+          como el mismo sistema. Y si algún día se enciende el modo oscuro —hoy
+          la clase `.dark` existe en globals.css pero no se aplica nunca—, el
+          par primary/primary-foreground se invierte junto y la tarjeta seguiría
+          contrastando con la página en vez de fundirse con ella. Un `#171717`
+          escrito a mano se habría quedado negro sobre negro.
+
+          `max-w-2xl` (672px) y no los 768 de antes: acotada, como el mockup,
+          pero no tan estrecha como para dejar las once líneas en una sola
+          columna de 800px de alto.
+
+          A LA IZQUIERDA, no centrada. Centrado era una oferta que se mira;
+          alineado a la izquierda es una ficha que se lee, y once líneas de
+          características son para leer. */}
+      <div className="mx-auto flex max-w-2xl flex-col gap-8 rounded-lg bg-primary p-6 text-primary-foreground sm:p-10">
+        <div className="flex flex-col gap-1.5">
           {/* El rótulo, con la misma convención que los demás de la página:
-              mono, caja normal, en el gris claro. Lo que aporta es orientar
-              —"esto es el precio"— antes de que el titular diga "gratis", que
-              leído solo puede parecer otra promesa más y no una tarifa. */}
-          <p className="font-mono text-eyebrow text-subtle">Precio</p>
+              mono, caja normal, y un nivel por debajo del texto. Sobre negro
+              ese nivel NO puede ser `--subtle` (#999, calibrado contra
+              blanco): se saca del propio color del texto con opacidad, que es
+              lo que mantiene la relación si el par de colores cambia. */}
+          <p className="font-mono text-eyebrow text-primary-foreground/60">Precio</p>
 
-          <h2 className="text-display md:text-display-lg max-w-2xl text-balance">
-            Prueba gratis 2 meses
-            {/* El precio en su propia línea y a la misma escala que el titular,
-                como el mockup: es la mitad del mensaje, no un pie. */}
-            <span className="block">0$</span>
+          {/* El h2 lleva las dos líneas, en el orden en que se leen. La cifra
+              va primero y grande —es lo que el visitante viene a buscar— y la
+              promesa debajo la explica. Antes era al revés y el precio parecía
+              un pie del titular.
+
+              Las dos dentro del MISMO h2 a propósito: son una sola frase
+              partida en dos tamaños ("0$, prueba gratis 2 meses"), no un
+              titular y un subtítulo. Separarlas en h2 + p dejaría el precio
+              fuera del encabezado de la sección. */}
+          <h2 className="flex flex-col gap-1.5">
+            {/* Un escalón por encima del resto de titulares de la portada.
+                En el mockup la tarjeta mide ~350px y la cifra ocupa casi un
+                tercio de su ancho; al ensanchar la tarjeta a 672px, los 44px
+                de `display-lg` la dejaban de tamaño de subtítulo y la lista
+                de once líneas se la comía. `display-xl` le devuelve el peso
+                que tiene en el mockup. */}
+            <span className="text-display-lg md:text-display-xl">0$</span>
+            <span className="text-lg font-semibold">Prueba gratis 2 meses</span>
           </h2>
-          <p className="text-lg text-muted-foreground text-pretty">
-            USD 20 por mes al finalizar período de prueba
+
+          {/* Literal del mockup, como se decidió el 2026-09-24 para esta
+              línea. Cambia "USD 20" por "20 USD", que además es como ya lo
+              dice la pregunta del FAQ sobre el precio — dos formas de escribir
+              la misma tarifa en la misma página obligan a comprobar si son la
+              misma. "periodo" sin tilde es la forma que prefiere la RAE. */}
+          <p className="mt-1 text-primary-foreground/70 text-pretty">
+            20 USD por mes al finalizar periodo de prueba.
           </p>
         </div>
 
-        {/* Una columna en el teléfono, como el mockup; dos en escritorio,
-            porque once líneas en una sola columna dentro del marco dejarían
-            medio ancho vacío y una tarjeta larguísima. */}
-        <ul className="grid w-full gap-4 text-left sm:grid-cols-2">
+        {/* La divisoria separa la tarifa de lo que incluye. Sin ella las once
+            líneas se leen como continuación del precio y no como su respaldo.
+            `/15` es lo justo para que se vea sobre el negro sin competir con
+            el texto. */}
+        <hr className="border-primary-foreground/15" />
+
+        {/* Dos columnas desde `sm`: once líneas seguidas dentro de una tarjeta
+            acotada la dejarían larguísima y con medio ancho vacío. */}
+        <ul className="grid gap-4 sm:grid-cols-2">
           {INCLUIDO.map((item) => (
-            <li key={item} className="flex items-start gap-4">
-              {/* El círculo va en gris, no en verde ni en negro: en una lista
-                  de once, once marcas de color se comen el titular que tienen
-                  encima. Lo que tiene que resaltar es el precio. */}
+            <li key={item} className="flex items-start gap-3">
+              {/* El círculo, un nivel por debajo del texto que acompaña: en
+                  una lista de once, once marcas al mismo peso que la frase se
+                  comen el precio que tienen encima. Lo que tiene que resaltar
+                  es la cifra. */}
               <CircleCheck
                 aria-hidden="true"
                 strokeWidth={1.5}
-                className="mt-0.5 size-6 shrink-0 text-subtle"
+                className="mt-0.5 size-5 shrink-0 text-primary-foreground/50"
               />
-              <span className="text-lg text-pretty">{item}</span>
+              <span className="text-primary-foreground/70 text-pretty">{item}</span>
             </li>
           ))}
         </ul>
 
-        {/* El botón dentro del marco, no debajo. Es lo que cierra la oferta:
-            leer once líneas y no tener dónde tocar obliga a subir al hero o a
-            bajar hasta el final de la página, y por el camino se pierde a
+        {/* El botón dentro de la tarjeta, no debajo. Es lo que cierra la
+            oferta: leer once líneas y no tener dónde tocar obliga a subir al
+            hero o a bajar al final de la página, y por el camino se pierde a
             quien ya había decidido.
 
-            A ancho completo en el teléfono y acotado en escritorio, con el
-            mismo alto y el mismo radio que los otros dos de la portada — uno
-            distinto aquí se leería como otro tipo de acción. */}
-        <Button asChild size="lg" className="h-13 w-full rounded-lg text-base sm:w-auto sm:min-w-64">
+            `secondary` y no `default`: sobre la tarjeta negra el botón negro
+            desaparecería. Esta variante lo deja claro sobre oscuro y se
+            mantiene coherente si el par de colores se invierte. A ancho
+            completo en las dos anchuras, como el mockup — dentro de una
+            tarjeta acotada ya no hay exceso de ancho del que defenderse. */}
+        <Button asChild size="lg" variant="secondary" className="h-13 w-full rounded-lg text-base">
           <a href={SIGNUP_URL}>Probar gratis</a>
         </Button>
       </div>
