@@ -296,7 +296,7 @@ export default function PoliticaDePrivacidadPage() {
       <p>
         Conservamos los datos mientras la cuenta del Comercio esté activa, y también cuando deja de
         estarlo. Si un Comercio termina su periodo de prueba sin contratar, o deja de pagar su
-        suscripción, su cuenta pasa a <strong>solo lectura</strong>: puede seguir consultando su
+        suscripción, su cuenta pasa a <strong>solo lectura</strong>: puede seguir consultando sus
         saldos y su historial, pero no registrar nuevos movimientos. Los datos no se borran por
         ese motivo.
       </p>
