@@ -290,8 +290,8 @@ export default function TerminosYCondicionesPage() {
       <h2>9. Planes, pagos, renovaciones y cancelación</h2>
       <p>
         Durante esta fase de validación, Sevenz ofrece un <strong>plan gratuito</strong> con
-        funcionalidades limitadas (incluyendo un número mensual limitado de importaciones de
-        libreta por foto, sujeto a cambios). Sevenz publica en su sitio un precio de referencia para
+        funcionalidades limitadas (incluyendo un número mensual limitado de libretas subidas
+        por foto, sujeto a cambios). Sevenz publica en su sitio un precio de referencia para
         el plan de pago, expresado como un mínimo («desde»): el precio final{" "}
         <strong>se acuerda con cada Comercio</strong> y puede ser mayor según el tamaño de su
         operación. Cualquier plan de pago será anunciado con anticipación, indicando precio,
@@ -316,7 +316,7 @@ export default function TerminosYCondicionesPage() {
         </li>
         <li>
           Ante la falta de pago, Sevenz podrá pasar la cuenta a{" "}
-          <strong>solo lectura</strong>: el Comercio conserva el acceso a su cartera y a su
+          <strong>solo lectura</strong>: el Comercio conserva el acceso a sus saldos y a su
           historial, y el link de saldo que compartió con sus clientes sigue funcionando, pero no
           podrá registrar nuevos movimientos hasta regularizar su situación.{" "}
           <strong>Los datos no se borran por este motivo</strong> (ver Sección 7 de la{" "}

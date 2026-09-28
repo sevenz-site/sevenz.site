@@ -20,7 +20,7 @@ const INCLUIDO = [
   "Recordatorios de cobro vía WhatsApp.",
   "Hasta 5 fotos de libreta al mes, sin costo.",
   "Envío automatizado de notificaciones de cobro y abonos vía WhatsApp.",
-  "Importación autónoma de libreta.",
+  "Subida autónoma de libreta.",
   // El mockup decía "historial de abonos, fiados e historial", con la palabra
   // repetida. Se quita la repetición sin inventar una tercera cosa que la app
   // no prometa: una lista de características es justo donde no se improvisa.
@@ -29,7 +29,7 @@ const INCLUIDO = [
   "Puntaje de puntualidad: sabe quién paga a tiempo y quién no.",
   "Lista de morosos y malas pagas, sin tener que recordarlo tú.",
   "Calculadora de tasa de cambio: dólar, USDT y euro, siempre actualizada.",
-  "Reportes de fiado y cartera.",
+  "Reportes de fiado y cobros.",
   "Acceso garantizado a nuevas funcionalidades.",
 ];
 

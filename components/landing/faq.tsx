@@ -14,11 +14,11 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
   },
   {
     q: "¿Cómo funciono con Sevenz sin re-escribir toda mi libreta?",
-    a: "Tomas una foto de tu libreta actual tal como está hoy y Sevenz arma tu cartera digital con esos datos. Desde ahí, cada movimiento nuevo (fiado o abono) lo registras en la app y el saldo se actualiza al instante para ti y tu cliente.",
+    a: "Tomas una foto de tu libreta actual tal como está hoy y Sevenz la pasa a digital con esos datos. Desde ahí, cada movimiento nuevo (fiado o abono) lo registras en la app y el saldo se actualiza al instante para ti y tu cliente.",
   },
   {
     q: "¿Es seguro compartir el saldo del fiado por WhatsApp?",
-    a: "Tu cliente ve su saldo a través de un link que le compartes por WhatsApp — no necesita instalar nada ni crear una cuenta. El link solo muestra su propio saldo, no el de otros clientes ni el resto de tu cartera.",
+    a: "Tu cliente ve su saldo a través de un link que le compartes por WhatsApp — no necesita instalar nada ni crear una cuenta. El link solo muestra su propio saldo, no el de otros clientes ni el resto de tus cuentas.",
   },
   {
     // Actualizada el 2026-09-24 con el precio del mockup v2. Antes decía "vale
@@ -35,7 +35,7 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
   },
   {
     q: "¿Sevenz me va a poner lento el teléfono?",
-    a: "No. Sevenz se abre en el navegador, como cualquier página, y tu cartera vive en la nube: no se te llena la memoria con los datos de tus clientes ni con las fotos de la libreta. Si la instalas en tu pantalla de inicio ocupa apenas el icono — tampoco ahí baja nada pesado.",
+    a: "No. Sevenz se abre en el navegador, como cualquier página, y tus datos viven en la nube: no se te llena la memoria con los datos de tus clientes ni con las fotos de la libreta. Si la instalas en tu pantalla de inicio ocupa apenas el icono — tampoco ahí baja nada pesado.",
   },
   {
     // La pregunta que los tenderos hacen de verdad, con sus palabras. Sevenz es
@@ -54,11 +54,11 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     // que esa política sostiene — cifrado en tránsito y separación por cuenta
     // a nivel de fila — sin prometer de más.
     q: "¿Quién puede ver los datos de mis clientes?",
-    a: "Solo tú. Los datos viajan cifrados entre tu teléfono y Sevenz, y cada cuenta está separada de las demás dentro de la base de datos: ningún otro negocio puede ver tu cartera, ni tú la suya. Tu cliente solo ve su propio saldo, a través del link que tú le mandas. Guardamos nombres y teléfonos reales porque sin eso no hay fiado que valga — por eso están protegidos, y por eso puedes leer en la Política de Privacidad qué guardamos y por cuánto tiempo.",
+    a: "Solo tú. Los datos viajan cifrados entre tu teléfono y Sevenz, y cada cuenta está separada de las demás dentro de la base de datos: ningún otro negocio puede ver tus clientes, ni tú los suyos. Tu cliente solo ve su propio saldo, a través del link que tú le mandas. Guardamos nombres y teléfonos reales porque sin eso no hay fiado que valga — por eso están protegidos, y por eso puedes leer en la Política de Privacidad qué guardamos y por cuánto tiempo.",
   },
   {
     // Novena pregunta, nueva en el mockup v2. La anterior contesta QUIÉN ve la
-    // cartera; esta contesta qué pasa con ella, que es la duda de quien lleva
+    // deudas; esta contesta qué pasa con ellas, que es la duda de quien lleva
     // años dependiendo de un cuaderno físico. Por eso la respuesta empieza por
     // perder el teléfono y no por la criptografía: es el riesgo que esa
     // persona ha vivido de verdad.
@@ -67,7 +67,7 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     // tiene. Afirma lo mismo que la Política de Privacidad de este sitio
     // sostiene, ni una palabra más.
     q: "¿Qué tan seguro es usar Sevenz?",
-    a: "Tu cartera no vive en el teléfono: vive en la nube, cifrada mientras viaja y separada de la de cualquier otro negocio dentro de la base de datos. Si el teléfono se pierde, se moja o se daña, tus cuentas siguen completas — entras desde otro y están ahí, que es justamente lo que una libreta no te da. El link que le mandas a un cliente abre su propio saldo y nada más: ni el de otro cliente, ni el resto de tu cartera.",
+    a: "Lo que te deben no vive en el teléfono: vive en la nube, cifrada mientras viaja y separada de la de cualquier otro negocio dentro de la base de datos. Si el teléfono se pierde, se moja o se daña, tus cuentas siguen completas — entras desde otro y están ahí, que es justamente lo que una libreta no te da. El link que le mandas a un cliente abre su propio saldo y nada más: ni el de otro cliente, ni el resto de tus cuentas.",
   },
   {
     // "Darse de baja" significa dos cosas distintas para quien pregunta —
@@ -91,10 +91,10 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     // frase decía que se detenían, y se quitó al decidirse lo contrario el
     // 2026-09-25 — el dueño sigue recibiendo el valor del producto, y eso
     // puede empujarle a ponerse al día. No se menciona aquí porque la
-    // pregunta es qué pasa con la CARTERA; explicar que le siguen llegando
+    // pregunta es qué pasa con LO QUE LE DEBEN; explicar que le siguen llegando
     // avisos que no puede atender abriría una duda que nadie hizo.
-    q: "¿Qué pasa con mi cartera si me doy de baja?",
-    a: "No se borra nada. Si terminas la prueba sin contratar o dejas de pagar, tu cuenta pasa a solo lectura: sigues entrando y viendo toda tu cartera y todo el historial, pero no puedes registrar movimientos nuevos. Los links que ya le compartiste a tus clientes siguen funcionando, así que ellos también siguen viendo su saldo. Y si lo que quieres es que borremos tus datos de verdad, lo pides por correo y lo hacemos.",
+    q: "¿Qué pasa con lo que me deben si me doy de baja?",
+    a: "No se borra nada. Si terminas la prueba sin contratar o dejas de pagar, tu cuenta pasa a solo lectura: sigues entrando y viendo todo lo que te deben y todo el historial, pero no puedes registrar movimientos nuevos. Los links que ya le compartiste a tus clientes siguen funcionando, así que ellos también siguen viendo su saldo. Y si lo que quieres es que borremos tus datos de verdad, lo pides por correo y lo hacemos.",
     href: "/politica-de-privacidad",
     hrefLabel: "Leer qué guardamos y por cuánto tiempo",
   },

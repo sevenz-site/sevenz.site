@@ -14,7 +14,7 @@ import { OG_IMAGE, SITE_URL } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Ayuda — Cómo usar Sevenz",
   description:
-    "Guía paso a paso de Sevenz: registrar un fiado, registrar un abono, compartir el saldo por WhatsApp, marcar una mala paga, importar tu libreta con una foto y más.",
+    "Guía paso a paso de Sevenz: registrar un fiado, registrar un abono, compartir el saldo por WhatsApp, marcar una mala paga, subir tu libreta con una foto y más.",
   alternates: {
     canonical: "/ayuda",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ayuda — Cómo usar Sevenz",
     description:
-      "Guía paso a paso de Sevenz: registrar un fiado, un abono, compartir el saldo por WhatsApp, marcar una mala paga o importar tu libreta con una foto.",
+      "Guía paso a paso de Sevenz: registrar un fiado, un abono, compartir el saldo por WhatsApp, marcar una mala paga o subir tu libreta con una foto.",
     url: "/ayuda",
     images: [OG_IMAGE],
   },

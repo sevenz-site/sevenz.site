@@ -17,7 +17,7 @@ export function Value() {
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
         <SectionHeading
           titulo="Notificaciones de cobro automatizadas vía WhatsApp"
-          lead="Sevenz automatiza el envío de notificaciones de abonos, fiados, fechas de pago y cobro a través de WhatsApp, así como reportes de cartera, análisis y recomendaciones inteligentes."
+          lead="Sevenz automatiza el envío de notificaciones de abonos, fiados, fechas de pago y cobro a través de WhatsApp, así como reportes de cobros, análisis y recomendaciones inteligentes."
         />
 
         {/* Captura nueva del 2026-09-24. La anterior enseñaba un solo mensaje;
@@ -30,6 +30,13 @@ export function Value() {
             `MS-3`, que sigue bloqueada, así que la imagen enseña algo que la
             app todavía no hace — está cubierto por la decisión registrada en
             `CT-15` y se anota aquí para que nadie lo lea como un descuido. */}
+        {/* El `alt` dice "cartera" A PROPÓSITO, aunque la palabra salió del
+            resto del producto el 2026-09-28. Describe lo que se VE en la
+            captura, y lo que se ve es el mensaje de WhatsApp, cuyo texto
+            está aprobado por Meta y no se puede editar: sigue diciendo "el
+            resumen de tu cartera". Un `alt` que lo llamara de otra forma
+            describiría mal la imagen, que es justo lo que un `alt` no puede
+            hacer. Cambia el día que se rehagan las plantillas. */}
         <Image
           src="/screens/sevenz-notificacion-whatsapp.png"
           alt="Tres mensajes de WhatsApp de Sevenz sobre la pantalla de un teléfono: el resumen semanal de la cartera con lo que hay por cobrar, el aviso de lo que requiere atención con los clientes vencidos y los que vieron su saldo sin abonar, y un aviso a un cliente de que su negocio le registró un fiado, con un botón para ver su saldo"
@@ -44,7 +51,7 @@ export function Value() {
             Encaja mejor y no por gusto: la captura de arriba termina en un
             botón "Ver mi saldo", así que la secuencia queda en orden — llega
             el aviso, el cliente lo toca, y esto es lo que se encuentra.
-            Antes cerraba la sección de importar, donde no seguía a nada.
+            Antes cerraba la sección de Subir libreta, donde no seguía a nada.
 
             EL TEXTO Y EL `alt` VIAJAN INTACTOS, que era la condición: son lo
             único en toda la portada que enseña la pantalla del cliente, y el

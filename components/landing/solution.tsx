@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Section, SectionHeading } from "@/components/landing/section";
 import { NumberedCard, NumberedList } from "@/components/landing/numbered-card";
 
-// Las tres pantallas del recorrido de importar. Los pies venían quemados
+// Las tres pantallas del recorrido de Subir libreta. Los pies venían quemados
 // dentro del PNG original —"1. Escanéa", "02, Verifica", "3. Listo": tres
 // formatos de numeración distintos y una tilde de más— así que la imagen se
 // partió en tres y los pies se escriben aquí. Además de arreglar la errata,
@@ -22,12 +22,12 @@ const PANTALLAS = [
   {
     src: "/screens/sevenz-importar-2-verifica.png",
     pie: "Verifica",
-    alt: "La pantalla de importar cartera de Sevenz, con las filas leídas de la libreta y los avisos de las que no cuadran",
+    alt: "La pantalla de Subir libreta de Sevenz, con las filas leídas de la libreta y los avisos de las que no cuadran",
   },
   {
     src: "/screens/sevenz-importar-3-listo.png",
     pie: "Listo",
-    alt: "La ficha de un cliente en Sevenz con su cartera pendiente en dólares y euros",
+    alt: "La ficha de un cliente en Sevenz con lo que debe en dólares y euros",
   },
 ];
 
@@ -42,7 +42,7 @@ const PASOS = [
   },
   {
     titulo: "Confirma y listo",
-    desc: "Toda tu cartera, ordenada por quién debe hace más tiempo.",
+    desc: "Todo lo que te deben, ordenado por quién debe hace más tiempo.",
   },
 ];
 
@@ -52,7 +52,7 @@ export function Solution() {
       <div className="flex flex-col gap-10">
         <SectionHeading
           split
-          titulo="Tres pasos y tu cartera de fiado queda al día"
+          titulo="Tres pasos y tienes al día lo que te deben"
           lead="Tu información se protege completamente con protocolos avanzados de seguridad en la nube, garantizando privacidad total."
         />
 

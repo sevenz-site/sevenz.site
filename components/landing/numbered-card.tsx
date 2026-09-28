@@ -1,6 +1,6 @@
 // La tarjeta gris numerada. Sale dos veces en la portada: los tres problemas
-// de "Así administras el fiado hoy" y los tres pasos de "Tres pasos y tu
-// cartera de fiado queda al día".
+// de "Así administras el fiado hoy" y los tres pasos de "Tres pasos y
+// tienes al día lo que te deben".
 //
 // LA NUMERACIÓN DICE ALGO, NO DECORA. En los pasos es una secuencia real —
 // primero la foto, después la verificación, después confirmar— y saltarse el

@@ -77,7 +77,7 @@ export default function PoliticaDePrivacidadPage() {
             tenga el link
           </strong>
         </li>
-        <li>Fotografías de libretas o registros físicos que decida subir para importar su cartera</li>
+        <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
         <li>Configuración de tasa de cambio: automática (BCV) o personalizada por el negocio</li>
         <li>
           Si aceptó recibir el resumen de su cartera por WhatsApp: la fecha en que lo aceptó,{" "}
@@ -297,7 +297,7 @@ export default function PoliticaDePrivacidadPage() {
         Conservamos los datos mientras la cuenta del Comercio esté activa, y también cuando deja de
         estarlo. Si un Comercio termina su periodo de prueba sin contratar, o deja de pagar su
         suscripción, su cuenta pasa a <strong>solo lectura</strong>: puede seguir consultando su
-        cartera y su historial, pero no registrar nuevos movimientos. Los datos no se borran por
+        saldos y su historial, pero no registrar nuevos movimientos. Los datos no se borran por
         ese motivo.
       </p>
       <p>
@@ -317,7 +317,7 @@ export default function PoliticaDePrivacidadPage() {
         poder hacer en Sevenz se conservan aunque su ficha desaparezca, pero{" "}
         <strong>desasociadas de ella</strong>: si el Comercio borra al cliente, el texto deja de
         estar vinculado a ninguna persona y queda solo como una idea suelta. La razón es que esas
-        respuestas orientan qué construimos, y perderlas porque un Comercio depuró su cartera
+        respuestas orientan qué construimos, y perderlas porque un Comercio depuró sus clientes
         borraría el motivo de decisiones ya tomadas. Si prefiere que se elimine por completo,
         puede pedirlo igual que cualquier otro dato.
       </p>

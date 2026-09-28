@@ -97,7 +97,7 @@ export const TEMAS: Tema[] = [
     titulo: "Registrar un abono",
     resumen: "Cuando te pagan, sea todo o una parte.",
     pasos: [
-      { texto: "Entra al cliente desde [[Cartera]] o [[Clientes]]." },
+      { texto: "Entra al cliente desde [[Inicio]] o [[Clientes]]." },
       { texto: "Pulsa [[+ Agregar abono]]." },
       {
         texto:
@@ -145,7 +145,7 @@ export const TEMAS: Tema[] = [
       },
     ],
     cierre: [
-      "Tu cliente ve su nombre, cuánto debe, y cada fiado y cada abono con su fecha. Solo lo suyo — no ve tus otros clientes, ni tu cartera, ni cuánto vendes.",
+      "Tu cliente ve su nombre, cuánto debe, y cada fiado y cada abono con su fecha. Solo lo suyo — no ve tus otros clientes, ni tus cuentas, ni cuánto vendes.",
     ],
     notas: [
       {
@@ -171,7 +171,7 @@ export const TEMAS: Tema[] = [
       { texto: "Confirma con [[Marcar como mala paga]]." },
     ],
     cierre: [
-      "Queda en la lista [[Malas pagas]], aparte de tu cartera normal.",
+      "Queda en la lista [[Malas pagas]], aparte de tu lista normal.",
       "Para quitarla: entra al cliente, pulsa [[Desmarcar como mala paga]] y confirma en «¿Quitar la marca de mala paga?» con [[Desmarcar]].",
     ],
     notas: [
@@ -212,7 +212,7 @@ export const TEMAS: Tema[] = [
     resumen:
       "Para pasar de dólares o euros a bolívares con la tasa del día, sin buscarla en otro lado.",
     pasos: [
-      { texto: "En [[Cartera]], arriba, está la tasa del día. Pulsa [[Calcular]]." },
+      { texto: "En [[Inicio]], arriba, está la tasa del día. Pulsa [[Calcular]]." },
       { texto: "En [[Tú pones]] escribe el monto." },
       {
         texto: "Abajo sale el resultado convertido.",
@@ -252,11 +252,11 @@ export const TEMAS: Tema[] = [
     slug: "importar-tu-libreta",
     numero: 7,
     grupo: "una-vez",
-    titulo: "Importar tu libreta con una foto",
+    titulo: "Subir tu libreta con una foto",
     resumen:
-      "Le tomas una foto a tu libreta como está hoy y Sevenz arma la cartera. No reescribes nada.",
+      "Le tomas una foto a tu libreta como está hoy y Sevenz la pasa a digital. No reescribes nada.",
     pasos: [
-      { texto: "Entra a [[Importar cartera]]." },
+      { texto: "Entra a [[Subir libreta]]." },
       {
         texto: "Elige la [[Moneda de toda la libreta]].",
         pista: "Es la misma para todas las fotos de esa tanda.",
@@ -268,7 +268,7 @@ export const TEMAS: Tema[] = [
           "Revisa la tabla: [[Cliente]], [[Documento]], [[WhatsApp]], [[Tipo]], [[Monto]] y [[Detalle]].",
         pista: "Corrige lo que haya leído mal. Es más rápido arreglar dos nombres que escribir treinta.",
       },
-      { texto: "Confirma y tu cartera queda cargada." },
+      { texto: "Confirma y queda todo cargado." },
     ],
     notas: [
       {
@@ -287,7 +287,7 @@ export const TEMAS: Tema[] = [
       "Para sacar de la vista a un cliente que ya no te interesa seguir, sin perder su historial.",
     pasos: [
       { texto: "Entra al cliente, pulsa [[Más]] y luego [[Mover a papelera]]." },
-      { texto: "Confirma. Desaparece de [[Cartera]] y de [[Clientes]]." },
+      { texto: "Confirma. Desaparece de [[Inicio]] y de [[Clientes]]." },
       { texto: "Cuando lo quieras de vuelta, entra a [[Papelera]] y pulsa [[Restaurar]]." },
     ],
     cierre: ["Mover a la papelera no borra nada: sus fiados, sus abonos y su link siguen ahí."],
@@ -321,6 +321,13 @@ export const TEMAS: Tema[] = [
       { texto: "Completa [[Dirección del negocio (opcional)]] y [[NIT/RUT (opcional)]] si aplican." },
       {
         texto:
+          // "cartera" SE QUEDA AQUÍ, a propósito. La palabra salió del resto
+          // del producto el 2026-09-28, pero esta frase nombra dos cosas que
+          // siguen diciéndola y que no se pueden cambiar: el interruptor de Mi
+          // negocio —cuyo texto se guarda como prueba del consentimiento— y el
+          // mensaje de WhatsApp, aprobado por Meta e inmutable. Una guía que
+          // llamara a ese interruptor de otra forma mandaría al lector a buscar
+          // algo que no va a encontrar.
           "En [[Notificaciones]] decides si quieres recibir el resumen de tu cartera por WhatsApp.",
         pista: "Llega con lo que tienes por cobrar y cuántos clientes se pasaron del plazo. Lo puedes apagar aquí mismo cuando quieras.",
       },

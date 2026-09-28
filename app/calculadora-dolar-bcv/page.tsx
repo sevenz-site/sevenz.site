@@ -83,7 +83,7 @@ export default function CalculadoraDolarBcvPage() {
                 tasa que acaba de consultar vive dentro del producto, al lado
                 de lo que le deben. */}
             <p className="text-sm text-muted-foreground">
-              La misma tasa, dentro de Sevenz y al lado de tu cartera
+              La misma tasa, dentro de Sevenz y al lado de lo que te deben
             </p>
             {/* Sin marco: es un recorte de teléfonos sobre transparencia, y un
                 borde con sombra dibujaría una caja rectangular donde no hay
