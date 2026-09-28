@@ -291,9 +291,12 @@ export default function TerminosYCondicionesPage() {
       <p>
         Durante esta fase de validación, Sevenz ofrece un <strong>plan gratuito</strong> con
         funcionalidades limitadas (incluyendo un número mensual limitado de importaciones de
-        libreta por foto, sujeto a cambios). Cualquier plan de pago futuro será anunciado con
-        anticipación, indicando precio, moneda, impuestos aplicables, periodicidad y condiciones de
-        cancelación, <strong>antes</strong> de que el Usuario deba pagar.
+        libreta por foto, sujeto a cambios). Sevenz publica en su sitio un precio de referencia para
+        el plan de pago, expresado como un mínimo («desde»): el precio final{" "}
+        <strong>se acuerda con cada Comercio</strong> y puede ser mayor según el tamaño de su
+        operación. Cualquier plan de pago será anunciado con anticipación, indicando precio,
+        moneda, impuestos aplicables, periodicidad y condiciones de cancelación,{" "}
+        <strong>antes</strong> de que el Usuario deba pagar.
       </p>
       <p>
         Sevenz puede otorgar periodos de prueba de duración acordada con cada Comercio,

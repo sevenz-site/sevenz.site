@@ -110,14 +110,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   url: SITE_URL,
                   description: DESCRIPTION,
                   publisher: { "@id": `${SITE_URL}/#organizacion` },
+                  // `minPrice` Y NO `price` A SECAS. Sevenz no tiene un precio
+                  // único: `subscriptions.precio_pactado_usd` guarda lo acordado
+                  // con cada negocio, y hoy conviven 20, 25 y una demo pactada
+                  // en 30. Un dato estructurado pesa más que una frase — Google
+                  // puede enseñarlo como LA tarifa —, así que aquí la
+                  // imprecisión costaba más que en el texto de la tarjeta.
+                  //
+                  // `price` se queda porque los resultados enriquecidos lo
+                  // esperan, y 20 es cierto: es el precio de entrada, el más
+                  // bajo que alguien paga. `minPrice` es el que dice que hay
+                  // rango; no se declara `maxPrice` porque no hay techo
+                  // publicado y no vamos a inventar uno.
                   offers: {
                     "@type": "Offer",
                     price: "20",
                     priceCurrency: "USD",
-                    description: "Prueba gratis 2 meses. Después, 20 USD al mes.",
+                    description: "Prueba gratis 2 meses. Después, desde 20 USD al mes.",
                     priceSpecification: {
                       "@type": "UnitPriceSpecification",
-                      price: "20",
+                      minPrice: "20",
                       priceCurrency: "USD",
                       // Un mes, en el código de unidad de la ONU que espera
                       // schema.org. Sin esto, "20 USD" no dice cada cuánto.

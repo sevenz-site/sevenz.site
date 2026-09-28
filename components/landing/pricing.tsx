@@ -86,13 +86,24 @@ export function Pricing() {
             <span className="text-lg font-semibold">Prueba gratis 2 meses</span>
           </h2>
 
-          {/* Literal del mockup, como se decidió el 2026-09-24 para esta
-              línea. Cambia "USD 20" por "20 USD", que además es como ya lo
-              dice la pregunta del FAQ sobre el precio — dos formas de escribir
-              la misma tarifa en la misma página obligan a comprobar si son la
-              misma. "periodo" sin tilde es la forma que prefiere la RAE. */}
+          {/* "DESDE", y no es un adorno comercial: es lo único cierto.
+              Sevenz NO tiene un precio único. `subscriptions.precio_pactado_usd`
+              guarda lo que se acordó con cada negocio, y la migración 057 lo
+              dice con todas las letras: "el precio se negocia entre 15 y 30 USD
+              y el catálogo es solo la plantilla". Medido en dev el 2026-09-28,
+              de los que están en Pro hay uno a 20 y otro a 25, y una demo
+              pactada en 30.
+
+              Publicar "20 USD al mes" a secas le da a quien acabe pagando 25
+              una queja legitima, y los Términos ya dicen que el precio se
+              acuerda con cada Comercio — así que la portada contradecía al
+              contrato de la propia página.
+
+              El plazo de prueba SÍ se queda: la única demo real dura 60 días
+              exactos, o sea que dos meses es la práctica y no una promesa
+              inventada. */}
           <p className="mt-1 text-primary-foreground/70 text-pretty">
-            20 USD por mes al finalizar periodo de prueba.
+            Desde 20 USD al mes al finalizar el periodo de prueba.
           </p>
         </div>
 
