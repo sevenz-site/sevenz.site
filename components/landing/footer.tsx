@@ -31,7 +31,7 @@ export function Footer() {
           hay motivo para mantener dos maquetaciones distintas. */}
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4">
         <div className="flex items-center gap-2">
-          <Image src="/icon.svg" alt="" width={20} height={20} className="rounded-sm" />
+          <Image src="/fav-icon-primary.svg" alt="" width={20} height={20} className="rounded-sm" />
           <span className="text-sm text-muted-foreground">© {new Date().getFullYear()} Sevenz</span>
         </div>
 

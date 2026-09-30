@@ -10,7 +10,7 @@ export function Cta() {
             no aporta nada nuevo: el nombre ya está en el titular que sigue y
             en el pie, y repetirlo tres veces seguidas a quien escucha la
             página es ruido. */}
-        <Image src="/logo.svg" alt="" width={120} height={37} />
+        <Image src="/logo-primary.svg" alt="" width={120} height={44} />
 
         <h2 className="text-display md:text-display-lg lg:text-display-xl max-w-2xl text-balance">
           ¿Quieres tener las cuentas claras con tus clientes?

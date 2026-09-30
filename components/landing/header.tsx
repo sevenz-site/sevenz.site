@@ -50,7 +50,7 @@ export function Header() {
           contrapeso sobran y una sola fila flex sirve para los dos tamaños. */}
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center gap-4 px-6">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Sevenz, ir al inicio">
-          <Image src="/logo.svg" alt="Sevenz" width={110} height={34} priority />
+          <Image src="/logo-primary.svg" alt="Sevenz" width={110} height={40} priority />
         </Link>
 
         {/* Los enlaces solo aparecen en escritorio. El mockup es de móvil y ahí
@@ -109,7 +109,7 @@ export function Header() {
             <SheetContent side="right" className="w-4/5 max-w-xs gap-0 p-0">
               <SheetHeader className="border-b p-6">
                 <SheetTitle className="text-left">
-                  <Image src="/logo.svg" alt="Sevenz" width={100} height={31} />
+                  <Image src="/logo-primary.svg" alt="Sevenz" width={100} height={36} />
                 </SheetTitle>
                 <SheetDescription className="sr-only">
                   Navegación principal de Sevenz
