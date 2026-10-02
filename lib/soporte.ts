@@ -257,24 +257,57 @@ export const TEMAS: Tema[] = [
       "Le tomas una foto a tu libreta como está hoy y Sevenz la pasa a digital. No reescribes nada.",
     pasos: [
       { texto: "Entra a [[Subir libreta]]." },
-      {
-        texto: "Elige la [[Moneda de toda la libreta]].",
-        pista: "Es la misma para todas las fotos de esa tanda.",
-      },
       { texto: "Toma o sube las fotos. Hasta 6 por tanda." },
       { texto: "Espera. Vas a ver [[En cola…]], luego [[Leyendo con IA…]] y al final [[Listo]]." },
       {
-        texto:
-          "Revisa la tabla: [[Cliente]], [[Documento]], [[WhatsApp]], [[Tipo]], [[Monto]] y [[Detalle]].",
-        pista: "Corrige lo que haya leído mal. Es más rápido arreglar dos nombres que escribir treinta.",
+        texto: "Pulsa [[Ver resultados]].",
+        pista: "Puedes seguir usando el resto de la app mientras lee. El progreso sigue ahí.",
       },
-      { texto: "Confirma y queda todo cargado." },
+      {
+        texto:
+          "Si tu negocio maneja dólares y euros, elige la moneda: [[Todo en dólares]], [[Todo en euros]] o [[Están mezclados]].",
+        pista: "Con «Están mezclados» eliges la moneda cliente por cliente, y puedes cambiar filas sueltas después.",
+      },
+      {
+        texto: "Abre cada cliente y revisa lo suyo.",
+        pista: "Hay una tarjeta por persona. Dentro están sus movimientos, su cédula y su WhatsApp.",
+      },
+      {
+        texto: "Escribe la cédula de los clientes nuevos. Sin ella no se puede subir.",
+        pista: "Se pide una vez por persona, no por renglón.",
+      },
+      {
+        texto: "Sube con [[Subir este cliente]], o todos de una con [[Confirmar y subir]].",
+        pista: "No hace falta tener la cartera entera lista: sube a los que ya están y sigue con el resto.",
+      },
+    ],
+    cierre: [
+      "Cada tarjeta dice cómo va: [[Faltan datos]] si le falta algo, [[Todo cuadra]] si está lista, y [[Subido]] cuando ya entró.",
+      "Un cliente subido se queda en la lista para que veas lo que llevas hecho, y puedes abrirlo para mirar lo que entró.",
+      "Si cierras la pantalla sin querer, al volver te ofrece seguir donde lo dejaste. Las fotos no vuelven, pero sí tus correcciones.",
     ],
     notas: [
       {
-        titulo: "Cinco fotos al mes en el plan gratis",
+        titulo: "Las fotos no tienen tope",
         texto:
-          "Arriba dice [[Fotos usadas este mes (plan Free)]]. Si subes la libreta entera de una vez, te quedas sin cuota para la hoja de la semana que viene. Ve por partes.",
+          "Sube la libreta entera si quieres. No hay cuota mensual que gastar.",
+      },
+      {
+        titulo: "Si una línea no dice de quién es",
+        texto:
+          "Una página que empieza a media cuenta trae renglones sin nombre, porque el nombre está en la hoja anterior. Salen arriba, en [[líneas sin cliente]], con un menú para decir de quién son — o para quitarlas. No se sube nada hasta que las resuelvas, y así no se pierde ninguna deuda.",
+      },
+      {
+        titulo: "Si la cuenta no le da igual que a ti",
+        texto:
+          "Cuando el total que escribiste a mano no coincide con la suma de los montos, Sevenz te lo dice y te deja elegir: [[Mi libreta subida]] o [[La suma de Sevenz]]. Si eliges tu libreta, agrega un movimiento de ajuste por la diferencia para que la cuenta cierre en tu número.",
+        cuidado: true,
+      },
+      {
+        titulo: "Revisa los montos aunque todo se vea bien",
+        texto:
+          "La lectura con IA acierta casi siempre, pero un 2 emborronado puede leerse como 7. Las líneas que no cuadran con el saldo escrito salen marcadas; el resto lo miras tú.",
+        cuidado: true,
       },
     ],
   },

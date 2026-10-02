@@ -18,7 +18,10 @@ import { SIGNUP_URL } from "@/lib/config";
 const INCLUIDO = [
   // El mockup decía "vís WhatsApp".
   "Recordatorios de cobro vía WhatsApp.",
-  "Hasta 5 fotos de libreta al mes, sin costo.",
+  // El tope mensual se retiro en todos los planes el 2026-09-28 (commit
+  // 0ec035f del dashboard): la pantalla dice "Fotos ilimitadas". Esta linea
+  // decia "Hasta 5 fotos de libreta al mes" y se volvio falsa ese dia.
+  "Fotos de libreta sin límite mensual.",
   "Envío automatizado de notificaciones de cobro y abonos vía WhatsApp.",
   "Subida autónoma de libreta.",
   // El mockup decía "historial de abonos, fiados e historial", con la palabra

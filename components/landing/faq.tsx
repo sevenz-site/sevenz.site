@@ -27,7 +27,7 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     // avisar antes de cobrar se mantiene palabra por palabra — es lo único de
     // esta respuesta que es un compromiso y no un dato.
     q: "¿Cuánto cuesta usar Sevenz?",
-    a: "Lo pruebas gratis dos meses, completo, con hasta 5 fotos de libreta al mes y sin tarjeta de crédito. Después, desde 20 USD al mes: el precio lo acordamos contigo antes de empezar a cobrar, y depende del tamaño de tu negocio. Si empezamos a cobrarte, te avisamos antes — nunca te vamos a cobrar algo que no sepas.",
+    a: "Lo pruebas gratis dos meses, completo, con las fotos de libreta que necesites y sin tarjeta de crédito. Después, desde 20 USD al mes: el precio lo acordamos contigo antes de empezar a cobrar, y depende del tamaño de tu negocio. Si empezamos a cobrarte, te avisamos antes — nunca te vamos a cobrar algo que no sepas.",
   },
   {
     q: "¿Qué pasa si un cliente dice que no debe tanto?",
