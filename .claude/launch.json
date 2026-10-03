@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sevenz-dashboard-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "C:\\Users\\Jesus Delgado\\Documents\\9-Projects\\Sevenz\\dashboard", "run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "sevenz-web-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

@@ -1,0 +1,701 @@
+<title>Auditoría SEO Sevenz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #EEF2EA;
+    --paper-raised: #E3EADD;
+    --paper-sunken: #E7ECE2;
+    --ink: #1B211D;
+    --ink-muted: #56625A;
+    --ink-faint: #7C8A80;
+    --rule: #C4CFC0;
+    --rule-strong: #9FAE99;
+    --accent: #C0602A;
+    --accent-ink: #FFF9F3;
+    --accent-soft: #EED9C3;
+    --good: #3E7A52;
+    --bad: #B23B32;
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14170F;
+      --paper-raised: #1C2117;
+      --paper-sunken: #191D14;
+      --ink: #E9EEE3;
+      --ink-muted: #A3AC9B;
+      --ink-faint: #6E7A67;
+      --rule: #2B3325;
+      --rule-strong: #3D4834;
+      --accent: #E2884D;
+      --accent-ink: #1C1006;
+      --accent-soft: #3B2A18;
+      --good: #6FBE86;
+      --bad: #E17B72;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #14170F;
+    --paper-raised: #1C2117;
+    --paper-sunken: #191D14;
+    --ink: #E9EEE3;
+    --ink-muted: #A3AC9B;
+    --ink-faint: #6E7A67;
+    --rule: #2B3325;
+    --rule-strong: #3D4834;
+    --accent: #E2884D;
+    --accent-ink: #1C1006;
+    --accent-soft: #3B2A18;
+    --good: #6FBE86;
+    --bad: #E17B72;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent-soft); color: var(--ink); }
+
+  .doc {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 28px 120px;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 28px;
+    margin-bottom: 12px;
+  }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 22px;
+  }
+  h1.title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    max-width: 56ch;
+    margin: 0;
+  }
+  .scope-note {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    padding: 6px 12px;
+    border-radius: 3px;
+  }
+
+  /* ---------- Ledger section rhythm ---------- */
+  .entry {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 20px;
+    padding-top: 56px;
+  }
+  .entry-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-faint);
+    padding-top: 6px;
+  }
+  .entry-body { min-width: 0; }
+  .entry h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: -0.005em;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  .entry .kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+  .entry-intro {
+    color: var(--ink-muted);
+    max-width: 68ch;
+    margin: 0 0 24px;
+  }
+  .rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 40px 0 0;
+  }
+
+  /* ---------- Summary strip ---------- */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .summary-card {
+    background: var(--paper-raised);
+    padding: 18px 18px 20px;
+  }
+  .summary-card .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 10px;
+  }
+  .summary-card p { margin: 0; font-size: 0.92rem; color: var(--ink); }
+  .summary-card.flag .label { color: var(--bad); }
+
+  /* ---------- Diagnostic table ---------- */
+  .diag-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .diag-table th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+    padding: 0 12px 10px 0;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .diag-table td {
+    padding: 13px 12px 13px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .diag-table tr:last-child td { border-bottom: none; }
+  .diag-table td.signal { font-weight: 600; white-space: nowrap; }
+  .diag-table td.why { color: var(--ink-muted); }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .status::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .status.missing { color: var(--bad); }
+  .status.missing::before { background: var(--bad); }
+  .status.partial { color: var(--accent); }
+  .status.partial::before { background: var(--accent); }
+  .status.ok { color: var(--good); }
+  .status.ok::before { background: var(--good); }
+
+  /* ---------- Keyword clusters ---------- */
+  .kw-groups {
+    display: grid;
+    gap: 22px;
+  }
+  .kw-group {
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 18px 20px 20px;
+  }
+  .kw-group h3 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+  .kw-group .intent-desc {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin: 0 0 14px;
+  }
+  .kw-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .kw-chip {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 6px 10px;
+    background: var(--paper);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    color: var(--ink);
+  }
+  .kw-note {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 14px;
+  }
+  .kw-note b { color: var(--ink); }
+
+  /* ---------- Before / after ledger comparisons ---------- */
+  .compare {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .compare-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 18px;
+    background: var(--paper-sunken);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+  .compare-head .field-name { color: var(--ink); font-weight: 600; }
+  .compare-rows { display: grid; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 620px) { .compare-rows { grid-template-columns: 1fr; } }
+  .compare-cell {
+    padding: 18px 20px;
+    font-size: 0.98rem;
+  }
+  .compare-cell.was {
+    color: var(--ink-muted);
+    border-right: 1px solid var(--rule);
+  }
+  .compare-cell.was::before,
+  .compare-cell.now::before {
+    content: "ANTES";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .compare-cell.now::before { content: "RECOMENDADO"; color: var(--accent); }
+  @media (max-width: 620px) { .compare-cell.was { border-right: none; border-bottom: 1px solid var(--rule); } }
+  .compare-cell .copy { font-weight: 500; }
+  .compare-cell .copy.strike { text-decoration: line-through; text-decoration-color: var(--rule-strong); }
+  .compare-why {
+    padding: 14px 20px 18px;
+    background: var(--paper-sunken);
+    border-top: 1px solid var(--rule);
+    font-size: 0.87rem;
+    color: var(--ink-muted);
+  }
+  .compare-why b { color: var(--ink); font-weight: 600; }
+  .compare-why .es { color: var(--good); font-weight: 600; }
+  .compare-why .no { color: var(--bad); font-weight: 600; }
+
+  /* ---------- Technical recs list ---------- */
+  .tech-list { display: grid; gap: 14px; }
+  .tech-item {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tech-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tech-item .chk {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 3px;
+    margin-top: 2px;
+  }
+  .tech-item h4 { margin: 0 0 4px; font-size: 0.98rem; font-weight: 700; }
+  .tech-item p { margin: 0; color: var(--ink-muted); font-size: 0.9rem; }
+  .tech-item code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--paper-sunken);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* ---------- Priority queue ---------- */
+  .priority-tiers { display: grid; gap: 26px; }
+  .tier-label {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .tier-label .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .tier-label.now .dot { background: var(--bad); }
+  .tier-label.next .dot { background: var(--accent); }
+  .tier-label.later .dot { background: var(--good); }
+  .tier-items { display: grid; gap: 8px; }
+  .tier-row {
+    display: flex; align-items: baseline; gap: 12px;
+    padding: 11px 14px;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-size: 0.92rem;
+  }
+  .tier-row .n { font-family: var(--font-mono); color: var(--ink-faint); font-size: 12px; }
+
+  footer.colophon {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---------- Done checklist ---------- */
+  .tech-item.done .chk {
+    border-color: var(--good);
+    background: var(--good);
+    position: relative;
+  }
+  .tech-item.done .chk::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid var(--paper);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .tech-item.done h4 { color: var(--good); }
+  .source-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 2px 7px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+</style>
+
+<div class="doc">
+
+  <div class="masthead">
+    <div class="masthead-top">
+      <span>Auditoría SEO — sevenz.site · seguimiento</span>
+      <span>21 ago 2026</span>
+    </div>
+    <h1 class="title">Cuentas claras, también para Google — segunda pasada</h1>
+    <p class="subtitle">Revisión del landing de Sevenz después de implementar la primera auditoría, cruzada contra la checklist de <a href="https://www.semrush.com/blog/improve-seo/" style="color:var(--accent)">SEMrush "How to Improve SEO"</a> que trajiste. Qué quedó resuelto, qué falta y qué es trabajo de negocio (no de código).</p>
+    <span class="scope-note">Solo análisis — nada de esto se implementó en el código en esta pasada</span>
+  </div>
+
+  <!-- 01 RESUMEN -->
+  <div class="entry">
+    <div class="entry-num">01</div>
+    <div class="entry-body">
+      <p class="kicker">Resumen ejecutivo</p>
+      <h2>Lo técnico y el copy ya están al día. Falta profundidad de contenido y confianza.</h2>
+      <p class="entry-intro">Desde la primera auditoría se implementó el copy en español venezolano, las etiquetas Open Graph, el sitemap, el robots.txt, los datos estructurados y se comprimieron todas las capturas. Contra la checklist de SEMrush, el sitio pasa casi toda la sección "On-Page" y "Technical SEO" — pero sigue plano en las secciones "Content", "E-E-A-T" y "AI Visibility", porque sigue siendo una sola página sin profundidad informacional.</p>
+
+      <div class="summary-grid">
+        <div class="summary-card flag">
+          <p class="label">Sigue sin resolver</p>
+          <p>sevenz.site y www.sevenz.site siguen sirviendo 200 OK por separado — hay canonical, pero no hay redirección 301 real.</p>
+        </div>
+        <div class="summary-card flag">
+          <p class="label">Meta description larga</p>
+          <p>155 caracteres — pasa el límite duro de Google (~160) pero se pasa del límite de 135 que recomienda SEMrush.</p>
+        </div>
+        <div class="summary-card">
+          <p class="label">Gap de contenido</p>
+          <p>Una sola página, sin FAQ, sin blog, sin testimonios — SEMrush pide profundidad para "Content" y señales de "E-E-A-T".</p>
+        </div>
+        <div class="summary-card">
+          <p class="label">A favor</p>
+          <p>Copy, meta tags, OG, JSON-LD, sitemap, robots.txt e imágenes comprimidas — todo lo técnico de la primera pasada ya está en producción.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- 02 IMPLEMENTADO -->
+  <div class="entry">
+    <div class="entry-num">02</div>
+    <div class="entry-body">
+      <p class="kicker">Qué se implementó desde la primera pasada</p>
+      <h2>Todo lo de la ronda anterior ya está en producción</h2>
+      <p class="entry-intro">Verificado directamente contra <code style="font-family:var(--font-mono); font-size:0.85em;">app/layout.tsx</code>, <code style="font-family:var(--font-mono); font-size:0.85em;">components/landing</code> y el sitio en vivo en sevenz.site.</p>
+
+      <div class="tech-list">
+        <div class="tech-item done">
+          <div class="chk"></div>
+          <div>
+            <h4>Copy en español venezolano con "fiado" en el H1, la etiqueta y los H2</h4>
+            <p>Título, meta description, eyebrow, H1, subtítulo y ambos H2 de sección reescritos — "fiado" reemplazó al lenguaje de banco ("crédito a clientes de pyme" → "bodegas y comercios").</p>
+          </div>
+        </div>
+        <div class="tech-item done">
+          <div class="chk"></div>
+          <div>
+            <h4>Open Graph + Twitter Card completos</h4>
+            <p><code>og:title</code>, <code>og:description</code>, <code>og:image</code>, <code>og:locale=es_VE</code>, <code>twitter:card=summary_large_image</code> — un link de Sevenz compartido por WhatsApp ahora muestra imagen y descripción.</p>
+          </div>
+        </div>
+        <div class="tech-item done">
+          <div class="chk"></div>
+          <div>
+            <h4>Canonical URL</h4>
+            <p><code>alternates.canonical</code> apunta a <code>https://sevenz.site</code> en cada página.</p>
+          </div>
+        </div>
+        <div class="tech-item done">
+          <div class="chk"></div>
+          <div>
+            <h4>sitemap.xml y robots.txt</h4>
+            <p>Generados con <code>app/sitemap.ts</code> y <code>app/robots.ts</code>, confirmados en vivo en <code>sevenz.site/sitemap.xml</code> y <code>/robots.txt</code>.</p>
+          </div>
+        </div>
+        <div class="tech-item done">
+          <div class="chk"></div>
+          <div>
+            <h4>Datos estructurados JSON-LD</h4>
+            <p>Schema <code>SoftwareApplication</code> con el plan gratis (<code>offers.price: 0</code>) en el <code>&lt;body&gt;</code> del layout.</p>
+          </div>
+        </div>
+        <div class="tech-item done">
+          <div class="chk"></div>
+          <div>
+            <h4>Las 4 imágenes con alt text descriptivo y con "fiado"</h4>
+            <p>Cada captura tiene un nombre de archivo y un alt slugificados a partir de lo que muestra — refuerza la keyword también en Google Imágenes.</p>
+          </div>
+        </div>
+        <div class="tech-item done">
+          <div class="chk"></div>
+          <div>
+            <h4>Compresión de imágenes</h4>
+            <p>Las 3 capturas en uso se redujeron a ~2x su ancho real en pantalla y se recodificaron con paleta PNG — de ~942 KB combinados a ~300 KB (-68%), sin pérdida visible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- 03 SEMRUSH -->
+  <div class="entry">
+    <div class="entry-num">03</div>
+    <div class="entry-body">
+      <p class="kicker">Cruce con la checklist de SEMrush <a href="https://www.semrush.com/blog/improve-seo/" style="color:var(--ink-faint); text-decoration:none;">↗</a></p>
+      <h2>Dónde queda el sitio frente a una guía externa de referencia</h2>
+      <p class="entry-intro">La guía que trajiste organiza las recomendaciones en 7 bloques. Así queda cada uno aplicado a sevenz.site — no son señales inventadas por esta auditoría, son la checklist de SEMrush evaluada contra el código y el sitio real.</p>
+
+      <table class="diag-table">
+        <thead>
+          <tr><th>Bloque SEMrush</th><th>Estado</th><th>Nota</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="signal">On-Page SEO</td>
+            <td><span class="status ok">Casi completo</span></td>
+            <td class="why">Title 50 car. (&lt;60 ✓), H1 con keyword y jerarquía correcta ✓, alt text en las 4 imágenes ✓. Solo falla el largo del meta description (ver 04).</td>
+          </tr>
+          <tr>
+            <td class="signal">Technical SEO</td>
+            <td><span class="status ok">Casi completo</span></td>
+            <td class="why">Sitemap y robots.txt en producción ✓, sin errores 404 detectados ✓. Falta resolver el dominio duplicado (ver 04) y no hay Search Console conectada para monitorear indexación.</td>
+          </tr>
+          <tr>
+            <td class="signal">User Experience</td>
+            <td><span class="status ok">Completo</span></td>
+            <td class="why">Imágenes comprimidas ✓, JS/CSS minificados por el build de Next ✓, probado responsive en mobile (375px) sin overflow ni layout roto ✓. Navegación de una sola página, no aplica breadcrumbs.</td>
+          </tr>
+          <tr>
+            <td class="signal">Content Optimization</td>
+            <td><span class="status missing">Débil</span></td>
+            <td class="why">Una sola página sin profundidad temática. SEMrush pide actualizar contenido con "subtemas faltantes" y responder la intención completa de búsqueda — hoy no hay dónde hacerlo.</td>
+          </tr>
+          <tr>
+            <td class="signal">AI Visibility</td>
+            <td><span class="status missing">Débil</span></td>
+            <td class="why">El H1 en pregunta ayuda, pero sin una sección que responda preguntas directas (tipo FAQ) hay poco contenido que un AI Overview pueda citar textualmente.</td>
+          </tr>
+          <tr>
+            <td class="signal">E-E-A-T</td>
+            <td><span class="status missing">Débil</span></td>
+            <td class="why">Sin testimonios, casos de uso, cifras propias ni información de quién está detrás de Sevenz. Para un producto que toca plata y confianza entre negocio y cliente, esto pesa.</td>
+          </tr>
+          <tr>
+            <td class="signal">Link Building &amp; Authority</td>
+            <td><span class="status missing">Sin empezar</span></td>
+            <td class="why">Menciones de marca sin enlazar, notas de prensa, activos para compartir — todo trabajo de negocio/marketing, no de código. Ver 05.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- 04 PENDIENTE -->
+  <div class="entry">
+    <div class="entry-num">04</div>
+    <div class="entry-body">
+      <p class="kicker">Lo que sigue pendiente en el código</p>
+      <h2>Tres cosas concretas, todavía sin resolver</h2>
+
+      <div class="tech-list">
+        <div class="tech-item">
+          <div class="chk"></div>
+          <div>
+            <h4>Dominio duplicado: sevenz.site y www.sevenz.site siguen siendo dos copias</h4>
+            <p>Verificado ahora mismo: ambas responden <code>200 OK</code> por separado, con el mismo contenido. El canonical ayuda, pero no reemplaza una redirección 301 real — y una redirección de código no es posible en este proyecto porque <code>output: "export"</code> no soporta <code>redirects()</code> de Next.js. Se resuelve desde Cloudflare: Redirect Rules o Bulk Redirects en el dashboard, apuntando <code>www</code> → apex (o viceversa).</p>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="chk"></div>
+          <div>
+            <h4>Meta description por encima del límite que recomienda SEMrush</h4>
+            <p>Mide 155 caracteres — pasa el corte duro de Google (~160) pero se pasa de los 135 que pide SEMrush, así que en buscadores más estrictos o en mobile puede truncarse antes de la llamada a la acción. Versión recortada a 125 caracteres que conserva el problema + la oferta: <i>"¿Se te pierde la cuenta del fiado? Con Sevenz tu cliente ve su saldo por WhatsApp, en tiempo real. Cero libreta, cero peleas."</i></p>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="chk"></div>
+          <div>
+            <h4>Sin profundidad de contenido — la causa raíz de los 3 bloques débiles de SEMrush</h4>
+            <p>Content, AI Visibility y E-E-A-T fallan por la misma razón: la landing es una sola pantalla de conversión, sin una sección que responda preguntas reales. Una sección de preguntas frecuentes con <code>FAQPage</code> schema — <i>"¿cómo llevo el fiado sin libreta?"</i>, <i>"¿el fiado por WhatsApp es seguro?"</i>, <i>"¿cuánto cuesta Sevenz?"</i> — mueve la aguja en los tres al mismo tiempo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- 05 NEGOCIO -->
+  <div class="entry">
+    <div class="entry-num">05</div>
+    <div class="entry-body">
+      <p class="kicker">Fuera del código</p>
+      <h2>Lo que SEMrush pide y no se resuelve editando el repo</h2>
+      <p class="entry-intro">Estos puntos de la checklist son proceso, no una línea de código — quedan anotados para que no se pierdan, pero no son parte de esta auditoría técnica.</p>
+
+      <div class="tech-list">
+        <div class="tech-item">
+          <div class="chk"></div>
+          <div>
+            <h4>Conectar Google Search Console</h4>
+            <p>Sin GSC no hay forma de confirmar que Google indexó la página, ni de ver qué términos ya traen tráfico ni si hay errores de rastreo. Es el primer paso para que el resto de esta auditoría se pueda medir.</p>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="chk"></div>
+          <div>
+            <h4>Rastrear posiciones y competencia</h4>
+            <p>SEMrush recomienda tratar SEO como proceso continuo, no como proyecto único — vale la pena un rank tracker sobre los clusters de "fiado" definidos en la primera auditoría.</p>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="chk"></div>
+          <div>
+            <h4>Construir autoridad de marca</h4>
+            <p>Buscar menciones de "Sevenz" sin enlazar y pedir el link, aparecer en medios que cubran pymes/comercio en Venezuela, y armar un activo compartible (ej. una calculadora de "cuánto plata se pierde fiando sin control").</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- 06 PRIORIDAD -->
+  <div class="entry">
+    <div class="entry-num">06</div>
+    <div class="entry-body">
+      <p class="kicker">Orden de ejecución actualizado</p>
+      <h2>Por dónde seguir</h2>
+
+      <div class="priority-tiers">
+        <div>
+          <div class="tier-label now"><span class="dot"></span>Ahora — minutos a horas</div>
+          <div class="tier-items">
+            <div class="tier-row"><span class="n">1</span> Redirect Rule en Cloudflare: www.sevenz.site → sevenz.site (o al revés)</div>
+            <div class="tier-row"><span class="n">2</span> Recortar el meta description a ~125 caracteres</div>
+            <div class="tier-row"><span class="n">3</span> Conectar Google Search Console y enviar el sitemap</div>
+          </div>
+        </div>
+        <div>
+          <div class="tier-label next"><span class="dot"></span>Siguiente — días</div>
+          <div class="tier-items">
+            <div class="tier-row"><span class="n">4</span> Sección de preguntas frecuentes con FAQPage schema</div>
+            <div class="tier-row"><span class="n">5</span> Sumar 1-2 testimonios o cifras propias de negocios usando Sevenz</div>
+          </div>
+        </div>
+        <div>
+          <div class="tier-label later"><span class="dot"></span>Más adelante — semanas, trabajo de negocio</div>
+          <div class="tier-items">
+            <div class="tier-row"><span class="n">6</span> Rank tracker sobre los clusters de "fiado"</div>
+            <div class="tier-row"><span class="n">7</span> Búsqueda de menciones sin enlazar + outreach a medios de pymes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="colophon">
+    <span>Segunda pasada — primera auditoría en commit 65b5232, este seguimiento sobre 196a4ce</span>
+    <span>Análisis únicamente — sin cambios aplicados al código en esta pasada</span>
+  </footer>
+
+</div>

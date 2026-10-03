@@ -94,7 +94,17 @@
      capturas sean lo único que brilla en la página.
      Los valores salen de muestrear píxeles del PNG, no de ojo:
      #FFF fondo · #000 titulares · #4C4C4C cuerpo · #999 rótulos ·
-     #F5F5F5 tarjetas · #E5E5E5 bordes · #171717 el negro de los botones. */
+     #F5F5F5 tarjetas · #E5E5E5 bordes.
+
+     DOS DE ELLOS DEJARON DE VENIR DEL MUESTREO el 2026-10-03. `--primary` y
+     `--secondary` pasan a ser los de la PALETA DE MARCA —#272727 y #DADADA—,
+     los mismos que el dashboard y los mismos en los que están dibujados los
+     logotipos. El muestreo daba #171717 y #F5F5F5 porque el mockup se hizo
+     antes de que la paleta se moviera; los logos arrastraban esa misma deriva
+     y se redibujaron a la vez.
+
+     La página sigue siendo acromática: lo que cambia son dos grises, no la
+     decisión de no tener acento. */
   --background: oklch(1 0 0);
   /* Negro puro, no el 0.145 de shadcn. El mockup apoya todo su contraste en
      titulares negros contra párrafos grises; subir el titular a #252525
@@ -104,10 +114,18 @@
   --card-foreground: oklch(0 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0 0 0);
-  /* #171717 */
-  --primary: oklch(0.218 0 0);
+  /* #272727, el primario de la marca. Antes oklch(0.218), que además no era
+     #171717 como decía este comentario sino #1a1a1a — el valor y su etiqueta
+     ya habían empezado a separarse.
+     Medido: texto encima 14,31:1 · como texto sobre blanco 14,94:1. */
+  --primary: #272727;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  /* #DADADA, el secundario de la marca. Antes oklch(0.97) = #f5f5f5.
+     En esta web `--secondary` NO son las tarjetas: son los chips de rótulo de
+     Soporte —los `[[Subir libreta]]`— y los botones secundarios. A #f5f5f5 un
+     chip sobre fondo blanco se sostenía solo por su borde; a #DADADA se lee
+     como un chip. Texto encima: 12,44:1. */
+  --secondary: #dadada;
   --secondary-foreground: oklch(0.218 0 0);
   --muted: oklch(0.97 0 0);
   /* #4C4C4C. Más oscuro que el 0.556 anterior: en el mockup el párrafo es

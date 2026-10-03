@@ -45,13 +45,15 @@ export function Pricing() {
           entera en blanco, el único bloque negro es donde va la vista. Sigue
           siendo la única sección con tratamiento propio.
 
-          `bg-primary` (#171717) y no un negro suelto: es el mismo de los
+          `bg-primary` (#272727, el primario de la marca) y no un negro suelto:
+          es el mismo de los
           botones de la portada, así que la tarjeta y el botón del hero se leen
           como el mismo sistema. Y si algún día se enciende el modo oscuro —hoy
           la clase `.dark` existe en globals.css pero no se aplica nunca—, el
           par primary/primary-foreground se invierte junto y la tarjeta seguiría
           contrastando con la página en vez de fundirse con ella. Un `#171717`
-          escrito a mano se habría quedado negro sobre negro.
+          escrito a mano se habría quedado negro sobre negro — y además habría
+          envejecido: ese valor era #171717 hasta el 2026-10-03.
 
           `max-w-2xl` (672px) y no los 768 de antes: acotada, como el mockup,
           pero no tan estrecha como para dejar las once líneas en una sola
