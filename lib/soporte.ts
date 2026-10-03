@@ -277,6 +277,12 @@ export const TEMAS: Tema[] = [
         pista: "Se pide una vez por persona, no por renglón.",
       },
       {
+        texto:
+          "Si ese cliente ya lo tienes, Sevenz te lo dice y te pregunta de cuál es. Mientras no respondas, ese cliente no se sube.",
+        pista:
+          "Te enseña la ficha de cada uno con su cédula y lo que debe, para que puedas distinguirlos. Si de verdad es otra cuenta de la misma persona —la del negocio y la personal, por ejemplo— eliges [[Es una cuenta separada]] y entra aparte.",
+      },
+      {
         texto: "Sube con [[Subir este cliente]], o todos de una con [[Confirmar y subir]].",
         pista: "No hace falta tener la cartera entera lista: sube a los que ya están y sigue con el resto.",
       },
@@ -304,6 +310,16 @@ export const TEMAS: Tema[] = [
         cuidado: true,
       },
       {
+        titulo: "Si la página viene de otra hoja",
+        texto:
+          "Cuando fotografías una página que no es la primera, esa cuenta ya traía un saldo de antes y Sevenz no lo sabe: todas las líneas salen marcadas por la misma cantidad. Si eso pasa, te lo dice y te propone añadirlo como [[Saldo anterior]]. Antes de aceptar, mira la foto: te enseña al lado el primer apunte de la página, porque si ese monto se leyó mal, lo que falla es él y no el saldo anterior. Y si no te lo propone pero sabes que la página continúa otra, lo escribes tú con [[¿Esta página viene de otra?]].",
+        cuidado: true,
+      },
+      {
+        titulo: "Varios movimientos a la vez, y volver atrás",
+        texto:
+          "Dentro de un cliente, mantén pulsado un movimiento para marcarlo. Desde ahí marcas los que quieras y les cambias la moneda o los eliminas de una vez. Y si te equivocas en cualquier paso de la revisión, el botón de deshacer de arriba vuelve atrás hasta veinte veces.",
+      },      {
         titulo: "Revisa los montos aunque todo se vea bien",
         texto:
           "La lectura con IA acierta casi siempre, pero un 2 emborronado puede leerse como 7. Las líneas que no cuadran con el saldo escrito salen marcadas; el resto lo miras tú.",
@@ -322,13 +338,18 @@ export const TEMAS: Tema[] = [
       { texto: "Entra al cliente, pulsa [[Más]] y luego [[Mover a papelera]]." },
       { texto: "Confirma. Desaparece de [[Inicio]] y de [[Clientes]]." },
       { texto: "Cuando lo quieras de vuelta, entra a [[Papelera]] y pulsa [[Restaurar]]." },
+      {
+        texto:
+          "También vuelve solo si subes una libreta con su cédula: Sevenz lo reconoce, te avisa de cuánto debe y te deja recuperarlo ahí mismo.",
+        pista: "Su saldo vuelve a contar en tus totales en cuanto lo recuperas, así que te lo dice con la cifra delante.",
+      },
     ],
     cierre: ["Mover a la papelera no borra nada: sus fiados, sus abonos y su link siguen ahí."],
     notas: [
       {
-        titulo: "Ocultar definitivamente sí es para siempre",
+        titulo: "Ocultar definitivamente lo saca de todas partes",
         texto:
-          "Dentro de la papelera hay [[Ocultar definitivamente]]. Eso lo saca también de la papelera y ya no lo puedes restaurar tú. Úsalo solo si estás seguro.",
+          "Dentro de la papelera hay [[Ocultar definitivamente]]. Eso lo saca también de la papelera, así que desde ahí ya no lo encuentras. Su historial y su link siguen intactos. La única forma de traerlo de vuelta es subir una libreta con su cédula: Sevenz lo reconoce y te ofrece recuperarlo. Úsalo solo si estás seguro.",
         cuidado: true,
       },
     ],
