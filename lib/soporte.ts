@@ -45,7 +45,7 @@ export const TEMAS: Tema[] = [
       },
       {
         texto:
-          "Si no aparece, pulsa [[Registrar cliente nuevo]] y llena [[Nombre del cliente]] y [[Documento]]. El [[WhatsApp (opcional)]] y la [[Dirección (opcional)]] los puedes dejar en blanco.",
+          "Si no aparece, pulsa [[Registrar cliente nuevo]] y llena [[Nombre del cliente]] y [[Cédula]]. El [[WhatsApp (opcional)]] y la [[Dirección (opcional)]] los puedes dejar en blanco.",
         pista: "El WhatsApp vale la pena aunque sea opcional: es por donde le vas a mandar su saldo. Si no lo tienes ahora, Sevenz te lo pide el día que se lo quieras mandar.",
       },
       { texto: "En [[Tipo]] deja [[Cargo (fía)]]." },

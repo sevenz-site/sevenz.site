@@ -111,7 +111,7 @@ export default function PoliticaDePrivacidadPage() {
         <li>Montos de movimientos, abonos y saldos registrados por el Comercio</li>
         <li>Historial de esos movimientos</li>
         <li>
-          Cédula/documento de identidad —{" "}
+          Cédula —{" "}
           <strong>
             si el Comercio no lo registró, se le solicita directamente al Cliente Final al abrir
             el link de saldo compartido
@@ -144,7 +144,7 @@ export default function PoliticaDePrivacidadPage() {
         para identificar a nadie — solo la muestra en la ficha que el Comercio ve. Sevenz
         solo recopila datos directamente del Cliente Final en tres casos: cuando visita el link de
         saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo), cuando
-        ese link le solicita su cédula/documento por no estar aún registrado, y cuando responde de
+        ese link le solicita su cédula por no estar aún registrado, y cuando responde de
         forma voluntaria a la pregunta sobre qué le gustaría hacer en Sevenz — los tres, como se
         describe arriba.
       </p>
@@ -153,7 +153,7 @@ export default function PoliticaDePrivacidadPage() {
       <ul>
         <li>Directamente del Comercio: formulario de registro, formularios de la app, fotos que sube.</li>
         <li>
-          Directamente del Cliente Final: únicamente su cédula/documento, mediante el formulario
+          Directamente del Cliente Final: únicamente su cédula, mediante el formulario
           que aparece al abrir el link de saldo si el Comercio no lo registró de antemano.
         </li>
         <li>
