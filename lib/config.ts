@@ -4,6 +4,14 @@ export const LOGIN_URL = `${APP_URL}/login`;
 
 export const SITE_URL = "https://sevenz.site";
 
+// Las redes de Sevenz, enlazadas desde el pie.
+//
+// Facebook va por la URL larga con el id numérico porque es la que la propia
+// página devuelve: no hay nombre de usuario corto reservado, y un /Sevenz a
+// secas lleva a otra cuenta.
+export const INSTAGRAM_URL = "https://www.instagram.com/sevenz.site";
+export const FACEBOOK_URL = "https://www.facebook.com/people/Sevenz/61594903977079/";
+
 // El WhatsApp de Sevenz para quien llega a la web y quiere saber más. Solo
 // dígitos, que es lo que `wa.me` acepta: ni "+", ni espacios, ni guiones.
 export const SUPPORT_WHATSAPP = "573238130265";

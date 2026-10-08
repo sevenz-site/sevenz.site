@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
+import { SocialLinks } from "@/components/landing/social-links";
 
 export function Footer() {
   return (
@@ -72,6 +73,19 @@ export function Footer() {
             Regístrate
           </a>
         </nav>
+
+        {/* Debajo de los enlaces, no dentro de ellos: son otra cosa —salen del
+            sitio— y mezclarlos en el mismo `flex-wrap` haría que el corte de
+            línea los separase a mitad de fila según el ancho.
+
+            NO CAMBIA EL HUECO DEL BOTÓN FLOTANTE, y conviene decirlo porque
+            parece que sí: `pb-28` es padding del pie, así que lo que sea que
+            quede último tiene esos 112px por debajo. El botón mide 58 y se
+            posa a 16 del borde, o sea que su borde superior está a 74. La
+            holgura sigue siendo 112 − 74 = 38px, ahora sobre los iconos en vez
+            de sobre los enlaces. Comprobado en el navegador a 375px con la
+            página al final del todo. */}
+        <SocialLinks />
       </div>
     </footer>
   );
