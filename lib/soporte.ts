@@ -38,7 +38,7 @@ export const TEMAS: Tema[] = [
     resumen:
       "Cuando le fías a alguien. Si el cliente es nuevo, lo creas aquí mismo — no hay que darlo de alta aparte.",
     pasos: [
-      { texto: "Pulsa [[Agregar fiado]], el botón del medio abajo." },
+      { texto: "Pulsa [[Agregar]], el botón oscuro de abajo a la derecha." },
       {
         texto: "Se abre [[Buscar cliente]]. Escribe su nombre o su cédula.",
         pista: "Si ya existe, aparece en la lista y lo tocas.",
