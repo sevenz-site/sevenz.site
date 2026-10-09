@@ -388,6 +388,23 @@ export default function TerminosYCondicionesPage() {
           Comercio cargue en la Plataforma.
         </li>
         <li>
+          <strong>
+            Hay una excepción, y es la de los avisos de la Sección 7 bis: ahí Sevenz actúa como
+            responsable
+          </strong>
+          . La razón es la que distingue una figura de la otra. Un encargado trata datos siguiendo
+          instrucciones de otro; en esos avisos es Sevenz quien decide la finalidad y los medios —
+          escribe el texto, elige el canal, fija cuándo sale y recoge directamente el permiso del
+          Cliente Final—, sin que el Comercio se lo indique y sin que pueda activarlos o
+          desactivarlos en su nombre.
+        </li>
+        <li>
+          Las dos cosas conviven sobre la misma persona y no se contradicen. El Comercio sigue
+          siendo responsable de los datos que registró —quién es el cliente, cuánto debe, qué fecha
+          acordaron—, y Sevenz es responsable de haber decidido escribirle, del texto que le
+          escribe y de respetar su permiso y su retiro. Cada uno responde de lo que decidió.
+        </li>
+        <li>
           El Comercio autoriza a Sevenz a tratar los datos estrictamente necesarios para prestar,
           mantener, proteger y mejorar la Plataforma, prevenir fraude y cumplir obligaciones
           legales.
