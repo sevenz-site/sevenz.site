@@ -39,8 +39,8 @@ export function Problem() {
         <Image
           src="/screens/sevenz-libreta-balance-cartera-calculadora.png"
           alt="Una libreta de fiado tachada con una X roja junto a la app de Sevenz, con el capital por cobrar y la calculadora del dólar BCV"
-          width={1288}
-          height={1072}
+          width={1536}
+          height={1236}
           sizes="(min-width: 1024px) 768px, 100vw"
           className="mx-auto h-auto w-full max-w-3xl"
         />

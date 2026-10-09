@@ -198,6 +198,12 @@ export default function TerminosYCondicionesPage() {
 
       <h2>6. Uso de WhatsApp y comunicaciones</h2>
       <p>
+        Esta sección regula los mensajes que <strong>envía el Comercio</strong> desde su propio
+        WhatsApp usando las funciones de la Plataforma — por ejemplo el botón que abre una
+        conversación con un cliente y deja el texto escrito. No regula los mensajes que envía
+        Sevenz desde su propio número, que son los de las Secciones 7 y 7 bis.
+      </p>
+      <p>
         Cuando el Comercio utilice funciones de comunicación por WhatsApp u otros Canales de
         Terceros, acepta que:
       </p>
@@ -255,6 +261,44 @@ export default function TerminosYCondicionesPage() {
         Cuando estas comunicaciones se envíen por WhatsApp, Sevenz observará adicionalmente las
         políticas de uso y opt-in para mensajería comercial de WhatsApp/Meta, independientemente de
         lo dispuesto en este documento.
+      </p>
+
+      <h2>7 bis. Comunicaciones de Sevenz al Cliente Final</h2>
+      <p>
+        Sevenz puede enviar avisos por WhatsApp al Cliente Final sobre su saldo con un Comercio.
+        Estos mensajes <strong>los envía Sevenz desde su propio número</strong>, con plantillas
+        propias aprobadas por WhatsApp/Meta, y no son mensajes del Comercio: el Comercio no escribe
+        su texto, no decide a quién salen ni cuándo.
+      </p>
+      <ul>
+        <li>
+          <strong>Solo se envían con el permiso del Cliente Final</strong>, dado por él mismo desde
+          el link de saldo que el Comercio le compartió. El Comercio no puede activarlos en su
+          nombre, y que el Comercio haya registrado su número no equivale a ese permiso.
+        </li>
+        <li>
+          El permiso queda asociado al número de WhatsApp,{" "}
+          <strong>no a un Comercio concreto</strong>: vale para todos los negocios en los que esa
+          persona tenga cuenta en Sevenz. Por la misma razón, desactivarlos los apaga en todos.
+        </li>
+        <li>
+          El Cliente Final puede desactivarlos en cualquier momento desde su link de saldo, sin
+          intervención del Comercio y sin dar explicaciones.
+        </li>
+        <li>
+          Su contenido se limita a lo que el Comercio ya registró —el monto, la fecha de pago
+          acordada y el nombre del negocio— y a un enlace para ver el saldo. No incluyen cobranza,
+          ni publicidad, ni contenido redactado por el Comercio.
+        </li>
+        <li>
+          Sevenz no solicita por este medio códigos, contraseñas ni pagos, y nunca lo hará. Todos
+          sus mensajes lo advierten en el pie.
+        </li>
+      </ul>
+      <p>
+        El Comercio sigue siendo responsable de la exactitud de los saldos y las fechas que
+        registra, que es lo que estos avisos comunican. Sevenz es responsable del texto de las
+        plantillas, del canal y de respetar el permiso y su retiro.
       </p>
 
       <h2>8. Uso aceptable y prohibiciones</h2>
@@ -342,6 +386,23 @@ export default function TerminosYCondicionesPage() {
         <li>
           Sevenz puede actuar como encargado o proveedor tecnológico respecto de los datos que el
           Comercio cargue en la Plataforma.
+        </li>
+        <li>
+          <strong>
+            Hay una excepción, y es la de los avisos de la Sección 7 bis: ahí Sevenz actúa como
+            responsable
+          </strong>
+          . La razón es la que distingue una figura de la otra. Un encargado trata datos siguiendo
+          instrucciones de otro; en esos avisos es Sevenz quien decide la finalidad y los medios —
+          escribe el texto, elige el canal, fija cuándo sale y recoge directamente el permiso del
+          Cliente Final—, sin que el Comercio se lo indique y sin que pueda activarlos o
+          desactivarlos en su nombre.
+        </li>
+        <li>
+          Las dos cosas conviven sobre la misma persona y no se contradicen. El Comercio sigue
+          siendo responsable de los datos que registró —quién es el cliente, cuánto debe, qué fecha
+          acordaron—, y Sevenz es responsable de haber decidido escribirle, del texto que le
+          escribe y de respetar su permiso y su retiro. Cada uno responde de lo que decidió.
         </li>
         <li>
           El Comercio autoriza a Sevenz a tratar los datos estrictamente necesarios para prestar,

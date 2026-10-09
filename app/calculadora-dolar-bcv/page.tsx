@@ -91,8 +91,8 @@ export default function CalculadoraDolarBcvPage() {
             <Image
               src="/screens/sevenz-calculadora-balance-cartera-puntaje-credito.png"
               alt="La app de Sevenz en tres teléfonos: la calculadora del dólar BCV, el capital por cobrar en dólares y euros, y el puntaje de crédito de un cliente"
-              width={1208}
-              height={1072}
+              width={1920}
+              height={1614}
               sizes="(min-width: 768px) 768px, 100vw"
               className="h-auto w-full"
             />
