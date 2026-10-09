@@ -396,13 +396,12 @@ export default function PoliticaDePrivacidadPage() {
       </ul>
       <p>
         <strong>Para el Cliente Final:</strong> dado que sus datos fueron registrados por el
-        Comercio, la vía más directa es solicitarlo al Comercio mismo. Hay una excepción:{" "}
-        <strong>
-          los avisos por WhatsApp se desactivan sin pedírselo a nadie, desde el propio link de
-          saldo
-        </strong>{" "}
-        — en el menú de la esquina, en <em>Configuración → Notificaciones</em>. Al desactivarlos se
-        dejan de enviar en todos los negocios, por lo mismo que el permiso valía para todos.
+        Comercio, la vía más directa es solicitarlo al Comercio mismo. Habrá una excepción cuando los avisos por
+        WhatsApp se activen:{" "}
+        <strong>se desactivarán sin pedírselo a nadie, desde el propio link de saldo</strong>, en
+        el menú de la esquina. Al desactivarlos dejarán de enviarse en todos los negocios, por lo
+        mismo que el permiso vale para todos. Mientras la función no esté activa no hay nada que
+        desactivar, y por eso esa opción todavía no aparece.
         Sevenz también puede recibir estas solicitudes directamente en{" "}
         <a href="mailto:sevenz.mvp@gmail.com">sevenz.mvp@gmail.com</a>, indicando nombre, medio de
         contacto, el Comercio involucrado y una descripción de la solicitud.
