@@ -66,8 +66,8 @@ export function Hero() {
       <Image
         src="/screens/sevenz-calculadora-balance-cartera-puntaje-credito.png"
         alt="La app de Sevenz en tres teléfonos: la calculadora del dólar BCV, el capital por cobrar en dólares y euros, y el puntaje de crédito de un cliente"
-        width={1208}
-        height={1072}
+        width={1920}
+        height={1614}
         priority
         sizes="(min-width: 1024px) 960px, 100vw"
         className="h-auto w-full max-w-4xl"

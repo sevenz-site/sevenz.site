@@ -40,8 +40,8 @@ export function Value() {
         <Image
           src="/screens/sevenz-notificacion-whatsapp.png"
           alt="Tres mensajes de WhatsApp de Sevenz sobre la pantalla de un teléfono: el resumen semanal de la cartera con lo que hay por cobrar, el aviso de lo que requiere atención con los clientes vencidos y los que vieron su saldo sin abonar, y un aviso a un cliente de que su negocio le registró un fiado, con un botón para ver su saldo"
-          width={1288}
-          height={1136}
+          width={960}
+          height={847}
           sizes="(min-width: 1024px) 480px, 100vw"
           className="h-auto w-full"
         />
@@ -57,7 +57,13 @@ export function Value() {
             único en toda la portada que enseña la pantalla del cliente, y el
             argumento de Sevenz no es "digitaliza tu libreta" sino "tú y tu
             cliente ven el mismo número". Reescribirlos al moverlos habría
-            tirado la mitad del motivo para moverlos. */}
+            tirado la mitad del motivo para moverlos.
+
+            El `alt` SÍ creció el 2026-10-09, y no contradice lo de arriba:
+            aquello era sobre mover la sección, esto es sobre cambiar la
+            captura. La nueva añade el panel de "Detalle de movimiento", y un
+            `alt` que no lo nombrara describiría una imagen que ya no está.
+            La frase de encima no se tocó. */}
         <div className="flex flex-col gap-10">
           <p className="mx-auto max-w-2xl text-center text-xl font-semibold text-balance">
             Así ve tu cliente su propio saldo e historial. Sin preguntarte. Sin discutirlo. Sin
@@ -66,9 +72,9 @@ export function Value() {
 
           <Image
             src="/screens/sevenz-perfil-cliente.png"
-            alt="La vista que recibe el cliente: lo que debe en dólares, lo que tiene a favor en euros y el historial de cada fiado y cada abono"
-            width={1288}
-            height={1140}
+            alt="La vista que recibe el cliente: lo que debe en dólares, lo que tiene a favor en euros, el historial de cada fiado y cada abono, y el detalle de un movimiento con su fecha, su monto y la tasa del día"
+            width={1536}
+            height={1835}
             sizes="(min-width: 1024px) 768px, 100vw"
             className="mx-auto h-auto w-full max-w-3xl"
           />

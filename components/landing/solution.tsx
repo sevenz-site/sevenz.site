@@ -89,8 +89,8 @@ export function Solution() {
               <Image
                 src={p.src}
                 alt={p.alt}
-                width={349}
-                height={680}
+                width={698}
+                height={1442}
                 sizes="(min-width: 768px) 320px, 349px"
                 className="h-auto w-full"
               />
