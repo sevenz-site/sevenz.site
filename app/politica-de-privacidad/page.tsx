@@ -136,17 +136,34 @@ export default function PoliticaDePrivacidadPage() {
           construir: no se publican, no se muestran al Comercio y no se usan para contactar a
           nadie.
         </li>
+        <li>
+          Si aceptó recibir avisos de su saldo por WhatsApp: la fecha en que lo aceptó,{" "}
+          <strong>el texto exacto que leyó al aceptarlo</strong> y, si después lo desactivó, la
+          fecha en que lo hizo. Guardamos el texto y no solo la fecha por la misma razón que lo
+          hacemos con el Comercio: la redacción de esa pantalla puede cambiar, y lo que debe poder
+          demostrarse es lo que esa persona leyó. Cada aceptación y cada baja quedan como
+          constancias separadas, de modo que la ficha cuenta la historia completa y no solo el
+          estado de hoy.
+        </li>
+        <li>
+          Ese permiso{" "}
+          <strong>se guarda asociado al número de WhatsApp, no a un negocio concreto</strong>, y
+          por eso vale para todos los negocios en los que esa persona tenga cuenta en Sevenz,
+          presentes y futuros. El motivo es que quien envía el mensaje es Sevenz, desde su propio
+          número, y no la bodega. Si el negocio corrige o cambia el número guardado, el permiso
+          deja de aplicar y se vuelve a preguntar.
+        </li>
       </ul>
       <p>
         El Comercio es quien decide qué información de sus clientes ingresa a la Plataforma, y es
         responsable de haber obtenido el consentimiento del Cliente Final para ingresarla. Esto
         aplica de forma particular a la fotografía: Sevenz no la solicita, no la exige y no la usa
         para identificar a nadie — solo la muestra en la ficha que el Comercio ve. Sevenz
-        solo recopila datos directamente del Cliente Final en tres casos: cuando visita el link de
-        saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo), cuando
-        ese link le solicita su cédula por no estar aún registrado, y cuando responde de
-        forma voluntaria a la pregunta sobre qué le gustaría hacer en Sevenz — los tres, como se
-        describe arriba.
+        solo recopila datos directamente del Cliente Final en cuatro casos: cuando visita el link
+        de saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo),
+        cuando ese link le solicita su cédula por no estar aún registrado, cuando responde de
+        forma voluntaria a la pregunta sobre qué le gustaría hacer en Sevenz, y cuando acepta o
+        desactiva los avisos de su saldo por WhatsApp — los cuatro, como se describe arriba.
       </p>
 
       <h2>2. Cómo recopilamos los datos</h2>
@@ -176,6 +193,16 @@ export default function PoliticaDePrivacidadPage() {
           <strong>resumen de su cartera por WhatsApp</strong> —cobros pendientes y plazos
           vencidos—, que solo se envía si el Comercio lo aceptó y que puede desactivar en
           cualquier momento desde <em>Mi negocio</em>.
+        </li>
+        <li>
+          Comunicarnos con el Cliente Final por WhatsApp,{" "}
+          <strong>solo si él lo aceptó desde su link de saldo</strong>: avisarle cuando se acerque
+          la fecha de pago que acordó con el negocio, el día que vence y una vez después de
+          vencida, o recordarle su saldo pendiente si no hay fecha acordada. Guardar la constancia
+          de ese permiso —fecha y texto leído— es parte de esta finalidad: sin poder demostrarlo,
+          no podríamos enviarle nada.{" "}
+          <strong>Esta función todavía no está activa</strong>; se describe aquí porque el permiso
+          ya puede darse y queda guardado desde ahora.
         </li>
         <li>Mejorar el producto: entender patrones de uso agregados, identificar errores, priorizar funcionalidades.</li>
         <li>
@@ -228,6 +255,19 @@ export default function PoliticaDePrivacidadPage() {
             <tr>
               <td>WhatsApp / Meta</td>
               <td>Entrega del mensaje al teléfono del Comercio</td>
+              <td>Los mismos datos que Kapso le transmite para poder entregarlos</td>
+            </tr>
+            <tr>
+              <td>Kapso (a futuro)</td>
+              <td>Envío de los avisos de WhatsApp de Sevenz al Cliente Final</td>
+              <td>
+                Número de WhatsApp del Cliente Final, su nombre, el nombre del negocio y su dueño,
+                el monto que debe y la fecha de pago acordada
+              </td>
+            </tr>
+            <tr>
+              <td>WhatsApp / Meta (a futuro)</td>
+              <td>Entrega del mensaje al teléfono del Cliente Final</td>
               <td>Los mismos datos que Kapso le transmite para poder entregarlos</td>
             </tr>
             <tr>
@@ -322,11 +362,12 @@ export default function PoliticaDePrivacidadPage() {
         puede pedirlo igual que cualquier otro dato.
       </p>
       <p>
-        El registro del consentimiento para recibir mensajes por WhatsApp —la fecha y el texto que
-        el Comercio leyó— <strong>se conserva aunque después lo desactive</strong>. La razón es que
-        ese registro es precisamente la constancia de que el permiso existió ese día; borrarlo al
-        desactivar eliminaría la única prueba de que se pidió. La desactivación se anota junto a
-        él, con su propia fecha.
+        El registro del consentimiento para recibir mensajes por WhatsApp —la fecha y el texto
+        leído— <strong>se conserva aunque después se desactive</strong>, y esto vale tanto para el
+        Comercio como para el Cliente Final. La razón es que ese registro es precisamente la
+        constancia de que el permiso existió ese día; borrarlo al desactivar eliminaría la única
+        prueba de que se pidió, y es la que ampara los mensajes que ya se enviaron. La
+        desactivación se anota junto a él, con su propia fecha, en vez de reemplazarlo.
       </p>
       <p>
         El Comercio puede solicitar en cualquier momento que se borren sus datos, escribiendo a{" "}
@@ -355,8 +396,14 @@ export default function PoliticaDePrivacidadPage() {
       </ul>
       <p>
         <strong>Para el Cliente Final:</strong> dado que sus datos fueron registrados por el
-        Comercio, la vía más directa es solicitarlo al Comercio mismo. Sevenz también puede recibir
-        estas solicitudes directamente en{" "}
+        Comercio, la vía más directa es solicitarlo al Comercio mismo. Hay una excepción:{" "}
+        <strong>
+          los avisos por WhatsApp se desactivan sin pedírselo a nadie, desde el propio link de
+          saldo
+        </strong>{" "}
+        — en el menú de la esquina, en <em>Configuración → Notificaciones</em>. Al desactivarlos se
+        dejan de enviar en todos los negocios, por lo mismo que el permiso valía para todos.
+        Sevenz también puede recibir estas solicitudes directamente en{" "}
         <a href="mailto:sevenz.mvp@gmail.com">sevenz.mvp@gmail.com</a>, indicando nombre, medio de
         contacto, el Comercio involucrado y una descripción de la solicitud.
       </p>
