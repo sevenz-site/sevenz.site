@@ -76,6 +76,12 @@ export const TEMAS: Tema[] = [
         pista: "Cambia el equivalente en bolívares que ves, y queda guardado que usaste esa tasa y no la del día.",
       },
       { texto: "Si quieres, agrega [[Detalle (opcional)]] y [[Foto (opcional)]], y guarda." },
+      {
+        texto:
+          "Antes de guardar, abajo sale la casilla [[El cliente acepta recibir avisos de su saldo por WhatsApp]]. Márcala solo si se lo preguntaste y te dijo que sí.",
+        pista:
+          "Si ya te dio permiso antes, la casilla no sale: en su lugar leerás que ya tiene los avisos activados. Y si quieres quitárselos, es en su ficha, en [[Más]] › [[Notificaciones]].",
+      },
     ],
     notas: [
       {
