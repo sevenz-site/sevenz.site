@@ -62,8 +62,8 @@ export default function PoliticaDePrivacidadPage() {
           Número de WhatsApp del negocio —{" "}
           <strong>
             se usa para enviarle los avisos de Sevenz y se muestra en el link de saldo de sus
-            clientes, de forma pública para quien tenga el link, como botón para escribirle al
-            negocio
+            clientes y en el link de su catálogo, de forma pública para quien tenga el link,
+            como botón para escribirle al negocio
           </strong>
         </li>
         <li>Correo electrónico y contraseña</li>
@@ -78,6 +78,22 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
+        <li>
+          Los productos de su catálogo: nombre, unidad, descripción, precios y fotografía —{" "}
+          <strong>
+            el nombre, la unidad, la descripción, el precio y la fotografía se muestran en el
+            link de catálogo que el Comercio comparta, de forma pública para quien tenga el link
+          </strong>
+          . El costo que registre para calcular su margen{" "}
+          <strong>no se publica nunca</strong>: se guarda únicamente para que la app le calcule
+          los precios, y no sale en ningún link. La fotografía se almacena en un espacio
+          accesible mediante enlace directo, del mismo modo que el logo del Comercio —{" "}
+          <strong>
+            dejar de publicar un producto, quitarle la fotografía o eliminarlo lo saca del
+            catálogo, pero no borra ese archivo
+          </strong>
+          .
+        </li>
         <li>Configuración de tasa de cambio: automática (BCV) o personalizada por el negocio</li>
         <li>
           Si aceptó recibir el resumen de su cartera por WhatsApp: la fecha en que lo aceptó,{" "}
