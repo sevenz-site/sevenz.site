@@ -62,8 +62,8 @@ export default function PoliticaDePrivacidadPage() {
           Número de WhatsApp del negocio —{" "}
           <strong>
             se usa para enviarle los avisos de Sevenz y se muestra en el link de saldo de sus
-            clientes, de forma pública para quien tenga el link, como botón para escribirle al
-            negocio
+            clientes y en el link de su catálogo, de forma pública para quien tenga el link,
+            como botón para escribirle al negocio
           </strong>
         </li>
         <li>Correo electrónico y contraseña</li>
@@ -78,6 +78,22 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
+        <li>
+          Los productos de su catálogo: nombre, unidad, descripción, precios y fotografía —{" "}
+          <strong>
+            el nombre, la unidad, la descripción, el precio y la fotografía se muestran en el
+            link de catálogo que el Comercio comparta, de forma pública para quien tenga el link
+          </strong>
+          . El costo que registre para calcular su margen{" "}
+          <strong>no se publica nunca</strong>: se guarda únicamente para que la app le calcule
+          los precios, y no sale en ningún link. La fotografía se almacena en un espacio
+          accesible mediante enlace directo, del mismo modo que el logo del Comercio —{" "}
+          <strong>
+            dejar de publicar un producto, quitarle la fotografía o eliminarlo lo saca del
+            catálogo, pero no borra ese archivo
+          </strong>
+          .
+        </li>
         <li>Configuración de tasa de cambio: automática (BCV) o personalizada por el negocio</li>
         <li>
           Si aceptó recibir el resumen de su cartera por WhatsApp: la fecha en que lo aceptó,{" "}
@@ -195,14 +211,27 @@ export default function PoliticaDePrivacidadPage() {
           cualquier momento desde <em>Mi negocio</em>.
         </li>
         <li>
-          Comunicarnos con el Cliente Final por WhatsApp,{" "}
-          <strong>solo si él lo aceptó desde su link de saldo</strong>: avisarle cuando se acerque
-          la fecha de pago que acordó con el negocio, el día que vence y una vez después de
-          vencida, o recordarle su saldo pendiente si no hay fecha acordada. Guardar la constancia
-          de ese permiso —fecha y texto leído— es parte de esta finalidad: sin poder demostrarlo,
-          no podríamos enviarle nada.{" "}
-          <strong>Esta función todavía no está activa</strong>; se describe aquí porque el permiso
-          ya puede darse y queda guardado desde ahora.
+          Comunicarnos con el Cliente Final por WhatsApp, <strong>solo si dio su permiso</strong>.
+          Hoy le enviamos dos cosas: un <strong>aviso antes de la fecha de pago</strong> que acordó
+          con el negocio, y un <strong>comprobante cuando registra un abono</strong>, con el saldo
+          que le queda. Más adelante podremos avisarle también el día que vence, una vez después de
+          vencida, o recordarle su saldo pendiente si no hay fecha acordada.
+        </li>
+        <li>
+          <strong>De dónde sale ese permiso</strong>, porque no hay un solo camino: el Cliente Final
+          puede darlo él mismo desde su link de saldo, y el Comercio puede declararlo por él cuando
+          se lo pide en persona —al registrarle un movimiento, al subir su libreta, o desde su
+          ficha—. En esos tres casos el Comercio afirma que se lo preguntó y que el Cliente Final
+          dijo que sí. Guardamos de cuál de esos caminos vino, con su fecha y el texto exacto que se
+          mostró en pantalla, y esa constancia es parte de esta finalidad: sin poder demostrarla no
+          podríamos enviarle nada.
+        </li>
+        <li>
+          <strong>Cómo se deja de recibir</strong>: el Cliente Final puede apagarlo desde su propio
+          link de saldo, y también puede pedírselo al Comercio, que lo apaga desde su ficha. Como el
+          permiso va asociado al número de teléfono, apagarlo{" "}
+          <strong>vale para todos los negocios</strong> donde esa persona tenga cuenta en Sevenz, no
+          solo para el que lo apagó.
         </li>
         <li>Mejorar el producto: entender patrones de uso agregados, identificar errores, priorizar funcionalidades.</li>
         <li>
@@ -258,15 +287,16 @@ export default function PoliticaDePrivacidadPage() {
               <td>Los mismos datos que Kapso le transmite para poder entregarlos</td>
             </tr>
             <tr>
-              <td>Kapso (a futuro)</td>
+              <td>Kapso</td>
               <td>Envío de los avisos de WhatsApp de Sevenz al Cliente Final</td>
               <td>
                 Número de WhatsApp del Cliente Final, su nombre, el nombre del negocio y su dueño,
-                el monto que debe y la fecha de pago acordada
+                el monto que debe, la fecha de pago acordada y, en el comprobante de un abono, el
+                monto que acaba de pagar
               </td>
             </tr>
             <tr>
-              <td>WhatsApp / Meta (a futuro)</td>
+              <td>WhatsApp / Meta</td>
               <td>Entrega del mensaje al teléfono del Cliente Final</td>
               <td>Los mismos datos que Kapso le transmite para poder entregarlos</td>
             </tr>
