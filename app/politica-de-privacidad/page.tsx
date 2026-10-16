@@ -120,7 +120,10 @@ export default function PoliticaDePrivacidadPage() {
         </li>
       </ul>
       <p>
-        <strong>Del Cliente Final (registrado por el Comercio, no por sí mismo):</strong>
+        <strong>
+          Del Cliente Final (normalmente registrado por el Comercio; en un pedido del catálogo,
+          por sí mismo):
+        </strong>
       </p>
       <ul>
         <li>Nombre y número de WhatsApp</li>
@@ -134,6 +137,20 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
           , mediante un formulario obligatorio para poder ver el saldo. Este dato, una vez
           ingresado, nunca se vuelve a solicitar.
+        </li>
+        <li>
+          <strong>Si hace un pedido desde el link de catálogo del Comercio</strong>: su nombre y
+          apellido, su documento de identidad y su número de WhatsApp —{" "}
+          <strong>tecleados por la propia persona</strong>, no por el Comercio—, junto con el
+          pedido en sí: qué productos pidió, en qué cantidad, a qué precio y en qué moneda, y los
+          comentarios que haya escrito. El Comercio necesita esos datos para poder responderle y
+          preparar el pedido.{" "}
+          <strong>
+            Es el único caso en el que alguien que puede no ser todavía cliente de ese negocio
+            entrega sus datos a Sevenz
+          </strong>
+          : llegó por un enlace, no tiene cuenta en Sevenz y nadie lo registró antes. El pedido se
+          guarda aunque no llegue a enviarse el mensaje de WhatsApp que lo acompaña.
         </li>
         <li>
           Fotografía del Cliente Final, si el Comercio decide agregarla a su ficha —{" "}
@@ -175,19 +192,23 @@ export default function PoliticaDePrivacidadPage() {
         responsable de haber obtenido el consentimiento del Cliente Final para ingresarla. Esto
         aplica de forma particular a la fotografía: Sevenz no la solicita, no la exige y no la usa
         para identificar a nadie — solo la muestra en la ficha que el Comercio ve. Sevenz
-        solo recopila datos directamente del Cliente Final en cuatro casos: cuando visita el link
+        solo recopila datos directamente del Cliente Final en cinco casos: cuando visita el link
         de saldo que el Comercio le comparte (aplican los puntos de analítica descritos abajo),
         cuando ese link le solicita su cédula por no estar aún registrado, cuando responde de
-        forma voluntaria a la pregunta sobre qué le gustaría hacer en Sevenz, y cuando acepta o
-        desactiva los avisos de su saldo por WhatsApp — los cuatro, como se describe arriba.
+        forma voluntaria a la pregunta sobre qué le gustaría hacer en Sevenz, cuando acepta o
+        desactiva los avisos de su saldo por WhatsApp, y{" "}
+        <strong>cuando hace un pedido desde el link de catálogo</strong> y escribe él mismo su
+        nombre, su documento y su WhatsApp — los cinco, como se describe arriba.
       </p>
 
       <h2>2. Cómo recopilamos los datos</h2>
       <ul>
         <li>Directamente del Comercio: formulario de registro, formularios de la app, fotos que sube.</li>
         <li>
-          Directamente del Cliente Final: únicamente su cédula, mediante el formulario
-          que aparece al abrir el link de saldo si el Comercio no lo registró de antemano.
+          Directamente del Cliente Final: su cédula, mediante el formulario que aparece al abrir
+          el link de saldo si el Comercio no lo registró de antemano; y,{" "}
+          <strong>si hace un pedido desde el link de catálogo</strong>, el nombre, el documento y
+          el WhatsApp que escriba en ese formulario junto con su pedido.
         </li>
         <li>
           De forma automática: mediante herramientas de analítica cuando cualquier Usuario
@@ -219,11 +240,13 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           <strong>De dónde sale ese permiso</strong>, porque no hay un solo camino: el Cliente Final
-          puede darlo él mismo desde su link de saldo, y el Comercio puede declararlo por él cuando
-          se lo pide en persona —al registrarle un movimiento, al subir su libreta, o desde su
-          ficha—. En esos tres casos el Comercio afirma que se lo preguntó y que el Cliente Final
-          dijo que sí. Guardamos de cuál de esos caminos vino, con su fecha y el texto exacto que se
-          mostró en pantalla, y esa constancia es parte de esta finalidad: sin poder demostrarla no
+          puede darlo él mismo desde su link de saldo{" "}
+          <strong>o al hacer un pedido desde el link de catálogo</strong>, marcando la casilla del
+          formulario del pedido; y el Comercio puede declararlo por él cuando se lo pide en persona
+          —al registrarle un movimiento, al subir su libreta, o desde su ficha—. En esos tres
+          últimos casos el Comercio afirma que se lo preguntó y que el Cliente Final dijo que sí.
+          Guardamos de cuál de esos caminos vino, con su fecha y el texto exacto que se mostró en
+          pantalla, y esa constancia es parte de esta finalidad: sin poder demostrarla no
           podríamos enviarle nada.
         </li>
         <li>
