@@ -144,14 +144,13 @@ export default function PoliticaDePrivacidadPage() {
           <strong>tecleados por la propia persona</strong>, no por el Comercio—, junto con el
           pedido en sí: qué productos pidió, en qué cantidad, a qué precio y en qué moneda, y los
           comentarios que haya escrito. El Comercio necesita esos datos para poder responderle y
-          preparar el pedido, y los ve dentro de su cuenta.{" "}
+          preparar el pedido.{" "}
           <strong>
-            Este es el único caso en el que los datos de un Cliente Final llegan a Sevenz sin que
-            el Comercio los haya escrito
+            Es el único caso en el que alguien que puede no ser todavía cliente de ese negocio
+            entrega sus datos a Sevenz
           </strong>
-          : la persona llegó por un enlace, no tiene cuenta en Sevenz y puede no ser todavía
-          cliente de ese negocio. El pedido se guarda aunque no llegue a enviarse el mensaje de
-          WhatsApp que lo acompaña.
+          : llegó por un enlace, no tiene cuenta en Sevenz y nadie lo registró antes. El pedido se
+          guarda aunque no llegue a enviarse el mensaje de WhatsApp que lo acompaña.
         </li>
         <li>
           Fotografía del Cliente Final, si el Comercio decide agregarla a su ficha —{" "}
