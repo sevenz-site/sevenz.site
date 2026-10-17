@@ -383,6 +383,21 @@ export default function PoliticaDePrivacidadPage() {
           queda informado en esta política, aceptada al crear la cuenta. El Comercio puede
           desactivar la analítica de uso desde un control en Ajustes de su cuenta.
         </li>
+        <li>
+          <strong>
+            En las páginas públicas del Cliente Final (el link de saldo y el link de catálogo):
+          </strong>{" "}
+          estas páginas se abren sin cuenta y sin haber aceptado nada, así que esta Política es el
+          aviso. En ellas están activas las mismas herramientas: Clarity puede registrar la
+          navegación, y Mixpanel registra acciones puntuales — por ejemplo, que alguien tocó el
+          botón de WhatsApp o abrió el catálogo desde el link de saldo.{" "}
+          <strong>
+            Esos eventos se archivan a nombre del Comercio y no llevan ningún identificador del
+            Cliente Final
+          </strong>
+          : no se envía su nombre, ni su documento, ni su teléfono, ni el código de su link. Lo que
+          el Comercio ve es cuántas veces ocurrió algo en su negocio, nunca quién lo hizo.
+        </li>
       </ul>
 
       <h2>7. Conservación de los datos</h2>
