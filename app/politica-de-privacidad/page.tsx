@@ -130,6 +130,23 @@ export default function PoliticaDePrivacidadPage() {
         <li>Montos de movimientos, abonos y saldos registrados por el Comercio</li>
         <li>Historial de esos movimientos</li>
         <li>
+          <strong>
+            La fotografía que el Comercio adjunte a un movimiento, si adjunta alguna
+          </strong>
+          . Es opcional y la mayoría de los movimientos no la llevan. El Comercio la usa como
+          respaldo de lo acordado, y lo más habitual es que sea el comprobante de un pago.{" "}
+          <strong>
+            Desde el 19 de octubre de 2026 esa fotografía también se le muestra al Cliente Final
+          </strong>{" "}
+          en el detalle de ese movimiento, dentro de su link de saldo; antes solo la veía el
+          Comercio. El archivo se guarda en un espacio privado y no tiene dirección pública: para
+          mostrarlo, Sevenz genera una dirección temporal que caduca a los pocos minutos. Aun así,{" "}
+          <strong>quien tenga el link de saldo puede ver esa fotografía</strong>, y un link
+          compartido puede acabar reenviado, así que el Comercio no debería adjuntar nada que no
+          quiera que su cliente —o quien reciba el enlace— llegue a ver, como la cédula o
+          documentos de otra persona.
+        </li>
+        <li>
           Cédula —{" "}
           <strong>
             si el Comercio no lo registró, se le solicita directamente al Cliente Final al abrir
@@ -221,8 +238,9 @@ export default function PoliticaDePrivacidadPage() {
         <li>
           Operar la Plataforma: crear cuentas, procesar fotos de libretas mediante inteligencia
           artificial para extraer movimientos, calcular saldos y tasas de cambio, generar el link
-          de saldo del cliente, y mostrar la fotografía del cliente en su ficha cuando el Comercio
-          la haya agregado.
+          de saldo del cliente, mostrar en ese link la fotografía que el Comercio haya adjuntado a
+          un movimiento, y mostrar la fotografía del cliente en su ficha cuando el Comercio la
+          haya agregado.
         </li>
         <li>
           Comunicarnos con el Comercio (ver Sección 7 de los Términos y Condiciones):
