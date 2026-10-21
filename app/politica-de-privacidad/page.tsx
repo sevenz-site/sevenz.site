@@ -29,7 +29,7 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="15 septiembre 2026"
+      updated="21 octubre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -129,6 +129,22 @@ export default function PoliticaDePrivacidadPage() {
         <li>Nombre y número de WhatsApp</li>
         <li>Montos de movimientos, abonos y saldos registrados por el Comercio</li>
         <li>Historial de esos movimientos</li>
+        <li>
+          <strong>
+            Qué artículos se llevó, cuando el Comercio registra la venta o el fiado desde su
+            catálogo de productos
+          </strong>
+          : el nombre de cada producto, la cantidad, el precio por unidad y la moneda. Solo lo
+          llevan las transacciones registradas de esa forma —un fiado que el Comercio apunta
+          como un importe suelto no guarda ningún producto—.{" "}
+          <strong>
+            Desde el 21 de octubre de 2026 ese detalle también se le muestra al Cliente Final
+          </strong>{" "}
+          en su link de saldo, dentro de la transacción a la que pertenece y con el mismo
+          desglose que ve el Comercio; antes el link solo mostraba el importe. Como el resto de
+          lo que hay en ese link, quien lo reciba reenviado puede verlo, así que el Comercio
+          debería tenerlo en cuenta al compartirlo.
+        </li>
         <li>
           <strong>
             La fotografía que el Comercio adjunte a un movimiento, si adjunta alguna
