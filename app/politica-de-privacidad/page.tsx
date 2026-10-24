@@ -29,7 +29,7 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="21 octubre 2026"
+      updated="23 octubre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -210,6 +210,29 @@ export default function PoliticaDePrivacidadPage() {
           demostrarse es lo que esa persona leyó. Cada aceptación y cada baja quedan como
           constancias separadas, de modo que la ficha cuenta la historia completa y no solo el
           estado de hoy.
+        </li>
+        <li>
+          <strong>
+            Una valoración de cómo va su cuenta, calculada por Sevenz a partir de lo que el
+            Comercio registró
+          </strong>{" "}
+          — no es un dato que nadie teclee, sino una conclusión: «Dentro del plazo», «Plazo
+          vencido», «Sin plazo» o «Crítico», con el número de fiados vencidos al lado. Sale de
+          comparar cada fiado abierto con la fecha que se le puso y de cuántos días lleva esa
+          persona sin abonar nada.{" "}
+          <strong>
+            Desde el 23 de octubre de 2026 esa valoración también se le muestra al Cliente Final
+          </strong>{" "}
+          en su link de saldo, con las mismas palabras que ve el Comercio; antes el link solo
+          mostraba las cifras. Se hizo así a propósito, para que las dos personas lean lo mismo
+          sobre la misma cuenta.
+          <br />
+          <strong>
+            Esa valoración vale solo dentro del negocio que la originó
+          </strong>
+          : no se comparte con otros Comercios, no se agrega a ningún registro común y no sale de
+          la Plataforma. Y, como el resto de lo que hay en ese link, quien lo reciba reenviado
+          puede verla, así que el Comercio debería tenerlo en cuenta al compartirlo.
         </li>
         <li>
           Ese permiso{" "}

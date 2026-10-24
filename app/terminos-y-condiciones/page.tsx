@@ -30,7 +30,7 @@ export default function TerminosYCondicionesPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Términos y Condiciones de Uso de Sevenz"
-      updated="15 septiembre 2026"
+      updated="23 octubre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -194,6 +194,33 @@ export default function TerminosYCondicionesPage() {
         Sevenz tampoco garantiza que un Cliente Final pagará un saldo, que un mensaje será leído o
         entregado por WhatsApp, o que un dato registrado sea suficiente para exigir judicial o
         extrajudicialmente un pago.
+      </p>
+      <p>
+        <strong>
+          El estado de la cuenta y el puntaje que la Plataforma muestra no son una calificación
+          crediticia
+        </strong>
+        . Sevenz calcula y muestra, dentro de la cuenta de cada Comercio, una valoración de cómo
+        va cada cliente suyo —«Dentro del plazo», «Plazo vencido», «Sin plazo», «Crítico»— y un
+        puntaje de 0 a 1000. Las dos cosas se calculan <strong>únicamente</strong> con lo que ese
+        Comercio registró en su propia cuenta: las fechas y los montos que él puso.
+      </p>
+      <p>
+        En consecuencia: esa valoración <strong>no proviene de ningún buró de crédito</strong>, no
+        consulta ninguna central de riesgo, no se comparte con otros Comercios de la Plataforma,
+        no se agrega a ningún registro común y no se entrega a terceros. Un mismo Cliente Final
+        puede aparecer con estados distintos en dos negocios, y eso es lo esperado: cada uno
+        refleja su historia con ese negocio y con ningún otro. La decisión de fiar o de negarse
+        sigue siendo del Comercio, como dice el párrafo anterior, y Sevenz no la toma ni la
+        recomienda.
+      </p>
+      <p>
+        <strong>
+          Desde el 23 de octubre de 2026 esa valoración también se le muestra al Cliente Final
+        </strong>{" "}
+        en el link de saldo que el Comercio le compartió, con las mismas palabras que ve el
+        Comercio. El propósito es que las dos partes lean lo mismo sobre la misma cuenta, que es
+        el objeto de la Plataforma descrito en la sección 1.
       </p>
 
       <h2>6. Uso de WhatsApp y comunicaciones</h2>
