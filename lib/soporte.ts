@@ -36,52 +36,54 @@ export const TEMAS: Tema[] = [
     grupo: "diario",
     titulo: "Registrar un fiado",
     resumen:
-      "Cuando le fías a alguien. Si el cliente es nuevo, lo creas aquí mismo — no hay que darlo de alta aparte.",
+      "Cuando le fías a alguien. Eliges lo que se lleva, dices cuánto te paga ahora, y al final dices de quién es. Si el cliente es nuevo, lo creas en ese último paso.",
     pasos: [
-      { texto: "Pulsa [[Agregar]], el botón oscuro de abajo a la derecha." },
+      { texto: "Pulsa [[Registrar]], el botón oscuro de abajo a la derecha." },
       {
-        texto: "Se abre [[Buscar cliente]]. Escribe su nombre o su cédula.",
-        pista: "Si ya existe, aparece en la lista y lo tocas.",
+        texto: "Elige [[Fiado o venta]].",
+        pista: "Las otras dos opciones son para dar de alta un cliente sin venderle nada, y para anotar un pago de una deuda que ya tenía.",
       },
       {
         texto:
-          "Si no aparece, pulsa [[Registrar cliente nuevo]] y llena [[Nombre del cliente]] y [[Cédula]]. El [[WhatsApp (opcional)]] y la [[Dirección (opcional)]] los puedes dejar en blanco.",
-        pista: "El WhatsApp vale la pena aunque sea opcional: es por donde le vas a mandar su saldo. Si no lo tienes ahora, Sevenz te lo pide el día que se lo quieras mandar.",
+          "En [[1/4 Producto]], toca lo que se lleva y pulsa [[Agregar]]. Puedes añadir varios.",
+        pista: "Si el producto no está en tu catálogo, pulsa [[Agregar producto]] y lo creas ahí mismo.",
       },
-      { texto: "En [[Tipo]] deja [[Cargo (fía)]]." },
+      { texto: "Pulsa [[Ver carrito]] para revisar, y luego [[Ir a pago]]." },
       {
-        texto: "Pon el [[Plazo de pago]] si acordaron uno.",
+        texto:
+          "En [[3/4 Pago]] hay una tarjeta por moneda. Pulsa [[Pagar]] en la que corresponda.",
+        pista: "Si la venta mezcla monedas, cada una lleva su propio pago. Nunca se suman entre ellas.",
+      },
+      {
+        texto:
+          "Elige [[Fiado o crédito]] y escribe en [[Monto]] lo que te entrega ahora. Si no te entrega nada, déjalo en blanco.",
+        pista: "Si te paga en bolívares, pulsa [[Bolívares]] y escribe los bolívares. Debajo, en [[Equivalencia]], ves lo que va a quedar guardado.",
+      },
+      {
+        texto: "Pon el [[Plazo de pago]] si acordaron uno, y las [[Cuotas]] si va por partes.",
         pista:
           "Si acordaron unos días que no están en la lista, elige [[Otro plazo…]] y escríbelos.",
-      },
-      {
-        texto:
-          "Si tu negocio maneja dólares y euros, en [[Moneda a registrar]] elige en qué moneda vas a escribir el monto.",
-        pista:
-          "Si tu cliente te va a pagar en bolívares, pulsa [[Bolívares]] y escribe los bolívares. La app los pasa a dólares o a euros por ti.",
-      },
-      {
-        texto: "Escribe el [[Monto]].",
-        pista:
-          "Si escribiste en bolívares, debajo aparece [[Monto a registrar]] con la cifra que va a quedar guardada. Esa es la deuda.",
-      },
-      {
-        texto:
-          "Escribiendo en bolívares, en [[Monto a registrar]] eliges a qué cuenta va la deuda: dólares o euros.",
-        pista: "Cada moneda lleva su propia cuenta. Nunca se suman entre ellas.",
       },
       {
         texto:
           "Si es fin de semana y ya se publicó la tasa que viene, sale la casilla [[Aplicar tasa BCV prevista]]. Márcala si estás cobrando a esa tasa.",
         pista: "Cambia el equivalente en bolívares que ves, y queda guardado que usaste esa tasa y no la del día.",
       },
-      { texto: "Si quieres, agrega [[Detalle (opcional)]] y [[Foto (opcional)]], y guarda." },
+      {
+        texto: "Si quieres, adjunta una [[Foto (Opcional)]] y una [[Descripción (opcional)]]. Pulsa [[Pagar]] y luego [[Continuar]].",
+      },
       {
         texto:
-          "Antes de guardar, abajo sale la casilla [[El cliente acepta recibir avisos de su saldo por WhatsApp]]. Márcala solo si se lo preguntaste y te dijo que sí.",
+          "En [[4/4 Información del cliente]], escribe su nombre o su cédula en [[Buscar cliente]] y tócalo cuando aparezca.",
+        pista: "Si no existe todavía, llena ahí mismo [[Nombre del cliente]] y [[Documento]]. El [[WhatsApp (opcional)]] y la [[Dirección (opcional)]] los puedes dejar en blanco — aunque el WhatsApp vale la pena: es por donde le vas a mandar su saldo.",
+      },
+      {
+        texto:
+          "Antes de terminar sale la casilla [[El cliente acepta recibir avisos de su saldo por WhatsApp]]. Márcala solo si se lo preguntaste y te dijo que sí.",
         pista:
           "Si ya te dio permiso antes, la casilla no sale: en su lugar leerás que ya tiene los avisos activados. Y si quieres quitárselos, es en su ficha, en [[Más]] › [[Notificaciones]].",
       },
+      { texto: "Pulsa [[Finalizar]] con el nombre de tu cliente, y listo." },
     ],
     notas: [
       {
@@ -94,6 +96,11 @@ export const TEMAS: Tema[] = [
         texto:
           "Los bolívares son una forma de escribir el monto, no una cuenta aparte. La deuda queda en dólares o en euros, que es lo que no se devalúa. Los bolívares que escribiste quedan anotados en el respaldo del movimiento, y los ves en su detalle.",
       },
+      {
+        titulo: "Lo que te paga ahora no es un fiado aparte",
+        texto:
+          "Si te entrega algo en el momento, la app lo anota como cobrado y deja a deber solo el resto. Una compra de 8.000 con 3.000 entregados deja una deuda de 5.000, no de 8.000.",
+      },
     ],
   },
   {
@@ -104,24 +111,33 @@ export const TEMAS: Tema[] = [
     resumen: "Cuando te pagan, sea todo o una parte.",
     pasos: [
       { texto: "Entra al cliente desde [[Inicio]] o [[Clientes]]." },
-      { texto: "Pulsa [[+ Agregar abono]]." },
+      { texto: "Pulsa [[Agregar abono]]." },
       {
         texto:
-          "Si tu negocio maneja dólares y euros, en [[Moneda a registrar]] elige en qué moneda vas a escribir.",
-        pista:
-          "Si te pagó en bolívares, pulsa [[Bolívares]] y escribe los bolívares. La app los pasa a lo que te debe.",
+          "Si te debe en dólares y en euros, toca el nombre de la moneda para elegir de cuál cuenta te está pagando.",
+        pista: "Debajo del monto dice cuánto te debe en esa moneda. La app no te deja poner más: si te dio de más, es una cuenta nueva, no un abono.",
       },
       {
-        texto: "Escribe cuánto te pagó.",
+        texto: "Escribe cuánto te pagó en [[¿Cuánto abona?]].",
         pista:
-          "Debajo del monto dice el máximo, en la misma moneda en la que estás escribiendo. La app no te deja poner más de lo que te debe: si te dio de más, es una cuenta nueva, no un abono.",
+          "Si te pagó en bolívares, toca la moneda y elige [[Bolívares]]: escribes los bolívares que te dio y la app los pasa a lo que te debe. Debajo ves la equivalencia.",
       },
-      { texto: "Si maneja dos monedas, revisa que sea la correcta, y guarda." },
+      {
+        texto:
+          "Al escribir el monto aparece [[Así se reparte el pago]], con cada fiado y cuánto le toca.",
+        pista: "El dinero va al fiado más vencido primero. Si quieres repartirlo tú, ahí mismo puedes cambiarlo antes de guardar.",
+      },
+      { texto: "Pulsa [[Pagar y finalizar]] con el monto, y listo." },
     ],
     notas: [
       {
         titulo: "El saldo baja al instante",
         texto: "Para ti y para tu cliente, en el mismo segundo. No tienes que avisarle.",
+      },
+      {
+        titulo: "Un abono siempre paga un fiado concreto",
+        texto:
+          "No cae en un saldo genérico: queda anotado contra el fiado al que lo mandaste. Por eso el detalle de cada fiado te dice cuánto le han abonado y cuánto le queda.",
       },
     ],
   },
