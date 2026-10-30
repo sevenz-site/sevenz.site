@@ -438,7 +438,7 @@ export default function TerminosYCondicionesPage() {
         </li>
         <li>
           Sevenz utiliza proveedores tecnológicos de terceros (infraestructura en la nube,
-          procesamiento de imágenes mediante inteligencia artificial, y servicios de mensajería)
+          procesamiento mediante inteligencia artificial, y servicios de mensajería)
           para operar la Plataforma. La lista de proveedores podrá actualizarse conforme evolucione
           el producto.
         </li>
