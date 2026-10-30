@@ -343,10 +343,28 @@ export default function PoliticaDePrivacidadPage() {
               <td>Base de datos y autenticación</td>
               <td>Todos los datos de cuenta, movimientos y clientes</td>
             </tr>
+            {/* DOS FILAS Y NO UNA, aunque el proveedor sea el mismo.
+                La tabla describe PROPÓSITOS, no empresas: un lector que
+                quiera saber qué se hace con sus fotos no tiene por qué
+                deducir, de una fila que menciona dos cosas, cuál de las dos
+                le aplica. Y son dos tratamientos distintos — uno lee una
+                imagen que el Comercio sube a propósito, el otro manda cifras
+                que el Comercio no está enviando conscientemente. */}
             <tr>
               <td>Proveedor de IA (vía OpenRouter/Gemini)</td>
               <td>Extracción de datos desde fotos de libretas</td>
               <td>Contenido de las fotos subidas por el Comercio</td>
+            </tr>
+            <tr>
+              <td>Proveedor de IA (Google Gemini)</td>
+              <td>Resumen automático de la sección de Reportes</td>
+              <td>
+                Cifras agregadas del negocio (saldos por cobrar, ventas, abonos,
+                fiados, cantidad de clientes por estado de pago, existencias y
+                márgenes). <strong>No se envían nombres</strong> de clientes,
+                productos, proveedores ni del propio Comercio, ni teléfonos,
+                documentos de identidad ni identificadores de cuenta
+              </td>
             </tr>
             <tr>
               <td>Vercel</td>
