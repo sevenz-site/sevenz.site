@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { OG_IMAGE } from "@/lib/config";
 import { LegalLayout } from "@/components/legal/legal-layout";
+import { OFFER, formatUsd } from "@/lib/offer";
 
 export const metadata: Metadata = {
   title: "Términos y Condiciones — Sevenz",
@@ -30,7 +31,7 @@ export default function TerminosYCondicionesPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Términos y Condiciones de Uso de Sevenz"
-      updated="23 octubre 2026"
+      updated="31 octubre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -360,19 +361,27 @@ export default function TerminosYCondicionesPage() {
 
       <h2>9. Planes, pagos, renovaciones y cancelación</h2>
       <p>
-        Durante esta fase de validación, Sevenz ofrece un <strong>plan gratuito</strong> con
-        funcionalidades limitadas (incluyendo un número mensual limitado de libretas subidas
-        por foto, sujeto a cambios). Sevenz publica en su sitio un precio de referencia para
-        el plan de pago, expresado como un mínimo («desde»): el precio final{" "}
-        <strong>se acuerda con cada Comercio</strong> y puede ser mayor según el tamaño de su
-        operación. Cualquier plan de pago será anunciado con anticipación, indicando precio,
-        moneda, impuestos aplicables, periodicidad y condiciones de cancelación,{" "}
+        Toda cuenta nueva empieza con un <strong>periodo de prueba gratuito de tres (3)
+        meses</strong>, contado desde la fecha de registro y que termina al final de ese día en
+        la hora del país del Comercio. Al terminar la prueba, el plan de pago cuesta{" "}
+        <strong>{formatUsd(OFFER.monthlyPriceUsd)} USD al mes</strong>, el mismo precio para todos
+        los Comercios. Cualquier cambio de ese precio será anunciado con anticipación, indicando
+        precio, moneda, impuestos aplicables, periodicidad y condiciones de cancelación,{" "}
         <strong>antes</strong> de que el Usuario deba pagar.
       </p>
       <p>
-        Sevenz puede otorgar periodos de prueba de duración acordada con cada Comercio,
-        indicándole desde el inicio el precio y la periodicidad que aplicarán cuando la prueba
-        termine.
+        Sevenz puede, además, extender o acordar otro periodo de prueba con un Comercio
+        concreto, indicándole desde el inicio el precio y la periodicidad que aplicarán cuando
+        la prueba termine.
+      </p>
+      <p>
+        Si el periodo de prueba termina sin que el Comercio haya contratado un plan, o pasan
+        cinco (5) días desde el vencimiento de un periodo pagado sin que se haya registrado su
+        pago, la cuenta pasa <strong>automáticamente a solo lectura</strong>: el Comercio puede
+        seguir consultando sus saldos y su historial, y los enlaces que compartió con sus
+        clientes siguen funcionando, pero no puede registrar ventas, fiados, abonos, clientes,
+        productos ni pedidos. Los datos no se borran por ese motivo, y la cuenta vuelve a
+        funcionar completa en cuanto se contrata el plan o se registra el pago.
       </p>
       <p>Si en el futuro se activan suscripciones pagas:</p>
       <ul>
@@ -523,7 +532,8 @@ export default function TerminosYCondicionesPage() {
         El Usuario puede cancelar su cuenta en cualquier momento desde la Plataforma o escribiendo
         a <a href="mailto:sevenz.mvp@gmail.com">sevenz.mvp@gmail.com</a>. Sevenz podrá suspender el
         acceso ante fraude, riesgo de seguridad, incumplimiento de estos Términos o requerimiento de
-        autoridad competente.
+        autoridad competente. Además, la cuenta pasa a solo lectura de forma automática en los
+        casos descritos en la sección 9.
       </p>
       <p>
         Tras la terminación, Sevenz podrá conservar cierta información por el tiempo necesario para

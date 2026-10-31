@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { OG_IMAGE, SITE_URL } from "@/lib/config";
 import { WhatsappFloat } from "@/components/landing/whatsapp-float";
+import { OFFER, formatUsd } from "@/lib/offer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -122,14 +123,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   // bajo que alguien paga. `minPrice` es el que dice que hay
                   // rango; no se declara `maxPrice` porque no hay techo
                   // publicado y no vamos a inventar uno.
+                  //
+                  // 2026-10-31: the owner fixed the price («19,50 USD fijo (antes
+                  // 35)»), so this is now a plain `price` read from
+                  // `lib/offer.ts`, and `minPrice` -- which said «there is a
+                  // range» -- goes.
                   offers: {
                     "@type": "Offer",
-                    price: "20",
+                    price: OFFER.monthlyPriceUsd.toFixed(2),
                     priceCurrency: "USD",
-                    description: "Prueba gratis 2 meses. Después, desde 20 USD al mes.",
+                    description: `Prueba gratis ${OFFER.freeMonths} meses. Después, ${formatUsd(OFFER.monthlyPriceUsd)} USD al mes.`,
                     priceSpecification: {
                       "@type": "UnitPriceSpecification",
-                      minPrice: "20",
+                      price: OFFER.monthlyPriceUsd.toFixed(2),
                       priceCurrency: "USD",
                       // Un mes, en el código de unidad de la ONU que espera
                       // schema.org. Sin esto, "20 USD" no dice cada cuánto.

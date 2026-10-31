@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OFFER, formatUsd } from "@/lib/offer";
 import { Section, SectionHeading } from "@/components/landing/section";
 import {
   Accordion,
@@ -7,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
+export const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
   {
     q: "¿Qué es el fiado y por qué necesito controlarlo?",
     a: "El fiado es la venta a crédito que muchos negocios en Venezuela hacen de palabra, apuntada en una libreta. El problema no es fiar — es que solo tú ves el número, y con el tiempo se te pierde la cuenta o el cliente la disputa. Sevenz pone ese número frente a los dos, siempre igual.",
@@ -26,8 +27,11 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     // mismo en la misma página es peor que no dar ninguna. La promesa de
     // avisar antes de cobrar se mantiene palabra por palabra — es lo único de
     // esta respuesta que es un compromiso y no un dato.
+    //
+    // 2026-10-31: fixed price from `lib/offer.ts` (the owner's decision that
+    // day), so this answer and the price card cannot disagree again.
     q: "¿Cuánto cuesta usar Sevenz?",
-    a: "Lo pruebas gratis dos meses, completo, con las fotos de libreta que necesites y sin tarjeta de crédito. Después, desde 20 USD al mes: el precio lo acordamos contigo antes de empezar a cobrar, y depende del tamaño de tu negocio. Si empezamos a cobrarte, te avisamos antes — nunca te vamos a cobrar algo que no sepas.",
+    a: `Lo pruebas gratis ${OFFER.freeMonths} meses, contados desde el día que te registras, completo, con las fotos de libreta que necesites y sin tarjeta de crédito. Después son ${formatUsd(OFFER.monthlyPriceUsd)} USD al mes. Si empezamos a cobrarte, te avisamos antes — nunca te vamos a cobrar algo que no sepas.`,
   },
   {
     q: "¿Qué pasa si un cliente dice que no debe tanto?",
@@ -94,7 +98,7 @@ const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[] = [
     // pregunta es qué pasa con LO QUE LE DEBEN; explicar que le siguen llegando
     // avisos que no puede atender abriría una duda que nadie hizo.
     q: "¿Qué pasa con lo que me deben si me doy de baja?",
-    a: "No se borra nada. Si terminas la prueba sin contratar o dejas de pagar, tu cuenta pasa a solo lectura: sigues entrando y viendo todo lo que te deben y todo el historial, pero no puedes registrar movimientos nuevos. Los links que ya le compartiste a tus clientes siguen funcionando, así que ellos también siguen viendo su saldo. Y si lo que quieres es que borremos tus datos de verdad, lo pides por correo y lo hacemos.",
+    a: "No se borra nada. Si terminas la prueba sin contratar, o pasan 5 días desde que venció tu pago, tu cuenta pasa sola a solo lectura: sigues entrando y viendo todo lo que te deben y todo el historial, pero no puedes registrar ventas, fiados, abonos, clientes ni productos. Los links que ya le compartiste a tus clientes siguen funcionando, así que ellos también siguen viendo su saldo, y tu catálogo sigue recibiendo pedidos, aunque no podrás registrarlos hasta reactivar la cuenta. Y si lo que quieres es que borremos tus datos de verdad, lo pides por correo y lo hacemos.",
     href: "/politica-de-privacidad",
     hrefLabel: "Leer qué guardamos y por cuánto tiempo",
   },
