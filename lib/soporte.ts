@@ -163,7 +163,7 @@ export const TEMAS: Tema[] = [
       {
         texto:
           "También lo mandas desde cualquier movimiento: tócalo en el historial y pulsa [[Compartir]].",
-        pista: "Es el mismo enlace y el mismo mensaje. No se crea uno nuevo.",
+        pista: "Es el mismo link de tu cliente, pero abre directo en ese movimiento. No se crea uno nuevo.",
       },
     ],
     cierre: [
