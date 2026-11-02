@@ -29,7 +29,7 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="31 octubre 2026"
+      updated="2 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -68,13 +68,12 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>Correo electrónico y contraseña</li>
         <li>Dirección del negocio (opcional)</li>
-        <li>NIT/RUT (opcional)</li>
+        <li>RIF/NIT (opcional)</li>
         <li>
-          Información de método de pago que el Comercio decide publicar para sus clientes (ej.
-          número de cuenta o Nequi) —{" "}
+          Los métodos de pago que el Comercio anota (ej. número de cuenta o Nequi) —{" "}
           <strong>
-            este campo se muestra en el link de saldo del cliente, de forma pública para quien
-            tenga el link
+            no se muestran en el link de saldo del cliente; el Comercio los copia para enviarlos
+            él mismo
           </strong>
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
