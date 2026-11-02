@@ -387,14 +387,22 @@ export const TEMAS: Tema[] = [
       { texto: "Entra a [[Mi negocio]]." },
       {
         texto:
-          "En [[Datos del negocio]] revisa [[Nombre del negocio]], [[Nombre]], [[Apellido]] y [[WhatsApp]].",
+          "En [[Datos del negocio]] revisa [[Nombre del negocio]], [[Nombres del dueño]], [[Apellidos del dueño]] y [[WhatsApp]].",
       },
-      { texto: "Sube tu [[Logo del negocio (opcional)]]." },
       {
-        texto: "Llena [[Método de pago (opcional)]] — por ejemplo tu Pago Móvil o tu Nequi.",
-        pista: "Este sí se le muestra a tu cliente en su saldo. Es para que sepa a dónde pagarte.",
+        texto: "Sube tu [[Logo del negocio (opcional)]].",
+        pista: "El logo nuevo, o quitarlo, se aplica al pulsar [[Guardar cambios]]. Si sales sin guardar, se queda el de antes.",
       },
-      { texto: "Completa [[Dirección del negocio (opcional)]] y [[NIT/RUT (opcional)]] si aplican." },
+      { texto: "Completa [[Dirección de negocio (opcional)]] y [[RIF/NIT (opcional)]] si aplican." },
+      {
+        // Since 2026-11-02 payment methods are a list, each saved on its own
+        // from its dialog. Clients do NOT see them in their link (decision of
+        // 2026-09-07, kept 2026-11-02): the owner copies one into WhatsApp.
+        // Until this date the guide said the opposite.
+        texto:
+          "En [[Métodos de pago]] toca [[Agregar método de pago]] y escribe uno — por ejemplo tu Pago Móvil o tu Nequi. Puedes tener varios.",
+        pista: "Tu cliente no los ve en su link. Toca el ícono de copiar y pégalo en WhatsApp cuando te pregunte a dónde pagarte. Cada uno se guarda en cuanto lo agregas.",
+      },
       {
         texto:
           // "cartera" SE QUEDA AQUÍ, a propósito. La palabra salió del resto
@@ -407,10 +415,10 @@ export const TEMAS: Tema[] = [
           "En [[Notificaciones]] decides si quieres recibir el resumen de tu cartera por WhatsApp.",
         pista: "Llega con lo que tienes por cobrar y cuántos clientes se pasaron del plazo. Lo puedes apagar aquí mismo cuando quieras.",
       },
-      { texto: "Pulsa [[Guardar y salir]]." },
+      { texto: "Pulsa [[Guardar cambios]]." },
     ],
     cierre: [
-      "En [[Tasa de cambio]] eliges si usas la del BCV automática o [[Mi propia tasa]].",
+      "En [[Tasa de cambio]] ves la que usa Sevenz: la del BCV, que se actualiza sola.",
     ],
     notas: [
       {
