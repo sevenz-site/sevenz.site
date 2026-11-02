@@ -2,6 +2,7 @@ import { CircleCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/landing/section";
 import { SIGNUP_URL } from "@/lib/config";
+import { OFFER, formatUsd } from "@/lib/offer";
 
 // TODO LO QUE ENTRA, SIN SEPARAR LO QUE YA EXISTE DE LO QUE NO.
 //
@@ -77,7 +78,7 @@ export function Pricing() {
               un pie del titular.
 
               Las dos dentro del MISMO h2 a propósito: son una sola frase
-              partida en dos tamaños ("0$, prueba gratis 2 meses"), no un
+              partida en dos tamaños ("0$, prueba gratis 3 meses"), no un
               titular y un subtítulo. Separarlas en h2 + p dejaría el precio
               fuera del encabezado de la sección. */}
           <h2 className="flex flex-col gap-1.5">
@@ -88,7 +89,7 @@ export function Pricing() {
                 de once líneas se la comía. `display-xl` le devuelve el peso
                 que tiene en el mockup. */}
             <span className="text-display-lg md:text-display-xl">0$</span>
-            <span className="text-lg font-semibold">Prueba gratis 2 meses</span>
+            <span className="text-lg font-semibold">Prueba gratis {OFFER.freeMonths} meses</span>
           </h2>
 
           {/* "DESDE", y no es un adorno comercial: es lo único cierto.
@@ -104,11 +105,20 @@ export function Pricing() {
               acuerda con cada Comercio — así que la portada contradecía al
               contrato de la propia página.
 
-              El plazo de prueba SÍ se queda: la única demo real dura 60 días
-              exactos, o sea que dos meses es la práctica y no una promesa
-              inventada. */}
+              The trial length IS stated, and since 2026-10-31 it is not a
+              practice but a rule the app enforces: every signup is born with
+              3 months, counted from the signup day (dashboard migration 171).
+              Until then the only real demo lasted 60 days, which is why this
+              said 2. */}
+          {/* A FIXED PRICE SINCE 2026-10-31, the owner's decision («19,50 USD
+              fijo (antes 35)»). It displaces the «desde» explained above, whose
+              reason -- the price was negotiated per business -- stays written
+              because it is what the Terms answer for those who agreed another
+              price. The list price is shown struck through and no percentage
+              is printed: see `lib/offer.ts`. */}
           <p className="mt-1 text-primary-foreground/70 text-pretty">
-            Desde 20 USD al mes al finalizar el periodo de prueba.
+            Después, {formatUsd(OFFER.monthlyPriceUsd)} USD al mes{" "}
+            <span className="line-through">{OFFER.listPriceUsd} USD</span>
           </p>
         </div>
 

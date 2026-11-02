@@ -29,7 +29,7 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="23 octubre 2026"
+      updated="31 octubre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -479,8 +479,9 @@ export default function PoliticaDePrivacidadPage() {
       <p>
         Conservamos los datos mientras la cuenta del Comercio esté activa, y también cuando deja de
         estarlo. Si un Comercio termina su periodo de prueba sin contratar, o deja de pagar su
-        suscripción, su cuenta pasa a <strong>solo lectura</strong>: puede seguir consultando sus
-        saldos y su historial, pero no registrar nuevos movimientos. Los datos no se borran por
+        suscripción (cinco días después de su vencimiento), su cuenta pasa automáticamente a{" "}
+        <strong>solo lectura</strong>: puede seguir consultando sus saldos y su historial, pero no
+        registrar nuevos movimientos. Los datos no se borran por
         ese motivo.
       </p>
       <p>
