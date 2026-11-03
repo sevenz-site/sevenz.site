@@ -118,7 +118,7 @@ export function ExploradorDeSoporte() {
                       holds and is why the cover is NOT stock imagery: it is
                       the topic's own app screen in a phone, the same visual
                       language as the web v3 illustrations, built by
-                      `Illustrations/Ayuda/componer-portadas.py`. The number
+                      `dashboard/scripts/ayuda/componer-portadas.py`. The number
                       survives as a small badge, so the list keeps its order. */}
                   <span className="relative block aspect-[16/9] overflow-hidden bg-muted">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

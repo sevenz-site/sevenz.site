@@ -8,9 +8,10 @@ import { FAQS } from "@/components/landing/faq";
 //   - ten already published on the live site, IMPORTED from
 //     `components/landing/faq.tsx` rather than copied: each carries its own
 //     verification comment there, and a copy that exists twice drifts;
-//   - five written for the unpublished proposals of `CT-154`
-//     (`components/proposals/faq.tsx`, never committed), carried over here
-//     with the check each one was written against. The first answer of the
+//   - five written for the unpublished proposals of `CT-154`, carried over
+//     here with the check each one was written against. Those proposals were
+//     never committed and were deleted on 2026-11-03 at the owner's request,
+//     so these five now live only here. The first answer of the
 //     frame is word for word the live one, which is how the source was chosen.
 //
 // A question that stops matching the live array fails the build here instead

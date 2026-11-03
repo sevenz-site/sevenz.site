@@ -31,7 +31,7 @@ export default function TerminosYCondicionesPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Términos y Condiciones de Uso de Sevenz"
-      updated="31 octubre 2026"
+      updated="3 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -42,6 +42,28 @@ export default function TerminosYCondicionesPage() {
         ofrece como marco de referencia para el uso de la Plataforma durante esta etapa, y{" "}
         <strong>no sustituye la revisión de un abogado local</strong> — en particular antes de
         activar cobros, suscripciones, reportes crediticios o campañas masivas por WhatsApp.
+      </blockquote>
+
+      {/* WHAT CHANGED, ON THE PAGE ITSELF (2026-11-03). Section 17 promises
+          notice BEFORE a substantial change takes effect. This version was
+          judged NOT substantial and says why below: it names features that
+          were already live and applies clauses already in force (4, 5, 13,
+          14) to them — no new fee, no right taken away, no change in how
+          data is handled. That is a judgement, not legal advice; the owner
+          asked for it to be reviewed and settled («revisa y actualiza lo
+          necesario»). A future version that DOES add a fee, cut a right or
+          change data handling needs the prior notice of section 17, not just
+          this box. */}
+      <blockquote>
+        <strong>Qué cambió el 3 de noviembre de 2026.</strong> Estos Términos ahora nombran las
+        funciones que la Plataforma ya ofrecía: las ventas de contado, el Catálogo y los Pedidos
+        de los Clientes Finales, el inventario y sus avisos, los reportes con su resumen redactado
+        con inteligencia artificial, y las tasas de cambio (secciones 1, 2, 5 bis, 5 ter, 7, 13 y
+        14). No se añadió ningún cobro ni se quitó ningún derecho, y el tratamiento de los datos no
+        cambió: lo nuevo aplica a esas funciones lo que estos Términos ya decían sobre la
+        responsabilidad del Comercio por lo que registra (sección 4), sobre quién toma las
+        decisiones del negocio (sección 5) y sobre los límites de la Plataforma (secciones 13 y
+        14).
       </blockquote>
 
       <p>
@@ -69,9 +91,18 @@ export default function TerminosYCondicionesPage() {
       </p>
       <p>La Plataforma puede permitir, entre otras funcionalidades:</p>
       <ul>
+        {/* Reviewed against the product on 2026-11-03 (owner's request): the
+            list only spoke of the fiado. Sales paid in full, the catalogue
+            with orders from the Cliente Final, inventory, reports and the
+            exchange rates were all live and unnamed here. */}
         <li>Crear y administrar perfiles de clientes.</li>
-        <li>Registrar ventas a crédito, abonos, pagos, saldos y movimientos.</li>
-        <li>Consultar el historial de una cuenta.</li>
+        <li>Registrar ventas de contado y a crédito, abonos, pagos, saldos y movimientos.</li>
+        <li>Llevar un catálogo de productos con sus precios y su inventario.</li>
+        <li>
+          Publicar ese catálogo en un enlace para que los Clientes Finales le hagan pedidos al
+          Comercio.
+        </li>
+        <li>Consultar el historial de una cuenta y reportes del negocio.</li>
         <li>
           Compartir con el cliente información sobre su saldo mediante WhatsApp u otros canales
           habilitados.
@@ -80,6 +111,7 @@ export default function TerminosYCondicionesPage() {
           Generar recordatorios, resúmenes, reportes o comunicaciones relacionadas con las cuentas
           registradas por el Comercio.
         </li>
+        <li>Consultar tasas de cambio de referencia y convertir montos entre monedas.</li>
       </ul>
       <p>
         Sevenz facilita la gestión de información;{" "}
@@ -108,6 +140,14 @@ export default function TerminosYCondicionesPage() {
           <strong>&ldquo;Contenido del Comercio&rdquo;</strong>: toda información ingresada,
           cargada o generada por el Comercio, incluidos nombres, teléfonos, montos, fechas, notas,
           productos, movimientos, fotografías y comunicaciones.
+        </li>
+        <li>
+          <strong>&ldquo;Catálogo&rdquo;</strong>: la página con los productos y precios que el
+          Comercio decide publicar, a la que se accede con un enlace.
+        </li>
+        <li>
+          <strong>&ldquo;Pedido&rdquo;</strong>: la solicitud de productos que un Cliente Final
+          envía al Comercio desde el Catálogo.
         </li>
         <li>
           <strong>&ldquo;Saldo&rdquo;</strong>: el valor que el Comercio registra como pendiente de
@@ -224,6 +264,48 @@ export default function TerminosYCondicionesPage() {
         el objeto de la Plataforma descrito en la sección 1.
       </p>
 
+      {/* New on 2026-11-03. Numbered «bis» and «ter» so the sections other
+          documents already cite by number (7 bis, 9, 10) keep their numbers. */}
+      <h2>5 bis. Catálogo, pedidos e inventario</h2>
+      <p>
+        El Comercio decide qué productos publica en su Catálogo, con qué precios, fotos y
+        descripciones, y es el único responsable de esa información y de la licitud de lo que
+        ofrece.
+      </p>
+      <p>
+        <strong>Un Pedido es una solicitud, no una venta.</strong> No obliga al Comercio a
+        aceptarlo, y solo se convierte en venta cuando el Comercio lo registra en la Plataforma.
+        Sevenz no cobra ni procesa pagos de Pedidos, no gestiona entregas y no garantiza que el
+        Comercio atienda un Pedido.
+      </p>
+      <p>
+        Para enviar un Pedido, el Cliente Final escribe su nombre y apellido, su documento, su
+        WhatsApp o teléfono y, si quiere, su dirección. Esos datos le llegan al Comercio, que
+        responde de ellos como de los demás datos de sus clientes (Sección 10). El Pedido guarda
+        el precio que el Cliente Final vio al enviarlo. Los montos en bolívares que muestra el
+        Catálogo son equivalentes calculados con la tasa del día y pueden cambiar.
+      </p>
+      <p>
+        La cantidad disponible de cada producto es la que el Comercio registra, y la Plataforma la
+        descuenta con cada venta registrada. Los avisos de productos por agotarse o agotados son
+        orientativos: Sevenz no responde por diferencias entre esa cantidad y el inventario físico
+        del Comercio.
+      </p>
+
+      <h2>5 ter. Reportes y asistente con inteligencia artificial</h2>
+      <p>
+        Los reportes se calculan únicamente con lo que el Comercio registró en su propia cuenta.
+      </p>
+      <p>
+        La sección de Reportes incluye un resumen redactado una vez al día con inteligencia
+        artificial, a partir de cifras que la Plataforma ya calculó. Ese resumen y sus
+        recomendaciones son <strong>orientativos</strong>: no constituyen asesoría financiera,
+        contable ni tributaria, pueden contener errores y, si difieren, prevalecen las cifras de
+        los reportes. Las decisiones del negocio son del Comercio. Qué datos se usan para
+        redactarlo, y cuáles no, se explica en la{" "}
+        <Link href="/politica-de-privacidad">Política de Privacidad</Link>.
+      </p>
+
       <h2>6. Uso de WhatsApp y comunicaciones</h2>
       <p>
         Esta sección regula los mensajes que <strong>envía el Comercio</strong> desde su propio
@@ -259,8 +341,8 @@ export default function TerminosYCondicionesPage() {
       <ul>
         <li>
           <strong>Notificaciones operativas y transaccionales</strong>: alertas de saldo,
-          movimientos registrados, abonos recibidos, errores de sincronización, cambios de tasa de
-          cambio y avisos de seguridad de la cuenta.
+          movimientos registrados, abonos recibidos, pedidos recibidos, avisos de inventario,
+          errores de sincronización, cambios de tasa de cambio y avisos de seguridad de la cuenta.
         </li>
         <li>
           <strong>Comunicaciones de producto</strong>: tutoriales, recomendaciones de uso,
@@ -503,6 +585,12 @@ export default function TerminosYCondicionesPage() {
         El Comercio debe conservar sus propios soportes comerciales, contables y probatorios.
         Sevenz no reemplaza obligaciones legales, tributarias o contables del Comercio.
       </p>
+      <p>
+        Las tasas de cambio que muestra la Plataforma son de referencia: provienen de fuentes
+        públicas (Banco Central de Venezuela, vía proveedores externos), salvo el precio del USDT,
+        que es el del mercado P2P de Binance y no una tasa oficial. Sevenz no fija tasas ni está
+        afiliado a ninguna entidad gubernamental.
+      </p>
 
       <h2>14. Limitación de responsabilidad</h2>
       <p>En la máxima medida permitida por la ley, Sevenz no será responsable por:</p>
@@ -512,6 +600,9 @@ export default function TerminosYCondicionesPage() {
         <li>Falta de pago, insolvencia o incumplimiento de Clientes Finales.</li>
         <li>Suspensiones o fallas de WhatsApp, Meta u otros Canales de Terceros.</li>
         <li>Daños por uso indebido de credenciales.</li>
+        <li>Errores, retrasos o cambios en las tasas de cambio publicadas por terceros.</li>
+        <li>Precios, existencias o Pedidos registrados o publicados por el Comercio.</li>
+        <li>Decisiones tomadas a partir del resumen orientativo de la Sección 5 ter.</li>
         <li>Lucro cesante, pérdida de oportunidad o daños indirectos, salvo norma imperativa en contrario.</li>
       </ul>
       <p>
