@@ -459,42 +459,60 @@ export const TEMAS: Tema[] = [
         imagen: "crear-un-producto/3",
       },
       {
-        texto: "En [[Proveedor (opcional)]] escribe dónde lo compras, y pulsa [[Continuar]].",
+        texto: "En [[Proveedor (opcional)]] escribe dónde lo compras.",
         pista: "Con esto, Reportes te dice cuánto ganas con cada proveedor.",
         imagen: "crear-un-producto/4",
       },
       {
-        texto: "En [[2/4 Precio]], escribe el [[Costo unitario (opcional)]] y su moneda: lo que te costó a ti.",
+        // Migration 184 (2026-11-03): categories are created, renamed and
+        // deleted from this same sheet.
+        texto: "Toca [[Categoría (opcional)]] para ponerle una categoría.",
         imagen: "crear-un-producto/5",
+      },
+      {
+        texto:
+          "Elige una de la lista, o escribe una en [[Nueva categoría]] y pulsa [[Crear]]. Luego pulsa [[Continuar]].",
+        pista:
+          "Con el lápiz le cambias el nombre y con la papelera la eliminas. Si la eliminas, sus productos no se borran: se quedan sin categoría.",
+        imagen: "crear-un-producto/6",
+      },
+      {
+        texto: "En [[2/4 Precio]], escribe el [[Costo unitario (opcional)]] y su moneda: lo que te costó a ti.",
+        imagen: "crear-un-producto/7",
       },
       {
         texto: "En [[Margen al detal]] elige cuánto quieres ganar. Sevenz calcula el precio.",
         pista: "Si prefieres escribir el precio tú, elige [[Otro (escribe el precio)]].",
-        imagen: "crear-un-producto/6",
+        imagen: "crear-un-producto/8",
       },
-      { texto: "Debajo te dice cuánto ganas de verdad a ese precio.", imagen: "crear-un-producto/7" },
+      { texto: "Debajo te dice cuánto ganas de verdad a ese precio.", imagen: "crear-un-producto/9" },
       {
         texto: "Con [[Agregar]] le pones también precio en otra moneda.",
         pista: "Se calcula con la tasa del día. Si quieres fijarlo a mano, toca el icono del vínculo para soltarlo de la tasa.",
-        imagen: "crear-un-producto/8",
+        imagen: "crear-un-producto/10",
       },
       {
         texto: "Si también lo vendes al mayor, deja activa [[Venta al mayor]] y elige desde cuántas unidades aplica. Pulsa [[Continuar]].",
-        imagen: "crear-un-producto/9",
+        imagen: "crear-un-producto/11",
       },
       {
         texto: "En [[3/4 Detalles]], [[Publicar producto en catálogo]] decide si sale en tu catálogo, y con qué precios.",
-        imagen: "crear-un-producto/10",
+        imagen: "crear-un-producto/12",
       },
       {
         texto: "Adjunta una foto y, si quieres, una descripción. Pulsa [[Continuar]].",
         pista: "Con foto se vende mejor desde el catálogo.",
-        imagen: "crear-un-producto/11",
+        imagen: "crear-un-producto/13",
       },
-      { texto: "En [[4/4 Verifica]] revísalo todo y pulsa [[Crear producto]].", imagen: "crear-un-producto/12" },
-      { texto: "Listo. Ya aparece en tu catálogo.", imagen: "crear-un-producto/13" },
+      { texto: "En [[4/4 Verifica]] revísalo todo y pulsa [[Crear producto]].", imagen: "crear-un-producto/14" },
+      { texto: "Listo. Ya aparece en tu catálogo.", imagen: "crear-un-producto/15" },
     ],
     notas: [
+      {
+        titulo: "Las categorías ordenan tu catálogo",
+        texto:
+          "En tu catálogo y en el de tu cliente salen como chips arriba: con un toque se ven solo los productos de esa categoría. A tu cliente solo le salen las que tienen algún producto publicado.",
+      },
       {
         titulo: "Puedes crearlo a mitad de una venta",
         texto:
@@ -527,6 +545,7 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "Esto es lo que ve tu cliente. Arma su pedido y te llega a [[Pedidos]].",
+        pista: "Arriba salen tus categorías: con un toque ve solo esos productos. Solo le salen las que tienen algo publicado.",
         imagen: "compartir-tu-catalogo/5",
       },
     ],
