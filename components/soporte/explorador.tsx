@@ -10,8 +10,8 @@ import { GRUPOS, TEMAS, type Grupo, etiquetaDeGrupo, textoBuscable } from "@/lib
 
 type Filtro = Grupo | "todos";
 
-// El buscador y los filtros trabajan sobre los nueve temas ya cargados: son
-// nueve, caben enteros en el HTML y filtrar en el navegador es instantáneo.
+// El buscador y los filtros trabajan sobre los temas ya cargados: son
+// catorce, caben enteros en el HTML y filtrar en el navegador es instantáneo.
 // Nada de esto pide nada al servidor, así que sigue funcionando en la
 // exportación estática.
 export function ExploradorDeSoporte() {

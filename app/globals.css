@@ -207,3 +207,85 @@
     @apply font-sans;
   }
 }
+/* ── Home page v3 motion (2026-11-03) ───────────────────────────────────
+   The owner asked for an animated site. Everything is CSS: the reveal states
+   below are toggled by `components/home/reveal.tsx`, and the hero runs on
+   keyframes so it never waits for JavaScript.
+
+   The hidden state is scoped to `.reveal-ready`, which `RevealRoot` adds only
+   after hydration. Without it nothing is hidden, so a failed bundle leaves a
+   complete static page instead of a blank one. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-ready [data-reveal="up"] { transform: translateY(28px); }
+.reveal-ready [data-reveal="left"] { transform: translateX(-40px); }
+.reveal-ready [data-reveal="right"] { transform: translateX(40px); }
+.reveal-ready [data-reveal="scale"] { transform: translateY(24px) scale(0.96); }
+.reveal-ready [data-reveal][data-shown] { opacity: 1; transform: none; }
+
+/* First paint, no JavaScript involved. */
+@keyframes home-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes home-pop {
+  0% { opacity: 0; transform: scale(0.4) rotate(-20deg); }
+  70% { opacity: 1; transform: scale(1.08) rotate(4deg); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes home-header-in {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: none; }
+}
+/* Notebook paper: the ruled lines draw left to right, the red margin top to bottom. */
+@keyframes home-lines-draw {
+  from { background-size: 0% 20px; }
+  to { background-size: 100% 20px; }
+}
+@keyframes home-margin-draw {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes home-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes home-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.home-in { animation: home-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.home-pop { animation: home-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.home-header-in { animation: home-header-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.home-float { animation: home-float 6s ease-in-out infinite; }
+.home-bob { animation: home-bob 3.2s ease-in-out infinite; }
+
+/* The ruled background of the two notebook sections. A gradient and not 34
+   <line> elements: same 1px #E5E5E5 every 20px as the frame, at any height. */
+.home-notebook {
+  background-image: linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
+  background-size: 100% 20px;
+  background-repeat: repeat-y;
+}
+.home-notebook-draw { animation: home-lines-draw 1.4s cubic-bezier(0.65, 0, 0.35, 1) both; }
+.home-margin {
+  transform-origin: top;
+  animation: home-margin-draw 1.2s 0.3s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .home-in,
+  .home-pop,
+  .home-header-in,
+  .home-float,
+  .home-bob,
+  .home-notebook-draw,
+  .home-margin { animation: none; }
+}

@@ -35,9 +35,16 @@ export const SUPPORT_WHATSAPP_MESSAGE = "Hola, vi Sevenz en la web y quiero sabe
 // Descubierto el 2026-09-24 comprobando el HTML servido, no leyendo el código.
 //
 // 1200×630 es lo que recortan las vistas previas sociales.
+//
+// Since web v3 (2026-11-03) this is the home hero itself, captured at 1200×630
+// with the header links and the floating «Soporte» hidden: the previous image
+// showed the calculator, the portfolio and the score, none of which is what the
+// new home leads with. PNG and not WebP: not every link-preview crawler reads
+// WebP. The old file stays in `public/og/` so links already cached by WhatsApp
+// do not break.
 export const OG_IMAGE = {
-  url: "/og/sevenz-cartera-de-fiado.png",
+  url: "/og/sevenz-portada.png",
   width: 1200,
   height: 630,
-  alt: "La app de Sevenz en tres teléfonos: la calculadora del dólar BCV, el capital por cobrar en dólares y euros, y el puntaje de crédito de un cliente",
+  alt: "Sevenz: lo que vendes y lo que te deben en una sola app, en bolívares, dólares, USDT y euros",
 } as const;

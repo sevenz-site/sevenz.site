@@ -16,7 +16,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const TITLE = "Sevenz – Controla el Fiado de tu Negocio sin Vaina";
+// Web v3, 2026-11-03 (owner's SEO pass): the page now sells sales, catalogue,
+// inventory and reports, not only the fiado, and the title says so. It read
+// «Sevenz – Controla el Fiado de tu Negocio sin Vaina». 51 characters, inside
+// the ~60 a results page shows.
+const TITLE = "Sevenz — Ventas, fiado e inventario para tu negocio";
 
 // "bodegas y comercios" entra aquí a propósito.
 //
@@ -27,8 +31,14 @@ const TITLE = "Sevenz – Controla el Fiado de tu Negocio sin Vaina";
 // vuelta en el `<h1>` estropearía el titular y, leído en voz alta, sonaría a
 // dos frases pegadas — así que viven en la descripción, que es donde no
 // estorban a nadie y siguen contando.
+//
+// Rewritten for web v3 on 2026-11-03 with «bodegas y comercios» kept, for the
+// reason above. 154 characters. It read «Controla el fiado de tu bodega o
+// comercio. Con Sevenz tu cliente ve su saldo por WhatsApp, en tiempo real.
+// Cero libreta, cero peleas.» Every claim in it is on the page: «pesos» is
+// the Colombian ledger, «reportes diarios» the assistant's daily summary.
 const DESCRIPTION =
-  "Controla el fiado de tu bodega o comercio. Con Sevenz tu cliente ve su saldo por WhatsApp, en tiempo real. Cero libreta, cero peleas.";
+  `App para bodegas y comercios: anota ventas, fiados y abonos en dólares, euros o pesos, con catálogo, inventario y reportes diarios. Prueba ${OFFER.freeMonths} meses gratis.`;
 
 
 export const metadata: Metadata = {
