@@ -14,7 +14,9 @@ export const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[]
     a: "El fiado es la venta a crédito que muchos negocios en Venezuela hacen de palabra, apuntada en una libreta. El problema no es fiar — es que solo tú ves el número, y con el tiempo se te pierde la cuenta o el cliente la disputa. Sevenz pone ese número frente a los dos, siempre igual.",
   },
   {
-    q: "¿Cómo funciono con Sevenz sin re-escribir toda mi libreta?",
+    // «empiezo» and «reescribir» since 2026-11-03 (owner's spelling pass):
+    // it read «¿Cómo funciono…» and «re-escribir».
+    q: "¿Cómo empiezo con Sevenz sin reescribir toda mi libreta?",
     a: "Tomas una foto de tu libreta actual tal como está hoy y Sevenz la pasa a digital con esos datos. Desde ahí, cada movimiento nuevo (fiado o abono) lo registras en la app y el saldo se actualiza al instante para ti y tu cliente.",
   },
   {

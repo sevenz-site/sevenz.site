@@ -17,9 +17,9 @@ export const dynamic = "force-static";
 // algo. La calculadora es la excepción legítima: su contenido son las tasas
 // del BCV, y esas sí cambian todos los días solas.
 const ULTIMA_EDICION = {
-  portada: "2026-09-24", // rediseño v2
-  legales: "2026-09-23", // MS-13: el resumen por WhatsApp en los legales
-  ayuda: "2026-09-25", // /soporte pasó a /ayuda; los diez temas cambiaron de URL
+  portada: "2026-11-03", // web v3
+  legales: "2026-11-02", // privacy: the 90-day log of blocked ledger writes
+  ayuda: "2026-11-03", // rewritten against the current app: 14 topics, one capture per step
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    // Las diez salen del mismo arreglo que las páginas, así que un tema nuevo
+    // Todas salen del mismo arreglo que las páginas, así que un tema nuevo
     // entra al sitemap sin que nadie tenga que acordarse de añadirlo.
     ...TEMAS.map((tema) => ({
       url: `${SITE_URL}/ayuda/${tema.slug}`,

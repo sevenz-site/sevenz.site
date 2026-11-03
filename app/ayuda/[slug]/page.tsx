@@ -5,9 +5,10 @@ import { ChevronLeftIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Texto } from "@/components/soporte/texto";
 import { TEMAS, etiquetaDeGrupo, temaPorSlug } from "@/lib/soporte";
+import { CAPTURAS } from "@/lib/soporte-capturas";
 import { OG_IMAGE, SIGNUP_URL } from "@/lib/config";
 
-// El sitio se exporta estático, así que las nueve rutas se generan en el build.
+// El sitio se exporta estático, así que las rutas de los temas se generan en el build.
 export function generateStaticParams() {
   return TEMAS.map((tema) => ({ slug: tema.slug }));
 }
@@ -74,6 +75,25 @@ export default async function TemaPage({ params }: { params: Promise<{ slug: str
                 <p className="mt-1.5 text-sm text-muted-foreground">
                   <Texto>{paso.pista}</Texto>
                 </p>
+              ) : null}
+              {paso.imagen && CAPTURAS[paso.imagen] ? (
+                // The phone capture of this step, ring on the control to
+                // press. Plain <img> with its real size, so the box is
+                // reserved before it loads (the export has no image
+                // optimiser anyway). 260px wide: big enough to read the
+                // labels at 2x, small enough that an 18-step topic stays a
+                // list and not a gallery. Lazy, so the page only pays for the
+                // steps the reader scrolls to.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={`/ayuda/${paso.imagen}.webp`}
+                  alt={`Paso ${i + 1}: ${paso.texto.replace(/\[\[|\]\]/g, "")}`}
+                  width={CAPTURAS[paso.imagen][0]}
+                  height={CAPTURAS[paso.imagen][1]}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="mt-3 h-auto w-full max-w-[260px] rounded-xl border shadow-sm"
+                />
               ) : null}
             </div>
           </li>
