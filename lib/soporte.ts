@@ -426,6 +426,16 @@ export const TEMAS: Tema[] = [
         texto:
           "Se elige al crear la cuenta y queda fijo, porque de él dependen la moneda y las reglas. Si te equivocaste, escríbenos.",
       },
+      {
+        // Phase 3 of the console hardening, 2026-11-02. Both behaviours are
+        // measured by `qa:sesiones` in the dashboard repo: a password change
+        // signs the other devices out, and «En todos mis dispositivos» signs
+        // out every one, this one included.
+        titulo: "Si crees que alguien entró a tu cuenta",
+        texto:
+          "Cambia tu contraseña con [[Cambiar contraseña]]: eso cierra la sesión en tus otros dispositivos. Si perdiste un teléfono, también puedes ir a [[Cerrar sesión]] y elegir [[En todos mis dispositivos]].",
+        cuidado: true,
+      },
     ],
   },
   {

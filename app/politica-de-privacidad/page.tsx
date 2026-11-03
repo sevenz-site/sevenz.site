@@ -565,6 +565,14 @@ export default function PoliticaDePrivacidadPage() {
         fila en la base de datos). Ningún sistema es completamente invulnerable; en caso de
         incidente de seguridad relevante, notificaremos conforme a la legislación aplicable.
       </p>
+      {/* Migration 180 of the dashboard (2026-11-02): `ledger_rule_hits` keeps,
+          per business, the writes the money rules blocked or would have
+          blocked, pruned after 90 days. Added at the owner's request the same
+          day. */}
+      <p>
+        Registramos durante 90 días los intentos de modificar transacciones que nuestras reglas de
+        seguridad bloquean.
+      </p>
 
       <h2>10. Menores de edad</h2>
       <p>
