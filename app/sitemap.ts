@@ -18,7 +18,7 @@ export const dynamic = "force-static";
 // del BCV, y esas sí cambian todos los días solas.
 const ULTIMA_EDICION = {
   portada: "2026-11-03", // web v3
-  legales: "2026-11-02", // privacy: the 90-day log of blocked ledger writes
+  legales: "2026-11-03", // terms: catalogue, orders, inventory, reports and rates
   ayuda: "2026-11-03", // rewritten against the current app: 14 topics, one capture per step
 } as const;
 

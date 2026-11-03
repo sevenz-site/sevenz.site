@@ -16,7 +16,7 @@
 // Google keep working, even where the title changed.
 //
 // `imagen` is a capture in `public/ayuda/<slug>/<n>.webp`, taken by
-// `Illustrations/Ayuda/temas/*.mjs` on a 375px phone with a ring on the control
+// `dashboard/scripts/ayuda/temas/*.mjs` on a 375px phone with a ring on the control
 // the step talks about. A step without one is a step that could not be
 // captured, and says why in a comment next to it.
 
@@ -412,9 +412,12 @@ export const TEMAS: Tema[] = [
         imagen: "ver-tus-reportes/6",
       },
       {
-        // Deliberately NOT «te avisa»: the threshold decides what counts as
-        // «por agotarse», and no notification exists yet (CT-162).
-        texto: "Con [[Avísame cuando queden]] decides desde cuántas unidades un producto cuenta como «por agotarse».",
+        // Until 2026-11-03 this said only «cuenta como por agotarse», on
+        // purpose: no notice existed. CT-162 (migration 183) made it true:
+        // the bell warns once a day while a product stays at or under it,
+        // and separately when it hits 0. A threshold of 0 turns them off.
+        texto: "Con [[Avísame cuando queden]] decides desde cuántas unidades te avisa la campana de que un producto se está agotando.",
+        pista: "Te avisa una vez al día mientras siga así, y aparte cuando se agota. Si pones 0, no te avisa.",
         imagen: "ver-tus-reportes/7",
       },
       {
