@@ -110,9 +110,28 @@ export function ExploradorDeSoporte() {
                 >
                   {/* La portada es tipográfica y no una imagen: no existe una
                       ilustración por tema, e inventar fotos de archivo sería
-                      meter un lenguaje visual que Sevenz no tiene. */}
-                  <span className="flex aspect-[16/9] items-center justify-center bg-muted">
-                    <span className="text-5xl font-semibold tracking-tight text-muted-foreground/60 tabular-nums">
+                      meter un lenguaje visual que Sevenz no tiene.
+
+                      DISPLACED by the owner on 2026-11-03: «Agregar una imagen
+                      de cover a cada tópico, la imagen debe ser representativa
+                      a la funcionalidad que titula». The reason above still
+                      holds and is why the cover is NOT stock imagery: it is
+                      the topic's own app screen in a phone, the same visual
+                      language as the web v3 illustrations, built by
+                      `Illustrations/Ayuda/componer-portadas.py`. The number
+                      survives as a small badge, so the list keeps its order. */}
+                  <span className="relative block aspect-[16/9] overflow-hidden bg-muted">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/ayuda/portadas/${tema.slug}.webp`}
+                      alt=""
+                      width={1120}
+                      height={630}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                    <span className="absolute top-3 left-3 rounded-md bg-background/90 px-2 py-0.5 text-xs font-semibold text-muted-foreground tabular-nums">
                       {String(tema.numero).padStart(2, "0")}
                     </span>
                   </span>
