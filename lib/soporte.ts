@@ -511,7 +511,7 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Las categorías ordenan tu catálogo",
         texto:
-          "En tu catálogo y en el de tu cliente salen como chips arriba: con un toque se ven solo los productos de esa categoría. A tu cliente solo le salen las que tienen algún producto publicado.",
+          "En tu catálogo salen en [[Categorías]], debajo de [[Pedidos]], cada una con cuántos productos tiene: con un toque ves solo esos. Desde [[Editar]] las creas, les cambias el nombre o las eliminas. A tu cliente solo le salen las que tienen algún producto publicado, y cuentan solo los publicados.",
       },
       {
         titulo: "Puedes crearlo a mitad de una venta",
@@ -545,7 +545,7 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "Esto es lo que ve tu cliente. Arma su pedido y te llega a [[Pedidos]].",
-        pista: "Arriba salen tus categorías: con un toque ve solo esos productos. Solo le salen las que tienen algo publicado.",
+        pista: "Bajo el buscador salen tus categorías: con un toque ve solo esos productos. Solo le salen las que tienen algo publicado.",
         imagen: "compartir-tu-catalogo/5",
       },
     ],
