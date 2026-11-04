@@ -284,11 +284,11 @@ export const TEMAS: Tema[] = [
     numero: 5,
     grupo: "ocasional",
     titulo: "Registrar una devolución",
-    resumen: "Cuando te devuelven un producto que te fiaron.",
+    resumen: "Cuando te devuelven un producto, fiado o de contado.",
     pasos: [
       {
-        texto: "Abre el fiado y toca los tres puntos del producto que te devolvieron.",
-        pista: "Llegas al fiado desde el historial del cliente.",
+        texto: "Abre el fiado o la venta de contado y toca los tres puntos del producto que te devolvieron.",
+        pista: "Llegas desde el historial del cliente.",
         imagen: "registrar-una-devolucion/1",
       },
       { texto: "Pulsa [[Registrar devolución]].", imagen: "registrar-una-devolucion/2" },
@@ -325,6 +325,11 @@ export const TEMAS: Tema[] = [
         titulo: "Qué hacer con el dinero que sobra",
         texto:
           "Solo se pregunta si el cliente ya había pagado. Si te debe otros fiados en esa moneda, puedes [[Abonar a otros fiados]] o [[Devolver dinero]]. Si no te debe nada más en esa moneda, puedes [[Registrar como saldo a favor]] o [[Devolver dinero]].",
+      },
+      {
+        titulo: "Si la venta fue de contado",
+        texto:
+          "Como ya estaba pagada, siempre sobra dinero y eliges qué hacer con él. En Reportes, [[Ventas]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes [[Devolver dinero]]: si se lleva otro producto, registra después una venta nueva.",
       },
       {
         titulo: "Si se lleva otro producto a cambio",
