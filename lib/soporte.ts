@@ -319,7 +319,7 @@ export const TEMAS: Tema[] = [
       {
         titulo: "No cuenta como dinero que entró",
         texto:
-          "Una devolución no es un abono. Baja lo que te deben y vuelve el producto a tu inventario, pero no suma a tus cobros en Reportes.",
+          "Una devolución no es un abono. Baja lo que te deben y vuelve el producto a tu inventario, pero no suma a tus cobros. En Reportes sale aparte, en Devoluciones.",
       },
       {
         titulo: "Qué hacer con el dinero que sobra",
@@ -470,11 +470,11 @@ export const TEMAS: Tema[] = [
       {
         // No capture: a whole tab of cards, which the step lists instead.
         texto:
-          "En [[Facturación]] ves lo que te deben, lo que vendiste de contado, lo que fiaste, los abonos, los pedidos por atender, los plazos de pago y tus mejores pagadores.",
+          "En [[Facturación]] ves lo que te deben, lo que vendiste de contado, lo que fiaste, las devoluciones, los abonos, los pedidos por atender, los plazos de pago y tus mejores pagadores.",
       },
       {
         texto: "En [[Inventario]] ves cuántos productos tienes, cuáles están por agotarse y cuáles se agotaron.",
-        pista: "También el margen de cada producto y lo que más se vende.",
+        pista: "También el margen de cada producto, lo que más se vende y lo que más te devuelven.",
         imagen: "ver-tus-reportes/6",
       },
       {
