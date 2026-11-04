@@ -278,8 +278,74 @@ export const TEMAS: Tema[] = [
     ],
   },
   {
-    slug: "marcar-una-mala-paga",
+    // Migration 185 (2026-11-03). What is offered follows the table at the top
+    // of `dashboard/lib/returns/options.ts`: keep the two in step.
+    slug: "registrar-una-devolucion",
     numero: 5,
+    grupo: "ocasional",
+    titulo: "Registrar una devolución",
+    resumen: "Cuando te devuelven un producto que te fiaron.",
+    pasos: [
+      {
+        texto: "Abre el fiado y toca los tres puntos del producto que te devolvieron.",
+        pista: "Llegas al fiado desde el historial del cliente.",
+        imagen: "registrar-una-devolucion/1",
+      },
+      { texto: "Pulsa [[Registrar devolución]].", imagen: "registrar-una-devolucion/2" },
+      {
+        texto: "Revisa lo que va a pasar antes de confirmar.",
+        pista: "Si se llevó varias unidades, ahí eliges cuántas te devuelve.",
+        imagen: "registrar-una-devolucion/3",
+      },
+      {
+        texto: "Si el cliente ya había pagado ese producto, elige qué haces con el dinero que sobra.",
+        pista: "Si no sobra nada, la app no te pregunta y puedes seguir.",
+        imagen: "registrar-una-devolucion/4",
+      },
+      {
+        texto: "Pulsa [[Registrar devolución]]. Ahí ves en qué quedó todo.",
+        imagen: "registrar-una-devolucion/5",
+      },
+      {
+        texto: "En el fiado, el producto queda marcado y [[Total]] baja.",
+        imagen: "registrar-una-devolucion/6",
+      },
+      {
+        texto: "En el historial sale una fila [[Devolución]], que tu cliente también ve.",
+        imagen: "registrar-una-devolucion/7",
+      },
+    ],
+    notas: [
+      {
+        titulo: "No cuenta como dinero que entró",
+        texto:
+          "Una devolución no es un abono. Baja lo que te deben y vuelve el producto a tu inventario, pero no suma a tus cobros en Reportes.",
+      },
+      {
+        titulo: "Qué hacer con el dinero que sobra",
+        texto:
+          "Solo se pregunta si el cliente ya había pagado. Si te debe otros fiados en esa moneda, puedes [[Abonar a otros fiados]] o [[Entregar en efectivo]]. Si no te debe nada más en esa moneda, puedes [[Dejar como saldo a favor]] o [[Entregar en efectivo]].",
+      },
+      {
+        titulo: "Si se lleva otro producto a cambio",
+        texto:
+          "Deja el dinero como saldo a favor y registra la venta nueva. Si la fías, el saldo se descuenta solo. Si la cobras, marca [[Usar saldo a favor]] en el paso de pago y cobras la diferencia.",
+      },
+      {
+        titulo: "Si fue un error",
+        texto:
+          "Abre la devolución y elimínala desde los tres puntos de arriba: la deuda vuelve y las unidades salen otra vez del inventario. Se restaura desde Notificaciones.",
+      },
+      {
+        titulo: "Un fiado con devolución no se elimina",
+        texto: "Primero elimina la devolución, y después el fiado o la venta.",
+        cuidado: true,
+      },
+    ],
+  },
+  {
+    slug: "marcar-una-mala-paga",
+    numero: 6,
     grupo: "ocasional",
     titulo: "Marcar una mala paga",
     resumen: "Para acordarte de a quién ya no le vas a fiar. Se puede quitar cuando quieras.",
@@ -312,7 +378,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "ver-el-puntaje-del-cliente",
-    numero: 6,
+    numero: 7,
     grupo: "ocasional",
     titulo: "Ver el puntaje del cliente",
     resumen:
@@ -337,7 +403,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "calculadora-de-tasa",
-    numero: 7,
+    numero: 8,
     grupo: "ocasional",
     titulo: "La calculadora de tasa",
     resumen:
@@ -380,7 +446,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "ver-tus-reportes",
-    numero: 8,
+    numero: 9,
     grupo: "ocasional",
     titulo: "Ver tus reportes",
     resumen:
@@ -445,7 +511,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "crear-un-producto",
-    numero: 9,
+    numero: 10,
     grupo: "ocasional",
     titulo: "Crear un producto",
     resumen:
@@ -473,7 +539,7 @@ export const TEMAS: Tema[] = [
         texto:
           "Elige una de la lista. Si no la tienes, pulsa [[Crear categoría]], escribe el nombre, pulsa [[Crear]] y luego [[Cerrar]]. Después pulsa [[Continuar]].",
         pista:
-          "Con el lápiz le cambias el nombre y con la papelera la eliminas. Si la eliminas, sus productos no se borran: se quedan sin categoría.",
+          "Con los tres puntos de cada categoría puedes editarla o eliminarla. Si la eliminas, sus productos no se borran: se quedan sin categoría.",
         imagen: "crear-un-producto/6",
       },
       {
@@ -522,7 +588,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "compartir-tu-catalogo",
-    numero: 10,
+    numero: 11,
     grupo: "una-vez",
     titulo: "Compartir tu catálogo",
     resumen:
@@ -563,7 +629,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "importar-tu-libreta",
-    numero: 11,
+    numero: 12,
     grupo: "una-vez",
     titulo: "Subir tu libreta con una foto",
     resumen:
@@ -648,7 +714,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "la-papelera",
-    numero: 12,
+    numero: 13,
     grupo: "una-vez",
     titulo: "La papelera",
     resumen:
@@ -687,7 +753,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "mi-negocio",
-    numero: 13,
+    numero: 14,
     grupo: "una-vez",
     titulo: "Mi negocio: tus datos",
     resumen:
@@ -748,7 +814,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "instalar-la-app-en-tu-telefono",
-    numero: 14,
+    numero: 15,
     grupo: "una-vez",
     titulo: "Instalar la app en tu teléfono",
     resumen:
