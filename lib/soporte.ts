@@ -407,8 +407,53 @@ export const TEMAS: Tema[] = [
     ],
   },
   {
-    slug: "calculadora-de-tasa",
+    // Owner's request of 2026-11-04. Only the owner has «Fecha»: the client's link
+    // carries the last 50 movements, so a date there could answer «no hay» wrongly.
+    slug: "filtrar-el-historial",
     numero: 8,
+    grupo: "ocasional",
+    titulo: "Filtrar el historial por fecha",
+    resumen: "Para ver solo lo que pasó con un cliente en unos días concretos.",
+    pasos: [
+      {
+        texto: "Abre la ficha del cliente y baja a [[Historial de transacciones]].",
+        pista: "Los filtros están debajo del buscador. En el teléfono, la fila se desliza de lado.",
+        imagen: "filtrar-el-historial/1",
+      },
+      { texto: "Toca [[Fecha]].", imagen: "filtrar-el-historial/2" },
+      {
+        texto: "Elige un atajo, como [[Últimos 7 días]], o marca los días en el calendario y pulsa [[Aplicar]].",
+        pista: "Un atajo se aplica solo. Si marcas un solo día, se filtra ese día.",
+        imagen: "filtrar-el-historial/3",
+      },
+      {
+        texto: "Ahí ves solo las transacciones de esos días.",
+        pista: "El chip dice el rango que elegiste.",
+        imagen: "filtrar-el-historial/4",
+      },
+      {
+        texto: "Para verlas todas otra vez, toca el chip y pulsa [[Quitar fecha]].",
+        imagen: "filtrar-el-historial/5",
+      },
+    ],
+    notas: [
+      {
+        titulo: "Los filtros se suman",
+        texto: "La fecha funciona junto con el tipo, [[Estado]] y [[Moneda]]: solo salen las transacciones que pasan todos.",
+      },
+      {
+        titulo: "Si esos días no hubo nada",
+        texto: "La lista lo dice, por ejemplo «No hay transacciones el 2 nov». No es un error.",
+      },
+      {
+        titulo: "Tu cliente no tiene este filtro",
+        texto: "Es solo tuyo. En su enlace, tu cliente ve el resto de los filtros.",
+      },
+    ],
+  },
+  {
+    slug: "calculadora-de-tasa",
+    numero: 9,
     grupo: "ocasional",
     titulo: "La calculadora de tasa",
     resumen:
@@ -451,7 +496,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "ver-tus-reportes",
-    numero: 9,
+    numero: 10,
     grupo: "ocasional",
     titulo: "Ver tus reportes",
     resumen:
@@ -516,7 +561,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "crear-un-producto",
-    numero: 10,
+    numero: 11,
     grupo: "ocasional",
     titulo: "Crear un producto",
     resumen:
@@ -593,7 +638,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "compartir-tu-catalogo",
-    numero: 11,
+    numero: 12,
     grupo: "una-vez",
     titulo: "Compartir tu catálogo",
     resumen:
@@ -634,7 +679,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "importar-tu-libreta",
-    numero: 12,
+    numero: 13,
     grupo: "una-vez",
     titulo: "Subir tu libreta con una foto",
     resumen:
@@ -719,7 +764,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "la-papelera",
-    numero: 13,
+    numero: 14,
     grupo: "una-vez",
     titulo: "La papelera",
     resumen:
@@ -749,6 +794,11 @@ export const TEMAS: Tema[] = [
     ],
     notas: [
       {
+        titulo: "Sus transacciones eliminadas esperan a que vuelva",
+        texto:
+          "Mientras un cliente esté en la papelera, no puedes restaurar lo que le eliminaste. Restáuralo primero a él.",
+      },
+      {
         titulo: "Ocultar definitivamente lo saca de todas partes",
         texto:
           "Dentro de la papelera hay [[Ocultar definitivamente]]. Eso lo saca también de la papelera, así que desde ahí ya no lo encuentras. Su historial y su enlace siguen intactos. La única forma de traerlo de vuelta es subir una libreta con su cédula: Sevenz lo reconoce y te ofrece recuperarlo. Úsalo solo si estás seguro.",
@@ -758,7 +808,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "mi-negocio",
-    numero: 14,
+    numero: 15,
     grupo: "una-vez",
     titulo: "Mi negocio: tus datos",
     resumen:
@@ -819,7 +869,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "instalar-la-app-en-tu-telefono",
-    numero: 15,
+    numero: 16,
     grupo: "una-vez",
     titulo: "Instalar la app en tu teléfono",
     resumen:
