@@ -324,7 +324,7 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Qué hacer con el dinero que sobra",
         texto:
-          "En un fiado, lo devuelto baja primero ese fiado y luego los otros de esa moneda, del más antiguo al más nuevo. Sobra dinero cuando lo devuelto es más que la deuda: si debe $10 y devuelve $15, sobran $5. Con eso eliges [[Registrar saldo a favor]] o [[Devolver]]. Lo que sobra nunca pasa de lo que el cliente te pagó: si no te había pagado nada, no sobra nada. En Reportes, [[Abonos]] baja si devuelves el dinero.",
+          "En un fiado, lo devuelto baja primero ese fiado y luego los otros de esa moneda, del más antiguo al más nuevo. Sobra dinero cuando lo devuelto es más que la deuda: si debe $10 y devuelve $15, sobran $5. Con eso eliges [[Registrar saldo a favor]] o [[Devolver]]. Lo que sobra nunca pasa de lo que el cliente te pagó: si no te había pagado nada, no sobra nada. En Reportes, [[Abonos]] baja si devuelves el dinero. Si no sobra nada, el botón dice [[Descontar]]: baja la deuda y no le entregas dinero.",
       },
       {
         titulo: "Si la venta fue de contado",
