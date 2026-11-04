@@ -293,7 +293,7 @@ export const TEMAS: Tema[] = [
       },
       { texto: "Pulsa [[Registrar devolución]].", imagen: "registrar-una-devolucion/2" },
       {
-        texto: "Elige cuántas unidades te devuelve y revisa lo que va a pasar.",
+        texto: "Elige cuántas unidades te devuelve y revisa lo que va a pasar, incluido cómo queda lo que te deben.",
         pista: "Si no sobra dinero, aquí mismo pulsas [[Registrar devolución]] y listo.",
         imagen: "registrar-una-devolucion/3",
       },
