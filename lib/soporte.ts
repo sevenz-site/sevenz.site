@@ -298,7 +298,7 @@ export const TEMAS: Tema[] = [
         imagen: "registrar-una-devolucion/3",
       },
       {
-        texto: "Si el cliente ya había pagado ese producto, pulsa [[Continuar]] y elige qué haces con lo que sobra.",
+        texto: "Si sobra dinero, pulsa [[Continuar]] y elige qué haces con lo que sobra.",
         pista: "Nada se guarda hasta que eliges. Con la X cierras sin registrar.",
         imagen: "registrar-una-devolucion/4",
       },
@@ -324,17 +324,17 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Qué hacer con el dinero que sobra",
         texto:
-          "Solo se pregunta si el cliente ya había pagado. Si te debe otros fiados en esa moneda, puedes [[Abonar a otros fiados]] o [[Devolver dinero]]. Si no te debe nada más en esa moneda, puedes [[Registrar como saldo a favor]] o [[Devolver dinero]].",
+          "Lo devuelto baja primero lo que el cliente te debe en esa moneda, del fiado más antiguo al más nuevo. Sobra dinero cuando lo devuelto es más que su deuda: si debe $10 y devuelve $15, sobran $5. Con eso eliges [[Registrar como saldo a favor]] o [[Devolver dinero]]. En una compra de contado, además, puedes devolver todo el dinero: si debe $5 y devuelve $10, eliges entre abonar $5 y devolver $5, abonar $5 y dejar $5 a favor, o devolver los $10.",
       },
       {
         titulo: "Si la venta fue de contado",
         texto:
-          "Como ya estaba pagada, siempre sobra dinero y eliges qué hacer con él. En Reportes, [[Ventas]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes [[Devolver dinero]]: si se lleva otro producto, registra después una venta nueva.",
+          "Como ya estaba pagada, lo devuelto baja lo que te deba en otros fiados y eliges qué hacer con lo que sobre. En Reportes, [[Ventas]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes [[Devolver dinero]]: si se lleva otro producto, registra después una venta nueva.",
       },
       {
         titulo: "Si se lleva otro producto a cambio",
         texto:
-          "Registra el dinero como saldo a favor y luego la venta nueva. Si la fías, el saldo se descuenta solo. Si la cobras, marca [[Usar saldo a favor]] en el paso de pago y cobras la diferencia.",
+          "Registra el dinero como saldo a favor y luego la venta nueva. Si la fías, el saldo se descuenta solo. Si la cobras, marca [[Usar saldo a favor]] en el paso de pago y cobras la diferencia. Si te debía algo, lo devuelto baja primero esa deuda, y a favor le queda lo que sobre.",
       },
       {
         titulo: "Si fue un error",
