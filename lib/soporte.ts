@@ -294,12 +294,12 @@ export const TEMAS: Tema[] = [
       { texto: "Pulsa [[Registrar devolución]].", imagen: "registrar-una-devolucion/2" },
       {
         texto: "Elige cuántas unidades te devuelve y revisa lo que va a pasar, incluido cómo queda lo que te deben.",
-        pista: "Si no sobra dinero, aquí mismo pulsas [[Registrar devolución]] y listo.",
+        pista: "Las líneas y los botones cambian solos si mueves las unidades.",
         imagen: "registrar-una-devolucion/3",
       },
       {
-        texto: "Si sobra dinero, pulsa [[Continuar]] y elige qué haces con lo que sobra.",
-        pista: "Nada se guarda hasta que eliges. Con la X cierras sin registrar.",
+        texto: "Pulsa el botón de lo que vas a hacer.",
+        pista: "Nada se guarda hasta que lo pulsas. Con la X cierras sin registrar.",
         imagen: "registrar-una-devolucion/4",
       },
       {
@@ -324,12 +324,12 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Qué hacer con el dinero que sobra",
         texto:
-          "Lo devuelto baja primero lo que el cliente te debe en esa moneda, del fiado más antiguo al más nuevo. Sobra dinero cuando lo devuelto es más que su deuda: si debe $10 y devuelve $15, sobran $5. Con eso eliges [[Registrar como saldo a favor]] o [[Devolver dinero]]. En una compra de contado, además, puedes devolver todo el dinero: si debe $5 y devuelve $10, eliges entre abonar $5 y devolver $5, abonar $5 y dejar $5 a favor, o devolver los $10.",
+          "En un fiado, lo devuelto baja primero ese fiado y luego los otros de esa moneda, del más antiguo al más nuevo. Sobra dinero cuando lo devuelto es más que la deuda: si debe $10 y devuelve $15, sobran $5. Con eso eliges [[Registrar saldo a favor]] o [[Devolver]]. Lo que sobra nunca pasa de lo que el cliente te pagó: si no te había pagado nada, no sobra nada. En Reportes, [[Abonos]] baja si devuelves el dinero.",
       },
       {
         titulo: "Si la venta fue de contado",
         texto:
-          "Como ya estaba pagada, lo devuelto baja lo que te deba en otros fiados y eliges qué hacer con lo que sobre. En Reportes, [[Ventas]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes [[Devolver dinero]]: si se lleva otro producto, registra después una venta nueva.",
+          "Como ya estaba pagada, puedes devolver todo el dinero aunque te deba. Si debe $5 y devuelve $10, eliges entre abonar $5 y devolver $5, abonar $5 y dejar $5 a favor, o devolver los $10. Si debe $25, eliges entre abonar los $10 a su deuda o devolverlos. En Reportes, [[Ventas]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes devolver el dinero: si se lleva otro producto, registra después una venta nueva.",
       },
       {
         titulo: "Si se lleva otro producto a cambio",
