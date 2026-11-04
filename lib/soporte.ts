@@ -339,7 +339,7 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Si fue un error",
         texto:
-          "Abre la devolución y elimínala desde los tres puntos de arriba: la deuda vuelve y las unidades salen otra vez del inventario. Se restaura desde Notificaciones.",
+          "Abre la devolución y elimínala desde los tres puntos de arriba: la deuda vuelve y las unidades salen otra vez del inventario. Se restaura desde Notificaciones. Si su saldo a favor ya se usó, primero elimina la venta que lo gastó: la app te lleva a ella.",
       },
       {
         titulo: "Un fiado con devolución no se elimina",
