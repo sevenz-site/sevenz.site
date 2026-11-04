@@ -471,7 +471,7 @@ export const TEMAS: Tema[] = [
       },
       {
         texto:
-          "Elige una de la lista, o escribe una en [[Nueva categoría]] y pulsa [[Crear]]. Luego pulsa [[Continuar]].",
+          "Elige una de la lista. Si no la tienes, pulsa [[Crear categoría]], escribe el nombre, pulsa [[Crear]] y luego [[Cerrar]]. Después pulsa [[Continuar]].",
         pista:
           "Con el lápiz le cambias el nombre y con la papelera la eliminas. Si la eliminas, sus productos no se borran: se quedan sin categoría.",
         imagen: "crear-un-producto/6",
