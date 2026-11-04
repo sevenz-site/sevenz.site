@@ -93,7 +93,7 @@ export const CAPTURAS: Record<string, [number, number]> = {
   "registrar-una-devolucion/1": [560, 657],
   "registrar-una-devolucion/2": [560, 657],
   "registrar-una-devolucion/3": [560, 1213],
-  "registrar-una-devolucion/4": [560, 657],
+  "registrar-una-devolucion/4": [560, 1213],
   "registrar-una-devolucion/5": [560, 1213],
   "registrar-una-devolucion/6": [560, 657],
   "registrar-una-devolucion/7": [560, 657],

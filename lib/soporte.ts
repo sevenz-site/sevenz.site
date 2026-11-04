@@ -293,17 +293,17 @@ export const TEMAS: Tema[] = [
       },
       { texto: "Pulsa [[Registrar devolución]].", imagen: "registrar-una-devolucion/2" },
       {
-        texto: "Revisa lo que va a pasar antes de confirmar.",
-        pista: "Si se llevó varias unidades, ahí eliges cuántas te devuelve.",
+        texto: "Elige cuántas unidades te devuelve y revisa lo que va a pasar.",
+        pista: "Si no sobra dinero, aquí mismo pulsas [[Registrar devolución]] y listo.",
         imagen: "registrar-una-devolucion/3",
       },
       {
-        texto: "Si el cliente ya había pagado ese producto, elige qué haces con el dinero que sobra.",
-        pista: "Si no sobra nada, la app no te pregunta y puedes seguir.",
+        texto: "Si el cliente ya había pagado ese producto, pulsa [[Continuar]] y elige qué haces con lo que sobra.",
+        pista: "Nada se guarda hasta que eliges. Con la X cierras sin registrar.",
         imagen: "registrar-una-devolucion/4",
       },
       {
-        texto: "Pulsa [[Registrar devolución]]. Ahí ves en qué quedó todo.",
+        texto: "Ahí ves en qué quedó todo.",
         imagen: "registrar-una-devolucion/5",
       },
       {
@@ -324,12 +324,12 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Qué hacer con el dinero que sobra",
         texto:
-          "Solo se pregunta si el cliente ya había pagado. Si te debe otros fiados en esa moneda, puedes [[Abonar a otros fiados]] o [[Entregar en efectivo]]. Si no te debe nada más en esa moneda, puedes [[Dejar como saldo a favor]] o [[Entregar en efectivo]].",
+          "Solo se pregunta si el cliente ya había pagado. Si te debe otros fiados en esa moneda, puedes [[Abonar a otros fiados]] o [[Devolver dinero]]. Si no te debe nada más en esa moneda, puedes [[Registrar como saldo a favor]] o [[Devolver dinero]].",
       },
       {
         titulo: "Si se lleva otro producto a cambio",
         texto:
-          "Deja el dinero como saldo a favor y registra la venta nueva. Si la fías, el saldo se descuenta solo. Si la cobras, marca [[Usar saldo a favor]] en el paso de pago y cobras la diferencia.",
+          "Registra el dinero como saldo a favor y luego la venta nueva. Si la fías, el saldo se descuenta solo. Si la cobras, marca [[Usar saldo a favor]] en el paso de pago y cobras la diferencia.",
       },
       {
         titulo: "Si fue un error",
