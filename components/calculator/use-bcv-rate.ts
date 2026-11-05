@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Rate } from "@/components/calculator/convert";
+import { eurIsPlausible } from "@/components/calculator/rate-guard";
 
 // This site is a static export — nothing runs per-request on the server, so
 // the rate has to be fetched client-side, in the browser, after the static
@@ -46,6 +47,20 @@ function rateDateOf(iso: string | undefined): string | null {
   return /^\d{4}-\d{2}-\d{2}$/.test(ymd) ? ymd : null;
 }
 
+// THE LAST OFFICIAL EURO THAT MAKES SENSE, for the day the current one does not. On
+// 2026-11-05 the euro crossed Bs. 1.000 and dolarapi started answering 1.006, the thousands
+// dot read as a decimal. Same decision as the app: *«Usar la tasa oficial»*, the owner's
+// words that day. If no good day is found this throws, and the page falls to the other
+// source rather than showing a broken number.
+async function lastPlausibleEur(usd: number): Promise<number> {
+  const res = await fetchWithTimeout("https://ve.dolarapi.com/v1/historicos/euros/oficial");
+  if (!res.ok) throw new Error("dolarapi respondió con error en el historial.");
+  const history = (await res.json()) as { promedio: number }[];
+  const good = [...history].reverse().find((entry) => eurIsPlausible(usd, entry.promedio));
+  if (!good) throw new Error("dolarapi no tiene un euro oficial válido.");
+  return good.promedio;
+}
+
 async function fetchFromDolarApi(): Promise<BcvRate> {
   const [usdRes, eurRes] = await Promise.all([
     fetchWithTimeout("https://ve.dolarapi.com/v1/dolares/oficial"),
@@ -56,9 +71,12 @@ async function fetchFromDolarApi(): Promise<BcvRate> {
   if (!usdData.promedio || !eurData.promedio) {
     throw new Error("dolarapi no devolvió un promedio válido.");
   }
+  const eur = eurIsPlausible(usdData.promedio, eurData.promedio)
+    ? eurData.promedio
+    : await lastPlausibleEur(usdData.promedio);
   return {
     usd: usdData.promedio,
-    eur: eurData.promedio,
+    eur,
     rateDate: rateDateOf(usdData.fechaActualizacion),
     fetchedAt: new Date(),
     source: "dolarapi",
