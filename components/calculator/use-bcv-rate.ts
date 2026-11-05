@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import type { Rate } from "@/components/calculator/convert";
 import { eurIsPlausible } from "@/components/calculator/rate-guard";
+import { readDolarVzla, resolveForCalculator, todayInCaracas, type DatedRate } from "@/components/calculator/rate-sources";
 
 // This site is a static export — nothing runs per-request on the server, so
 // the rate has to be fetched client-side, in the browser, after the static
-// HTML loads. Same two public, no-auth, CORS-confirmed sources the
-// dashboard app already uses (lib/exchange-rate/dolar-api-provider.ts and
-// currency-api-provider.ts), reimplemented standalone — no cross-repo import.
+// HTML loads. Same public, no-auth, CORS-confirmed sources the dashboard app
+// uses (lib/exchange-rate/), reimplemented standalone — no cross-repo import.
+// Since 2026-11-05 two official mirrors are read together, DolarApi and
+// DolarVZLA (rate-sources.ts); the BCV's own page, which the app's server
+// also reads, sends no CORS header and cannot be read from a browser.
 
 // rateDate is the day the BCV rate itself belongs to ("2026-09-04"), which is
 // NOT the same as when we asked for it. The BCV does not publish on weekends
@@ -20,7 +23,9 @@ import { eurIsPlausible } from "@/components/calculator/rate-guard";
 export type BcvRate = Rate & {
   rateDate: string | null;
   fetchedAt: Date;
-  source: "dolarapi" | "currency-api";
+  // Who backed the number: "dolarapi+dolarvzla" when both agreed, one name when only one was
+  // believable, "currency-api" for the aggregator of last resort. Diagnostic only.
+  source: string;
 };
 
 const TIMEOUT_MS = 8_000;
@@ -61,7 +66,8 @@ async function lastPlausibleEur(usd: number): Promise<number> {
   return good.promedio;
 }
 
-async function fetchFromDolarApi(): Promise<BcvRate> {
+// DolarApi's reading, raw: judging it is the resolver's job, not this function's.
+async function readDolarApi(today: string): Promise<DatedRate> {
   const [usdRes, eurRes] = await Promise.all([
     fetchWithTimeout("https://ve.dolarapi.com/v1/dolares/oficial"),
     fetchWithTimeout("https://ve.dolarapi.com/v1/euros/oficial"),
@@ -71,15 +77,36 @@ async function fetchFromDolarApi(): Promise<BcvRate> {
   if (!usdData.promedio || !eurData.promedio) {
     throw new Error("dolarapi no devolvió un promedio válido.");
   }
-  const eur = eurIsPlausible(usdData.promedio, eurData.promedio)
-    ? eurData.promedio
-    : await lastPlausibleEur(usdData.promedio);
   return {
+    date: rateDateOf(usdData.fechaActualizacion) ?? today,
     usd: usdData.promedio,
-    eur,
-    rateDate: rateDateOf(usdData.fechaActualizacion),
-    fetchedAt: new Date(),
+    eur: eurData.promedio,
     source: "dolarapi",
+  };
+}
+
+// TWO SOURCES, ONE RATE. Since 2026-11-05 DolarApi and DolarVZLA are read together and the
+// resolver in rate-sources.ts keeps, per currency, what both agree on. The day DolarApi
+// answered 1,006 for the euro, this is what would have shown 1.006,03 instead. If DolarVZLA is
+// down and DolarApi's euro is broken, the last believable euro of DolarApi's own history is
+// the fallback, as it was from the first fix; and if nothing official is believable at all,
+// the caller falls to the aggregator.
+async function readOfficialRate(): Promise<BcvRate> {
+  const today = todayInCaracas();
+  const [api, vzla] = await Promise.allSettled([readDolarApi(today), readDolarVzla()]);
+  const readings: DatedRate[] = [];
+  if (api.status === "fulfilled") readings.push(api.value);
+  if (vzla.status === "fulfilled") readings.push(...vzla.value);
+  const resolved = resolveForCalculator(readings, today);
+  let eur = resolved.eur;
+  if (resolved.usd !== null && eur === null && api.status === "fulfilled") eur = await lastPlausibleEur(resolved.usd);
+  if (resolved.usd === null || eur === null) throw new Error("ninguna fuente oficial dio una tasa creíble.");
+  return {
+    usd: resolved.usd,
+    eur,
+    rateDate: resolved.date,
+    fetchedAt: new Date(),
+    source: resolved.witnesses.join("+") || "dolarapi",
   };
 }
 
@@ -155,7 +182,7 @@ export function useBcvRate() {
 
     (async () => {
       try {
-        const result = await fetchFromDolarApi();
+        const result = await readOfficialRate();
         if (!cancelled) setRate(result);
       } catch {
         try {
