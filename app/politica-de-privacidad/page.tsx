@@ -402,7 +402,10 @@ export default function PoliticaDePrivacidadPage() {
             <tr>
               <td>Mixpanel</td>
               <td>Analítica de producto</td>
-              <td>Datos de uso y comportamiento dentro de la app</td>
+              <td>
+                Datos de uso y comportamiento dentro de la app, con importes de las transacciones e
+                identificadores internos. Sin nombres, documentos, teléfonos ni correos
+              </td>
             </tr>
             <tr>
               <td>Microsoft Clarity</td>
@@ -456,8 +459,16 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           <strong>Dentro de la aplicación (app.sevenz.site):</strong> el uso de Mixpanel y Clarity
-          queda informado en esta política, aceptada al crear la cuenta. El Comercio puede
-          desactivar la analítica de uso desde un control en Ajustes de su cuenta.
+          queda informado en esta política, aceptada al crear la cuenta. Mixpanel recibe qué
+          pasó y por cuánto: por ejemplo, que se registró una venta, un abono o una devolución,
+          con su importe, su moneda y la forma de pago. Esos eventos llevan el identificador
+          interno del Comercio y, cuando la acción es sobre un cliente, el identificador interno
+          de ese Cliente Final, que es un código sin significado fuera de Sevenz.{" "}
+          <strong>
+            No se envía el nombre, el documento, el teléfono ni el correo de nadie, ni el nombre
+            de los productos, ni lo que se escribe en un buscador
+          </strong>
+          .
         </li>
         <li>
           <strong>
@@ -468,11 +479,12 @@ export default function PoliticaDePrivacidadPage() {
           navegación, y Mixpanel registra acciones puntuales — por ejemplo, que alguien tocó el
           botón de WhatsApp o abrió el catálogo desde el link de saldo.{" "}
           <strong>
-            Esos eventos se archivan a nombre del Comercio y no llevan ningún identificador del
-            Cliente Final
+            Esos eventos se archivan a nombre del Comercio y llevan solo el identificador interno
+            del Cliente Final
           </strong>
-          : no se envía su nombre, ni su documento, ni su teléfono, ni el código de su link. Lo que
-          el Comercio ve es cuántas veces ocurrió algo en su negocio, nunca quién lo hizo.
+          , un código sin significado fuera de Sevenz: no se envía su nombre, ni su documento, ni
+          su teléfono, ni el código de su link. Sevenz usa esos eventos para entender cómo se usa
+          el producto; no son una lista de personas, y el Comercio no los ve.
         </li>
       </ul>
 
