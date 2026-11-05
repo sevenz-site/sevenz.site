@@ -278,8 +278,79 @@ export const TEMAS: Tema[] = [
     ],
   },
   {
-    slug: "marcar-una-mala-paga",
+    // Migration 185 (2026-11-03). What is offered follows the table at the top
+    // of `dashboard/lib/returns/options.ts`: keep the two in step.
+    slug: "registrar-una-devolucion",
     numero: 5,
+    grupo: "ocasional",
+    titulo: "Registrar una devolución",
+    resumen: "Cuando te devuelven un producto, fiado o de contado.",
+    pasos: [
+      {
+        texto: "Abre el fiado o la venta de contado y toca los tres puntos del producto que te devolvieron.",
+        pista: "Llegas desde el historial del cliente.",
+        imagen: "registrar-una-devolucion/1",
+      },
+      { texto: "Pulsa [[Registrar devolución]].", imagen: "registrar-una-devolucion/2" },
+      {
+        texto: "Elige cuántas unidades te devuelve y revisa lo que va a pasar, incluido cómo queda lo que te deben.",
+        pista: "Las líneas y los botones cambian solos si mueves las unidades.",
+        imagen: "registrar-una-devolucion/3",
+      },
+      {
+        texto: "Pulsa el botón de lo que vas a hacer.",
+        pista: "Nada se guarda hasta que lo pulsas. Con la X cierras sin registrar.",
+        imagen: "registrar-una-devolucion/4",
+      },
+      {
+        texto: "Ahí ves en qué quedó todo.",
+        imagen: "registrar-una-devolucion/5",
+      },
+      {
+        texto: "En el fiado, el producto queda marcado y [[Total]] baja.",
+        imagen: "registrar-una-devolucion/6",
+      },
+      {
+        texto: "En el historial sale una fila [[Devolución]], que tu cliente también ve.",
+        imagen: "registrar-una-devolucion/7",
+      },
+    ],
+    notas: [
+      {
+        titulo: "No cuenta como dinero que entró",
+        texto:
+          "Una devolución no es un abono. Baja lo que te deben y vuelve el producto a tu inventario, pero no suma a tus cobros. En Reportes sale aparte, en Devoluciones.",
+      },
+      {
+        titulo: "Qué hacer con el dinero que sobra",
+        texto:
+          "En un fiado, lo devuelto baja primero ese fiado y luego los otros de esa moneda, del más antiguo al más nuevo. Sobra dinero cuando lo devuelto es más que la deuda: si debe $10 y devuelve $15, sobran $5. Con eso eliges [[Registrar saldo a favor]] o [[Devolver]]. Lo que sobra nunca pasa de lo que el cliente te pagó: si no te había pagado nada, no sobra nada. En Reportes, [[Abonos]] baja si devuelves el dinero. Si no sobra nada, el botón dice [[Descontar]]: baja la deuda y no le entregas dinero.",
+      },
+      {
+        titulo: "Si la venta fue de contado",
+        texto:
+          "Como ya estaba pagada, puedes devolver todo el dinero aunque te deba. Si debe $5 y devuelve $10, eliges entre abonar $5 y devolver $5, abonar $5 y dejar $5 a favor, o devolver los $10. Si debe $25, eliges entre abonar los $10 a su deuda o devolverlos. En Reportes, [[Ventas]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes devolver el dinero: si se lleva otro producto, registra después una venta nueva.",
+      },
+      {
+        titulo: "Si se lleva otro producto a cambio",
+        texto:
+          "Registra el dinero como saldo a favor y luego la venta nueva. Si la fías, el saldo se descuenta solo. Si la cobras, marca [[Usar saldo a favor]] en el paso de pago y cobras la diferencia. Si te debía algo, lo devuelto baja primero esa deuda, y a favor le queda lo que sobre.",
+      },
+      {
+        titulo: "Si fue un error",
+        texto:
+          "Abre la devolución y elimínala desde los tres puntos de arriba: la deuda vuelve y las unidades salen otra vez del inventario. Se restaura desde Notificaciones. Si su saldo a favor ya se usó, primero elimina la venta que lo gastó: la app te lleva a ella.",
+      },
+      {
+        titulo: "Un fiado con devolución no se elimina",
+        texto: "Primero elimina la devolución, y después el fiado o la venta.",
+        cuidado: true,
+      },
+    ],
+  },
+  {
+    slug: "marcar-una-mala-paga",
+    numero: 6,
     grupo: "ocasional",
     titulo: "Marcar una mala paga",
     resumen: "Para acordarte de a quién ya no le vas a fiar. Se puede quitar cuando quieras.",
@@ -312,7 +383,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "ver-el-puntaje-del-cliente",
-    numero: 6,
+    numero: 7,
     grupo: "ocasional",
     titulo: "Ver el puntaje del cliente",
     resumen:
@@ -336,8 +407,53 @@ export const TEMAS: Tema[] = [
     ],
   },
   {
+    // Owner's request of 2026-11-04. Only the owner has «Fecha»: the client's link
+    // carries the last 50 movements, so a date there could answer «no hay» wrongly.
+    slug: "filtrar-el-historial",
+    numero: 8,
+    grupo: "ocasional",
+    titulo: "Filtrar el historial por fecha",
+    resumen: "Para ver solo lo que pasó con un cliente en unos días concretos.",
+    pasos: [
+      {
+        texto: "Abre la ficha del cliente y baja a [[Historial de transacciones]].",
+        pista: "Los filtros están debajo del buscador. En el teléfono, la fila se desliza de lado.",
+        imagen: "filtrar-el-historial/1",
+      },
+      { texto: "Toca [[Fecha]].", imagen: "filtrar-el-historial/2" },
+      {
+        texto: "Elige un atajo, como [[Últimos 7 días]], o marca los días en el calendario y pulsa [[Aplicar]].",
+        pista: "Un atajo se aplica solo. Si marcas un solo día, se filtra ese día.",
+        imagen: "filtrar-el-historial/3",
+      },
+      {
+        texto: "Ahí ves solo las transacciones de esos días.",
+        pista: "El chip dice el rango que elegiste.",
+        imagen: "filtrar-el-historial/4",
+      },
+      {
+        texto: "Para verlas todas otra vez, toca el chip y pulsa [[Quitar fecha]].",
+        imagen: "filtrar-el-historial/5",
+      },
+    ],
+    notas: [
+      {
+        titulo: "Los filtros se suman",
+        texto: "La fecha funciona junto con el tipo, [[Estado]] y [[Moneda]]: solo salen las transacciones que pasan todos.",
+      },
+      {
+        titulo: "Si esos días no hubo nada",
+        texto: "La lista lo dice, por ejemplo «No hay transacciones el 2 nov». No es un error.",
+      },
+      {
+        titulo: "Tu cliente no tiene este filtro",
+        texto: "Es solo tuyo. En su enlace, tu cliente ve el resto de los filtros.",
+      },
+    ],
+  },
+  {
     slug: "calculadora-de-tasa",
-    numero: 7,
+    numero: 9,
     grupo: "ocasional",
     titulo: "La calculadora de tasa",
     resumen:
@@ -380,7 +496,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "ver-tus-reportes",
-    numero: 8,
+    numero: 10,
     grupo: "ocasional",
     titulo: "Ver tus reportes",
     resumen:
@@ -404,11 +520,11 @@ export const TEMAS: Tema[] = [
       {
         // No capture: a whole tab of cards, which the step lists instead.
         texto:
-          "En [[Facturación]] ves lo que te deben, lo que vendiste de contado, lo que fiaste, los abonos, los pedidos por atender, los plazos de pago y tus mejores pagadores.",
+          "En [[Facturación]] ves lo que te deben, lo que vendiste de contado, lo que fiaste, las devoluciones, los abonos, los pedidos por atender, los plazos de pago y tus mejores pagadores.",
       },
       {
         texto: "En [[Inventario]] ves cuántos productos tienes, cuáles están por agotarse y cuáles se agotaron.",
-        pista: "También el margen de cada producto y lo que más se vende.",
+        pista: "También el margen de cada producto, lo que más se vende y lo que más te devuelven.",
         imagen: "ver-tus-reportes/6",
       },
       {
@@ -445,7 +561,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "crear-un-producto",
-    numero: 9,
+    numero: 11,
     grupo: "ocasional",
     titulo: "Crear un producto",
     resumen:
@@ -459,42 +575,60 @@ export const TEMAS: Tema[] = [
         imagen: "crear-un-producto/3",
       },
       {
-        texto: "En [[Proveedor (opcional)]] escribe dónde lo compras, y pulsa [[Continuar]].",
+        texto: "En [[Proveedor (opcional)]] escribe dónde lo compras.",
         pista: "Con esto, Reportes te dice cuánto ganas con cada proveedor.",
         imagen: "crear-un-producto/4",
       },
       {
-        texto: "En [[2/4 Precio]], escribe el [[Costo unitario (opcional)]] y su moneda: lo que te costó a ti.",
+        // Migration 184 (2026-11-03): categories are created, renamed and
+        // deleted from this same sheet.
+        texto: "Toca [[Categoría (opcional)]] para ponerle una categoría.",
         imagen: "crear-un-producto/5",
+      },
+      {
+        texto:
+          "Elige una de la lista. Si no la tienes, pulsa [[Crear categoría]], escribe el nombre, pulsa [[Crear]] y luego [[Cerrar]]. Después pulsa [[Continuar]].",
+        pista:
+          "Con los tres puntos de cada categoría puedes editarla o eliminarla. Si la eliminas, sus productos no se borran: se quedan sin categoría.",
+        imagen: "crear-un-producto/6",
+      },
+      {
+        texto: "En [[2/4 Precio]], escribe el [[Costo unitario (opcional)]] y su moneda: lo que te costó a ti.",
+        imagen: "crear-un-producto/7",
       },
       {
         texto: "En [[Margen al detal]] elige cuánto quieres ganar. Sevenz calcula el precio.",
         pista: "Si prefieres escribir el precio tú, elige [[Otro (escribe el precio)]].",
-        imagen: "crear-un-producto/6",
+        imagen: "crear-un-producto/8",
       },
-      { texto: "Debajo te dice cuánto ganas de verdad a ese precio.", imagen: "crear-un-producto/7" },
+      { texto: "Debajo te dice cuánto ganas de verdad a ese precio.", imagen: "crear-un-producto/9" },
       {
         texto: "Con [[Agregar]] le pones también precio en otra moneda.",
         pista: "Se calcula con la tasa del día. Si quieres fijarlo a mano, toca el icono del vínculo para soltarlo de la tasa.",
-        imagen: "crear-un-producto/8",
+        imagen: "crear-un-producto/10",
       },
       {
         texto: "Si también lo vendes al mayor, deja activa [[Venta al mayor]] y elige desde cuántas unidades aplica. Pulsa [[Continuar]].",
-        imagen: "crear-un-producto/9",
+        imagen: "crear-un-producto/11",
       },
       {
         texto: "En [[3/4 Detalles]], [[Publicar producto en catálogo]] decide si sale en tu catálogo, y con qué precios.",
-        imagen: "crear-un-producto/10",
+        imagen: "crear-un-producto/12",
       },
       {
         texto: "Adjunta una foto y, si quieres, una descripción. Pulsa [[Continuar]].",
         pista: "Con foto se vende mejor desde el catálogo.",
-        imagen: "crear-un-producto/11",
+        imagen: "crear-un-producto/13",
       },
-      { texto: "En [[4/4 Verifica]] revísalo todo y pulsa [[Crear producto]].", imagen: "crear-un-producto/12" },
-      { texto: "Listo. Ya aparece en tu catálogo.", imagen: "crear-un-producto/13" },
+      { texto: "En [[4/4 Verifica]] revísalo todo y pulsa [[Crear producto]].", imagen: "crear-un-producto/14" },
+      { texto: "Listo. Ya aparece en tu catálogo.", imagen: "crear-un-producto/15" },
     ],
     notas: [
+      {
+        titulo: "Las categorías ordenan tu catálogo",
+        texto:
+          "En tu catálogo salen en [[Categorías]], debajo de [[Pedidos]], cada una con cuántos productos tiene: con un toque ves solo esos. Desde [[Editar]] las creas, les cambias el nombre o las eliminas. A tu cliente solo le salen las que tienen algún producto publicado, y cuentan solo los publicados.",
+      },
       {
         titulo: "Puedes crearlo a mitad de una venta",
         texto:
@@ -504,7 +638,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "compartir-tu-catalogo",
-    numero: 10,
+    numero: 12,
     grupo: "una-vez",
     titulo: "Compartir tu catálogo",
     resumen:
@@ -527,6 +661,7 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "Esto es lo que ve tu cliente. Arma su pedido y te llega a [[Pedidos]].",
+        pista: "Bajo el buscador salen tus categorías: con un toque ve solo esos productos. Solo le salen las que tienen algo publicado.",
         imagen: "compartir-tu-catalogo/5",
       },
     ],
@@ -544,7 +679,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "importar-tu-libreta",
-    numero: 11,
+    numero: 13,
     grupo: "una-vez",
     titulo: "Subir tu libreta con una foto",
     resumen:
@@ -629,7 +764,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "la-papelera",
-    numero: 12,
+    numero: 14,
     grupo: "una-vez",
     titulo: "La papelera",
     resumen:
@@ -659,6 +794,11 @@ export const TEMAS: Tema[] = [
     ],
     notas: [
       {
+        titulo: "Sus transacciones eliminadas esperan a que vuelva",
+        texto:
+          "Mientras un cliente esté en la papelera, no puedes restaurar lo que le eliminaste. Restáuralo primero a él.",
+      },
+      {
         titulo: "Ocultar definitivamente lo saca de todas partes",
         texto:
           "Dentro de la papelera hay [[Ocultar definitivamente]]. Eso lo saca también de la papelera, así que desde ahí ya no lo encuentras. Su historial y su enlace siguen intactos. La única forma de traerlo de vuelta es subir una libreta con su cédula: Sevenz lo reconoce y te ofrece recuperarlo. Úsalo solo si estás seguro.",
@@ -668,7 +808,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "mi-negocio",
-    numero: 13,
+    numero: 15,
     grupo: "una-vez",
     titulo: "Mi negocio: tus datos",
     resumen:
@@ -729,7 +869,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "instalar-la-app-en-tu-telefono",
-    numero: 14,
+    numero: 16,
     grupo: "una-vez",
     titulo: "Instalar la app en tu teléfono",
     resumen:

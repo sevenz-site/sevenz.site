@@ -78,10 +78,12 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
         <li>
-          Los productos de su catálogo: nombre, unidad, descripción, precios y fotografía —{" "}
+          Los productos de su catálogo: nombre, unidad, descripción, categoría, precios y
+          fotografía —{" "}
           <strong>
-            el nombre, la unidad, la descripción, el precio y la fotografía se muestran en el
-            link de catálogo que el Comercio comparta, de forma pública para quien tenga el link
+            el nombre, la unidad, la descripción, la categoría, el precio y la fotografía se
+            muestran en el link de catálogo que el Comercio comparta, de forma pública para quien
+            tenga el link
           </strong>
           . El costo que registre para calcular su margen{" "}
           <strong>no se publica nunca</strong>: se guarda únicamente para que la app le calcule
