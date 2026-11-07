@@ -435,6 +435,12 @@ export default function PoliticaDePrivacidadPage() {
           </tbody>
         </table>
       </div>
+      {/* The sentence the owner approved on 2026-11-07 for the KAMs of migration 198: they
+          are people, not providers, so the table above does not cover them. */}
+      <p>
+        Personas que trabajan con Sevenz en la atención comercial pueden ver los datos de contacto
+        y de la cuenta del Comercio que atienden.
+      </p>
       <p>
         Sevenz no vende datos personales a terceros. No compartimos datos de Clientes Finales con
         fines publicitarios.
