@@ -117,7 +117,15 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           Datos de uso de la Plataforma (páginas visitadas, acciones realizadas, dispositivo,
-          dirección IP aproximada)
+          dirección IP aproximada) y, al iniciar sesión, el tipo de aparato, el navegador y la
+          ciudad aproximada desde la que entra, que conservamos para avisarle por WhatsApp
+          cuando su cuenta se use desde un aparato que no conocíamos
+        </li>
+        <li>
+          Si activa la verificación en dos pasos, los códigos de un solo uso que le enviamos por
+          WhatsApp o por correo (guardados cifrados y válidos diez minutos), y un registro de los
+          cambios de seguridad de su cuenta: cuándo activó o desactivó la verificación, cuándo
+          cambió su contraseña, su número de WhatsApp o su correo, y quién lo hizo
         </li>
       </ul>
       <p>
@@ -343,6 +351,13 @@ export default function PoliticaDePrivacidadPage() {
               <td>Supabase</td>
               <td>Base de datos y autenticación</td>
               <td>Todos los datos de cuenta, movimientos y clientes</td>
+            </tr>
+            <tr>
+              <td>Resend</td>
+              <td>Envío de correos de la cuenta (confirmación de registro, recuperación de
+                contraseña, códigos de verificación y avisos de cambios en la cuenta)</td>
+              <td>Dirección de correo del Comercio y el contenido de esos correos, que Resend
+                conserva durante 30 días</td>
             </tr>
             {/* DOS FILAS Y NO UNA, aunque el proveedor sea el mismo.
                 La tabla describe PROPÓSITOS, no empresas: un lector que

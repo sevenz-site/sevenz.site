@@ -821,8 +821,11 @@ export const TEMAS: Tema[] = [
         imagen: "mi-negocio/2",
       },
       {
+        // Since v0.4.0 (C1 of PL-22) the WhatsApp field only shows the number: it changes
+        // from «Seguridad de la cuenta», with the password and a code to the new number.
         texto:
-          "Revisa [[Nombre del negocio]], [[Nombres del dueño]], [[Apellidos del dueño]] y [[WhatsApp]], y completa [[Dirección de negocio (opcional)]] y [[RIF/NIT (opcional)]] si aplican.",
+          "Revisa [[Nombre del negocio]], [[Nombres del dueño]] y [[Apellidos del dueño]], y completa [[Dirección de negocio (opcional)]] y [[RIF/NIT (opcional)]] si aplican.",
+        pista: "El [[WhatsApp]] se ve aquí, pero se cambia más abajo, en Seguridad de la cuenta: te pedimos tu contraseña y un código al número nuevo.",
         imagen: "mi-negocio/3",
       },
       {
@@ -842,11 +845,17 @@ export const TEMAS: Tema[] = [
         imagen: "mi-negocio/5",
       },
       {
-        texto: "Con [[Cambiar contraseña]] la cambias cuando quieras.",
-        pista: "Al cambiarla se cierra la sesión en tus otros dispositivos.",
+        texto: "En [[Seguridad de la cuenta]], con [[Cambiar contraseña]] la cambias cuando quieras.",
+        pista: "Al cambiarla se cierra la sesión en tus otros dispositivos. Si tienes la verificación en dos pasos, antes te pedimos un código.",
         imagen: "mi-negocio/6",
       },
-      { texto: "Pulsa [[Guardar cambios]].", imagen: "mi-negocio/7" },
+      {
+        texto:
+          "Ahí mismo cambias el [[WhatsApp de la cuenta]] con [[Cambiar]] y enciendes la [[Verificación en dos pasos]] con [[Activar]].",
+        pista: "La verificación tiene su propio tema en esta guía: un código además de tu contraseña cuando entras desde un teléfono nuevo.",
+        imagen: "mi-negocio/7",
+      },
+      { texto: "Pulsa [[Guardar cambios]].", imagen: "mi-negocio/8" },
     ],
     cierre: [
       "En [[Tasa de cambio]] ves la que usa Sevenz: la del BCV, que se actualiza sola.",
@@ -909,6 +918,61 @@ export const TEMAS: Tema[] = [
         titulo: "Sigue necesitando internet",
         texto:
           "Instalarla no la vuelve una app que funcione sin señal. Tus cuentas viven en el servidor, así que para registrar una venta hace falta conexión.",
+        cuidado: true,
+      },
+    ],
+  },
+  {
+    // C1 of PL-22, v0.4.0. Optional per owner. Every label below was read off the dev
+    // screens on 2026-11-06 by temas/seguridad.mjs, which also takes the pictures.
+    slug: "verificacion-en-dos-pasos",
+    numero: 17,
+    grupo: "una-vez",
+    titulo: "Verificación en dos pasos",
+    resumen:
+      "Un código de 6 dígitos además de tu contraseña cuando entras desde un teléfono que Sevenz no conoce. Si alguien se queda con tu contraseña, no le basta.",
+    pasos: [
+      { texto: "Abre el menú y entra a [[Mi negocio]].", imagen: "verificacion-en-dos-pasos/1" },
+      {
+        texto: "Baja hasta [[Seguridad de la cuenta]] y, en [[Verificación en dos pasos]], toca [[Activar]].",
+        imagen: "verificacion-en-dos-pasos/2",
+      },
+      {
+        texto: "Toca [[Enviar código de prueba]].",
+        pista: "Llega al WhatsApp de tu cuenta. Si no te llega, [[Reenviar código]] pide otro, y en los inicios de sesión lo enviamos a tu correo.",
+        imagen: "verificacion-en-dos-pasos/3",
+      },
+      {
+        texto: "Escribe el código en [[Código de 6 dígitos]] y toca [[Activar]].",
+        pista: "Hasta que no lo escribas, no se activa nada.",
+        imagen: "verificacion-en-dos-pasos/4",
+      },
+      { texto: "Listo: la tarjeta dice [[Activa]].", imagen: "verificacion-en-dos-pasos/5" },
+      {
+        texto:
+          "La próxima vez que entres desde un teléfono o un navegador nuevo, después de tu contraseña verás [[Escribe el código]]. Escríbelo y toca [[Confirmar]].",
+        pista: "Vale 10 minutos. Con [[Reenviar código]] pides otro, y si WhatsApp no te llega, puedes pedir que vaya al correo.",
+        imagen: "verificacion-en-dos-pasos/6",
+      },
+    ],
+    cierre: [
+      "Al cambiar tu contraseña también te pediremos el código.",
+      "Para apagarla, toca [[Desactivar]] en la misma tarjeta y escribe tu contraseña.",
+    ],
+    notas: [
+      {
+        titulo: "Solo en aparatos nuevos",
+        texto:
+          "En el teléfono donde ya entraste no te lo pide cada vez. Lo pide cuando entras desde otro aparato, o si borraste los datos del navegador.",
+      },
+      {
+        titulo: "Si tu cuenta no tiene WhatsApp",
+        texto: "El código va a tu correo. Puedes agregar un número en Seguridad de la cuenta, con [[Agregar número]].",
+      },
+      {
+        titulo: "Si no puedes recibir el código",
+        texto:
+          "Perdiste el teléfono y no entras al correo: escríbenos por el canal de soporte. Comprobamos que eres tú y te ayudamos a entrar.",
         cuidado: true,
       },
     ],
