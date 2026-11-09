@@ -261,8 +261,8 @@ export const TEMAS: Tema[] = [
         imagen: "compartir-el-link-del-cliente/4",
       },
       {
-        texto: "También lo mandas desde cualquier movimiento: tócalo en el historial y pulsa [[Compartir]].",
-        pista: "Es el mismo enlace de tu cliente, pero abre directo en ese movimiento. No se crea uno nuevo.",
+        texto: "También lo mandas desde cualquier transacción: tócala en el historial y pulsa [[Compartir]].",
+        pista: "Es el mismo enlace de tu cliente, pero abre directo en esa transacción. No se crea uno nuevo.",
         imagen: "compartir-el-link-del-cliente/5",
       },
     ],
@@ -706,7 +706,7 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "Abre cada cliente y revisa lo suyo.",
-        pista: "Hay una tarjeta por persona. Dentro están sus movimientos, su cédula y su WhatsApp.",
+        pista: "Hay una tarjeta por persona. Dentro están sus transacciones, su cédula y su WhatsApp.",
       },
       {
         texto: "Escribe la cédula de los clientes nuevos. Sin ella no se puede subir.",
@@ -740,7 +740,7 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Si la cuenta no le da igual que a ti",
         texto:
-          "Cuando el total que escribiste a mano no coincide con la suma de los montos, Sevenz te lo dice y te deja elegir: [[Mi libreta subida]] o [[La suma de Sevenz]]. Si eliges tu libreta, agrega un movimiento de ajuste por la diferencia para que la cuenta cierre en tu número.",
+          "Cuando el total que escribiste a mano no coincide con la suma de los montos, Sevenz te lo dice y te deja elegir: [[Mi libreta subida]] o [[La suma de Sevenz]]. Si eliges tu libreta, agrega una transacción de ajuste por la diferencia para que la cuenta cierre en tu número.",
         cuidado: true,
       },
       {
@@ -750,9 +750,9 @@ export const TEMAS: Tema[] = [
         cuidado: true,
       },
       {
-        titulo: "Varios movimientos a la vez, y volver atrás",
+        titulo: "Varias transacciones a la vez, y volver atrás",
         texto:
-          "Dentro de un cliente, mantén pulsado un movimiento para marcarlo. Desde ahí marcas los que quieras y les cambias la moneda o los eliminas de una vez. Y si te equivocas en cualquier paso de la revisión, el botón de deshacer de arriba vuelve atrás hasta veinte veces.",
+          "Dentro de un cliente, mantén pulsada una transacción para marcarla. Desde ahí marcas los que quieras y les cambias la moneda o los eliminas de una vez. Y si te equivocas en cualquier paso de la revisión, el botón de deshacer de arriba vuelve atrás hasta veinte veces.",
       },
       {
         titulo: "Revisa los montos aunque todo se vea bien",
