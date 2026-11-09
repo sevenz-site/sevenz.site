@@ -117,8 +117,9 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           Datos de uso de la Plataforma (páginas visitadas, acciones realizadas, dispositivo,
-          dirección IP aproximada) y, al iniciar sesión, el tipo de aparato, el navegador y la
-          ciudad aproximada desde la que entra, que conservamos para avisarle por WhatsApp
+          dirección IP aproximada) y, al iniciar sesión o al usar una sesión ya abierta, el tipo
+          de aparato, el navegador y la ciudad aproximada desde la que entra, que conservamos para
+          avisarle por WhatsApp
           cuando su cuenta se use desde un aparato que no conocíamos
         </li>
         <li>
