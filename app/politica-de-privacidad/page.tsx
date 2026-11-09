@@ -29,7 +29,11 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="2 noviembre 2026"
+      // The day this text is PUBLISHED, not the day it was written: owner's decision of
+      // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
+      // with dashboard v0.5.1; if that release ships on another day, change it on the release
+      // branch before publishing.
+      updated="9 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
