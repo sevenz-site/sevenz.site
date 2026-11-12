@@ -838,10 +838,13 @@ export const TEMAS: Tema[] = [
         imagen: "mi-negocio/4",
       },
       {
-        // "cartera" STAYS here on purpose: it names the Meta-approved WhatsApp
-        // message, which cannot be edited and still says it.
-        texto: "En [[Notificaciones]] decides si recibes por WhatsApp el resumen semanal de tu cartera.",
-        pista: "Llega con lo que tienes por cobrar y cuántos clientes se pasaron del plazo. Lo apagas aquí mismo cuando quieras.",
+        // v0.6.0: the switch's sentence is now «el resumen semanal de tu negocio y los avisos
+        // de tu cuenta» (dashboard lib/whatsapp-opt-in.ts, version 2), so this step says the
+        // same. Approved by the owner on 2026-11-12. The hint says only WHEN it arrives: what
+        // the Monday message holds depends on the account (with nothing to collect it is still
+        // the old collections summary, owner's decision of that day), so it names no content.
+        texto: "En [[Notificaciones]] decides si recibes por WhatsApp el resumen semanal de tu negocio y los avisos de tu cuenta.",
+        pista: "Llega los lunes y, si hay algo que atender, también los jueves. Lo apagas aquí mismo cuando quieras.",
         imagen: "mi-negocio/5",
       },
       {

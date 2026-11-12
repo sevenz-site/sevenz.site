@@ -298,9 +298,11 @@ export default function PoliticaDePrivacidadPage() {
         <li>
           Comunicarnos con el Comercio (ver Sección 7 de los Términos y Condiciones):
           notificaciones operativas, de producto y comerciales. Incluye el{" "}
-          <strong>resumen de su cartera por WhatsApp</strong> —cobros pendientes y plazos
-          vencidos—, que solo se envía si el Comercio lo aceptó y que puede desactivar en
-          cualquier momento desde <em>Mi negocio</em>.
+          {/* v0.6.0: the weekly message became the business summary plus account notices.
+              Sentence approved by the owner on 2026-11-12 («Sí, apruébalas»). */}
+          <strong>resumen semanal de su negocio por WhatsApp</strong> —cobros, ventas,
+          productos y pedidos— y los avisos de su cuenta, que solo se envían si el Comercio lo
+          aceptó y que puede desactivar en cualquier momento desde <em>Mi negocio</em>.
         </li>
         <li>
           Comunicarnos con el Cliente Final por WhatsApp, <strong>solo si dio su permiso</strong>.
@@ -402,7 +404,10 @@ export default function PoliticaDePrivacidadPage() {
                 Número de WhatsApp del Comercio, su nombre y lo que dice cada mensaje: las cifras
                 del resumen (monto por cobrar y cantidad de clientes con plazo vencido) y, en los
                 avisos de seguridad, la fecha y hora, el tipo de aparato y la ciudad aproximada de
-                un inicio de sesión, o el número o correo nuevos, enmascarados
+                un inicio de sesión, o el número o correo nuevos, enmascarados; y, en el resumen y
+                los avisos de la cuenta, el nombre del negocio, las ventas de la semana, los
+                productos agotados o por agotarse, los pedidos sin atender y la fecha en que
+                termina su periodo de prueba
               </td>
             </tr>
             <tr>
