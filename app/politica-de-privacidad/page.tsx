@@ -395,9 +395,14 @@ export default function PoliticaDePrivacidadPage() {
             <tr>
               <td>Kapso</td>
               <td>Envío de los mensajes de WhatsApp de Sevenz al Comercio</td>
+              {/* The owner approved this sentence on 2026-11-12 («Sí, apruébala»), for v0.5.1:
+                  the two security alerts it turns on send the sign-in's time, device and city,
+                  or the new number or email masked, and the row only named the summary. */}
               <td>
-                Número de WhatsApp del Comercio, su nombre y las cifras del resumen (monto por
-                cobrar y cantidad de clientes con plazo vencido)
+                Número de WhatsApp del Comercio, su nombre y lo que dice cada mensaje: las cifras
+                del resumen (monto por cobrar y cantidad de clientes con plazo vencido) y, en los
+                avisos de seguridad, la fecha y hora, el tipo de aparato y la ciudad aproximada de
+                un inicio de sesión, o el número o correo nuevos, enmascarados
               </td>
             </tr>
             <tr>
