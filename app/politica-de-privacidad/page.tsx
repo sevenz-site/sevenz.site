@@ -101,7 +101,10 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>Configuración de tasa de cambio: automática (BCV) o personalizada por el negocio</li>
         <li>
-          Si aceptó recibir el resumen de su cartera por WhatsApp: la fecha en que lo aceptó,{" "}
+          {/* v0.6.0, approved by the owner on 2026-11-12: names the new weekly message. Still
+              true for whoever accepted the old one, since the exact text read is what is kept. */}
+          Si aceptó recibir el resumen semanal de su negocio y los avisos de su cuenta por
+          WhatsApp: la fecha en que lo aceptó,{" "}
           <strong>el texto exacto que leyó al aceptarlo</strong> y, si después lo desactivó, la
           fecha en que lo hizo. Guardamos el texto y no solo la fecha porque la redacción de esa
           pantalla puede cambiar con el tiempo, y lo que debe poder demostrarse es lo que esa
