@@ -31,7 +31,10 @@ export default function TerminosYCondicionesPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Términos y Condiciones de Uso de Sevenz"
-      updated="3 noviembre 2026"
+      // The day this text is PUBLISHED, same rule as the Política de privacidad (owner's
+      // decision of 2026-11-09). CT-103 changes sentences here and ships with dashboard v0.5.1;
+      // if that release goes out on another day, change it on the release branch first.
+      updated="12 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -96,7 +99,7 @@ export default function TerminosYCondicionesPage() {
             with orders from the Cliente Final, inventory, reports and the
             exchange rates were all live and unnamed here. */}
         <li>Crear y administrar perfiles de clientes.</li>
-        <li>Registrar ventas de contado y a crédito, abonos, pagos, saldos y movimientos.</li>
+        <li>Registrar ventas de contado y a crédito, abonos, pagos, saldos y transacciones.</li>
         <li>Llevar un catálogo de productos con sus precios y su inventario.</li>
         <li>
           Publicar ese catálogo en un enlace para que los Clientes Finales le hagan pedidos al
@@ -133,13 +136,13 @@ export default function TerminosYCondicionesPage() {
           finales.
         </li>
         <li>
-          <strong>&ldquo;Cliente Final&rdquo;</strong>: la persona cuyos datos, saldos, movimientos
+          <strong>&ldquo;Cliente Final&rdquo;</strong>: la persona cuyos datos, saldos, transacciones
           o pagos son registrados por un Comercio en la Plataforma.
         </li>
         <li>
           <strong>&ldquo;Contenido del Comercio&rdquo;</strong>: toda información ingresada,
           cargada o generada por el Comercio, incluidos nombres, teléfonos, montos, fechas, notas,
-          productos, movimientos, fotografías y comunicaciones.
+          productos, transacciones, fotografías y comunicaciones.
         </li>
         <li>
           <strong>&ldquo;Catálogo&rdquo;</strong>: la página con los productos y precios que el
@@ -202,7 +205,7 @@ export default function TerminosYCondicionesPage() {
           conversaciones, pedidos o autorizaciones).
         </li>
         <li>
-          Corregir oportunamente cualquier error en el saldo, movimiento, teléfono, identidad o
+          Corregir oportunamente cualquier error en el saldo, transacción, teléfono, identidad o
           historial de un Cliente Final.
         </li>
         <li>
@@ -341,7 +344,7 @@ export default function TerminosYCondicionesPage() {
       <ul>
         <li>
           <strong>Notificaciones operativas y transaccionales</strong>: alertas de saldo,
-          movimientos registrados, abonos recibidos, pedidos recibidos, avisos de inventario,
+          transacciones registradas, abonos recibidos, pedidos recibidos, avisos de inventario,
           errores de sincronización, cambios de tasa de cambio y avisos de seguridad de la cuenta.
         </li>
         <li>
@@ -480,7 +483,7 @@ export default function TerminosYCondicionesPage() {
           Ante la falta de pago, Sevenz podrá pasar la cuenta a{" "}
           <strong>solo lectura</strong>: el Comercio conserva el acceso a sus saldos y a su
           historial, y el link de saldo que compartió con sus clientes sigue funcionando, pero no
-          podrá registrar nuevos movimientos hasta regularizar su situación.{" "}
+          podrá registrar nuevas transacciones hasta regularizar su situación.{" "}
           <strong>Los datos no se borran por este motivo</strong> (ver Sección 7 de la{" "}
           <Link href="/politica-de-privacidad">Política de Privacidad</Link>).
         </li>

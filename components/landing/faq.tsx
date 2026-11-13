@@ -17,7 +17,7 @@ export const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[]
     // «empiezo» and «reescribir» since 2026-11-03 (owner's spelling pass):
     // it read «¿Cómo funciono…» and «re-escribir».
     q: "¿Cómo empiezo con Sevenz sin reescribir toda mi libreta?",
-    a: "Tomas una foto de tu libreta actual tal como está hoy y Sevenz la pasa a digital con esos datos. Desde ahí, cada movimiento nuevo (fiado o abono) lo registras en la app y el saldo se actualiza al instante para ti y tu cliente.",
+    a: "Tomas una foto de tu libreta actual tal como está hoy y Sevenz la pasa a digital con esos datos. Desde ahí, cada transacción nueva (fiado o abono) la registras en la app y el saldo se actualiza al instante para ti y tu cliente.",
   },
   {
     q: "¿Es seguro compartir el saldo del fiado por WhatsApp?",
@@ -37,7 +37,7 @@ export const FAQS: { q: string; a: string; href?: string; hrefLabel?: string }[]
   },
   {
     q: "¿Qué pasa si un cliente dice que no debe tanto?",
-    a: "Como el cliente ve el mismo número que tú — con fecha, monto y detalle de cada movimiento — la disputa se resuelve mirando la app, no discutiendo de memoria.",
+    a: "Como el cliente ve el mismo número que tú — con fecha, monto y detalle de cada transacción — la disputa se resuelve mirando la app, no discutiendo de memoria.",
   },
   {
     q: "¿Sevenz me va a poner lento el teléfono?",

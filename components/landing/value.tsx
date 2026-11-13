@@ -72,7 +72,7 @@ export function Value() {
 
           <Image
             src="/screens/sevenz-perfil-cliente.png"
-            alt="La vista que recibe el cliente: lo que debe en dólares, lo que tiene a favor en euros, el historial de cada fiado y cada abono, y el detalle de un movimiento con su fecha, su monto y la tasa del día"
+            alt="La vista que recibe el cliente: lo que debe en dólares, lo que tiene a favor en euros, el historial de cada fiado y cada abono, y el detalle de una transacción con su fecha, su monto y la tasa del día"
             width={1536}
             height={1835}
             sizes="(min-width: 1024px) 768px, 100vw"

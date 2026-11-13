@@ -29,7 +29,11 @@ export default function PoliticaDePrivacidadPage() {
     <LegalLayout
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
-      updated="2 noviembre 2026"
+      // The day this text is PUBLISHED, not the day it was written: owner's decision of
+      // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
+      // with dashboard v0.5.1; if that release ships on another day, change it on the release
+      // branch before publishing.
+      updated="12 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -117,8 +121,9 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           Datos de uso de la Plataforma (páginas visitadas, acciones realizadas, dispositivo,
-          dirección IP aproximada) y, al iniciar sesión, el tipo de aparato, el navegador y la
-          ciudad aproximada desde la que entra, que conservamos para avisarle por WhatsApp
+          dirección IP aproximada) y, al iniciar sesión o al usar una sesión ya abierta, el tipo
+          de aparato, el navegador y la ciudad aproximada desde la que entra, que conservamos para
+          avisarle por WhatsApp
           cuando su cuenta se use desde un aparato que no conocíamos
         </li>
         <li>
@@ -136,8 +141,8 @@ export default function PoliticaDePrivacidadPage() {
       </p>
       <ul>
         <li>Nombre y número de WhatsApp</li>
-        <li>Montos de movimientos, abonos y saldos registrados por el Comercio</li>
-        <li>Historial de esos movimientos</li>
+        <li>Montos de transacciones, abonos y saldos registrados por el Comercio</li>
+        <li>Historial de esas transacciones</li>
         <li>
           <strong>
             Qué artículos se llevó, cuando el Comercio registra la venta o el fiado desde su
@@ -156,14 +161,14 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           <strong>
-            La fotografía que el Comercio adjunte a un movimiento, si adjunta alguna
+            La fotografía que el Comercio adjunte a una transacción, si adjunta alguna
           </strong>
-          . Es opcional y la mayoría de los movimientos no la llevan. El Comercio la usa como
+          . Es opcional y la mayoría de las transacciones no la llevan. El Comercio la usa como
           respaldo de lo acordado, y lo más habitual es que sea el comprobante de un pago.{" "}
           <strong>
             Desde el 19 de octubre de 2026 esa fotografía también se le muestra al Cliente Final
           </strong>{" "}
-          en el detalle de ese movimiento, dentro de su link de saldo; antes solo la veía el
+          en el detalle de esa transacción, dentro de su link de saldo; antes solo la veía el
           Comercio. El archivo se guarda en un espacio privado y no tiene dirección pública: para
           mostrarlo, Sevenz genera una dirección temporal que caduca a los pocos minutos. Aun así,{" "}
           <strong>quien tenga el link de saldo puede ver esa fotografía</strong>, y un link
@@ -285,9 +290,9 @@ export default function PoliticaDePrivacidadPage() {
       <ul>
         <li>
           Operar la Plataforma: crear cuentas, procesar fotos de libretas mediante inteligencia
-          artificial para extraer movimientos, calcular saldos y tasas de cambio, generar el link
+          artificial para extraer transacciones, calcular saldos y tasas de cambio, generar el link
           de saldo del cliente, mostrar en ese link la fotografía que el Comercio haya adjuntado a
-          un movimiento, y mostrar la fotografía del cliente en su ficha cuando el Comercio la
+          una transacción, y mostrar la fotografía del cliente en su ficha cuando el Comercio la
           haya agregado.
         </li>
         <li>
@@ -309,7 +314,7 @@ export default function PoliticaDePrivacidadPage() {
           puede darlo él mismo desde su link de saldo{" "}
           <strong>o al hacer un pedido desde el link de catálogo</strong>, marcando la casilla del
           formulario del pedido; y el Comercio puede declararlo por él cuando se lo pide en persona
-          —al registrarle un movimiento, al subir su libreta, o desde su ficha—. En esos tres
+          —al registrarle una transacción, al subir su libreta, o desde su ficha—. En esos tres
           últimos casos el Comercio afirma que se lo preguntó y que el Cliente Final dijo que sí.
           Guardamos de cuál de esos caminos vino, con su fecha y el texto exacto que se mostró en
           pantalla, y esa constancia es parte de esta finalidad: sin poder demostrarla no
@@ -350,7 +355,7 @@ export default function PoliticaDePrivacidadPage() {
             <tr>
               <td>Supabase</td>
               <td>Base de datos y autenticación</td>
-              <td>Todos los datos de cuenta, movimientos y clientes</td>
+              <td>Todos los datos de cuenta, transacciones y clientes</td>
             </tr>
             <tr>
               <td>Resend</td>
@@ -390,9 +395,14 @@ export default function PoliticaDePrivacidadPage() {
             <tr>
               <td>Kapso</td>
               <td>Envío de los mensajes de WhatsApp de Sevenz al Comercio</td>
+              {/* The owner approved this sentence on 2026-11-12 («Sí, apruébala»), for v0.5.1:
+                  the two security alerts it turns on send the sign-in's time, device and city,
+                  or the new number or email masked, and the row only named the summary. */}
               <td>
-                Número de WhatsApp del Comercio, su nombre y las cifras del resumen (monto por
-                cobrar y cantidad de clientes con plazo vencido)
+                Número de WhatsApp del Comercio, su nombre y lo que dice cada mensaje: las cifras
+                del resumen (monto por cobrar y cantidad de clientes con plazo vencido) y, en los
+                avisos de seguridad, la fecha y hora, el tipo de aparato y la ciudad aproximada de
+                un inicio de sesión, o el número o correo nuevos, enmascarados
               </td>
             </tr>
             <tr>
@@ -515,7 +525,7 @@ export default function PoliticaDePrivacidadPage() {
         estarlo. Si un Comercio termina su periodo de prueba sin contratar, o deja de pagar su
         suscripción (cinco días después de su vencimiento), su cuenta pasa automáticamente a{" "}
         <strong>solo lectura</strong>: puede seguir consultando sus saldos y su historial, pero no
-        registrar nuevos movimientos. Los datos no se borran por
+        registrar nuevas transacciones. Los datos no se borran por
         ese motivo.
       </p>
       <p>
