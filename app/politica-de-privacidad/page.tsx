@@ -33,7 +33,7 @@ export default function PoliticaDePrivacidadPage() {
       // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
       // with dashboard v0.5.1; if that release ships on another day, change it on the release
       // branch before publishing.
-      updated="12 noviembre 2026"
+      updated="13 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
