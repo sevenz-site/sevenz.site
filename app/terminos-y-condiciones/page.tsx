@@ -34,7 +34,7 @@ export default function TerminosYCondicionesPage() {
       // The day this text is PUBLISHED, same rule as the Política de privacidad (owner's
       // decision of 2026-11-09). CT-103 changes sentences here and ships with dashboard v0.5.1;
       // if that release goes out on another day, change it on the release branch first.
-      updated="13 noviembre 2026"
+      updated="12 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
