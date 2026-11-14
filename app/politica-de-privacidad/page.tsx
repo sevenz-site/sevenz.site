@@ -81,21 +81,25 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
+        {/* v0.6.0 (CT-171): a product holds up to five photos, not one. Owner's request of
+            2026-11-14 («corrígelo»): the paragraph goes to the plural. The last sentence also
+            names the photo on its own, because removing one photo takes it off the product,
+            not the product off the catalogue. */}
         <li>
-          Los productos de su catálogo: nombre, unidad, descripción, categoría, precios y
-          fotografía —{" "}
+          Los productos de su catálogo: nombre, unidad, descripción, categoría, precios y hasta
+          cinco fotografías —{" "}
           <strong>
-            el nombre, la unidad, la descripción, la categoría, el precio y la fotografía se
+            el nombre, la unidad, la descripción, la categoría, el precio y las fotografías se
             muestran en el link de catálogo que el Comercio comparta, de forma pública para quien
             tenga el link
           </strong>
           . El costo que registre para calcular su margen{" "}
           <strong>no se publica nunca</strong>: se guarda únicamente para que la app le calcule
-          los precios, y no sale en ningún link. La fotografía se almacena en un espacio
+          los precios, y no sale en ningún link. Las fotografías se almacenan en un espacio
           accesible mediante enlace directo, del mismo modo que el logo del Comercio —{" "}
           <strong>
-            dejar de publicar un producto, quitarle la fotografía o eliminarlo lo saca del
-            catálogo, pero no borra ese archivo
+            dejar de publicar un producto o eliminarlo lo saca del catálogo, y quitarle una
+            fotografía la saca del producto, pero nada de eso borra el archivo
           </strong>
           .
         </li>
