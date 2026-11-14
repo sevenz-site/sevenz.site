@@ -34,7 +34,7 @@ export default function TerminosYCondicionesPage() {
       // The day this text is PUBLISHED, same rule as the Política de privacidad (owner's
       // decision of 2026-11-09). CT-103 changes sentences here and ships with dashboard v0.5.1;
       // if that release goes out on another day, change it on the release branch first.
-      updated="12 noviembre 2026"
+      updated="14 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -356,11 +356,15 @@ export default function TerminosYCondicionesPage() {
           funciones, y contenido informativo sobre gestión de crédito y cobranza.
         </li>
       </ul>
+      {/* v0.6.0: the weekly message became the business summary plus account notices.
+          Paragraph approved by the owner on 2026-11-12 («Sí, apruébalas»). */}
       <p>
-        El <strong>resumen de cartera por WhatsApp</strong> —cobros pendientes y plazos vencidos—
-        es una excepción a lo anterior: aunque su contenido es operativo, solo se envía si el
-        Comercio lo aceptó, y puede desactivarlo cuando quiera desde <em>Mi negocio</em>. Al
-        desactivarlo deja de recibirlo y no se ve afectado ningún otro aspecto del servicio.
+        El <strong>resumen semanal del negocio por WhatsApp</strong> —cobros pendientes, plazos
+        vencidos y por vencer, ventas de la semana, y productos o pedidos que requieren atención—
+        y los avisos de la cuenta son una excepción a lo anterior: aunque su contenido es
+        operativo, solo se envían si el Comercio lo aceptó, y puede desactivarlos cuando quiera
+        desde <em>Mi negocio</em>. Al desactivarlos deja de recibirlos y no se ve afectado ningún
+        otro aspecto del servicio.
       </p>
       <p>
         Las demás comunicaciones operativas y transaccionales son necesarias para el

@@ -33,7 +33,7 @@ export default function PoliticaDePrivacidadPage() {
       // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
       // with dashboard v0.5.1; if that release ships on another day, change it on the release
       // branch before publishing.
-      updated="12 noviembre 2026"
+      updated="14 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -81,27 +81,34 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
+        {/* v0.6.0 (CT-171): a product holds up to five photos, not one. Owner's request of
+            2026-11-14 («corrígelo»): the paragraph goes to the plural. The last sentence also
+            names the photo on its own, because removing one photo takes it off the product,
+            not the product off the catalogue. */}
         <li>
-          Los productos de su catálogo: nombre, unidad, descripción, categoría, precios y
-          fotografía —{" "}
+          Los productos de su catálogo: nombre, unidad, descripción, categoría, precios y hasta
+          cinco fotografías —{" "}
           <strong>
-            el nombre, la unidad, la descripción, la categoría, el precio y la fotografía se
+            el nombre, la unidad, la descripción, la categoría, el precio y las fotografías se
             muestran en el link de catálogo que el Comercio comparta, de forma pública para quien
             tenga el link
           </strong>
           . El costo que registre para calcular su margen{" "}
           <strong>no se publica nunca</strong>: se guarda únicamente para que la app le calcule
-          los precios, y no sale en ningún link. La fotografía se almacena en un espacio
+          los precios, y no sale en ningún link. Las fotografías se almacenan en un espacio
           accesible mediante enlace directo, del mismo modo que el logo del Comercio —{" "}
           <strong>
-            dejar de publicar un producto, quitarle la fotografía o eliminarlo lo saca del
-            catálogo, pero no borra ese archivo
+            dejar de publicar un producto o eliminarlo lo saca del catálogo, y quitarle una
+            fotografía la saca del producto, pero nada de eso borra el archivo
           </strong>
           .
         </li>
         <li>Configuración de tasa de cambio: automática (BCV) o personalizada por el negocio</li>
         <li>
-          Si aceptó recibir el resumen de su cartera por WhatsApp: la fecha en que lo aceptó,{" "}
+          {/* v0.6.0, approved by the owner on 2026-11-12: names the new weekly message. Still
+              true for whoever accepted the old one, since the exact text read is what is kept. */}
+          Si aceptó recibir el resumen semanal de su negocio y los avisos de su cuenta por
+          WhatsApp: la fecha en que lo aceptó,{" "}
           <strong>el texto exacto que leyó al aceptarlo</strong> y, si después lo desactivó, la
           fecha en que lo hizo. Guardamos el texto y no solo la fecha porque la redacción de esa
           pantalla puede cambiar con el tiempo, y lo que debe poder demostrarse es lo que esa
@@ -298,9 +305,11 @@ export default function PoliticaDePrivacidadPage() {
         <li>
           Comunicarnos con el Comercio (ver Sección 7 de los Términos y Condiciones):
           notificaciones operativas, de producto y comerciales. Incluye el{" "}
-          <strong>resumen de su cartera por WhatsApp</strong> —cobros pendientes y plazos
-          vencidos—, que solo se envía si el Comercio lo aceptó y que puede desactivar en
-          cualquier momento desde <em>Mi negocio</em>.
+          {/* v0.6.0: the weekly message became the business summary plus account notices.
+              Sentence approved by the owner on 2026-11-12 («Sí, apruébalas»). */}
+          <strong>resumen semanal de su negocio por WhatsApp</strong> —cobros, ventas,
+          productos y pedidos— y los avisos de su cuenta, que solo se envían si el Comercio lo
+          aceptó y que puede desactivar en cualquier momento desde <em>Mi negocio</em>.
         </li>
         <li>
           Comunicarnos con el Cliente Final por WhatsApp, <strong>solo si dio su permiso</strong>.
@@ -402,7 +411,10 @@ export default function PoliticaDePrivacidadPage() {
                 Número de WhatsApp del Comercio, su nombre y lo que dice cada mensaje: las cifras
                 del resumen (monto por cobrar y cantidad de clientes con plazo vencido) y, en los
                 avisos de seguridad, la fecha y hora, el tipo de aparato y la ciudad aproximada de
-                un inicio de sesión, o el número o correo nuevos, enmascarados
+                un inicio de sesión, o el número o correo nuevos, enmascarados; y, en el resumen y
+                los avisos de la cuenta, el nombre del negocio, las ventas de la semana, los
+                productos agotados o por agotarse, los pedidos sin atender y la fecha en que
+                termina su periodo de prueba
               </td>
             </tr>
             <tr>
