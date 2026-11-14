@@ -616,12 +616,25 @@ export const TEMAS: Tema[] = [
         imagen: "crear-un-producto/12",
       },
       {
-        texto: "Adjunta una foto y, si quieres, una descripción. Pulsa [[Continuar]].",
-        pista: "Con foto se vende mejor desde el catálogo.",
+        // v0.6.0 (CT-171): up to 5 photos, the first one is the cover. It used to say «Adjunta
+        // una foto», which was true while a product held one.
+        texto: "En [[Fotos (opcional)]] toca [[Agregar]] y sube hasta 5 fotos. La primera es la portada.",
+        pista: "Con foto se vende mejor desde el catálogo. Para cambiar la portada, quita la primera: la siguiente pasa a serlo.",
         imagen: "crear-un-producto/13",
       },
-      { texto: "En [[4/4 Verifica]] revísalo todo y pulsa [[Crear producto]].", imagen: "crear-un-producto/14" },
-      { texto: "Listo. Ya aparece en tu catálogo.", imagen: "crear-un-producto/15" },
+      {
+        // v0.6.0 (CT-171): the description takes bold, italics and bullets, up to 500 characters.
+        texto: "Si quieres, escribe la [[Descripción (opcional)]], hasta 500 caracteres. Pulsa [[Continuar]].",
+        pista: "Selecciona texto y toca B, I o • para ponerlo en negrita, cursiva o viñetas. Debajo ves [[Así lo verá tu cliente]].",
+        imagen: "crear-un-producto/14",
+      },
+      {
+        texto: "En [[4/4 Verifica]] revísalo todo y pulsa [[Crear producto]].",
+        // v0.6.0: «Editar» moved from the bottom of this step to its header.
+        pista: "Si algo quedó mal, [[Editar]] está arriba a la derecha.",
+        imagen: "crear-un-producto/15",
+      },
+      { texto: "Listo. Ya aparece en tu catálogo.", imagen: "crear-un-producto/16" },
     ],
     notas: [
       {
