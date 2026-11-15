@@ -21,9 +21,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const tema = temaPorSlug(slug);
   if (!tema) return {};
+  const description = tema.descripcion ?? tema.resumen;
   return {
     title: `${tema.titulo} — Ayuda de Sevenz`,
-    description: tema.resumen,
+    description,
     alternates: { canonical: `/ayuda/${tema.slug}` },
     // Sin esto, los diez temas comparten la vista previa de la portada:
     // el enlace dice "Registrar un abono" y lo que se ve al compartirlo
@@ -31,7 +32,7 @@ export async function generateMetadata({
     // es la misma para todo el sitio.
     openGraph: {
       title: `${tema.titulo} — Ayuda de Sevenz`,
-      description: tema.resumen,
+      description,
       url: `/ayuda/${tema.slug}`,
       images: [OG_IMAGE],
     },

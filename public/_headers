@@ -1,0 +1,23 @@
+# Cloudflare reads this file from `out/` (Next copies `public/` as is) and does
+# NOT serve it as an asset, same as `_redirects`.
+#
+# WHY: the same build answers on three hosts, and only one of them is the site.
+#   - sevenz.site                              <- the site
+#   - sevenz-web.sevenz-mvp.workers.dev        <- `npx wrangler deploy`, used to check a deploy
+#   - sevenz-site.sevenz-mvp.workers.dev       <- the git-built worker that serves the domain,
+#     plus its preview aliases (`dev-sevenz-site...`, `<hash>-sevenz-site...`)
+# All of them returned 200 with `index, follow` on 2026-11-15. The canonical
+# already points at sevenz.site, but a canonical is a hint Google may ignore;
+# this header is an instruction. Without it the workers.dev copies can compete
+# with the domain for the same query, which is the opposite of what we want
+# while the domain is still being indexed for the first time.
+#
+# The URLs keep working: the deploy checks in dashboard/CLAUDE.md still read
+# them. They only stop being eligible for search results.
+#
+# Pattern taken from Cloudflare's own docs ("Prevent your workers.dev URLs
+# showing in search results"), checked 2026-11-15. A placeholder stops at a
+# period, so it takes two of them to cover `<worker>.<account>.workers.dev`.
+# The rule matches on host only; sevenz.site never receives this header.
+https://:worker.:account.workers.dev/*
+  X-Robots-Tag: noindex

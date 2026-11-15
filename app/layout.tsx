@@ -69,10 +69,16 @@ export const metadata: Metadata = {
     type: "website",
     images: [OG_IMAGE],
   },
+  // NO `title` OR `description` HERE, ON PURPOSE (SEO pass of 2026-11-15).
+  // With them, every page inherited the home's Twitter/X card: the help topic,
+  // the calculator and the legal pages all said «Sevenz — Ventas, fiado e
+  // inventario…» in `twitter:title`, while their own `og:title` was right.
+  // A child that sets `openGraph` does not override an inherited `twitter`.
+  // Left out, Next fills the card's title and description from each page's
+  // final `openGraph` (`postProcessMetadata` in next/dist/lib/metadata/
+  // resolve-metadata.js), so the card follows the page it is on.
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
     images: [OG_IMAGE.url],
   },
 };
