@@ -37,6 +37,12 @@ export type Tema = {
   grupo: Grupo;
   titulo: string;
   resumen: string;
+  // Search-results description, only where `resumen` is too short to say what
+  // the page is: under ~70 characters Google usually rewrites the snippet with
+  // whatever text it picks from the page. Never shown on the page itself, so
+  // it can name Sevenz and the search terms without reading oddly. Every claim
+  // in it must be in the topic's own steps. Falls back to `resumen`.
+  descripcion?: string;
   pasos: Paso[];
   cierre?: string[];
   notas: Nota[];
@@ -146,6 +152,8 @@ export const TEMAS: Tema[] = [
     grupo: "diario",
     titulo: "Registrar un abono",
     resumen: "Cuando te pagan, sea todo o una parte.",
+    descripcion:
+      "Cómo anotar en Sevenz el pago de un cliente, todo o una parte, también en bolívares, y cómo se reparte entre sus fiados, empezando por el más viejo.",
     pasos: [
       {
         texto: "Entra al cliente y pulsa [[Agregar abono]].",
@@ -286,6 +294,8 @@ export const TEMAS: Tema[] = [
     grupo: "ocasional",
     titulo: "Registrar una devolución",
     resumen: "Cuando te devuelven un producto, fiado o de contado.",
+    descripcion:
+      "Cómo registrar en Sevenz la devolución de un producto vendido fiado o de contado: eliges cuántas unidades te devuelven y ves cómo queda lo que te deben.",
     pasos: [
       {
         texto: "Abre el fiado o la venta de contado y toca los tres puntos del producto que te devolvieron.",
@@ -415,6 +425,8 @@ export const TEMAS: Tema[] = [
     grupo: "ocasional",
     titulo: "Filtrar el historial por fecha",
     resumen: "Para ver solo lo que pasó con un cliente en unos días concretos.",
+    descripcion:
+      "Cómo filtrar por fecha el historial de un cliente en Sevenz, con un atajo como «Últimos 7 días» o marcando los días en el calendario.",
     pasos: [
       {
         texto: "Abre la ficha del cliente y baja a [[Historial de transacciones]].",

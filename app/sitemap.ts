@@ -16,10 +16,14 @@ export const dynamic = "force-static";
 // una línea por despliegue y es justo el trabajo que hace que el campo valga
 // algo. La calculadora es la excepción legítima: su contenido son las tasas
 // del BCV, y esas sí cambian todos los días solas.
+//
+// 2026-11-15 (SEO pass): all three had been left at 2026-11-03 through three
+// releases that changed them. The dates below are the last commit on `main`
+// that touched each area's content, read from git, not guessed.
 const ULTIMA_EDICION = {
-  portada: "2026-11-03", // web v3
-  legales: "2026-11-03", // terms: catalogue, orders, inventory, reports and rates
-  ayuda: "2026-11-03", // rewritten against the current app: 14 topics, one capture per step
+  portada: "2026-11-09", // CT-103: «transacciones» on the landing, as in the app
+  legales: "2026-11-14", // v0.6.0: the date both pages show as «Última actualización»
+  ayuda: "2026-11-15", // v0.7.0: pages of 10 and categories when selling, «Foto» on a product
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
