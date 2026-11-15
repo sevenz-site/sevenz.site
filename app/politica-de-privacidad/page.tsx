@@ -85,8 +85,9 @@ export default function PoliticaDePrivacidadPage() {
             dirección del negocio solo se muestra ahí si el Comercio marca la casilla para
             mostrarla
           </strong>
-          . La portada se almacena del mismo modo que el logo, y si se quita o se reemplaza se
-          borra automáticamente, no antes de siete días después de haberse subido.
+          . La portada se almacena del mismo modo que el logo: si se quita o se reemplaza, se
+          borra al guardar el cambio, y una portada que se sube y no se llega a guardar se borra
+          automáticamente cuando han pasado siete días.
         </li>
         <li>RIF/NIT (opcional)</li>
         <li>
