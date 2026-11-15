@@ -60,7 +60,8 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "En [[1/4 Producto]], toca lo que se lleva.",
-        pista: "Arriba tienes el buscador. Si el producto no está en tu catálogo, pulsa [[Agregar producto]] y lo creas ahí mismo.",
+        // v0.7.0 (CT-175): the product step pages by ten and filters by category.
+        pista: "Arriba tienes el buscador y tus [[Categorías]]: con un toque ves solo esos productos. Salen de 10 en 10; abajo pasas de página con [[Siguiente]]. Si el producto no está en tu catálogo, pulsa [[Agregar producto]] y lo creas ahí mismo.",
         imagen: "registrar-un-fiado/3",
       },
       {
@@ -618,8 +619,9 @@ export const TEMAS: Tema[] = [
       {
         // v0.6.0 (CT-171): up to 5 photos, the first one is the cover. It used to say «Adjunta
         // una foto», which was true while a product held one.
-        texto: "En [[Fotos (opcional)]] toca [[Agregar]] y sube hasta 5 fotos. La primera es la portada.",
-        pista: "Con foto se vende mejor desde el catálogo. Para cambiar la portada, quita la primera: la siguiente pasa a serlo.",
+        // v0.7.0 (CT-174): «Foto» takes one with the camera, next to «Agregar». Phones only.
+        texto: "En [[Fotos (opcional)]] toca [[Agregar]] para elegirlas de tu galería, o [[Foto]] para tomarla con la cámara. Hasta 5: la primera es la portada.",
+        pista: "Con foto se vende mejor desde el catálogo. Para cambiar la portada, quita la primera: la siguiente pasa a serlo. [[Foto]] sale en el teléfono, no en la computadora.",
         imagen: "crear-un-producto/13",
       },
       {
@@ -674,7 +676,8 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "Esto es lo que ve tu cliente. Arma su pedido y te llega a [[Pedidos]].",
-        pista: "Bajo el buscador salen tus categorías: con un toque ve solo esos productos. Solo le salen las que tienen algo publicado.",
+        // v0.7.0 (CT-175): the catalogue the customer opens pages by ten too.
+        pista: "Bajo el buscador salen tus categorías: con un toque ve solo esos productos. Solo le salen las que tienen algo publicado. Los productos le salen de 10 en 10, con las páginas al final.",
         imagen: "compartir-tu-catalogo/5",
       },
     ],
