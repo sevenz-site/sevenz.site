@@ -632,7 +632,9 @@ export const TEMAS: Tema[] = [
         // v0.6.0 (CT-171): up to 5 photos, the first one is the cover. It used to say «Adjunta
         // una foto», which was true while a product held one.
         // v0.7.0 (CT-174): «Foto» takes one with the camera, next to «Agregar». Phones only.
-        texto: "En [[Fotos (opcional)]] toca [[Agregar]] para elegirlas de tu galería, o [[Foto]] para tomarla con la cámara. Hasta 5: la primera es la portada.",
+        // Cap of two since 2026-11-15 (owner's request); it said «Hasta 5». The capture of
+        // this step still shows the old counter until it is retaken for the release.
+        texto: "En [[Fotos (opcional)]] toca [[Agregar]] para elegirlas de tu galería, o [[Foto]] para tomarla con la cámara. Hasta 2: la primera es la portada.",
         pista: "Con foto se vende mejor desde el catálogo. Para cambiar la portada, quita la primera: la siguiente pasa a serlo. [[Foto]] sale en el teléfono, no en la computadora.",
         imagen: "crear-un-producto/13",
       },

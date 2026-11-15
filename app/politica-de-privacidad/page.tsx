@@ -84,10 +84,13 @@ export default function PoliticaDePrivacidadPage() {
         {/* v0.6.0 (CT-171): a product holds up to five photos, not one. Owner's request of
             2026-11-14 («corrígelo»): the paragraph goes to the plural. The last sentence also
             names the photo on its own, because removing one photo takes it off the product,
-            not the product off the catalogue. */}
+            not the product off the catalogue.
+            Cap of two since 2026-11-15, owner's request («limitemos la carga de fotos a los
+            productos solo a 2»). A product saved while the cap was five keeps its photos,
+            so the sentence names both numbers: «hasta dos» alone would be false for those. */}
         <li>
           Los productos de su catálogo: nombre, unidad, descripción, categoría, precios y hasta
-          cinco fotografías —{" "}
+          dos fotografías por producto (los productos que ya tenían más conservan hasta cinco) —{" "}
           <strong>
             el nombre, la unidad, la descripción, la categoría, el precio y las fotografías se
             muestran en el link de catálogo que el Comercio comparta, de forma pública para quien
@@ -96,10 +99,23 @@ export default function PoliticaDePrivacidadPage() {
           . El costo que registre para calcular su margen{" "}
           <strong>no se publica nunca</strong>: se guarda únicamente para que la app le calcule
           los precios, y no sale en ningún link. Las fotografías se almacenan en un espacio
-          accesible mediante enlace directo, del mismo modo que el logo del Comercio —{" "}
+          accesible mediante enlace directo, del mismo modo que el logo del Comercio, junto con
+          una copia reducida de cada fotografía que la app usa en sus listados —{" "}
+          {/* THIS SENTENCE SHIPS IN THE SAME STEP AS TWO THINGS, NEVER BEFORE EITHER
+              (owner's decisions of 2026-11-15: «Encender limpieza nocturna» and option B).
+              1. `enforce = true` on the nightly cleanup in production (DM-12). Until then
+                 nothing is deleted, and it used to say «nada de eso borra el archivo»,
+                 which was the truth.
+              2. The dashboard release that stores the reduced copy (migration 209).
+              Published before them it promises a deletion and a copy that do not exist.
+              WHAT IT MAY PROMISE, and no more: the cleanup deletes a file only when no
+              product names it (published, unpublished and trashed ones all count) and it
+              is not the Comercio's logo, and never before 7 days from upload. */}
           <strong>
-            dejar de publicar un producto o eliminarlo lo saca del catálogo, y quitarle una
-            fotografía la saca del producto, pero nada de eso borra el archivo
+            mientras un producto exista, aunque no esté publicado o esté en la papelera, sus
+            fotografías se conservan; la fotografía o el logo que ya no usa ningún producto ni
+            el Comercio, porque se quitó o se reemplazó, se borra automáticamente junto con su
+            copia reducida, no antes de siete días después de haberse subido
           </strong>
           .
         </li>
