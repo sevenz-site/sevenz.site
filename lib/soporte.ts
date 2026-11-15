@@ -708,8 +708,77 @@ export const TEMAS: Tema[] = [
     ],
   },
   {
-    slug: "importar-tu-libreta",
+    // v0.7.3 (CT-170, phase 1). Captures by `dashboard/scripts/ayuda/temas/personalizar.mjs
+    // --finalizar`: the cover in them is drawn by the script, not a real shop, and the demo's
+    // branding is put back afterwards. Labels read off the dev app on 2026-11-15.
+    slug: "personalizar-tu-catalogo",
     numero: 13,
+    grupo: "una-vez",
+    titulo: "Personalizar tu catálogo",
+    resumen:
+      "Ponle a tu catálogo el color de tu negocio, una foto de portada, un saludo para tus clientes y tu dirección. Lo ven todos los que abren tu enlace.",
+    descripcion:
+      "Cómo poner el color de tu marca, una portada, un mensaje de bienvenida y tu dirección en el catálogo que compartes con Sevenz.",
+    pasos: [
+      {
+        texto: "En [[Catálogo]], abre el menú de los tres puntos y elige [[Personalizar catálogo]].",
+        imagen: "personalizar-tu-catalogo/1",
+      },
+      {
+        texto: "En [[Color de tu marca]], toca el cuadro de color para elegirlo o escribe su código.",
+        pista:
+          "Si tu color es tan claro o tan oscuro que el texto encima no se leería, Sevenz lo ajusta un poco y te enseña cuál va a usar.",
+        imagen: "personalizar-tu-catalogo/2",
+      },
+      {
+        texto: "Pulsa [[Subir portada]] y elige una foto de tu negocio.",
+        pista:
+          "Mejor una foto horizontal, de 1200 × 400 px o más. Sale arriba del todo, recortada a lo ancho. Con [[Cambiar portada]] o [[Quitar portada]] la cambias cuando quieras.",
+        imagen: "personalizar-tu-catalogo/3",
+      },
+      {
+        texto: "Escribe tu [[Mensaje de bienvenida]].",
+        pista: "Hasta 140 letras y sin enlaces. Sale debajo del nombre de tu negocio.",
+        imagen: "personalizar-tu-catalogo/4",
+      },
+      {
+        texto: "Marca [[Mostrar mi dirección en el catálogo]] si quieres que tus clientes la vean.",
+        pista: "La dirección es la de [[Mi negocio]]. Para cambiarla, toca [[Cambiarla en Mi negocio]].",
+        imagen: "personalizar-tu-catalogo/5",
+      },
+      {
+        texto: "Pulsa [[Ver cómo queda]] para mirarlo antes de guardar.",
+        imagen: "personalizar-tu-catalogo/6",
+      },
+      {
+        texto: "Así lo verán tus clientes. Todavía no está guardado.",
+        imagen: "personalizar-tu-catalogo/7",
+      },
+      {
+        texto: "Pulsa [[Guardar cambios]].",
+        pista: "Desde ese momento, todos los que abran tu enlace ven el catálogo con tu marca.",
+        imagen: "personalizar-tu-catalogo/8",
+      },
+      {
+        texto: "Esto es lo que ve tu cliente al abrir tu enlace.",
+        imagen: "personalizar-tu-catalogo/9",
+      },
+    ],
+    notas: [
+      {
+        titulo: "Todo es opcional",
+        texto:
+          "Puedes poner solo el color, solo la portada o lo que quieras. Si no cambias nada, tu catálogo se ve como siempre.",
+      },
+      {
+        titulo: "El logo y el nombre salen de Mi negocio",
+        texto: "Se cambian en [[Mi negocio]], y el catálogo los toma de ahí.",
+      },
+    ],
+  },
+  {
+    slug: "importar-tu-libreta",
+    numero: 14,
     grupo: "una-vez",
     titulo: "Subir tu libreta con una foto",
     resumen:
@@ -794,7 +863,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "la-papelera",
-    numero: 14,
+    numero: 15,
     grupo: "una-vez",
     titulo: "La papelera",
     resumen:
@@ -838,7 +907,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "mi-negocio",
-    numero: 15,
+    numero: 16,
     grupo: "una-vez",
     titulo: "Mi negocio: tus datos",
     resumen:
@@ -911,7 +980,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "instalar-la-app-en-tu-telefono",
-    numero: 16,
+    numero: 17,
     grupo: "una-vez",
     titulo: "Instalar la app en tu teléfono",
     resumen:
@@ -959,7 +1028,7 @@ export const TEMAS: Tema[] = [
     // C1 of PL-22, v0.4.0. Optional per owner. Every label below was read off the dev
     // screens on 2026-11-06 by temas/seguridad.mjs, which also takes the pictures.
     slug: "verificacion-en-dos-pasos",
-    numero: 17,
+    numero: 18,
     grupo: "una-vez",
     titulo: "Verificación en dos pasos",
     resumen:

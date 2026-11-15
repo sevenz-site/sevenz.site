@@ -72,6 +72,22 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>Correo electrónico y contraseña</li>
         <li>Dirección del negocio (opcional)</li>
+        {/* CT-170 (catalogue branding, phase 1), for the release that ships it. What the
+            Comercio adds to brand his catalogue is published on the catalogue link, and the
+            address only when he ticks «Mostrar mi dirección en el catálogo» (off by default,
+            decided in SQL by get_shared_catalog). The cover lives in the logo's storage and
+            the nightly cleanup treats it like the logo (migration 210). */}
+        <li>
+          La personalización de su catálogo (opcional): el color de su marca, una imagen de
+          portada y un mensaje de bienvenida —{" "}
+          <strong>
+            se muestran en el link de catálogo, de forma pública para quien tenga el link. La
+            dirección del negocio solo se muestra ahí si el Comercio marca la casilla para
+            mostrarla
+          </strong>
+          . La portada se almacena del mismo modo que el logo, y si se quita o se reemplaza se
+          borra automáticamente, no antes de siete días después de haberse subido.
+        </li>
         <li>RIF/NIT (opcional)</li>
         <li>
           Los métodos de pago que el Comercio anota (ej. número de cuenta o Nequi) —{" "}
