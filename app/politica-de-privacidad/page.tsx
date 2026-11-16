@@ -76,16 +76,21 @@ export default function PoliticaDePrivacidadPage() {
             Comercio adds to brand his catalogue is published on the catalogue link, and the
             address only when he ticks «Mostrar mi dirección en el catálogo» (off by default,
             decided in SQL by get_shared_catalog). The cover lives in the logo's storage and
-            the nightly cleanup treats it like the logo (migration 210). */}
+            the nightly cleanup treats it like the logo (migration 210). Revised 2026-11-15
+            (frame 2163:955): the brand colour is stored and not shown, and the brand
+            description (migration 211) is private to the Comercio. If the description is
+            ever sent to an AI provider to write marketing content, as the owner plans, that
+            is a new processor and this paragraph must say so before it ships. */}
         <li>
-          La personalización de su catálogo (opcional): el color de su marca, una imagen de
-          portada y un mensaje de bienvenida —{" "}
+          La personalización de su catálogo (opcional): una imagen de portada y un mensaje de
+          bienvenida —{" "}
           <strong>
             se muestran en el link de catálogo, de forma pública para quien tenga el link. La
             dirección del negocio solo se muestra ahí si el Comercio marca la casilla para
             mostrarla
           </strong>
-          . La portada se almacena del mismo modo que el logo: si se quita o se reemplaza, se
+          . También el color de su marca y una descripción de su marca, que se guardan en su
+          cuenta y no se muestran en el catálogo: la descripción solo la ve el Comercio. La portada se almacena del mismo modo que el logo: si se quita o se reemplaza, se
           borra al guardar el cambio, y una portada que se sube y no se llega a guardar se borra
           automáticamente cuando han pasado siete días.
         </li>

@@ -271,13 +271,13 @@ export default function TerminosYCondicionesPage() {
           documents already cite by number (7 bis, 9, 10) keep their numbers. */}
       <h2>5 bis. Catálogo, pedidos e inventario</h2>
       <p>
-        {/* CT-170: the Comercio can also brand his catalogue -- colour, cover, welcome
-            message -- and answers for that content like for the products. The welcome
+        {/* CT-170: the Comercio can also brand his catalogue -- cover and welcome
+            message (the colour is stored but not shown since 2026-11-15) -- and answers for that content like for the products. The welcome
             message takes no links, so it cannot point anyone elsewhere from Sevenz's
             domain. */}
         El Comercio decide qué productos publica en su Catálogo, con qué precios, fotos y
-        descripciones, y cómo lo presenta (el color de su marca, la portada y el mensaje de
-        bienvenida, que no admite enlaces). Es el único responsable de esa información y de la
+        descripciones, y cómo lo presenta (la portada y el mensaje de bienvenida, que no admite
+        enlaces). Es el único responsable de esa información y de la
         licitud de lo que ofrece.
       </p>
       <p>

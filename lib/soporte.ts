@@ -716,9 +716,9 @@ export const TEMAS: Tema[] = [
     grupo: "una-vez",
     titulo: "Personalizar tu catálogo",
     resumen:
-      "Ponle a tu catálogo el color de tu negocio, una foto de portada, un saludo para tus clientes y tu dirección. Lo ven todos los que abren tu enlace.",
+      "Ponle a tu catálogo una foto de portada, un saludo para tus clientes y tu dirección. Lo ven todos los que abren tu enlace. Además guardas el color y la descripción de tu marca.",
     descripcion:
-      "Cómo poner el color de tu marca, una portada, un mensaje de bienvenida y tu dirección en el catálogo que compartes con Sevenz.",
+      "Cómo poner una portada, un mensaje de bienvenida y tu dirección en el catálogo que compartes con Sevenz, y guardar el color y la descripción de tu marca.",
     pasos: [
       {
         texto: "En [[Catálogo]], abre el menú de los tres puntos y elige [[Personalizar catálogo]].",
@@ -726,49 +726,54 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "En [[Color de tu marca]], toca el cuadro de color para elegirlo o escribe su código.",
-        pista:
-          "Si tu color es tan claro o tan oscuro que el texto encima no se leería, Sevenz lo ajusta un poco y te enseña cuál va a usar.",
+        pista: "Lo guardamos como el color de tu marca. Por ahora no cambia cómo se ve tu catálogo.",
         imagen: "personalizar-tu-catalogo/2",
+      },
+      {
+        texto: "En [[Descripción de tu marca]], cuenta qué vendes, a quién y qué hace distinto a tu negocio.",
+        pista: "Hasta 500 letras, con saltos de línea y sin enlaces. Solo la ves tú: tus clientes no la ven.",
+        // v0.7.3 revision (migration 211): taken with the rest by temas/personalizar.mjs.
+        imagen: "personalizar-tu-catalogo/3",
       },
       {
         texto: "Pulsa [[Subir portada]] y elige una foto de tu negocio.",
         pista:
           "Mejor una foto horizontal, de 1200 × 400 px o más. Sale arriba del todo, recortada a lo ancho. Con [[Cambiar portada]] o [[Quitar portada]] la cambias cuando quieras.",
-        imagen: "personalizar-tu-catalogo/3",
+        imagen: "personalizar-tu-catalogo/4",
       },
       {
         texto: "Escribe tu [[Mensaje de bienvenida]].",
         pista: "Hasta 140 letras y sin enlaces. Sale debajo del nombre de tu negocio.",
-        imagen: "personalizar-tu-catalogo/4",
+        imagen: "personalizar-tu-catalogo/5",
       },
       {
         texto: "Marca [[Mostrar mi dirección en el catálogo]] si quieres que tus clientes la vean.",
         pista: "La dirección es la de [[Mi negocio]]. Para cambiarla, toca [[Cambiarla en Mi negocio]].",
-        imagen: "personalizar-tu-catalogo/5",
-      },
-      {
-        texto: "Pulsa [[Ver cómo queda]] para mirarlo antes de guardar.",
         imagen: "personalizar-tu-catalogo/6",
       },
       {
-        texto: "Así lo verán tus clientes. Todavía no está guardado.",
+        texto: "Pulsa [[Ver cómo queda]] para mirarlo antes de guardar.",
         imagen: "personalizar-tu-catalogo/7",
+      },
+      {
+        texto: "Así lo verán tus clientes. Todavía no está guardado.",
+        imagen: "personalizar-tu-catalogo/8",
       },
       {
         texto: "Pulsa [[Guardar cambios]].",
         pista: "Desde ese momento, todos los que abran tu enlace ven el catálogo con tu marca.",
-        imagen: "personalizar-tu-catalogo/8",
+        imagen: "personalizar-tu-catalogo/9",
       },
       {
         texto: "Esto es lo que ve tu cliente al abrir tu enlace.",
-        imagen: "personalizar-tu-catalogo/9",
+        imagen: "personalizar-tu-catalogo/10",
       },
     ],
     notas: [
       {
         titulo: "Todo es opcional",
         texto:
-          "Puedes poner solo el color, solo la portada o lo que quieras. Si no cambias nada, tu catálogo se ve como siempre.",
+          "Puedes poner solo la portada, solo el saludo o lo que quieras. Si no guardas nada, tu catálogo se ve como siempre. En cuanto guardas algo, la cabecera pasa a blanca, y si no subiste portada lleva una franja gris.",
       },
       {
         titulo: "El logo y el nombre salen de Mi negocio",
