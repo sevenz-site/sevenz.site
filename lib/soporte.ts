@@ -708,7 +708,7 @@ export const TEMAS: Tema[] = [
     ],
   },
   {
-    // v0.7.3 (CT-170, phase 1). Captures by `dashboard/scripts/ayuda/temas/personalizar.mjs
+    // v0.8.0 (CT-170, phase 1). Captures by `dashboard/scripts/ayuda/temas/personalizar.mjs
     // --finalizar`: the cover in them is drawn by the script, not a real shop, and the demo's
     // branding is put back afterwards. Labels read off the dev app on 2026-11-15.
     slug: "personalizar-tu-catalogo",
@@ -732,7 +732,7 @@ export const TEMAS: Tema[] = [
       {
         texto: "En [[Descripción de tu marca]], cuenta qué vendes, a quién y qué hace distinto a tu negocio.",
         pista: "Hasta 500 letras, con saltos de línea y sin enlaces. Solo la ves tú: tus clientes no la ven.",
-        // v0.7.3 revision (migration 211): taken with the rest by temas/personalizar.mjs.
+        // v0.8.0 revision (migration 211): taken with the rest by temas/personalizar.mjs.
         imagen: "personalizar-tu-catalogo/3",
       },
       {
