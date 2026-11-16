@@ -663,6 +663,13 @@ export const TEMAS: Tema[] = [
         texto:
           "Si el cliente se lleva algo que no tenías cargado, en [[1/4 Producto]] de la venta pulsa [[Agregar producto]] y lo creas ahí mismo.",
       },
+      // The duplicate-name warning (CT-178, v0.8.0). A note and not a step: it only comes
+      // up when the name is already in the catalogue. No picture for the same reason.
+      {
+        titulo: "Si ya tienes un producto con ese nombre",
+        texto:
+          "Al crearlo, Sevenz te avisa. Con [[Cambiar nombre]] vuelves al nombre para corregirlo; con [[Crear igual]] lo creas de todos modos, por si son dos productos distintos.",
+      },
     ],
   },
   {
