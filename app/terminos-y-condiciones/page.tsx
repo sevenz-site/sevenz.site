@@ -34,7 +34,7 @@ export default function TerminosYCondicionesPage() {
       // The day this text is PUBLISHED, same rule as the Política de privacidad (owner's
       // decision of 2026-11-09). CT-103 changes sentences here and ships with dashboard v0.5.1;
       // if that release goes out on another day, change it on the release branch first.
-      updated="14 noviembre 2026"
+      updated="16 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -271,9 +271,14 @@ export default function TerminosYCondicionesPage() {
           documents already cite by number (7 bis, 9, 10) keep their numbers. */}
       <h2>5 bis. Catálogo, pedidos e inventario</h2>
       <p>
+        {/* CT-170: the Comercio can also brand his catalogue -- cover and welcome
+            message (the colour is stored but not shown since 2026-11-15) -- and answers for that content like for the products. The welcome
+            message takes no links, so it cannot point anyone elsewhere from Sevenz's
+            domain. */}
         El Comercio decide qué productos publica en su Catálogo, con qué precios, fotos y
-        descripciones, y es el único responsable de esa información y de la licitud de lo que
-        ofrece.
+        descripciones, y cómo lo presenta (la portada y el mensaje de bienvenida, que no admite
+        enlaces). Es el único responsable de esa información y de la
+        licitud de lo que ofrece.
       </p>
       <p>
         <strong>Un Pedido es una solicitud, no una venta.</strong> No obliga al Comercio a

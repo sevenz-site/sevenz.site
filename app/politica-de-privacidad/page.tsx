@@ -33,7 +33,7 @@ export default function PoliticaDePrivacidadPage() {
       // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
       // with dashboard v0.5.1; if that release ships on another day, change it on the release
       // branch before publishing.
-      updated="15 noviembre 2026"
+      updated="16 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -72,6 +72,28 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>Correo electrónico y contraseña</li>
         <li>Dirección del negocio (opcional)</li>
+        {/* CT-170 (catalogue branding, phase 1), for the release that ships it. What the
+            Comercio adds to brand his catalogue is published on the catalogue link, and the
+            address only when he ticks «Mostrar mi dirección en el catálogo» (off by default,
+            decided in SQL by get_shared_catalog). The cover lives in the logo's storage and
+            the nightly cleanup treats it like the logo (migration 210). Revised 2026-11-15
+            (frame 2163:955): the brand colour is stored and not shown, and the brand
+            description (migration 211) is private to the Comercio. If the description is
+            ever sent to an AI provider to write marketing content, as the owner plans, that
+            is a new processor and this paragraph must say so before it ships. */}
+        <li>
+          La personalización de su catálogo (opcional): una imagen de portada y un mensaje de
+          bienvenida —{" "}
+          <strong>
+            se muestran en el link de catálogo, de forma pública para quien tenga el link. La
+            dirección del negocio solo se muestra ahí si el Comercio marca la casilla para
+            mostrarla
+          </strong>
+          . También el color de su marca y una descripción de su marca, que se guardan en su
+          cuenta y no se muestran en el catálogo: la descripción solo la ve el Comercio. La portada se almacena del mismo modo que el logo: si se quita o se reemplaza, se
+          borra al guardar el cambio, y una portada que se sube y no se llega a guardar se borra
+          automáticamente cuando han pasado siete días.
+        </li>
         <li>RIF/NIT (opcional)</li>
         <li>
           Los métodos de pago que el Comercio anota (ej. número de cuenta o Nequi) —{" "}
