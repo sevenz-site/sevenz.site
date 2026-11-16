@@ -537,7 +537,9 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "En [[Inventario]] ves cuántos productos tienes, cuáles están por agotarse y cuáles se agotaron.",
-        pista: "También el margen de cada producto, lo que más se vende y lo que más te devuelven.",
+        // v0.9.0: the «Cierre de …» card under «Margen por producto» (last month's sales and
+        // estimated profit). No picture of its own: it shows only once a month has closed.
+        pista: "También el margen de cada producto, el cierre del mes anterior con lo que vendiste y tu ganancia estimada, lo que más se vende y lo que más te devuelven.",
         imagen: "ver-tus-reportes/6",
       },
       {
@@ -569,6 +571,12 @@ export const TEMAS: Tema[] = [
         titulo: "El margen necesita el costo",
         texto:
           "Un producto sin costo no tiene margen. Si en Inventario o en Proveedores ves cifras raras, revisa que tus productos tengan su [[Costo unitario]].",
+      },
+      // v0.9.0, owner's rule of 2026-11-16: the margin is measured in the cost's currency.
+      {
+        titulo: "El margen se calcula en la moneda del costo",
+        texto:
+          "Es la moneda en la que inviertes. Si compras un producto en dólares y lo vendes en euros, su margen se calcula en dólares.",
       },
     ],
   },
@@ -617,7 +625,9 @@ export const TEMAS: Tema[] = [
       { texto: "Debajo te dice cuánto ganas de verdad a ese precio.", imagen: "crear-un-producto/9" },
       {
         texto: "Con [[Agregar]] le pones también precio en otra moneda.",
-        pista: "Se calcula con la tasa del día. Si quieres fijarlo a mano, toca el icono del vínculo para soltarlo de la tasa.",
+        // v0.9.0: the chain icon is gone. It said «toca el icono del vínculo para soltarlo de
+        // la tasa». Typing in the field pins the price; leaving it empty follows the rate again.
+        pista: "Se calcula con la tasa del día. Si quieres fijarlo a mano, escríbelo en su campo. Si después lo borras, vuelve a calcularse con la tasa.",
         imagen: "crear-un-producto/10",
       },
       {
@@ -661,7 +671,8 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Puedes crearlo a mitad de una venta",
         texto:
-          "Si el cliente se lleva algo que no tenías cargado, en [[1/4 Producto]] de la venta pulsa [[Agregar producto]] y lo creas ahí mismo.",
+          // v0.9.0: «Editar» on the cart line of a product created in that sale.
+          "Si el cliente se lleva algo que no tenías cargado, en [[1/4 Producto]] de la venta pulsa [[Agregar producto]] y lo creas ahí mismo. Si te equivocaste en el nombre o en el precio, en el carrito pulsa [[Editar]] en ese producto y lo corriges.",
       },
       // The duplicate-name warning (CT-178, v0.8.0). A note and not a step: it only comes
       // up when the name is already in the catalogue. No picture for the same reason.
