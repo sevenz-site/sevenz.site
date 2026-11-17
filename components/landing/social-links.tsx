@@ -1,4 +1,4 @@
-import { FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/config";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/lib/config";
 
 // LAS REDES, DEBAJO DE LOS ENLACES DEL PIE.
 //
@@ -21,6 +21,17 @@ import { FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/config";
 // Se quitó el `<clipPath>` que traía el export de Figma: recortaba a un rect
 // de 24x24 dentro de un `viewBox` de 24x24, o sea a nada. Lo que sí evita
 // quitarlo es que dos iconos con el mismo id de clip acaben pisándose.
+// LinkedIn, added on 2026-11-17 (owner's request), from the icon he sent. Its viewBox is the
+// original 81x80, drawn in the same 24px box as the other two; `currentColor` for the same reason
+// as them.
+function LinkedIn() {
+  return (
+    <svg viewBox="0 0 81 80" fill="none" aria-hidden="true" className="size-6">
+      <path d="M74.2227 0C77.5559 0 80.2224 2.66642 80.2227 5.77734V74.2227C80.2224 77.3336 77.5559 80 74.2227 80H6C2.66681 80 0.000244043 77.3336 0 74.2227V5.77734C0.00024804 2.66644 2.66681 3.25824e-05 6 0H74.2227ZM12.0117 29.9971V68.2188H23.7891V29.9971H12.0117ZM54.2344 28.8857C48.4565 28.8857 44.456 31.9973 42.9004 35.1084H42.6787V29.9971H31.5674V67.7744H43.3457V48.8857C43.3457 43.997 44.2341 39.1086 50.4561 39.1084C56.6782 39.1084 56.6787 44.8857 56.6787 49.3301V67.9971H68.457V47.1084C68.457 36.8862 66.2344 28.8858 54.2344 28.8857ZM18.0117 11.1084C14.2339 11.1084 11.123 13.9971 11.123 17.9971C11.1231 21.7748 14.2339 24.8857 18.0117 24.8857C21.7895 24.8857 24.9003 21.7748 24.9004 17.9971C24.9004 14.2193 21.7895 11.1085 18.0117 11.1084Z" fill="currentColor"/>
+    </svg>
+  );
+}
+
 function Instagram() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-6">
@@ -48,6 +59,15 @@ export function SocialLinks() {
     // encima. El hover baja la opacidad en vez de aclarar el color, porque un
     // enlace que ya está en el tono más oscuro no tiene a dónde oscurecerse.
     <div className="flex items-center justify-center gap-3">
+      <a
+        href={LINKEDIN_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Sevenz en LinkedIn"
+        className="rounded-sm p-1 text-foreground transition-opacity hover:opacity-70 focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:outline-none"
+      >
+        <LinkedIn />
+      </a>
       <a
         href={INSTAGRAM_URL}
         target="_blank"

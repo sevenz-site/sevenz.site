@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FACEBOOK_URL, INSTAGRAM_URL, LOGIN_URL, SIGNUP_URL } from "@/lib/config";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL, LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 
 // The footer of the web v3 frame (node 1902:16444): six 14px links centred and
 // wrapping, then «© 2026 Sevenz» behind the 16px favicon, then Instagram and
@@ -43,7 +43,18 @@ export function SiteFooter() {
           <span className="text-xs leading-4 font-semibold text-[#737373]">© {new Date().getFullYear()} Sevenz</span>
         </div>
 
+        {/* LinkedIn FIRST, left of Instagram, owner's request of 2026-11-17. The same order as
+            `SocialLinks`, the footer of the other pages. */}
         <div className="flex items-start gap-4">
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Sevenz en LinkedIn"
+            className="transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            <Image src="/web-v3/icon-linkedin.svg" alt="" width={24} height={24} />
+          </a>
           <a
             href={INSTAGRAM_URL}
             target="_blank"

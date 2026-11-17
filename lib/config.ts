@@ -11,6 +11,9 @@ export const SITE_URL = "https://sevenz.site";
 // secas lleva a otra cuenta.
 export const INSTAGRAM_URL = "https://www.instagram.com/sevenz.site";
 export const FACEBOOK_URL = "https://www.facebook.com/people/Sevenz/61594903977079/";
+// The company page, added on 2026-11-17 at the owner's request («Para el SEO de la web indexemos
+// también el linkedin»).
+export const LINKEDIN_URL = "https://www.linkedin.com/company/sevenzsite";
 
 // El WhatsApp de Sevenz para quien llega a la web y quiere saber más. Solo
 // dígitos, que es lo que `wa.me` acepta: ni "+", ni espacios, ni guiones.

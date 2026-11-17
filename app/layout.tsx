@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { FACEBOOK_URL, INSTAGRAM_URL, OG_IMAGE, SITE_URL } from "@/lib/config";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL, OG_IMAGE, SITE_URL } from "@/lib/config";
 import { WhatsappFloat } from "@/components/landing/whatsapp-float";
 import { OFFER, formatUsd } from "@/lib/offer";
 import "./globals.css";
@@ -138,7 +138,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   // of 2026-11-16). Read from `lib/config.ts`, the same constants the footer
                   // links to, so the page and this list cannot drift apart. A new network
                   // goes there first and then here.
-                  sameAs: [INSTAGRAM_URL, FACEBOOK_URL],
+                  sameAs: [INSTAGRAM_URL, FACEBOOK_URL, LINKEDIN_URL],
                 },
                 {
                   "@type": "SoftwareApplication",
