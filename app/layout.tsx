@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { OG_IMAGE, SITE_URL } from "@/lib/config";
+import { FACEBOOK_URL, INSTAGRAM_URL, OG_IMAGE, SITE_URL } from "@/lib/config";
 import { WhatsappFloat } from "@/components/landing/whatsapp-float";
 import { OFFER, formatUsd } from "@/lib/offer";
 import "./globals.css";
@@ -110,6 +110,23 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
+                // THE SITE'S NAME IN GOOGLE'S RESULTS. Google reads the name it
+                // shows above a result («Sevenz» instead of «sevenz.site») from a
+                // `WebSite` node on the home page: name, alternate names and the
+                // home URL, which has to match the canonical (no trailing slash
+                // here, as `canonical` in this layout). Approved by the owner on
+                // 2026-11-16 («Decirle a Google el nombre del sitio: aprobado»).
+                // It lives in the layout like the two nodes below, so every page
+                // carries it; Google only needs it on the home page.
+                {
+                  "@type": "WebSite",
+                  "@id": `${SITE_URL}/#sitio`,
+                  name: "Sevenz",
+                  alternateName: ["sevenz.site"],
+                  url: SITE_URL,
+                  inLanguage: "es",
+                  publisher: { "@id": `${SITE_URL}/#organizacion` },
+                },
                 {
                   "@type": "Organization",
                   "@id": `${SITE_URL}/#organizacion`,
@@ -117,6 +134,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   url: SITE_URL,
                   logo: `${SITE_URL}/icon-512.png`,
                   description: DESCRIPTION,
+                  // The official profiles, so Google ties the brand to them (owner's request
+                  // of 2026-11-16). Read from `lib/config.ts`, the same constants the footer
+                  // links to, so the page and this list cannot drift apart. A new network
+                  // goes there first and then here.
+                  sameAs: [INSTAGRAM_URL, FACEBOOK_URL],
                 },
                 {
                   "@type": "SoftwareApplication",
