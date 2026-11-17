@@ -354,6 +354,15 @@ export default function PoliticaDePrivacidadPage() {
           productos y pedidos— y los avisos de su cuenta, que solo se envían si el Comercio lo
           aceptó y que puede desactivar en cualquier momento desde <em>Mi negocio</em>.
         </li>
+        {/* 2026-11-17, MS-53: the inactivity nudges. Pending the owner's approval of this
+            sentence, as every change to this page. */}
+        <li>
+          <strong>Consejos de Sevenz</strong>: si durante su periodo de prueba el Comercio pasa
+          15 días sin registrar ventas, fiados ni abonos, cada 3 semanas le enviamos a su correo,
+          y por WhatsApp si aceptó los avisos, ideas para sacarle provecho a la Plataforma. Puede
+          desactivarlos desde <em>Mi negocio</em>, en Notificaciones, o con el enlace de baja que
+          trae cada correo, sin perder el resumen semanal ni los avisos de su cuenta.
+        </li>
         <li>
           Comunicarnos con el Cliente Final por WhatsApp, <strong>solo si dio su permiso</strong>.
           Hoy le enviamos dos cosas: un <strong>aviso antes de la fecha de pago</strong> que acordó
@@ -412,7 +421,8 @@ export default function PoliticaDePrivacidadPage() {
             <tr>
               <td>Resend</td>
               <td>Envío de correos de la cuenta (confirmación de registro, recuperación de
-                contraseña, códigos de verificación y avisos de cambios en la cuenta)</td>
+                contraseña, códigos de verificación y avisos de cambios en la cuenta) y de los
+                consejos de Sevenz</td>
               <td>Dirección de correo del Comercio y el contenido de esos correos, que Resend
                 conserva durante 30 días</td>
             </tr>
@@ -457,7 +467,7 @@ export default function PoliticaDePrivacidadPage() {
                 un inicio de sesión, o el número o correo nuevos, enmascarados; y, en el resumen y
                 los avisos de la cuenta, el nombre del negocio, las ventas de la semana, los
                 productos agotados o por agotarse, los pedidos sin atender y la fecha en que
-                termina su periodo de prueba
+                termina su periodo de prueba; en los consejos de Sevenz, solo su nombre
               </td>
             </tr>
             <tr>

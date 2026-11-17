@@ -5,7 +5,7 @@ import { puedeCompartirArchivos, tarjetaDeTasa } from "@/components/calculator/s
 import { ArrowUpDown, Share2 } from "lucide-react";
 import { convert, type Currency, type Rate } from "@/components/calculator/convert";
 import { CurrencyFlagIcon } from "@/components/calculator/currency-flag-icon";
-import { formatBs, formatBsAmount, formatDisplayCurrency, formatRateEquivalence } from "@/components/calculator/format";
+import { BS_DECIMALS, formatBs, formatBsAmount, formatDisplayCurrency, formatRateEquivalence } from "@/components/calculator/format";
 import { useBcvRate } from "@/components/calculator/use-bcv-rate";
 import { Checkbox } from "@/components/ui/checkbox";
 import { getRateHistory } from "@/components/calculator/rate-history";
@@ -178,8 +178,13 @@ function RateConverter({
   const labelFor = (c: Currency) =>
     c === "VES" ? "Bolívares" : c === "USD" ? "Dólares" : c === "EUR" ? "Euros" : "USDT";
 
+  // Four decimals while the typed field is in bolivars (2026-11-17, as in the app): the mask fills
+  // from the right and the last four digits are the decimals; in any other currency, the last two.
+  // The field's own text prints that many, so the digits read back from it mean the figure shown.
+  const decimalsOf = (c: Currency) => (c === "VES" ? BS_DECIMALS : 2);
+  const typedCurrency = source === "put" ? putCurrency : getCurrency;
   const cents = Number(rawDigits || "0");
-  const typed = cents / 100;
+  const typed = cents / 10 ** decimalsOf(typedCurrency);
   const hasAmount = typed > 0;
 
   const convertBetween = (amount: number, from: Currency, to: Currency) => {
@@ -383,7 +388,7 @@ function RateConverter({
             // labels. Keeping the digits would turn "Bs. 100.000" into
             // "€100.000" — the same number meaning something a thousand times
             // larger, with nothing on screen to say so.
-            setRawDigits(String(Math.round(getAmount * 100)));
+            setRawDigits(String(Math.round(getAmount * 10 ** decimalsOf(getCurrency))));
             setSource("put");
             setPristine(false);
             setEntry((e) => (e === "VES" ? "FOREIGN" : "VES"));
