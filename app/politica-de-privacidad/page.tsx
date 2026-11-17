@@ -189,6 +189,11 @@ export default function PoliticaDePrivacidadPage() {
         <li>Montos de transacciones, abonos y saldos registrados por el Comercio</li>
         <li>Historial de esas transacciones</li>
         <li>
+          El método con que pagó cada cobro o abono (por ejemplo, Pago móvil, Efectivo o Zelle) y,
+          en una devolución, cómo se le devolvió el dinero, cuando el Comercio lo anota. Se le
+          muestra al Cliente Final en su link de saldo, dentro de esa transacción.
+        </li>
+        <li>
           <strong>
             Qué artículos se llevó, cuando el Comercio registra la venta o el fiado desde su
             catálogo de productos
