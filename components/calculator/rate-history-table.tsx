@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/table";
 import { getRateHistory, type RateHistoryPoint } from "@/components/calculator/rate-history";
 import { cn } from "@/lib/utils";
+import { BS_DECIMALS } from "@/components/calculator/format";
 
 const HISTORY_DAYS = 90;
 
@@ -48,7 +49,11 @@ function formatDate(ymd: string): string {
   return `${d.getDate()} ${MONTH_ABBR[d.getMonth()]} ${d.getFullYear()}`;
 }
 
-const bs = new Intl.NumberFormat("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+// Four decimals, the bolivar's rule since 2026-11-17 (`BS_DECIMALS`).
+const bs = new Intl.NumberFormat("es-VE", {
+  minimumFractionDigits: BS_DECIMALS,
+  maximumFractionDigits: BS_DECIMALS,
+});
 
 type Row = RateHistoryPoint & {
   // Day-over-day change, always computed against the previous day in the
@@ -75,7 +80,7 @@ function DeltaCell({ row }: { row: Row }) {
   }
   // Rounded before comparing: a change of 0.004 Bs. displays as "0,00", and
   // painting that green would claim a rise the number on screen doesn't show.
-  const rounded = Number(row.deltaUsd.toFixed(2));
+  const rounded = Number(row.deltaUsd.toFixed(BS_DECIMALS));
   const sign = rounded > 0 ? "+" : "";
   return (
     <span
@@ -190,7 +195,9 @@ export function RateHistoryTable() {
           below the table's natural width and pushes the whole page sideways
           instead of scrolling inside itself. */}
       <div className="max-h-[280px] min-w-0 overflow-auto rounded-lg border">
-        <Table className="text-xs [&_td]:px-1.5 [&_td]:py-1.5 [&_th]:px-1.5">
+        {/* 2px of side padding on a phone, 6px from `sm`: with four decimals (2026-11-17) the
+            bolivar columns grew two digits each and no longer fit at 375px. Same fix as the app's. */}
+        <Table className="text-xs [&_td]:px-0.5 [&_td]:py-1.5 [&_th]:px-0.5 sm:[&_td]:px-1.5 sm:[&_th]:px-1.5">
           <TableHeader className="sticky top-0 z-10 bg-background">
             <TableRow>
               <TableHead>Fecha</TableHead>

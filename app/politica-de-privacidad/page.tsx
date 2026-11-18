@@ -33,7 +33,7 @@ export default function PoliticaDePrivacidadPage() {
       // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
       // with dashboard v0.5.1; if that release ships on another day, change it on the release
       // branch before publishing.
-      updated="16 noviembre 2026"
+      updated="17 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -188,6 +188,11 @@ export default function PoliticaDePrivacidadPage() {
         <li>Nombre y número de WhatsApp</li>
         <li>Montos de transacciones, abonos y saldos registrados por el Comercio</li>
         <li>Historial de esas transacciones</li>
+        <li>
+          El método con que pagó cada cobro o abono (por ejemplo, Pago móvil, Efectivo o Zelle) y,
+          en una devolución, cómo se le devolvió el dinero, cuando el Comercio lo anota. Se le
+          muestra al Cliente Final en su link de saldo, dentro de esa transacción.
+        </li>
         <li>
           <strong>
             Qué artículos se llevó, cuando el Comercio registra la venta o el fiado desde su
@@ -349,6 +354,15 @@ export default function PoliticaDePrivacidadPage() {
           productos y pedidos— y los avisos de su cuenta, que solo se envían si el Comercio lo
           aceptó y que puede desactivar en cualquier momento desde <em>Mi negocio</em>.
         </li>
+        {/* 2026-11-17, MS-53: the inactivity nudges. Sentence approved by the owner that day
+            («aprobada política»). */}
+        <li>
+          <strong>Consejos de Sevenz</strong>: si durante su periodo de prueba el Comercio pasa
+          15 días sin registrar ventas, fiados ni abonos, cada 3 semanas le enviamos a su correo,
+          y por WhatsApp si aceptó los avisos, ideas para sacarle provecho a la Plataforma. Puede
+          desactivarlos desde <em>Mi negocio</em>, en Notificaciones, o con el enlace de baja que
+          trae cada correo, sin perder el resumen semanal ni los avisos de su cuenta.
+        </li>
         <li>
           Comunicarnos con el Cliente Final por WhatsApp, <strong>solo si dio su permiso</strong>.
           Hoy le enviamos dos cosas: un <strong>aviso antes de la fecha de pago</strong> que acordó
@@ -407,7 +421,8 @@ export default function PoliticaDePrivacidadPage() {
             <tr>
               <td>Resend</td>
               <td>Envío de correos de la cuenta (confirmación de registro, recuperación de
-                contraseña, códigos de verificación y avisos de cambios en la cuenta)</td>
+                contraseña, códigos de verificación y avisos de cambios en la cuenta) y de los
+                consejos de Sevenz</td>
               <td>Dirección de correo del Comercio y el contenido de esos correos, que Resend
                 conserva durante 30 días</td>
             </tr>
@@ -452,7 +467,7 @@ export default function PoliticaDePrivacidadPage() {
                 un inicio de sesión, o el número o correo nuevos, enmascarados; y, en el resumen y
                 los avisos de la cuenta, el nombre del negocio, las ventas de la semana, los
                 productos agotados o por agotarse, los pedidos sin atender y la fecha en que
-                termina su periodo de prueba
+                termina su periodo de prueba; en los consejos de Sevenz, solo su nombre
               </td>
             </tr>
             <tr>

@@ -2,9 +2,14 @@
 // formatting rules and the same literal "Bs. " prefix (not ICU's "VES"
 // currency code, which renders inconsistently across environments).
 
+// FOUR DECIMALS IN BOLIVARS, as in the app. Owner's decision of 2026-11-17: «Calculadora y
+// montos en bolívares debe tener 4 decimales en toda la app porque así lo exige la ley», and for
+// this calculator, «calculadora también pasa a 4 decimales». Dollars, euros and USDT keep two.
+export const BS_DECIMALS = 4;
+
 const bsNumberFormatter = new Intl.NumberFormat("es-VE", {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
+  minimumFractionDigits: BS_DECIMALS,
+  maximumFractionDigits: BS_DECIMALS,
 });
 
 export function formatBs(amount: number): string {

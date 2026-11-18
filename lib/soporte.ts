@@ -87,39 +87,47 @@ export const TEMAS: Tema[] = [
         pista: "El monto está en bolívares. Si te paga en otra moneda, tócala al lado del monto y cámbiala; debajo, en [[Equivalencia]], ves lo que va a quedar guardado.",
         imagen: "registrar-un-fiado/8",
       },
-      { texto: "Si se lo lleva fiado, elige [[Fiado o crédito]].", imagen: "registrar-un-fiado/9" },
+      {
+        // v0.10.0 (migration 214). The field opens on «Pago móvil» for an amount typed in
+        // bolívares and on «Efectivo» for one in dollars or euros (dashboard
+        // lib/payments/methods.ts, `defaultMethod`). It only shows when something is paid now.
+        texto: "En [[Método de pago]] elige cómo te pagó.",
+        pista: "Viene en [[Pago móvil]] si el monto está en bolívares, y en [[Efectivo]] si está en dólares o euros. Si te pagó de otra forma, tócalo y cámbialo.",
+        imagen: "registrar-un-fiado/9",
+      },
+      { texto: "Si se lo lleva fiado, elige [[Fiado o crédito]].", imagen: "registrar-un-fiado/10" },
       {
         texto: "En [[Monto]] escribe lo que te entrega ahora. Si no te entrega nada, déjalo en blanco.",
-        pista: "Lo que no pague ahora es lo que queda fiado.",
-        imagen: "registrar-un-fiado/10",
+        pista: "Lo que no pague ahora es lo que queda fiado. Si te entrega algo, debajo sale [[Método de pago]] para que digas cómo te lo dio.",
+        imagen: "registrar-un-fiado/11",
       },
       {
         texto: "Elige el [[Plazo de pago]] que acordaron y, si va por partes, las [[Cuotas]].",
         pista: "Si acordaron unos días que no están en la lista, elige [[Otro plazo…]] y escríbelos.",
-        imagen: "registrar-un-fiado/11",
+        imagen: "registrar-un-fiado/12",
       },
       {
         texto: "Si quieres, adjunta una [[Foto (opcional)]] y una [[Descripción (opcional)]]. Pulsa [[Pagar]].",
-        imagen: "registrar-un-fiado/12",
+        imagen: "registrar-un-fiado/13",
       },
-      { texto: "Revisa lo que queda debiendo y pulsa [[Continuar]].", imagen: "registrar-un-fiado/13" },
+      { texto: "Revisa lo que queda debiendo y pulsa [[Continuar]].", imagen: "registrar-un-fiado/14" },
       {
         texto: "En [[4/4 Información del cliente]], escribe su nombre o su cédula en [[Buscar cliente]].",
         pista: "Si no existe todavía, llena ahí mismo [[Nombre del cliente]] y [[Documento]]. El [[WhatsApp (opcional)]] vale la pena: es por donde le vas a mandar su saldo.",
-        imagen: "registrar-un-fiado/14",
+        imagen: "registrar-un-fiado/15",
       },
-      { texto: "Tócalo cuando aparezca.", imagen: "registrar-un-fiado/15" },
+      { texto: "Tócalo cuando aparezca.", imagen: "registrar-un-fiado/16" },
       {
         texto:
           "Marca la casilla de que acepta recibir avisos de su saldo por WhatsApp solo si se lo preguntaste y te dijo que sí.",
         pista:
           "Si ya te dio permiso antes, la casilla no sale. Y si quieres quitárselos, es en su ficha, en el menú de los tres puntos › [[Notificaciones]].",
-        imagen: "registrar-un-fiado/16",
+        imagen: "registrar-un-fiado/17",
       },
-      { texto: "Pulsa [[Finalizar]], que lleva el nombre de tu cliente.", imagen: "registrar-un-fiado/17" },
+      { texto: "Pulsa [[Finalizar]], que lleva el nombre de tu cliente.", imagen: "registrar-un-fiado/18" },
       {
         texto: "Listo. Con [[Compartir]] le mandas el resumen de la compra como imagen.",
-        imagen: "registrar-un-fiado/18",
+        imagen: "registrar-un-fiado/19",
       },
     ],
     notas: [
@@ -137,6 +145,21 @@ export const TEMAS: Tema[] = [
         titulo: "Lo que te paga ahora no es un fiado aparte",
         texto:
           "Si te entrega algo en el momento, la app lo anota como cobrado y deja a deber solo el resto. Una compra de 8.000 con 3.000 entregados deja una deuda de 5.000, no de 8.000.",
+      },
+      {
+        // v0.10.0 (migration 214): the method is shown on the detail of the sale and of each
+        // abono, and feeds the «Métodos de pago» block of Reportes. Read off the dev app.
+        titulo: "El método de pago queda anotado",
+        texto:
+          "Lo ves después en el detalle de la venta y de cada abono, en [[Método de pago]]. Con eso, Reportes te dice cuánto cobraste con cada uno.",
+      },
+      {
+        // Step 2 of «Nuevo cliente», labels read off the dev app on 2026-11-17 (v0.10.0 put
+        // «Continuar con venta» first and the bolívar equivalent under the field). A note and
+        // not steps: no topic walks that screen.
+        titulo: "Si el cliente ya te debía antes de usar Sevenz",
+        texto:
+          "Créalo con [[Registrar]] › [[Nuevo cliente]]. En [[Información de deuda]] escribes su [[Deuda antigua]], y debajo ves cuánto es en bolívares. [[Continuar con venta]] la guarda y abre una venta para ese cliente. [[Registrar y finalizar]] la guarda y te lleva a su ficha.",
       },
       {
         // Weekend-only, so it could not be captured on a Tuesday.
@@ -176,16 +199,23 @@ export const TEMAS: Tema[] = [
         imagen: "registrar-un-abono/4",
       },
       {
-        texto: "Si quieres repartirlo tú, pulsa [[Repartir manualmente]] y elige con [[Pagar]] el fiado que te está pagando.",
+        // v0.10.0 (migration 214). Asked once for the whole payment, also when it is split
+        // across several fiados. Opens on «Pago móvil» only when the abono is typed in bolívares.
+        texto: "En [[Método de pago]] elige cómo te pagó.",
+        pista: "Viene en [[Efectivo]], o en [[Pago móvil]] si escribiste el abono en bolívares. Vale para el abono entero, aunque se reparta entre varios fiados.",
         imagen: "registrar-un-abono/5",
+      },
+      {
+        texto: "Si quieres repartirlo tú, pulsa [[Repartir manualmente]] y elige con [[Pagar]] el fiado que te está pagando.",
+        imagen: "registrar-un-abono/6",
       },
       {
         texto: "Marca la casilla de los avisos por WhatsApp solo si tu cliente te dijo que sí.",
         pista: "Con su permiso, le llega el recibo de este abono.",
-        imagen: "registrar-un-abono/6",
+        imagen: "registrar-un-abono/7",
       },
-      { texto: "Pulsa [[Pagar y finalizar]], que lleva el monto.", imagen: "registrar-un-abono/7" },
-      { texto: "Listo. Con [[Compartir]] le mandas el comprobante.", imagen: "registrar-un-abono/8" },
+      { texto: "Pulsa [[Pagar y finalizar]], que lleva el monto.", imagen: "registrar-un-abono/8" },
+      { texto: "Listo. Con [[Compartir]] le mandas el comprobante.", imagen: "registrar-un-abono/9" },
     ],
     notas: [
       {
@@ -228,18 +258,24 @@ export const TEMAS: Tema[] = [
         texto: "En [[2/3 Pago]] elige [[De contado]] o [[Fiado o crédito]], igual que en una venta.",
         imagen: "atender-un-pedido/7",
       },
-      { texto: "Pulsa [[Pagar]].", imagen: "atender-un-pedido/8" },
+      {
+        // v0.10.0 (migration 214): the same field as in a sale.
+        texto: "En [[Método de pago]] elige cómo te pagó.",
+        pista: "Sale cuando te paga algo ahora. Viene en [[Pago móvil]] si el monto está en bolívares, y en [[Efectivo]] si está en dólares o euros.",
+        imagen: "atender-un-pedido/8",
+      },
+      { texto: "Pulsa [[Pagar]].", imagen: "atender-un-pedido/9" },
       {
         texto: "En [[3/3 Información del cliente]], los datos ya vienen del pedido. Revísalos.",
         pista: "Si no lo encuentra entre tus clientes, Sevenz te lo dice, y lo crea con esos datos al terminar.",
-        imagen: "atender-un-pedido/9",
+        imagen: "atender-un-pedido/10",
       },
       {
         texto: "Marca la casilla de las notificaciones por WhatsApp solo si tu cliente te dijo que sí.",
-        imagen: "atender-un-pedido/10",
+        imagen: "atender-un-pedido/11",
       },
-      { texto: "Pulsa [[Registrar y finalizar]].", imagen: "atender-un-pedido/11" },
-      { texto: "Listo. El pedido queda registrado como venta.", imagen: "atender-un-pedido/12" },
+      { texto: "Pulsa [[Registrar y finalizar]].", imagen: "atender-un-pedido/12" },
+      { texto: "Listo. El pedido queda registrado como venta.", imagen: "atender-un-pedido/13" },
     ],
     notas: [],
   },
@@ -309,21 +345,30 @@ export const TEMAS: Tema[] = [
         imagen: "registrar-una-devolucion/3",
       },
       {
-        texto: "Pulsa el botón de lo que vas a hacer.",
-        pista: "Nada se guarda hasta que lo pulsas. Con la X cierras sin registrar.",
+        // v0.10.0 (migration 214). Shown only when one of the buttons hands money back; it
+        // opens on the one method the sale was paid with, or on «Efectivo» when there is none.
+        texto: "Si le vas a devolver dinero, elige en [[¿Cómo le devolviste el dinero?]] por dónde se lo diste.",
+        pista: "Solo sale cuando alguna de las opciones devuelve dinero. Viene con el método con que te pagó esa venta; si no te pagó nada al comprar, viene en [[Efectivo]].",
         imagen: "registrar-una-devolucion/4",
       },
       {
-        texto: "Ahí ves en qué quedó todo.",
+        texto: "Pulsa el botón de lo que vas a hacer.",
+        pista: "Nada se guarda hasta que lo pulsas. Con la X cierras sin registrar.",
         imagen: "registrar-una-devolucion/5",
       },
       {
-        texto: "En el fiado, el producto queda marcado y [[Total]] baja.",
+        texto: "Ahí ves en qué quedó todo.",
+        // v0.10.0: the cash line names the method. Cash keeps «Efectivo devuelto».
+        pista: "Si devolviste dinero, dice por dónde: por ejemplo, [[Devuelto por Pago móvil]].",
         imagen: "registrar-una-devolucion/6",
       },
       {
-        texto: "En el historial sale una fila [[Devolución]], que tu cliente también ve.",
+        texto: "En el fiado, el producto queda marcado y [[Total]] baja.",
         imagen: "registrar-una-devolucion/7",
+      },
+      {
+        texto: "En el historial sale una fila [[Devolución]], que tu cliente también ve.",
+        imagen: "registrar-una-devolucion/8",
       },
     ],
     notas: [
@@ -340,7 +385,7 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Si la venta fue de contado",
         texto:
-          "Como ya estaba pagada, puedes devolver todo el dinero aunque te deba. Si debe $5 y devuelve $10, eliges entre abonar $5 y devolver $5, abonar $5 y dejar $5 a favor, o devolver los $10. Si debe $25, eliges entre abonar los $10 a su deuda o devolverlos. En Reportes, [[Ventas]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes devolver el dinero: si se lleva otro producto, registra después una venta nueva.",
+          "Como ya estaba pagada, puedes devolver todo el dinero aunque te deba. Si debe $5 y devuelve $10, eliges entre abonar $5 y devolver $5, abonar $5 y dejar $5 a favor, o devolver los $10. Si debe $25, eliges entre abonar los $10 a su deuda o devolverlos. En Reportes, [[Ventas de contado]] solo baja si devuelves el dinero. En una venta sin cliente solo puedes devolver el dinero: si se lleva otro producto, registra después una venta nueva.",
       },
       {
         titulo: "Si se lleva otro producto a cambio",
@@ -480,6 +525,9 @@ export const TEMAS: Tema[] = [
       { texto: "Debajo, en [[Tú cobras]], sale en bolívares.", imagen: "calculadora-de-tasa/3" },
       {
         texto: "Con [[Invertir]] la cuenta va al revés: escribes bolívares y te dice cuánto es en la otra moneda.",
+        // v0.10.0 (migration 216): bolívares carry 4 decimals everywhere. Typed on the dev
+        // calculator on 2026-11-17: 12345678 fills the field as «Bs. 1.234,5678».
+        pista: "Los bolívares llevan 4 decimales, como la tasa del BCV: si escribes 12345678, queda Bs. 1.234,5678.",
         imagen: "calculadora-de-tasa/4",
       },
       {
@@ -522,25 +570,51 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "Toca las fechas para cambiar el periodo que miras.",
-        pista: "«Por cobrar» no cambia con el periodo: es todo lo que te deben hoy.",
+        pista: "«Por cobrar» no cambia con el periodo: es todo lo que te deben hoy. Tampoco cambian el cierre del día ni el del mes.",
         imagen: "ver-tus-reportes/3",
       },
       {
         texto: "El [[Asistente]] te resume la semana y te da hasta tres recomendaciones.",
-        pista: "Se escribe una vez al día con las cifras de tu app. Con [[Poco]] o [[Mucho]] nos dices si te sirvió.",
+        // v0.10.0 (migration 215): each recommendation ends in a link that opens what it
+        // names (dashboard lib/reports/assistant/links.ts). «Ver clientes» was pressed on dev
+        // on 2026-11-17 and opened the «Críticos» list.
+        pista: "Se escribe una vez al día con las cifras de tu app. Cada recomendación trae un enlace, como [[Ver clientes]], [[Ver productos]] o [[Ver pedidos]], que te lleva a esa lista. Con [[Poco]] o [[Mucho]] nos dices si te sirvió.",
         imagen: "ver-tus-reportes/4",
       },
       {
-        // No capture: a whole tab of cards, which the step lists instead.
+        // v0.10.0: «Cierre del día» opens Facturación, under the assistant. «Ver todo» opens
+        // the sheet «Ventas de hoy», one row per transaction, with «Buscar cliente».
+        texto: "Debajo está el [[Cierre del día]]: lo que vendiste hoy, de contado y fiado, los abonos, las devoluciones y tu ganancia estimada.",
+        pista: "Con [[Ver todo]] ves cada venta, abono, fiado y devolución de hoy, y puedes buscar por cliente.",
+        imagen: "ver-tus-reportes/5",
+      },
+      {
+        // v0.10.0: the month's close moved here from Inventario, where v0.9.0 had put it. Its
+        // title carries the month, so the label below is an example and says so.
+        texto: "Después viene el cierre del mes anterior, por ejemplo [[Cierre de octubre]]: lo mismo, del mes completo.",
+        pista: "Ya descuenta las devoluciones. Con [[Descargar]] te lo llevas en un archivo.",
+        imagen: "ver-tus-reportes/6",
+      },
+      {
+        // The blocks of the tab, in the order of the screen on 2026-11-17. Until v0.10.0 this
+        // step had no picture and the first block was called «Cartera».
         texto:
-          "En [[Facturación]] ves lo que te deben, lo que vendiste de contado, lo que fiaste, las devoluciones, los abonos, los pedidos por atender, los plazos de pago y tus mejores pagadores.",
+          "Más abajo ves [[Por cobrar]], [[Ventas de contado]], [[Transacciones]], [[Abonos]], [[Fiados]], [[Devoluciones]], [[Pedidos]], [[Métodos de pago]], [[Plazos de pago]] y [[Mejores pagadores]].",
+        pista: "En [[Transacciones]], la tarjeta [[De contado y fiados por catálogo]] es lo que entró por pedidos de tu catálogo.",
+        imagen: "ver-tus-reportes/7",
+      },
+      {
+        // v0.10.0 (migration 214). «Sin registrar» is every payment with no method: the ones
+        // from before the field existed, and the paths that do not ask for it.
+        texto: "En [[Métodos de pago]] ves cuánto cobraste con cada método, de mayor a menor.",
+        pista: "Sale de lo que eliges en [[Método de pago]] al cobrar, y ya descuenta lo que devolviste por cada uno. Lo que cobraste sin método sale como [[Sin registrar]].",
+        imagen: "ver-tus-reportes/8",
       },
       {
         texto: "En [[Inventario]] ves cuántos productos tienes, cuáles están por agotarse y cuáles se agotaron.",
-        // v0.9.0: the «Cierre de …» card under «Margen por producto» (last month's sales and
-        // estimated profit). No picture of its own: it shows only once a month has closed.
-        pista: "También el margen de cada producto, el cierre del mes anterior con lo que vendiste y tu ganancia estimada, lo que más se vende y lo que más te devuelven.",
-        imagen: "ver-tus-reportes/6",
+        // v0.10.0: the «Cierre de …» card left this tab for Facturación; the hint named it.
+        pista: "También el margen de cada producto, lo que más se vende y lo que más te devuelven.",
+        imagen: "ver-tus-reportes/9",
       },
       {
         // Until 2026-11-03 this said only «cuenta como por agotarse», on
@@ -549,16 +623,18 @@ export const TEMAS: Tema[] = [
         // and separately when it hits 0. A threshold of 0 turns them off.
         texto: "Con [[Avísame cuando queden]] decides desde cuántas unidades te avisa la campana de que un producto se está agotando.",
         pista: "Te avisa una vez al día mientras siga así, y aparte cuando se agota. Si pones 0, no te avisa.",
-        imagen: "ver-tus-reportes/7",
+        imagen: "ver-tus-reportes/10",
       },
       {
         texto: "En [[Proveedores]] ves, de cada proveedor, cuántos productos le compras y cuánto ganas con ellos.",
         pista: "Sale de lo que pones en [[Proveedor]] al crear cada producto.",
-        imagen: "ver-tus-reportes/8",
+        imagen: "ver-tus-reportes/11",
       },
       {
         texto: "Con [[Descargar]] te llevas cada pestaña en un archivo.",
-        imagen: "ver-tus-reportes/9",
+        // v0.10.0: the menu also offers «Descargar cierre del día» and «Descargar cierre de <mes>».
+        pista: "También el cierre del día y el del mes.",
+        imagen: "ver-tus-reportes/12",
       },
     ],
     notas: [
@@ -970,17 +1046,24 @@ export const TEMAS: Tema[] = [
         imagen: "mi-negocio/5",
       },
       {
+        // v0.10.0 (migration 217): a second switch inside the same accordion, saved on its own.
+        // It covers WhatsApp and email at once, and turning it off keeps the weekly summary.
+        texto: "Toca [[Notificaciones]] para abrirla: con [[Consejos de Sevenz]] decides si te enviamos ideas para sacarle provecho a Sevenz.",
+        pista: "Solo llegan durante tu prueba y si llevas días sin registrar ventas: cada 3 semanas, por WhatsApp y por correo. Apagarlos no apaga el resumen semanal.",
+        imagen: "mi-negocio/6",
+      },
+      {
         texto: "En [[Seguridad de la cuenta]], con [[Cambiar contraseña]] la cambias cuando quieras.",
         pista: "Al cambiarla se cierra la sesión en tus otros dispositivos. Si tienes la verificación en dos pasos, antes te pedimos un código.",
-        imagen: "mi-negocio/6",
+        imagen: "mi-negocio/7",
       },
       {
         texto:
           "Ahí mismo cambias el [[WhatsApp de la cuenta]] con [[Cambiar]] y enciendes la [[Verificación en dos pasos]] con [[Activar]].",
         pista: "La verificación tiene su propio tema en esta guía: un código además de tu contraseña cuando entras desde un teléfono nuevo.",
-        imagen: "mi-negocio/7",
+        imagen: "mi-negocio/8",
       },
-      { texto: "Pulsa [[Guardar cambios]].", imagen: "mi-negocio/8" },
+      { texto: "Pulsa [[Guardar cambios]].", imagen: "mi-negocio/9" },
     ],
     cierre: [
       "En [[Tasa de cambio]] ves la que usa Sevenz: la del BCV, que se actualiza sola.",
