@@ -354,8 +354,8 @@ export default function PoliticaDePrivacidadPage() {
           productos y pedidos— y los avisos de su cuenta, que solo se envían si el Comercio lo
           aceptó y que puede desactivar en cualquier momento desde <em>Mi negocio</em>.
         </li>
-        {/* 2026-11-17, MS-53: the inactivity nudges. Pending the owner's approval of this
-            sentence, as every change to this page. */}
+        {/* 2026-11-17, MS-53: the inactivity nudges. Sentence approved by the owner that day
+            («aprobada política»). */}
         <li>
           <strong>Consejos de Sevenz</strong>: si durante su periodo de prueba el Comercio pasa
           15 días sin registrar ventas, fiados ni abonos, cada 3 semanas le enviamos a su correo,
