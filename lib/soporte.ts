@@ -805,17 +805,20 @@ export const TEMAS: Tema[] = [
     // v0.8.0 (CT-170, phase 1). Captures by `dashboard/scripts/ayuda/temas/personalizar.mjs
     // --finalizar`: the cover in them is drawn by the script, not a real shop, and the demo's
     // branding is put back afterwards. Labels read off the dev app on 2026-11-15.
+    // 2026-11-18: the address box moved to Mi negocio (owner's request), so its step left this
+    // topic and the address is told in a note; the screen is entered from Mi negocio too.
     slug: "personalizar-tu-catalogo",
     numero: 13,
     grupo: "una-vez",
     titulo: "Personalizar tu catálogo",
     resumen:
-      "Ponle a tu catálogo una foto de portada, un saludo para tus clientes y tu dirección. Lo ven todos los que abren tu enlace. Además guardas el color y la descripción de tu marca.",
+      "Ponle a tu catálogo una foto de portada y un saludo para tus clientes. Lo ven todos los que abren tu enlace. Además guardas el color y la descripción de tu marca.",
     descripcion:
-      "Cómo poner una portada, un mensaje de bienvenida y tu dirección en el catálogo que compartes con Sevenz, y guardar el color y la descripción de tu marca.",
+      "Cómo poner una portada y un mensaje de bienvenida en el catálogo que compartes con Sevenz, y guardar el color y la descripción de tu marca.",
     pasos: [
       {
         texto: "En [[Catálogo]], abre el menú de los tres puntos y elige [[Personalizar catálogo]].",
+        pista: "También entras desde [[Mi negocio]], con [[Personalizar]].",
         imagen: "personalizar-tu-catalogo/1",
       },
       {
@@ -841,26 +844,21 @@ export const TEMAS: Tema[] = [
         imagen: "personalizar-tu-catalogo/5",
       },
       {
-        texto: "Marca [[Mostrar mi dirección en el catálogo]] si quieres que tus clientes la vean.",
-        pista: "La dirección es la de [[Mi negocio]]. Para cambiarla, toca [[Cambiarla en Mi negocio]].",
+        texto: "Pulsa [[Ver cómo queda]] para mirarlo antes de guardar.",
         imagen: "personalizar-tu-catalogo/6",
       },
       {
-        texto: "Pulsa [[Ver cómo queda]] para mirarlo antes de guardar.",
-        imagen: "personalizar-tu-catalogo/7",
-      },
-      {
         texto: "Así lo verán tus clientes. Todavía no está guardado.",
-        imagen: "personalizar-tu-catalogo/8",
+        imagen: "personalizar-tu-catalogo/7",
       },
       {
         texto: "Pulsa [[Guardar cambios]].",
         pista: "Desde ese momento, todos los que abran tu enlace ven el catálogo con tu marca.",
-        imagen: "personalizar-tu-catalogo/9",
+        imagen: "personalizar-tu-catalogo/8",
       },
       {
         texto: "Esto es lo que ve tu cliente al abrir tu enlace.",
-        imagen: "personalizar-tu-catalogo/10",
+        imagen: "personalizar-tu-catalogo/9",
       },
     ],
     notas: [
@@ -870,8 +868,9 @@ export const TEMAS: Tema[] = [
           "Puedes poner solo la portada, solo el saludo o lo que quieras. Si no guardas nada, tu catálogo se ve como siempre. En cuanto guardas algo, la cabecera pasa a blanca, y si no subiste portada lleva una franja gris.",
       },
       {
-        titulo: "El logo y el nombre salen de Mi negocio",
-        texto: "Se cambian en [[Mi negocio]], y el catálogo los toma de ahí.",
+        titulo: "El logo, el nombre y la dirección salen de Mi negocio",
+        texto:
+          "Se cambian en [[Mi negocio]], y el catálogo los toma de ahí. La dirección solo sale si marcas [[Mostrar mi dirección en el catálogo]], debajo de la dirección.",
       },
     ],
   },
@@ -1022,9 +1021,20 @@ export const TEMAS: Tema[] = [
         // Since v0.4.0 (C1 of PL-22) the WhatsApp field only shows the number: it changes
         // from «Seguridad de la cuenta», with the password and a code to the new number.
         texto:
-          "Revisa [[Nombre del negocio]], [[Nombres del dueño]] y [[Apellidos del dueño]], y completa [[Dirección de negocio (opcional)]] y [[RIF/NIT (opcional)]] si aplican.",
+          "Revisa [[Nombre del negocio]], [[Nombres del dueño]] y [[Apellidos del dueño]], y completa [[RIF/NIT (opcional)]] y [[Dirección de negocio (opcional)]] si aplican.",
         pista: "El [[WhatsApp]] se ve aquí, pero se cambia más abajo, en Seguridad de la cuenta: te pedimos tu contraseña y un código al número nuevo.",
         imagen: "mi-negocio/3",
+      },
+      {
+        // 2026-11-18: the box moved here from «Personalizar catálogo», at the owner's request.
+        texto: "Si quieres que tus clientes vean tu dirección en el catálogo, marca [[Mostrar mi dirección en el catálogo]].",
+        pista: "Solo se puede marcar con la dirección escrita. Se aplica al pulsar [[Guardar cambios]].",
+        imagen: "mi-negocio/4",
+      },
+      {
+        texto: "En [[Personalizar catálogo]], toca [[Personalizar]] para ponerle portada y saludo a tu catálogo.",
+        pista: "Tiene su propio tema en esta guía. Si tienes cambios sin guardar aquí, te preguntamos antes de salir.",
+        imagen: "mi-negocio/5",
       },
       {
         // Since 2026-11-02 payment methods are a list, each saved on its own
@@ -1033,7 +1043,7 @@ export const TEMAS: Tema[] = [
         texto:
           "En [[Métodos de pago]] toca [[Agregar método de pago]] y escribe uno — por ejemplo tu Pago Móvil. Puedes tener varios.",
         pista: "Tu cliente no los ve en su enlace. Toca el ícono de copiar y pégalo en WhatsApp cuando te pregunte a dónde pagarte. Cada uno se guarda en cuanto lo agregas.",
-        imagen: "mi-negocio/4",
+        imagen: "mi-negocio/6",
       },
       {
         // v0.6.0: the switch's sentence is now «el resumen semanal de tu negocio y los avisos
@@ -1043,27 +1053,27 @@ export const TEMAS: Tema[] = [
         // the old collections summary, owner's decision of that day), so it names no content.
         texto: "En [[Notificaciones]] decides si recibes por WhatsApp el resumen semanal de tu negocio y los avisos de tu cuenta.",
         pista: "Llega los lunes y, si hay algo que atender, también los jueves. Lo apagas aquí mismo cuando quieras.",
-        imagen: "mi-negocio/5",
+        imagen: "mi-negocio/7",
       },
       {
         // v0.10.0 (migration 217): a second switch inside the same accordion, saved on its own.
         // It covers WhatsApp and email at once, and turning it off keeps the weekly summary.
         texto: "Toca [[Notificaciones]] para abrirla: con [[Consejos de Sevenz]] decides si te enviamos ideas para sacarle provecho a Sevenz.",
         pista: "Solo llegan durante tu prueba y si llevas días sin registrar ventas: cada 3 semanas, por WhatsApp y por correo. Apagarlos no apaga el resumen semanal.",
-        imagen: "mi-negocio/6",
+        imagen: "mi-negocio/8",
       },
       {
         texto: "En [[Seguridad de la cuenta]], con [[Cambiar contraseña]] la cambias cuando quieras.",
         pista: "Al cambiarla se cierra la sesión en tus otros dispositivos. Si tienes la verificación en dos pasos, antes te pedimos un código.",
-        imagen: "mi-negocio/7",
+        imagen: "mi-negocio/9",
       },
       {
         texto:
           "Ahí mismo cambias el [[WhatsApp de la cuenta]] con [[Cambiar]] y enciendes la [[Verificación en dos pasos]] con [[Activar]].",
         pista: "La verificación tiene su propio tema en esta guía: un código además de tu contraseña cuando entras desde un teléfono nuevo.",
-        imagen: "mi-negocio/8",
+        imagen: "mi-negocio/10",
       },
-      { texto: "Pulsa [[Guardar cambios]].", imagen: "mi-negocio/9" },
+      { texto: "Pulsa [[Guardar cambios]].", imagen: "mi-negocio/11" },
     ],
     cierre: [
       "En [[Tasa de cambio]] ves la que usa Sevenz: la del BCV, que se actualiza sola.",
