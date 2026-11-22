@@ -34,7 +34,7 @@ export default function TerminosYCondicionesPage() {
       // The day this text is PUBLISHED, same rule as the Política de privacidad (owner's
       // decision of 2026-11-09). CT-103 changes sentences here and ships with dashboard v0.5.1;
       // if that release goes out on another day, change it on the release branch first.
-      updated="16 noviembre 2026"
+      updated="22 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -394,9 +394,12 @@ export default function TerminosYCondicionesPage() {
       </p>
       <ul>
         <li>
-          <strong>Solo se envían con el permiso del Cliente Final</strong>, dado por él mismo desde
-          el link de saldo que el Comercio le compartió. El Comercio no puede activarlos en su
-          nombre, y que el Comercio haya registrado su número no equivale a ese permiso.
+          <strong>Solo se envían con el permiso del Cliente Final.</strong> Puede darlo él mismo,
+          desde el link de saldo que el Comercio le compartió o al hacer un pedido desde el link
+          de catálogo; o puede declararlo el Comercio cuando se lo pide en persona —al registrarle
+          una transacción, al subir su libreta o desde su ficha—. En ese caso el Comercio afirma
+          que se lo preguntó y que el Cliente Final dijo que sí, y responde de que sea cierto. Que
+          el Comercio haya registrado su número no equivale a ese permiso.
         </li>
         <li>
           El permiso queda asociado al número de WhatsApp,{" "}
@@ -405,12 +408,15 @@ export default function TerminosYCondicionesPage() {
         </li>
         <li>
           El Cliente Final puede desactivarlos en cualquier momento desde su link de saldo, sin
-          intervención del Comercio y sin dar explicaciones.
+          intervención del Comercio y sin dar explicaciones. También puede pedírselo al Comercio,
+          que los apaga desde su ficha.
         </li>
         <li>
-          Su contenido se limita a lo que el Comercio ya registró —el monto, la fecha de pago
-          acordada y el nombre del negocio— y a un enlace para ver el saldo. No incluyen cobranza,
-          ni publicidad, ni contenido redactado por el Comercio.
+          Su contenido se limita a lo que el Comercio ya registró —el monto, la cuota y su fecha
+          de pago acordada, y el nombre del negocio— y a un enlace para ver el saldo. Cuando una
+          cuota lleva 7 o 15 días vencida, Sevenz puede enviar un recordatorio de pago que
+          advierte que el Comercio puede marcar al cliente como mala paga y dejar de fiarle. No
+          incluyen publicidad ni contenido redactado por el Comercio.
         </li>
         <li>
           Sevenz no solicita por este medio códigos, contraseñas ni pagos, y nunca lo hará. Todos
@@ -524,9 +530,10 @@ export default function TerminosYCondicionesPage() {
           </strong>
           . La razón es la que distingue una figura de la otra. Un encargado trata datos siguiendo
           instrucciones de otro; en esos avisos es Sevenz quien decide la finalidad y los medios —
-          escribe el texto, elige el canal, fija cuándo sale y recoge directamente el permiso del
-          Cliente Final—, sin que el Comercio se lo indique y sin que pueda activarlos o
-          desactivarlos en su nombre.
+          escribe el texto, elige el canal, fija cuándo sale y guarda la constancia del permiso
+          del Cliente Final—, sin que el Comercio se lo indique. El Comercio no decide nada de eso:
+          solo puede declarar el permiso que el Cliente Final le dio en persona, y apagar los avisos
+          cuando este se lo pide.
         </li>
         <li>
           Las dos cosas conviven sobre la misma persona y no se contradicen. El Comercio sigue
