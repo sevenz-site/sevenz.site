@@ -206,6 +206,13 @@ export const TEMAS: Tema[] = [
         imagen: "registrar-un-abono/5",
       },
       {
+        // v0.12.0: the split abono got its description and photo (owner's request of 2026-11-22).
+        // Its picture is number 10 so the ones after it keep their numbers.
+        texto: "Si quieres, escribe una [[Descripción (opcional)]] y adjunta una [[Foto (opcional)]].",
+        pista: "Valen para el abono entero: quedan anotadas en cada fiado que paga.",
+        imagen: "registrar-un-abono/10",
+      },
+      {
         texto: "Si quieres repartirlo tú, pulsa [[Repartir manualmente]] y elige con [[Pagar]] el fiado que te está pagando.",
         imagen: "registrar-un-abono/6",
       },

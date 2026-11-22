@@ -33,7 +33,7 @@ export default function PoliticaDePrivacidadPage() {
       // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
       // with dashboard v0.5.1; if that release ships on another day, change it on the release
       // branch before publishing.
-      updated="17 noviembre 2026"
+      updated="22 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -365,10 +365,13 @@ export default function PoliticaDePrivacidadPage() {
         </li>
         <li>
           Comunicarnos con el Cliente Final por WhatsApp, <strong>solo si dio su permiso</strong>.
-          Hoy le enviamos dos cosas: un <strong>aviso antes de la fecha de pago</strong> que acordó
-          con el negocio, y un <strong>comprobante cuando registra un abono</strong>, con el saldo
-          que le queda. Más adelante podremos avisarle también el día que vence, una vez después de
-          vencida, o recordarle su saldo pendiente si no hay fecha acordada.
+          Hoy le enviamos tres cosas: un <strong>aviso antes de la fecha de cada cuota</strong> que
+          acordó con el negocio (o de su único pago, si no hay cuotas); un{" "}
+          <strong>recordatorio a los 7 y a los 15 días de una cuota vencida</strong>, que advierte
+          que el negocio puede marcarlo como mala paga y dejar de fiarle; y un{" "}
+          <strong>comprobante cuando registra un abono</strong>, con el saldo que le queda. De los
+          avisos de cuota recibe uno por semana como mucho. Más adelante podremos avisarle también
+          el día que vence, o recordarle su saldo pendiente si no hay fecha acordada.
         </li>
         <li>
           <strong>De dónde sale ese permiso</strong>, porque no hay un solo camino: el Cliente Final
@@ -480,8 +483,8 @@ export default function PoliticaDePrivacidadPage() {
               <td>Envío de los avisos de WhatsApp de Sevenz al Cliente Final</td>
               <td>
                 Número de WhatsApp del Cliente Final, su nombre, el nombre del negocio y su dueño,
-                el monto que debe, la fecha de pago acordada y, en el comprobante de un abono, el
-                monto que acaba de pagar
+                el monto que debe, la cuota y su fecha de pago acordada, los días de atraso y, en
+                el comprobante de un abono, el monto que acaba de pagar
               </td>
             </tr>
             <tr>
@@ -649,12 +652,11 @@ export default function PoliticaDePrivacidadPage() {
       </ul>
       <p>
         <strong>Para el Cliente Final:</strong> dado que sus datos fueron registrados por el
-        Comercio, la vía más directa es solicitarlo al Comercio mismo. Habrá una excepción cuando los avisos por
-        WhatsApp se activen:{" "}
-        <strong>se desactivarán sin pedírselo a nadie, desde el propio link de saldo</strong>, en
-        el menú de la esquina. Al desactivarlos dejarán de enviarse en todos los negocios, por lo
-        mismo que el permiso vale para todos. Mientras la función no esté activa no hay nada que
-        desactivar, y por eso esa opción todavía no aparece.
+        Comercio, la vía más directa es solicitarlo al Comercio mismo. Hay una excepción, los
+        avisos por WhatsApp:{" "}
+        <strong>se desactivan sin pedírselo a nadie, desde el propio link de saldo</strong>, en
+        el menú de la esquina. Al desactivarlos dejan de enviarse en todos los negocios, por lo
+        mismo que el permiso vale para todos.
         Sevenz también puede recibir estas solicitudes directamente en{" "}
         <a href="mailto:sevenz.mvp@gmail.com">sevenz.mvp@gmail.com</a>, indicando nombre, medio de
         contacto, el Comercio involucrado y una descripción de la solicitud.
