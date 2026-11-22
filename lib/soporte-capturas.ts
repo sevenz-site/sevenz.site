@@ -15,6 +15,7 @@ export const CAPTURAS: Record<string, [number, number]> = {
   "atender-un-pedido/11": [560, 657],
   "atender-un-pedido/12": [560, 1213],
   "atender-un-pedido/13": [560, 1213],
+  "atender-un-pedido/14": [560, 1213],
   "calculadora-de-tasa/1": [560, 657],
   "calculadora-de-tasa/2": [560, 657],
   "calculadora-de-tasa/3": [560, 657],

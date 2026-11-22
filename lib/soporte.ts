@@ -253,6 +253,13 @@ export const TEMAS: Tema[] = [
         pista: "Cada producto te dice cuántos tienes disponibles.",
         imagen: "atender-un-pedido/5",
       },
+      {
+        // v0.11.0 (CT-181): products the customer did not order join the sale here. Its picture
+        // is number 14 so the ones after it keep their numbers; 13 is the success screen.
+        texto: "Si tu cliente se lleva algo más, pulsa [[Agregar producto]] y elígelo de tu catálogo, o créalo ahí mismo.",
+        pista: "Entra en la moneda del pedido y solo se suma a la venta: el pedido que ve tu cliente no cambia. Si eliges uno que ya estaba, suma a su cantidad.",
+        imagen: "atender-un-pedido/14",
+      },
       { texto: "Pulsa [[Confirmar y continuar]].", imagen: "atender-un-pedido/6" },
       {
         texto: "En [[2/3 Pago]] elige [[De contado]] o [[Fiado o crédito]], igual que en una venta.",
@@ -299,6 +306,8 @@ export const TEMAS: Tema[] = [
       },
       {
         texto: "Esto es lo que ve tu cliente al abrirlo: lo que debe en cada moneda, cada fiado y cada abono.",
+        // v0.11.0 (CT-180): the calculator under the balances. Venezuelan businesses only.
+        pista: "Si tu negocio está en Venezuela, debajo de su saldo tiene una [[Calculadora]]: con [[Calcular]] ve cuántos bolívares son sus dólares o euros a la tasa del día, y también en USDT.",
         imagen: "compartir-el-link-del-cliente/3",
       },
       {
@@ -592,7 +601,9 @@ export const TEMAS: Tema[] = [
         // v0.10.0: the month's close moved here from Inventario, where v0.9.0 had put it. Its
         // title carries the month, so the label below is an example and says so.
         texto: "Después viene el cierre del mes anterior, por ejemplo [[Cierre de octubre]]: lo mismo, del mes completo.",
-        pista: "Ya descuenta las devoluciones. Con [[Descargar]] te lo llevas en un archivo.",
+        // v0.11.0: the card lost its own «Descargar» (owner's request of 2026-11-19); the month
+        // still downloads from the header's menu.
+        pista: "Ya descuenta las devoluciones. Para llevártelo en un archivo, usa [[Descargar]], arriba.",
         imagen: "ver-tus-reportes/6",
       },
       {
