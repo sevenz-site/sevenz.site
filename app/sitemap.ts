@@ -22,8 +22,8 @@ export const dynamic = "force-static";
 // that touched each area's content, read from git, not guessed.
 const ULTIMA_EDICION = {
   portada: "2026-11-09", // CT-103: «transacciones» on the landing, as in the app
-  legales: "2026-11-14", // v0.6.0: the date both pages show as «Última actualización»
-  ayuda: "2026-11-15", // v0.7.0: pages of 10 and categories when selling, «Foto» on a product
+  legales: "2026-11-25", // v0.13.0: barcodes and the camera in the Política (Términos last changed 2026-11-22)
+  ayuda: "2026-11-25", // v0.13.0: scanning barcodes, selling without a product, «Pago móvil» on the abono
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

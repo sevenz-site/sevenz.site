@@ -33,7 +33,7 @@ export default function PoliticaDePrivacidadPage() {
       // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
       // with dashboard v0.5.1; if that release ships on another day, change it on the release
       // branch before publishing.
-      updated="22 noviembre 2026"
+      updated="25 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -103,6 +103,17 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
         </li>
         <li>Fotografías de libretas o registros físicos que decida subir para pasar sus cuentas a Sevenz</li>
+        {/* v0.13.0 (CT-182). Checked in the dashboard on 2026-11-25: the reader runs in the
+            browser (BarcodeDetector, or zxing-wasm served from Sevenz's own domain), no frame is
+            uploaded or kept, and only the code read goes to the server to find the product. The
+            analytics event carries where and whether it was found, never the code. */}
+        <li>
+          Si usa la cámara del teléfono para escanear códigos de barras,{" "}
+          <strong>la imagen se lee en su propio teléfono y no se envía ni se guarda</strong>: a
+          Sevenz solo llega el número del código leído, para buscar el producto que lo tiene. La
+          cámara se abre únicamente cuando el Comercio pulsa un botón de escanear, y su teléfono
+          le pide permiso la primera vez
+        </li>
         {/* v0.6.0 (CT-171): a product holds up to five photos, not one. Owner's request of
             2026-11-14 («corrígelo»): the paragraph goes to the plural. The last sentence also
             names the photo on its own, because removing one photo takes it off the product,
@@ -111,8 +122,12 @@ export default function PoliticaDePrivacidadPage() {
             productos solo a 2»). A product saved while the cap was five keeps its photos,
             so the sentence names both numbers: «hasta dos» alone would be false for those. */}
         <li>
-          Los productos de su catálogo: nombre, unidad, descripción, categoría, precios y hasta
-          dos fotografías por producto (los productos que ya tenían más conservan hasta cinco) —{" "}
+          {/* v0.13.0 (CT-182): a product can carry barcodes. None of the public pages returns
+              one (checked 2026-11-25: nothing under app/c, app/s or components/public reads
+              product_barcodes), so the sentence after the cost says they are not published. */}
+          Los productos de su catálogo: nombre, unidad, descripción, categoría, precios, sus
+          códigos de barras si trabaja con ellos, y hasta dos fotografías por producto (los
+          productos que ya tenían más conservan hasta cinco) —{" "}
           <strong>
             el nombre, la unidad, la descripción, la categoría, el precio y las fotografías se
             muestran en el link de catálogo que el Comercio comparta, de forma pública para quien
@@ -120,7 +135,8 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
           . El costo que registre para calcular su margen{" "}
           <strong>no se publica nunca</strong>: se guarda únicamente para que la app le calcule
-          los precios, y no sale en ningún link. Las fotografías se almacenan en un espacio
+          los precios, y no sale en ningún link. Los códigos de barras tampoco se publican: solo
+          sirven para que el Comercio encuentre sus productos al escanearlos. Las fotografías se almacenan en un espacio
           accesible mediante enlace directo, del mismo modo que el logo del Comercio, junto con
           una copia reducida de cada fotografía que la app usa en sus listados —{" "}
           {/* THIS SENTENCE SHIPS IN THE SAME STEP AS TWO THINGS, NEVER BEFORE EITHER
@@ -200,7 +216,8 @@ export default function PoliticaDePrivacidadPage() {
           </strong>
           : el nombre de cada producto, la cantidad, el precio por unidad y la moneda. Solo lo
           llevan las transacciones registradas de esa forma —un fiado que el Comercio apunta
-          como un importe suelto no guarda ningún producto—.{" "}
+          como un importe suelto no guarda ningún producto, y una venta sin producto guarda solo
+          la descripción que el Comercio le escriba, que el Cliente Final también ve—.{" "}
           <strong>
             Desde el 21 de octubre de 2026 ese detalle también se le muestra al Cliente Final
           </strong>{" "}
