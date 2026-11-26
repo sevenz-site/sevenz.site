@@ -1,4 +1,4 @@
-// Los catorce temas de la guía, escritos una sola vez.
+// Los temas de la guía, escritos una sola vez.
 //
 // El índice y la página de cada tema salen de aquí, así que no pueden
 // separarse: si mañana cambia un paso, cambia en los dos sitios a la vez.
@@ -67,7 +67,7 @@ export const TEMAS: Tema[] = [
       {
         texto: "En [[1/4 Producto]], toca lo que se lleva.",
         // v0.7.0 (CT-175): the product step pages by ten and filters by category.
-        pista: "Arriba tienes el buscador y tus [[Categorías]]: con un toque ves solo esos productos. Salen de 10 en 10; abajo pasas de página con [[Siguiente]]. Si el producto no está en tu catálogo, pulsa [[Agregar producto]] y lo creas ahí mismo.",
+        pista: "Arriba tienes el buscador y tus [[Categorías]]: con un toque ves solo esos productos. Salen de 10 en 10; abajo pasas de página con [[Siguiente]]. Si el producto no está en tu catálogo, pulsa [[Agregar producto]] y lo creas ahí mismo. Y si no quieres crearlo, pulsa [[Omitir]], arriba a la derecha, y escribe solo el monto.",
         imagen: "registrar-un-fiado/3",
       },
       {
@@ -92,7 +92,8 @@ export const TEMAS: Tema[] = [
         // bolívares and on «Efectivo» for one in dollars or euros (dashboard
         // lib/payments/methods.ts, `defaultMethod`). It only shows when something is paid now.
         texto: "En [[Método de pago]] elige cómo te pagó.",
-        pista: "Viene en [[Pago móvil]] si el monto está en bolívares, y en [[Efectivo]] si está en dólares o euros. Si te pagó de otra forma, tócalo y cámbialo.",
+        // v0.13.0 added «Biopago» to the Venezuelan list, after «Punto».
+        pista: "Viene en [[Pago móvil]] si el monto está en bolívares, y en [[Efectivo]] si está en dólares o euros. Si te pagó de otra forma, como [[Punto]] o [[Biopago]], tócalo y cámbialo.",
         imagen: "registrar-un-fiado/9",
       },
       { texto: "Si se lo lleva fiado, elige [[Fiado o crédito]].", imagen: "registrar-un-fiado/10" },
@@ -170,8 +171,124 @@ export const TEMAS: Tema[] = [
     ],
   },
   {
-    slug: "registrar-un-abono",
+    // v0.13.0 (CT-183, «Omitir»). Captures by `dashboard/scripts/ayuda/temas/venta-sin-producto.mjs`,
+    // read only: it stops on the Pago step. The first two steps reuse the pictures of
+    // «Registrar una venta o un fiado», which show the same two taps. Labels read off the dev
+    // app on 2026-11-25.
+    slug: "vender-sin-producto",
     numero: 2,
+    grupo: "diario",
+    titulo: "Vender sin elegir producto",
+    resumen:
+      "Para vender algo que no tienes en tu catálogo: una recarga, un servicio, algo suelto. Escribes el monto y, si quieres, qué fue.",
+    descripcion:
+      "Cómo registrar en Sevenz una venta sin elegir un producto del catálogo: el botón Omitir, el monto en dólares o en euros y una descripción opcional.",
+    pasos: [
+      { texto: "Pulsa [[Registrar]], el botón oscuro de abajo a la derecha.", imagen: "registrar-un-fiado/1" },
+      { texto: "Elige [[Fiado o venta]].", imagen: "registrar-un-fiado/2" },
+      {
+        texto: "En [[1/4 Producto]], pulsa [[Omitir]], arriba a la derecha.",
+        pista: "Sale mientras no hayas agregado ningún producto.",
+        imagen: "vender-sin-producto/1",
+      },
+      {
+        texto: "En [[2/4 Monto]], escribe en [[Monto de la venta]] cuánto es, y elige la moneda al lado.",
+        pista: "Dólares o euros; en Colombia, pesos. Debajo ves cuánto es en bolívares con la tasa de hoy.",
+        imagen: "vender-sin-producto/2",
+      },
+      {
+        texto: "Si una parte es en dólares y otra en euros, pulsa [[Agregar monto en Euro]] y escribe la otra.",
+        pista: "Si empezaste en euros, el botón dice [[Agregar monto en Dólar]]. Las dos no se suman: cada moneda se cobra o se fía por separado.",
+        imagen: "vender-sin-producto/3",
+      },
+      {
+        texto: "Si quieres, escribe en [[Descripción (opcional)]] qué vendiste, y pulsa [[Continuar]].",
+        pista: "Es el nombre con el que la venta sale en tu historial y en lo que ve tu cliente. Si la dejas en blanco, dice «Venta sin producto registrado».",
+        imagen: "vender-sin-producto/4",
+      },
+      {
+        texto: "En [[3/4 Pago]], pulsa [[Pagar]] y sigue como en cualquier venta: de contado o fiado, y al final, de quién es.",
+        imagen: "vender-sin-producto/5",
+      },
+    ],
+    notas: [
+      {
+        titulo: "No toca tu inventario",
+        texto: "Como no hay producto, no baja ninguna existencia, y en Reportes no entra en la ganancia: no hay costo que restar.",
+      },
+      {
+        titulo: "Si es fiado, se cobra igual",
+        texto: "Queda como cualquier fiado, en la moneda del monto, y tu cliente lo ve en su enlace con la descripción que escribiste.",
+      },
+    ],
+  },
+  {
+    // v0.13.0 (CT-182). Captures by `dashboard/scripts/ayuda/temas/escaner.mjs`, which turns the
+    // demo's switch on, puts one code on a product, and undoes both. The camera in step 4 is a
+    // drawing made by the script (headless Chrome has no camera); the reads come from the gun's
+    // path, a burst of keys ending in Enter. Labels read off the dev app on 2026-11-25.
+    slug: "escanear-codigos-de-barras",
+    numero: 3,
+    grupo: "diario",
+    titulo: "Escanear códigos de barras",
+    resumen:
+      "Con la cámara del teléfono o con una pistola lectora, para encontrar y vender tus productos sin buscarlos por su nombre.",
+    descripcion:
+      "Cómo activar los códigos de barras en Sevenz, poner el código a tus productos, escanear con la cámara del teléfono o con una pistola lectora y vender escaneando.",
+    pasos: [
+      {
+        texto: "En [[Mi negocio]], activa [[Trabajar con códigos de barras]].",
+        pista: "Viene apagado. Si no trabajas con códigos, déjalo así: la app sigue igual.",
+        imagen: "escanear-codigos-de-barras/1",
+      },
+      {
+        texto: "Ponle su código a cada producto: al crearlo o editarlo, en [[Código de barras (opcional)]], pulsa [[Escanear]] o escríbelo.",
+        pista: "Con [[+ Agregar otro código]] un producto lleva varios: el mismo producto de dos marcas, o importado de dos países. Un código solo puede ser de un producto.",
+        imagen: "escanear-codigos-de-barras/4",
+      },
+      {
+        texto: "Para escanear, pulsa el botón redondo que sale encima de [[Registrar]].",
+        pista: "Está en las pantallas donde está [[Registrar]].",
+        imagen: "escanear-codigos-de-barras/2",
+      },
+      {
+        texto: "Apunta al código, con el teléfono a un palmo.",
+        pista: "Si está oscuro, enciende la linterna con el botón de arriba a la derecha. Si el código no se lee, pulsa [[Escribir el código]] y tecléalo.",
+        imagen: "escanear-codigos-de-barras/3",
+      },
+      {
+        texto: "Si el producto ya tiene ese código, elige qué hacer: [[Vender]], [[Editar producto]] o [[Ver ficha]].",
+        imagen: "escanear-codigos-de-barras/5",
+      },
+      {
+        texto: "Si ningún producto tiene ese código, pulsa [[Crear producto]]: se abre con el código ya puesto.",
+        imagen: "escanear-codigos-de-barras/6",
+      },
+      {
+        texto: "Dentro de una venta, cada vez que escaneas un producto se suma uno al carrito.",
+        pista: "Escaneas dos veces, llevas dos. Si el código es nuevo, lo creas ahí y vuelves al carrito.",
+        imagen: "escanear-codigos-de-barras/7",
+      },
+    ],
+    notas: [
+      {
+        titulo: "Con una pistola lectora",
+        texto:
+          "Conéctala y escanea en cualquier pantalla donde esté [[Registrar]]: hace lo mismo que la cámara. En la computadora no hay botón de cámara, se escanea con la pistola.",
+      },
+      {
+        titulo: "Tus montos están protegidos",
+        texto: "Si la pistola lee un código mientras estás escribiendo un monto, ese número no se mete en el monto.",
+      },
+      {
+        titulo: "Si lo apagas, tus códigos se guardan",
+        texto: "Se esconden el botón y el campo, pero los códigos no se borran: vuelven cuando lo enciendes otra vez.",
+      },
+    ],
+  },
+  {
+    slug: "registrar-un-abono",
+    numero: 4,
     grupo: "diario",
     titulo: "Registrar un abono",
     resumen: "Cuando te pagan, sea todo o una parte.",
@@ -200,9 +317,11 @@ export const TEMAS: Tema[] = [
       },
       {
         // v0.10.0 (migration 214). Asked once for the whole payment, also when it is split
-        // across several fiados. Opens on «Pago móvil» only when the abono is typed in bolívares.
+        // across several fiados. Since v0.13.0 it always opens on «Pago móvil», in any
+        // currency (owner's request of 2026-11-25), and on «Efectivo» in Colombia (dashboard
+        // lib/payments/methods.ts, `defaultAbonoMethod`). Picture re-taken that night.
         texto: "En [[Método de pago]] elige cómo te pagó.",
-        pista: "Viene en [[Efectivo]], o en [[Pago móvil]] si escribiste el abono en bolívares. Vale para el abono entero, aunque se reparta entre varios fiados.",
+        pista: "Viene en [[Pago móvil]]; en Colombia, en [[Efectivo]]. Si te pagó de otra forma, tócalo y cámbialo. Vale para el abono entero, aunque se reparta entre varios fiados.",
         imagen: "registrar-un-abono/5",
       },
       {
@@ -238,7 +357,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "atender-un-pedido",
-    numero: 3,
+    numero: 5,
     grupo: "diario",
     titulo: "Atender un pedido del catálogo",
     resumen:
@@ -295,7 +414,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "compartir-el-link-del-cliente",
-    numero: 4,
+    numero: 6,
     grupo: "diario",
     titulo: "Compartir el enlace del cliente",
     resumen:
@@ -342,7 +461,7 @@ export const TEMAS: Tema[] = [
     // Migration 185 (2026-11-03). What is offered follows the table at the top
     // of `dashboard/lib/returns/options.ts`: keep the two in step.
     slug: "registrar-una-devolucion",
-    numero: 5,
+    numero: 7,
     grupo: "ocasional",
     titulo: "Registrar una devolución",
     resumen: "Cuando te devuelven un producto, fiado o de contado.",
@@ -422,7 +541,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "marcar-una-mala-paga",
-    numero: 6,
+    numero: 8,
     grupo: "ocasional",
     titulo: "Marcar una mala paga",
     resumen: "Para acordarte de a quién ya no le vas a fiar. Se puede quitar cuando quieras.",
@@ -455,7 +574,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "ver-el-puntaje-del-cliente",
-    numero: 7,
+    numero: 9,
     grupo: "ocasional",
     titulo: "Ver el puntaje del cliente",
     resumen:
@@ -482,7 +601,7 @@ export const TEMAS: Tema[] = [
     // Owner's request of 2026-11-04. Only the owner has «Fecha»: the client's link
     // carries the last 50 movements, so a date there could answer «no hay» wrongly.
     slug: "filtrar-el-historial",
-    numero: 8,
+    numero: 10,
     grupo: "ocasional",
     titulo: "Filtrar el historial por fecha",
     resumen: "Para ver solo lo que pasó con un cliente en unos días concretos.",
@@ -527,7 +646,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "calculadora-de-tasa",
-    numero: 9,
+    numero: 11,
     grupo: "ocasional",
     titulo: "La calculadora de tasa",
     resumen:
@@ -573,7 +692,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "ver-tus-reportes",
-    numero: 10,
+    numero: 12,
     grupo: "ocasional",
     titulo: "Ver tus reportes",
     resumen:
@@ -657,6 +776,12 @@ export const TEMAS: Tema[] = [
     ],
     notas: [
       {
+        // v0.13.0: owner's request of 2026-11-25. Gone once the day's analysis is on screen.
+        titulo: "El punto rojo en Reportes",
+        texto:
+          "Cuando el asistente tiene el análisis del día y todavía no lo has visto, sale un punto rojo en [[Reportes]]. Se quita al entrar y ver el análisis.",
+      },
+      {
         titulo: "Las monedas no se suman",
         texto:
           "Dólares y euros salen siempre por separado. Sumarlos daría una cifra que no corresponde a nada.",
@@ -676,7 +801,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "crear-un-producto",
-    numero: 11,
+    numero: 13,
     grupo: "ocasional",
     titulo: "Crear un producto",
     resumen:
@@ -779,7 +904,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "compartir-tu-catalogo",
-    numero: 12,
+    numero: 14,
     grupo: "una-vez",
     titulo: "Compartir tu catálogo",
     resumen:
@@ -811,7 +936,14 @@ export const TEMAS: Tema[] = [
       {
         titulo: "Los precios en bolívares se actualizan solos",
         texto:
-          "Tu cliente ve el precio en tu moneda y su equivalente en bolívares con la tasa de hoy. No tienes que cambiar nada cuando se mueve la tasa.",
+          "Tu cliente ve el precio en tu moneda y su equivalente en bolívares con la tasa del BCV de hoy, y el catálogo se lo dice. No tienes que cambiar nada cuando se mueve la tasa.",
+      },
+      {
+        // v0.13.0: the preview card is drawn from the logo, and the link carries `?v=` so a new
+        // logo is a new link that WhatsApp reads again (dashboard lib/catalog/link-version.ts).
+        titulo: "Tu logo en WhatsApp",
+        texto:
+          "Si subiste tu logo en [[Mi negocio]], al compartir el catálogo por WhatsApp sale tu logo. Si lo cambias, compártelo de nuevo desde [[Compartir]]: el enlace cambia con el logo para que no salga el viejo.",
       },
       {
         titulo: "Un producto también se comparte solo",
@@ -826,7 +958,7 @@ export const TEMAS: Tema[] = [
     // 2026-11-18: the address box moved to Mi negocio (owner's request), so its step left this
     // topic and the address is told in a note; the screen is entered from Mi negocio too.
     slug: "personalizar-tu-catalogo",
-    numero: 13,
+    numero: 15,
     grupo: "una-vez",
     titulo: "Personalizar tu catálogo",
     resumen:
@@ -894,7 +1026,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "importar-tu-libreta",
-    numero: 14,
+    numero: 16,
     grupo: "una-vez",
     titulo: "Subir tu libreta con una foto",
     resumen:
@@ -979,7 +1111,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "la-papelera",
-    numero: 15,
+    numero: 17,
     grupo: "una-vez",
     titulo: "La papelera",
     resumen:
@@ -1023,7 +1155,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "mi-negocio",
-    numero: 16,
+    numero: 18,
     grupo: "una-vez",
     titulo: "Mi negocio: tus datos",
     resumen:
@@ -1081,6 +1213,13 @@ export const TEMAS: Tema[] = [
         imagen: "mi-negocio/8",
       },
       {
+        // v0.13.0 (CT-182): the card between Notificaciones and Seguridad. Saved on the switch
+        // itself, not with «Guardar cambios». Picture by temas/escaner.mjs.
+        texto: "En [[Códigos de barras]], activa [[Trabajar con códigos de barras]] si vas a escanear tus productos.",
+        pista: "Se guarda al instante, sin [[Guardar cambios]]. Cómo se usa está en «Escanear códigos de barras».",
+        imagen: "mi-negocio/12",
+      },
+      {
         texto: "En [[Seguridad de la cuenta]], con [[Cambiar contraseña]] la cambias cuando quieras.",
         pista: "Al cambiarla se cierra la sesión en tus otros dispositivos. Si tienes la verificación en dos pasos, antes te pedimos un código.",
         imagen: "mi-negocio/9",
@@ -1114,7 +1253,7 @@ export const TEMAS: Tema[] = [
   },
   {
     slug: "instalar-la-app-en-tu-telefono",
-    numero: 17,
+    numero: 19,
     grupo: "una-vez",
     titulo: "Instalar la app en tu teléfono",
     resumen:
@@ -1162,7 +1301,7 @@ export const TEMAS: Tema[] = [
     // C1 of PL-22, v0.4.0. Optional per owner. Every label below was read off the dev
     // screens on 2026-11-06 by temas/seguridad.mjs, which also takes the pictures.
     slug: "verificacion-en-dos-pasos",
-    numero: 18,
+    numero: 20,
     grupo: "una-vez",
     titulo: "Verificación en dos pasos",
     resumen:
