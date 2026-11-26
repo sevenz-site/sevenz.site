@@ -88,12 +88,12 @@ export const TEMAS: Tema[] = [
         imagen: "registrar-un-fiado/8",
       },
       {
-        // v0.10.0 (migration 214). The field opens on «Pago móvil» for an amount typed in
-        // bolívares and on «Efectivo» for one in dollars or euros (dashboard
-        // lib/payments/methods.ts, `defaultMethod`). It only shows when something is paid now.
+        // v0.10.0 (migration 214). It only shows when something is paid now. Since v0.14.0 it
+        // opens empty on «Seleccionar opción» and is required, and «Otro» closes both lists
+        // (owner's request of 2026-11-26, dashboard lib/payments/methods.ts). v0.13.0 added
+        // «Biopago» to the Venezuelan list, after «Punto».
         texto: "En [[Método de pago]] elige cómo te pagó.",
-        // v0.13.0 added «Biopago» to the Venezuelan list, after «Punto».
-        pista: "Viene en [[Pago móvil]] si el monto está en bolívares, y en [[Efectivo]] si está en dólares o euros. Si te pagó de otra forma, como [[Punto]] o [[Biopago]], tócalo y cámbialo.",
+        pista: "Es obligatorio: si no eliges uno, la app no te deja seguir. Por ejemplo [[Pago móvil]], [[Efectivo]], [[Punto]] o [[Biopago]]; si no está en la lista, elige [[Otro]].",
         imagen: "registrar-un-fiado/9",
       },
       { texto: "Si se lo lleva fiado, elige [[Fiado o crédito]].", imagen: "registrar-un-fiado/10" },
@@ -319,11 +319,11 @@ export const TEMAS: Tema[] = [
       },
       {
         // v0.10.0 (migration 214). Asked once for the whole payment, also when it is split
-        // across several fiados. Since v0.13.0 it always opens on «Pago móvil», in any
-        // currency (owner's request of 2026-11-25), and on «Efectivo» in Colombia (dashboard
-        // lib/payments/methods.ts, `defaultAbonoMethod`). Picture re-taken that night.
+        // across several fiados. Since v0.14.0 it opens empty and is required, with «Otro» at
+        // the end of the list (owner's request of 2026-11-26). It displaced «Pago móvil» by
+        // default, which v0.13.0 had set on 2026-11-25.
         texto: "En [[Método de pago]] elige cómo te pagó.",
-        pista: "Viene en [[Pago móvil]]; en Colombia, en [[Efectivo]]. Si te pagó de otra forma, tócalo y cámbialo. Vale para el abono entero, aunque se reparta entre varios fiados.",
+        pista: "Es obligatorio: si no eliges uno, la app no te deja guardar el abono. Si no está en la lista, elige [[Otro]]. Vale para el abono entero, aunque se reparta entre varios fiados.",
         imagen: "registrar-un-abono/5",
       },
       {
@@ -396,7 +396,8 @@ export const TEMAS: Tema[] = [
       {
         // v0.10.0 (migration 214): the same field as in a sale.
         texto: "En [[Método de pago]] elige cómo te pagó.",
-        pista: "Sale cuando te paga algo ahora. Viene en [[Pago móvil]] si el monto está en bolívares, y en [[Efectivo]] si está en dólares o euros.",
+        // Since v0.14.0 empty and required, as in a sale (2026-11-26).
+        pista: "Sale cuando te paga algo ahora, y es obligatorio. Si no está en la lista, elige [[Otro]].",
         imagen: "atender-un-pedido/8",
       },
       { texto: "Pulsa [[Pagar]].", imagen: "atender-un-pedido/9" },
