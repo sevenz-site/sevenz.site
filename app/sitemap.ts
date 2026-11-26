@@ -23,7 +23,7 @@ export const dynamic = "force-static";
 const ULTIMA_EDICION = {
   portada: "2026-11-09", // CT-103: «transacciones» on the landing, as in the app
   legales: "2026-11-25", // v0.13.0: barcodes and the camera in the Política (Términos last changed 2026-11-22)
-  ayuda: "2026-11-25", // v0.13.0: scanning barcodes, selling without a product, «Pago móvil» on the abono
+  ayuda: "2026-11-26", // v0.13.1: barcodes come switched on («viene activado»)
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
