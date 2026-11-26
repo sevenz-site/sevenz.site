@@ -237,8 +237,10 @@ export const TEMAS: Tema[] = [
       "Cómo activar los códigos de barras en Sevenz, poner el código a tus productos, escanear con la cámara del teléfono o con una pistola lectora y vender escaneando.",
     pasos: [
       {
-        texto: "En [[Mi negocio]], activa [[Trabajar con códigos de barras]].",
-        pista: "Viene apagado. Si no trabajas con códigos, déjalo así: la app sigue igual.",
+        // On by default since v0.13.1 (migration 221, owner's request of 2026-11-26); until then it
+        // came off and this step said to turn it on. Picture re-taken with it on.
+        texto: "En [[Mi negocio]], [[Trabajar con códigos de barras]] viene activado.",
+        pista: "Si no trabajas con códigos, apágalo: se van el botón de escanear y el campo del código, y la app sigue como siempre.",
         imagen: "escanear-codigos-de-barras/1",
       },
       {
@@ -1215,7 +1217,8 @@ export const TEMAS: Tema[] = [
       {
         // v0.13.0 (CT-182): the card between Notificaciones and Seguridad. Saved on the switch
         // itself, not with «Guardar cambios». Picture by temas/escaner.mjs.
-        texto: "En [[Códigos de barras]], activa [[Trabajar con códigos de barras]] si vas a escanear tus productos.",
+        // On by default since v0.13.1 (migration 221). Picture re-taken with it on.
+        texto: "En [[Códigos de barras]], [[Trabajar con códigos de barras]] viene activado. Apágalo si no trabajas con códigos.",
         pista: "Se guarda al instante, sin [[Guardar cambios]]. Cómo se usa está en «Escanear códigos de barras».",
         imagen: "mi-negocio/12",
       },
