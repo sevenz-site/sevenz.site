@@ -22,8 +22,8 @@ export const dynamic = "force-static";
 // that touched each area's content, read from git, not guessed.
 const ULTIMA_EDICION = {
   portada: "2026-11-09", // CT-103: «transacciones» on the landing, as in the app
-  legales: "2026-11-25", // v0.13.0: barcodes and the camera in the Política (Términos last changed 2026-11-22)
-  ayuda: "2026-11-26", // v0.13.1: barcodes come switched on («viene activado»)
+  legales: "2026-11-26", // v0.14.0: the catalogue's WhatsApp button and extra link, in both pages
+  ayuda: "2026-11-26", // v0.14.0: «Personalizar tu catálogo» gains the WhatsApp box and the extra link (v0.13.1 same day)
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

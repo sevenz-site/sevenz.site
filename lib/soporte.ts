@@ -76,7 +76,13 @@ export const TEMAS: Tema[] = [
         imagen: "registrar-un-fiado/4",
       },
       { texto: "Pulsa [[Ver carrito]].", imagen: "registrar-un-fiado/5" },
-      { texto: "En [[2/4 Carrito]] revisa las cantidades y pulsa [[Ir a pago]].", imagen: "registrar-un-fiado/6" },
+      {
+        // v0.14.0: «Agregar más productos» above the lines, and «Editar» on every line (until
+        // then only on a product created in that sale). Owner's requests of 2026-11-26.
+        texto: "En [[2/4 Carrito]] revisa las cantidades y pulsa [[Ir a pago]].",
+        pista: "Si falta algo, pulsa [[Agregar más productos]] y vuelves a la lista. Con [[Editar]] corriges el nombre o el precio de un producto sin salir de la venta.",
+        imagen: "registrar-un-fiado/6",
+      },
       {
         texto: "En [[3/4 Pago]] hay una tarjeta por moneda. Pulsa [[Pagar]] en cada una.",
         pista: "Si la venta mezcla monedas, cada una lleva su propio pago. Nunca se suman entre ellas.",
@@ -896,6 +902,14 @@ export const TEMAS: Tema[] = [
           // v0.9.0: «Editar» on the cart line of a product created in that sale.
           "Si el cliente se lleva algo que no tenías cargado, en [[1/4 Producto]] de la venta pulsa [[Agregar producto]] y lo creas ahí mismo. Si te equivocaste en el nombre o en el precio, en el carrito pulsa [[Editar]] en ese producto y lo corriges.",
       },
+      {
+        // v0.14.0 (owner's request of 2026-11-26): «Editar» on any product, from the cart line and
+        // from the product's detail in the sale. The quick sheet changes the basics; what it
+        // cannot change without losing data shows locked (dashboard `editarProductoDesdeVenta`).
+        titulo: "También puedes editar un producto desde la venta",
+        texto:
+          "En la venta, [[Editar]] está en la ficha del producto, al lado del nombre, y en cada producto del carrito. Ahí cambias lo básico: nombre, costo, precio, foto, descripción y si se publica. El inventario, el precio al mayor y el resto se editan en [[Catálogo]].",
+      },
       // The duplicate-name warning (CT-178, v0.8.0). A note and not a step: it only comes
       // up when the name is already in the catalogue. No picture for the same reason.
       {
@@ -946,7 +960,8 @@ export const TEMAS: Tema[] = [
         // logo is a new link that WhatsApp reads again (dashboard lib/catalog/link-version.ts).
         titulo: "Tu logo en WhatsApp",
         texto:
-          "Si subiste tu logo en [[Mi negocio]], al compartir el catálogo por WhatsApp sale tu logo. Si lo cambias, compártelo de nuevo desde [[Compartir]]: el enlace cambia con el logo para que no salga el viejo.",
+          // v0.14.0: the client's balance link draws the same card (owner's request of 2026-11-26).
+          "Si subiste tu logo en [[Mi negocio]], al compartir el catálogo por WhatsApp sale tu logo. También sale al compartir el saldo de un cliente. Si lo cambias, compártelo de nuevo desde [[Compartir]]: el enlace cambia con el logo para que no salga el viejo.",
       },
       {
         titulo: "Un producto también se comparte solo",
@@ -960,14 +975,16 @@ export const TEMAS: Tema[] = [
     // branding is put back afterwards. Labels read off the dev app on 2026-11-15.
     // 2026-11-18: the address box moved to Mi negocio (owner's request), so its step left this
     // topic and the address is told in a note; the screen is entered from Mi negocio too.
+    // v0.14.0 (dashboard migration 225, 2026-11-26): steps 6 and 7, the WhatsApp box and the
+    // extra link, so the pictures after them moved two numbers on (all re-taken that day).
     slug: "personalizar-tu-catalogo",
     numero: 15,
     grupo: "una-vez",
     titulo: "Personalizar tu catálogo",
     resumen:
-      "Ponle a tu catálogo una foto de portada y un saludo para tus clientes. Lo ven todos los que abren tu enlace. Además guardas el color y la descripción de tu marca.",
+      "Ponle a tu catálogo una foto de portada, un saludo, un botón para que te escriban por WhatsApp y un enlace a tu página o tu red social. Lo ven todos los que abren tu enlace. Además guardas el color y la descripción de tu marca.",
     descripcion:
-      "Cómo poner una portada y un mensaje de bienvenida en el catálogo que compartes con Sevenz, y guardar el color y la descripción de tu marca.",
+      "Cómo poner una portada, un mensaje de bienvenida, el botón de WhatsApp y un enlace adicional en el catálogo que compartes con Sevenz, y guardar el color y la descripción de tu marca.",
     pasos: [
       {
         texto: "En [[Catálogo]], abre el menú de los tres puntos y elige [[Personalizar catálogo]].",
@@ -997,28 +1014,43 @@ export const TEMAS: Tema[] = [
         imagen: "personalizar-tu-catalogo/5",
       },
       {
-        texto: "Pulsa [[Ver cómo queda]] para mirarlo antes de guardar.",
+        // The section's title and not the box's own label: «Mostrar «Contactar vía WhatsApp»
+        // en mi catálogo» is one unbreakable chip, 411px wide at 375 (measured 2026-11-26),
+        // and pushed the page sideways on a phone.
+        texto: "En [[Botón de WhatsApp]], marca la casilla para que tus clientes te escriban desde tu catálogo.",
+        pista:
+          "Les abre WhatsApp con el número de [[Mi negocio]] y un saludo ya escrito, que pueden cambiar antes de enviarlo. Viene sin marcar, y sin un número en Mi negocio no se puede marcar.",
         imagen: "personalizar-tu-catalogo/6",
       },
       {
-        texto: "Así lo verán tus clientes. Todavía no está guardado.",
+        texto: "En [[Enlace adicional]], elige qué es —[[Sitio web]], [[Instagram]], [[Facebook]] o [[TikTok]]— y pega el enlace.",
+        pista:
+          "Tiene que empezar con https:// y ser de lo que elegiste: el de Instagram, de instagram.com. No se aceptan enlaces acortados. Sale como un botón con ese nombre y su icono. Para quitarlo, borra el enlace y guarda.",
         imagen: "personalizar-tu-catalogo/7",
+      },
+      {
+        texto: "Pulsa [[Ver cómo queda]] para mirarlo antes de guardar.",
+        imagen: "personalizar-tu-catalogo/8",
+      },
+      {
+        texto: "Así lo verán tus clientes. Todavía no está guardado.",
+        imagen: "personalizar-tu-catalogo/9",
       },
       {
         texto: "Pulsa [[Guardar cambios]].",
         pista: "Desde ese momento, todos los que abran tu enlace ven el catálogo con tu marca.",
-        imagen: "personalizar-tu-catalogo/8",
+        imagen: "personalizar-tu-catalogo/10",
       },
       {
         texto: "Esto es lo que ve tu cliente al abrir tu enlace.",
-        imagen: "personalizar-tu-catalogo/9",
+        imagen: "personalizar-tu-catalogo/11",
       },
     ],
     notas: [
       {
         titulo: "Todo es opcional",
         texto:
-          "Puedes poner solo la portada, solo el saludo o lo que quieras. Si no guardas nada, tu catálogo se ve como siempre. En cuanto guardas algo, la cabecera pasa a blanca, y si no subiste portada lleva una franja gris.",
+          "Puedes poner solo la portada, solo el saludo o lo que quieras. Si no guardas nada, tu catálogo se ve como siempre. En cuanto guardas un color, una portada o un saludo, o muestras tu dirección, la cabecera pasa a blanca, y si no subiste portada lleva una franja gris. El botón de WhatsApp y el enlace no la cambian: salen también en la cabecera oscura.",
       },
       {
         titulo: "El logo, el nombre y la dirección salen de Mi negocio",

@@ -32,9 +32,10 @@ export default function TerminosYCondicionesPage() {
       eyebrow="Fase de validación (beta)"
       title="Términos y Condiciones de Uso de Sevenz"
       // The day this text is PUBLISHED, same rule as the Política de privacidad (owner's
-      // decision of 2026-11-09). CT-103 changes sentences here and ships with dashboard v0.5.1;
-      // if that release goes out on another day, change it on the release branch first.
-      updated="22 noviembre 2026"
+      // decision of 2026-11-09). Section 5 bis changes with dashboard v0.14.0 (the catalogue's
+      // extra link and WhatsApp button), written on 2026-11-26 for a launch that night; if the
+      // release goes out on another day, change it on the release branch first.
+      updated="26 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra actualmente en fase de
@@ -275,10 +276,17 @@ export default function TerminosYCondicionesPage() {
             message (the colour is stored but not shown since 2026-11-15) -- and answers for that content like for the products. The welcome
             message takes no links, so it cannot point anyone elsewhere from Sevenz's
             domain. */}
+        {/* v0.14.0 (dashboard migration 225): the catalogue's header can carry ONE extra
+            link, labelled by the app as «Sitio web», «Instagram», «Facebook» or «TikTok», and
+            a «Contactar vía WhatsApp» button. The app checks that a link labelled with a
+            network goes to that network's domain and refuses shorteners; it does not check
+            what the page says, so the Comercio answers for it like for the rest. */}
         El Comercio decide qué productos publica en su Catálogo, con qué precios, fotos y
-        descripciones, y cómo lo presenta (la portada y el mensaje de bienvenida, que no admite
-        enlaces). Es el único responsable de esa información y de la
-        licitud de lo que ofrece.
+        descripciones, y cómo lo presenta (la portada, el mensaje de bienvenida, que no admite
+        enlaces, un enlace adicional a su sitio web o a una red social, y un botón para que le
+        escriban por WhatsApp). Es el único responsable de esa información, de la licitud de lo
+        que ofrece y del contenido de la página a la que lleva su enlace adicional, que Sevenz
+        no revisa ni respalda.
       </p>
       <p>
         <strong>Un Pedido es una solicitud, no una venta.</strong> No obliga al Comercio a

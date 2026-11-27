@@ -30,10 +30,11 @@ export default function PoliticaDePrivacidadPage() {
       eyebrow="Fase de validación (beta)"
       title="Política de Privacidad de Sevenz"
       // The day this text is PUBLISHED, not the day it was written: owner's decision of
-      // 2026-11-09, after the date sat on 2 November through four later changes. It goes out
-      // with dashboard v0.5.1; if that release ships on another day, change it on the release
-      // branch before publishing.
-      updated="25 noviembre 2026"
+      // 2026-11-09, after the date sat on 2 November through four later changes. Changed for
+      // dashboard v0.14.0 (the catalogue's WhatsApp button and extra link), written on
+      // 2026-11-26 for a launch that night; if the release ships on another day, change it on
+      // the release branch before publishing.
+      updated="26 noviembre 2026"
     >
       <blockquote>
         <strong>Nota de estado del proyecto:</strong> Sevenz se encuentra en fase de validación
@@ -62,12 +63,17 @@ export default function PoliticaDePrivacidadPage() {
         <li>Nombre y apellido del titular de la cuenta</li>
         <li>Nombre del negocio y logo (opcional)</li>
         <li>País de operación (definido al registrarse; su cambio posterior requiere contactar a soporte)</li>
+        {/* v0.14.0 (dashboard migration 225). The catalogue's «Contactar vía WhatsApp» had
+            been removed on 2026-10-15 and comes back as the Comercio's choice, off by default,
+            so «se muestra en el link de su catálogo» stopped being unconditional. The number
+            still reaches the catalogue either way: the cart sends the order to it. */}
         <li>
           Número de WhatsApp del negocio —{" "}
           <strong>
             se usa para enviarle los avisos de Sevenz y se muestra en el link de saldo de sus
-            clientes y en el link de su catálogo, de forma pública para quien tenga el link,
-            como botón para escribirle al negocio
+            clientes, de forma pública para quien tenga el link, como botón para escribirle al
+            negocio. En el link de su catálogo se usa para enviarle los pedidos, y sale como
+            botón para escribirle solo si el Comercio marca la casilla para mostrarlo
           </strong>
         </li>
         <li>Correo electrónico y contraseña</li>
@@ -80,10 +86,13 @@ export default function PoliticaDePrivacidadPage() {
             (frame 2163:955): the brand colour is stored and not shown, and the brand
             description (migration 211) is private to the Comercio. If the description is
             ever sent to an AI provider to write marketing content, as the owner plans, that
-            is a new processor and this paragraph must say so before it ships. */}
+            is a new processor and this paragraph must say so before it ships.
+            v0.14.0 (migration 225): plus one extra link to the Comercio's website or a social
+            network, published in the catalogue's header. Only its kind goes to analytics,
+            never the address. */}
         <li>
-          La personalización de su catálogo (opcional): una imagen de portada y un mensaje de
-          bienvenida —{" "}
+          La personalización de su catálogo (opcional): una imagen de portada, un mensaje de
+          bienvenida y un enlace adicional a su sitio web, Instagram, Facebook o TikTok —{" "}
           <strong>
             se muestran en el link de catálogo, de forma pública para quien tenga el link. La
             dirección del negocio solo se muestra ahí si el Comercio marca la casilla para
